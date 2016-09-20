@@ -1,0 +1,32 @@
+<h1>Agencies Search</h1>
+
+<%= form_for search_path, method: :get do |f| %>
+  <div class="search-form">
+    <!-- <%= f.label "Search for" %> -->
+    <%= text_field_tag :q, params[:q] %>
+    <%= submit_tag "Search here...", name: nil, :class => 'search-button' %>
+  </div>
+<% end %>
+
+<ul>
+  <% @agencies.each do |agency| %>
+    <li>
+      <h3>
+        <%= link_to agency.try(:highlight).try(:name) ? agency.highlight.name[0].html_safe : agency.name,
+          controller: "agencies",
+          action: "show",
+          id: agency._id%>
+      </h3>
+      <% if agency.try(:highlight).try(:address) %>
+        <% agency.highlight.address.each do |snippet| %>
+          <p><%= snippet.html_safe %>...</p>
+        <% end %>
+      <% end %>
+      <% if agency.try(:highlight).try(:city) %>
+        <% agency.highlight.city.each do |snippet| %>
+          <p><%= snippet.html_safe %>...</p>
+        <% end %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

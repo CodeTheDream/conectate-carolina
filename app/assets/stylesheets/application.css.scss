@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+
+ .input[type=text] {
+   width: 150px;
+   -webkit-transition: width 0.4s ease-in-out;
+   transition: width 0.4s ease-in-out;
+ }
+
+ .input[type=text]:focus {
+   width: 100%;
+ }
+ 
+ .search-form {
+   
+ }

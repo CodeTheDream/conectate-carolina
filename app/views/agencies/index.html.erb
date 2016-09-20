@@ -1,0 +1,18 @@
+<h1>Agencies</h1>
+
+<ul>
+  <% @agencies.each do |agency| %>
+    <li>
+      <h3>
+        <%= agency.name %>
+      </h3>
+      <p>
+        <%= agency.address %>
+      </p>
+      <p>
+        <%= agency.city %>
+      </p>
+    </li>
+  <% end -%>
+</ul>
+<%= link_to 'New Agency', new_agency_path %>
