@@ -1,12 +1,14 @@
 <h1>Agencies Search</h1>
 
-<%= form_for search_path, method: :get do |f| %>
-  <div class="search-form">
+<div class="form-horizontal">
+  <%= form_for search_path, method: :get do |f| %>
     <!-- <%= f.label "Search for" %> -->
-    <%= text_field_tag :q, params[:q] %>
-    <%= submit_tag "Search here...", name: nil, :class => 'search-button' %>
-  </div>
-<% end %>
+    <%= text_field_tag :q, params[:q], placeholder: "Search...", :class => 'form-control' %>
+    <span class="input-group-btn">
+      <%= submit_tag "Search", name: nil, :class => 'btn btn-default'%>
+    </span>
+  <% end %>
+</div>
 
 <ul>
   <% @agencies.each do |agency| %>

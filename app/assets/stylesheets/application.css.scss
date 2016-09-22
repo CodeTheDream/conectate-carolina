@@ -15,16 +15,13 @@
  */
 
 
- .input[type=text] {
+ .form-control[type=text] {
+   align-items: center;
    width: 150px;
    -webkit-transition: width 0.4s ease-in-out;
    transition: width 0.4s ease-in-out;
  }
 
- .input[type=text]:focus {
+ .form-control[type=text]:focus {
    width: 100%;
- }
- 
- .search-form {
-   
  }
