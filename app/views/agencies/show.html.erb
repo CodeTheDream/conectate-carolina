@@ -1,4 +1,4 @@
-<p>
+<!-- <p>
   <strong>Name:</strong>
   <%= @agency.name %>
 </p>
@@ -11,6 +11,61 @@
 <p>
   <strong>City:</strong>
   <%= @agency.city %>
-</p>
+</p> -->
+
+<div class="col-md-3 col-sm-6">
+    <div class="well well-sm well-agency">
+        <img src="//placehold.it/200x200">
+
+        <a href="#" class="lead agency-name">
+          <p>
+            <strong>Name:</strong>
+            <%= @agency.name %>
+          </p>
+        </a>
+
+        <address class="agency-address">Agency Address<br>
+            <%= @agency.address %></address>
+        <hr>
+
+        <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
+            <span class="agency-phone">
+                <i class="fa fa-phone fa-lg"></i>
+            </span>
+        </a>
+        <a href="#" class="btn btn-default btn-sm btn-link ">
+            <span class="agency-phone">
+                <i class="fa fa-envelope fa-lg"></i>
+            </span>
+        </a>
+        <a href="#" class="btn btn-default btn-sm btn-link">
+            <span class="agency-phone">
+                <i class="fa fa-map-marker fa-lg"></i>
+            </span>
+        </a>
+
+        <a href="#" class="btn btn-default btn-sm btn-link">
+            <span class="agency-facebook">
+                <i class="fa fa-facebook fa-lg"></i>
+            </span>
+        </a>
+        <a href="#" class="btn btn-default btn-sm btn-link">
+            <span class="agency-twitter">
+                <i class="fa fa-twitter fa-lg"></i>
+            </span>
+        </a>
+        <a href="#" class="btn btn-default btn-sm btn-link">
+            <span class="agency-instagram">
+                <i class="fa fa-instagram fa-lg"></i>
+            </span>
+        </a>
+        <a href="#" class="btn btn-default btn-sm btn-link">
+            <span class="agency-youtube">
+                <i class="fa fa-youtube fa-lg"></i>
+            </span>
+        </a>
+
+    </div>
+</div>
 
 <%= link_to '<- Back', agencies_path %>
