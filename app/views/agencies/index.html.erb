@@ -1,0 +1,10 @@
+<h1>All agencies</h1>
+
+<% @agencies.each do |agency| %>
+	<%= agency.name %></br>
+	<%= agency.address %></br>
+	<%= agency.city %></br>
+	<%= agency.zipcode %></br>
+	<%= agency.state %></br>
+	<hr width="100%">
+<% end %>
