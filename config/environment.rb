@@ -8,3 +8,4 @@ Rails.application.initialize!
 
 #This is for ssl certificate provided by heroku.
 config.force_ssl = true
+end
