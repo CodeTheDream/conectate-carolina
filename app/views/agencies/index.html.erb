@@ -3,8 +3,9 @@
 <% @agencies.each do |agency| %>
 	<%= agency.name %></br>
 	<%= agency.address %></br>
-	<%= agency.city %></br>
-	<%= agency.zipcode %></br>
-	<%= agency.state %></br>
+	<%= agency.city %>,
+	<%= agency.state%>
+	<%= agency.zipcode %>
 	<hr width="100%">
 <% end %>
+<%= link_to "New", new_agency_path %></br>
