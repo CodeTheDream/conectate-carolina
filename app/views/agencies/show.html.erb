@@ -24,9 +24,12 @@
           </p>
         </a>
 
-        <address class="agency-address">Agency Address<br>
-            <%= @agency.address %></address>
-        <hr>
+        <address class="agency-address">Agency Address:<br>
+          <p><%= @agency.address %></p>
+          <!-- <hr> -->
+          <p>State: <%= @agency.state %></p>
+          <p>Zip Code: <%= @agency.zip_code %></p>
+        </address>
 
         <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
             <span class="agency-phone">
@@ -68,4 +71,7 @@
     </div>
 </div>
 
-<%= link_to '<- Back', agencies_path %>
+<%= link_to agencies_path, :class => "btn btn-info btn-md" do %>
+  <span class="glyphicon glyphicon-chevron-left"></span>
+  Back
+<% end %>

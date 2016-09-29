@@ -21,6 +21,6 @@ class AgenciesController < ApplicationController
 
   private
     def agency_params
-      params.require(:agency).permit :name, :address, :city
+      params.require(:agency).permit :name, :address, :city, :state, :zip_code
     end
 end

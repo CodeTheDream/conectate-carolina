@@ -8,3 +8,12 @@
 user = CreateAdminService.new.call
 puts 'CREATED ADMIN USER: ' << user.email
 # Environment variables (ENV['...']) can be set in the file .env file.
+
+(0..50).each do |p|
+  Agency.create(    name: Faker::Company.name, 
+                 address: Faker::Address.street_address,
+                    city: Faker::Address.city,
+                zip_code: Faker::Address.zip,
+                   state: Faker::Address.state_abbr
+                )
+end
