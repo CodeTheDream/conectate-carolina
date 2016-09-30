@@ -1,4 +1,9 @@
-<h1>All agencies</h1>
+<h1>Agencies</h1>
+
+<%= form_tag(agencies_path, :method => "get", id: "search-form") do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search" %>
+    <%= submit_tag "Search", :name => nil %>
+<% end %>
 
 <% @agencies.each do |agency| %>
 	<%= agency.name %></br>
@@ -7,5 +12,5 @@
 	<%= agency.state%>
 	<%= agency.zipcode %>
 	<hr width="100%">
-<% end %>
+	<% end %>
 <%= link_to "New", new_agency_path %></br>
