@@ -1,4 +1,4 @@
-<h1>Agencies</h1>
+<h1>Organizations</h1>
 
 <ul>
   <% @agencies.each do |agency| %>
@@ -10,7 +10,7 @@
         <%= agency.address %>
       </p>
       <p>
-        <%= agency.city %>
+        <%= agency.city %>, <%= agency.state %> <%= agency.zip_code %>
       </p>
     </li>
   <% end -%>

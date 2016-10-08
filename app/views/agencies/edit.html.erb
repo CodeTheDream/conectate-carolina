@@ -1,0 +1,31 @@
+<h1>Edit Agency</h1>
+
+<%= form_for(@agency) do |f| %>
+
+	<%= f.label :name %>
+
+	<%= f.text_field :name %></br>
+
+
+	<%= f.label :address %>
+
+	<%= f.text_area :address %></br>
+
+
+	<%= f.label :city %>
+
+	<%= f.text_field :city %></br>
+
+
+	<%= f.label :zip_code %>
+
+	<%= f.text_field :zip_code %></br>
+
+
+	<%= f.label :state %>
+
+	<%= f.text_field :state %></br>
+
+<%= f.submit "Save changes" %>
+
+<% end %>
