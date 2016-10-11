@@ -19,7 +19,6 @@
 
         <a href="#" class="lead agency-name">
           <p>
-            <strong>Name:</strong>
             <%= @agency.name %>
           </p>
         </a>
@@ -72,7 +71,11 @@
 
 <div>
 <%= link_to agencies_path, :class => "btn btn-info btn-md" do %>
-  <span class="glyphicon glyphicon-chevron-left"></span>
-  Back
+  <span class="glyphicon glyphicon-chevron-left"></span>Back</br>
 <% end %>
+
 </div>
+
+<%= link_to "All organizations", agencies_path %></br>
+<%= link_to "Edit", edit_agency_path %></br>
+<%= link_to "Delete", @agency, method: :delete, data: { confirm: "Are you sure" } %>

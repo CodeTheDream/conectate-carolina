@@ -43,6 +43,7 @@ group :development, :test do
 end
 group :production do
   gem 'pg'
+  gem 'bonsai-elasticsearch-rails'
   gem 'rails_12factor'
 end
 group :test do
