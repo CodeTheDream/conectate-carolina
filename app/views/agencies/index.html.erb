@@ -1,18 +1,68 @@
 <h1>Agencies</h1>
+<div class="visible-block">
+  <%= link_to 'New Agency', new_agency_path, class: "btn btn-primary" %>
+  
+</div>
 
 <ul>
-  <% @agencies.each do |agency| %>
-    <li>
-      <h3>
-        <%= agency.name %>
-      </h3>
-      <p>
-        <%= agency.address %>
-      </p>
-      <p>
-        <%= agency.city %>
-      </p>
-    </li>
-  <% end -%>
+    <% @agencies.each do |agency| %>
+    <div class="col-md-3 col-sm-6">
+        <div class="well well-sm well-agency">
+            <img src="//placehold.it/200x200">
+
+            <a href="#" class="lead agency-name">
+                <p>
+                    <strong>Name:</strong>
+                    <%= agency.name %>
+                </p>
+            </a>
+
+            <address class="agency-address">Agency Address:<br>
+                <p><%= agency.address %></p>
+                <!-- <hr> -->
+                <p>State:
+                    <%= agency.state %></p>
+                <p>Zip Code:
+                    <%= agency.zip_code %></p>
+            </address>
+
+            <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
+                <span class="agency-phone">
+                    <i class="fa fa-phone fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link ">
+                <span class="agency-phone">
+                    <i class="fa fa-envelope fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-phone">
+                    <i class="fa fa-map-marker fa-lg"></i>
+                </span>
+            </a>
+
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-facebook">
+                    <i class="fa fa-facebook fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-twitter">
+                    <i class="fa fa-twitter fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-instagram">
+                    <i class="fa fa-instagram fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-youtube">
+                    <i class="fa fa-youtube fa-lg"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <% end %>
 </ul>
-<%= link_to 'New Agency', new_agency_path %>

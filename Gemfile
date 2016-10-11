@@ -10,6 +10,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem "font-awesome-rails"
 group :development, :test do
   gem 'byebug', platform: :mri
 end

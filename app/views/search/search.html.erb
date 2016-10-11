@@ -1,90 +1,95 @@
-<h1>Agencies Search</h1>
+<h1 class="center">Agencies Search</h1>
+<div class="container">
+    <div class="form-horizontal">
+        <div class="form-group">
+            <%= form_for search_path, method: :get, :html => {:class => "form-horizontal center"} do |f| %>
+            <!-- <%= f.label "Search for" %> -->
+            <%= text_field_tag :q, params[:q], placeholder: "Search...", :class => 'form-control' %>
+            <%= button_tag(type:'submit', :class => 'btn btn-info btn-md btn-block center-block') do %>
+            <i class="glyphicon glyphicon-search">
+                Search</i>
+            <% end %>
+            <% end %>
+        </div>
+    </div>
 
-<div class="form-horizontal">
-  <%= form_for search_path, method: :get do |f| %>
-    <!-- <%= f.label "Search for" %> -->
-    <%= text_field_tag :q, params[:q], placeholder: "Search...", :class => 'form-control' %>
-    <span class="input-group-btn">
-      <%= submit_tag "Search", name: nil, :class => 'btn btn-default'%>
-    </span>
-  <% end %>
-</div>
-
-<ul>
-  <% @agencies.each do |agency| %>
+    <ul>
+        <% @agencies.each do |agency| %>
         <!-- <%= link_to agency.try(:highlight).try(:name) ? agency.highlight.name[0].html_safe : agency.name,
           controller: "agencies",
           action: "show",
           id: agency._id%> -->
-          <div class="col-md-3 col-sm-6">
-              <div class="well well-sm well-agency">
-                  <img src="//placehold.it/200x200">
+        <div class="col-md-3 col-sm-6">
+            <div class="well well-sm well-agency">
+                <img src="//placehold.it/200x200">
 
-                  <a href="#" class="lead agency-name">
+                <a href="#" class="lead agency-name">
                     <p>
-                      <strong>Name:</strong>
-                      <%= link_to agency.try(:highlight).try(:name) ? agency.highlight.name[0].html_safe : agency.name,
+                        <strong>Name:</strong>
+                        <%= link_to agency.try(:highlight).try(:name) ? agency.highlight.name[0].html_safe : agency.name,
                         controller: "agencies",
                         action: "show",
                         id: agency._id %>
                     </p>
-                  </a>
+                </a>
 
-                  <address class="agency-address">Agency Address<br>
+                <address class="agency-address">Agency Address<br>
                     <% if agency.try(:highlight).try(:address) %>
-                      <% agency.highlight.address.each do |snippet| %>
-                        <p><%= snippet.html_safe %>...</p>
-                      <% end %>
+                    <% agency.highlight.address.each do |snippet| %>
+                    <p><%= snippet.html_safe %>...</p>
                     <% end %>
-                  </address>
-                  <hr>
-                  
-                  <p> Agency City<br>
+                    <% end %>
+                </address>
+                <hr>
+
+                <p>
+                    Agency City<br>
                     <% if agency.try(:highlight).try(:city) %>
-                      <% agency.highlight.city.each do |snippet| %>
-                        <p><%= snippet.html_safe %>...</p>
-                      <% end %>
+                    <% agency.highlight.city.each do |snippet| %>
+                    <p><%= snippet.html_safe %>...</p>
                     <% end %>
-                  </p>
+                    <% end %>
+                </p>
 
-                  <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
-                      <span class="agency-phone">
-                          <i class="fa fa-phone fa-lg"></i>
-                      </span>
-                  </a>
-                  <a href="#" class="btn btn-default btn-sm btn-link ">
-                      <span class="agency-phone">
-                          <i class="fa fa-envelope fa-lg"></i>
-                      </span>
-                  </a>
-                  <a href="#" class="btn btn-default btn-sm btn-link">
-                      <span class="agency-phone">
-                          <i class="fa fa-map-marker fa-lg"></i>
-                      </span>
-                  </a>
+                <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
+                    <span class="agency-phone">
+                        <i class="fa fa-phone fa-lg"></i>
+                    </span>
+                </a>
+                <a href="#" class="btn btn-default btn-sm btn-link ">
+                    <span class="agency-phone">
+                        <i class="fa fa-envelope fa-lg"></i>
+                    </span>
+                </a>
+                <a href="#" class="btn btn-default btn-sm btn-link">
+                    <span class="agency-phone">
+                        <i class="fa fa-map-marker fa-lg"></i>
+                    </span>
+                </a>
 
-                  <a href="#" class="btn btn-default btn-sm btn-link">
-                      <span class="agency-facebook">
-                          <i class="fa fa-facebook fa-lg"></i>
-                      </span>
-                  </a>
-                  <a href="#" class="btn btn-default btn-sm btn-link">
-                      <span class="agency-twitter">
-                          <i class="fa fa-twitter fa-lg"></i>
-                      </span>
-                  </a>
-                  <a href="#" class="btn btn-default btn-sm btn-link">
-                      <span class="agency-instagram">
-                          <i class="fa fa-instagram fa-lg"></i>
-                      </span>
-                  </a>
-                  <a href="#" class="btn btn-default btn-sm btn-link">
-                      <span class="agency-youtube">
-                          <i class="fa fa-youtube fa-lg"></i>
-                      </span>
-                  </a>
+                <a href="#" class="btn btn-default btn-sm btn-link">
+                    <span class="agency-facebook">
+                        <i class="fa fa-facebook fa-lg"></i>
+                    </span>
+                </a>
+                <a href="#" class="btn btn-default btn-sm btn-link">
+                    <span class="agency-twitter">
+                        <i class="fa fa-twitter fa-lg"></i>
+                    </span>
+                </a>
+                <a href="#" class="btn btn-default btn-sm btn-link">
+                    <span class="agency-instagram">
+                        <i class="fa fa-instagram fa-lg"></i>
+                    </span>
+                </a>
+                <a href="#" class="btn btn-default btn-sm btn-link">
+                    <span class="agency-youtube">
+                        <i class="fa fa-youtube fa-lg"></i>
+                    </span>
+                </a>
 
-              </div>
-          </div>
-  <% end %>
-</ul>
+            </div>
+        </div>
+        <% end %>
+    </ul>
+</div>
