@@ -7,7 +7,7 @@ class AgenciesController < ApplicationController
   	else
     	@agencies = Agency.all.order("created_at DESC")
   	end
-  end
+	end
 
 	def show
 		@agency = Agency.find(params[:id])

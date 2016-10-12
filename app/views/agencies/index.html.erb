@@ -1,21 +1,11 @@
 <h1>Agencies</h1>
-<!-- <<<<<<< HEAD -->
+
 
 <%= form_tag(agencies_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search" %>
     <%= submit_tag "Search", :name => nil %>
 <% end %>
 
-<!-- <% @agencies.each do |agency| %>
-	<%= agency.name %></br>
-	<%= agency.address %></br>
-	<%= agency.city %>,
-	<%= agency.state%>
-	<%= agency.zipcode %>
-	<hr width="100%">
-	<% end %> -->
-<%= link_to "New", new_agency_path %></br>
-<!-- ======= -->
 <div class="visible-block">
   <%= link_to 'New Agency', new_agency_path, class: "btn btn-primary" %>
   
@@ -82,4 +72,3 @@
         </div>
     </div>
     <% end %>
-<!-- >>>>>>> UIBranch -->
