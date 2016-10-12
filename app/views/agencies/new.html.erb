@@ -1,3 +1,4 @@
+<!-- <<<<<<< HEAD
 <%= form_for(@agency) do |f| %>
 
 	<%= f.label :name %>
@@ -18,3 +19,52 @@
 	<%= f.submit "Add a new Agency" %>
 
 <% end %>
+======= -->
+<h1>New Organization</h1>  
+
+<%= form_for :agency, url: agencies_path do |f| %>
+
+  <% if not @agency.nil? and @agency.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@agency.errors.count, "error") %> prohibited
+      this agency from being saved:</h2>
+    <ul>
+    <% @agency.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.label :address %><br>
+    <%= f.text_area :address %>
+  </p>
+
+  <p>
+    <%= f.label :city %><br>
+    <%= f.text_area :city %>
+  </p>
+
+  <p>
+    <%= f.label :state %><br>
+    <%= f.text_field :state %>
+  </p>
+
+  <p>
+    <%= f.label :zip_code %><br>
+    <%= f.text_field :zip_code %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<%= link_to '<- Back', agencies_path %>
+<!-- >>>>>>> UIBranch -->

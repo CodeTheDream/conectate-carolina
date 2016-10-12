@@ -1,16 +1,85 @@
 <h1>Agencies</h1>
+<!-- <<<<<<< HEAD -->
 
 <%= form_tag(agencies_path, :method => "get", id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search" %>
     <%= submit_tag "Search", :name => nil %>
 <% end %>
 
-<% @agencies.each do |agency| %>
+<!-- <% @agencies.each do |agency| %>
 	<%= agency.name %></br>
 	<%= agency.address %></br>
 	<%= agency.city %>,
 	<%= agency.state%>
 	<%= agency.zipcode %>
 	<hr width="100%">
-	<% end %>
+	<% end %> -->
 <%= link_to "New", new_agency_path %></br>
+<!-- ======= -->
+<div class="visible-block">
+  <%= link_to 'New Agency', new_agency_path, class: "btn btn-primary" %>
+  
+</div>
+
+<ul>
+    <% @agencies.each do |agency| %>
+    <div class="col-md-3 col-sm-6">
+        <div class="well well-sm well-agency">
+            <img src="//placehold.it/200x200">
+
+            <a href="#" class="lead agency-name">
+                <p>
+                    <strong>Name:</strong>
+                    <%= agency.name %>
+                </p>
+            </a>
+
+            <address class="agency-address">Agency Address:<br>
+                <p><%= agency.address %></p>
+                <!-- <hr> -->
+                <p>State:
+                    <%= agency.state %></p>
+                <p>Zip Code:
+                    <%= agency.zip_code %></p>
+            </address>
+
+            <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
+                <span class="agency-phone">
+                    <i class="fa fa-phone fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link ">
+                <span class="agency-phone">
+                    <i class="fa fa-envelope fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-phone">
+                    <i class="fa fa-map-marker fa-lg"></i>
+                </span>
+            </a>
+
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-facebook">
+                    <i class="fa fa-facebook fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-twitter">
+                    <i class="fa fa-twitter fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-instagram">
+                    <i class="fa fa-instagram fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-youtube">
+                    <i class="fa fa-youtube fa-lg"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <% end %>
+<!-- >>>>>>> UIBranch -->
