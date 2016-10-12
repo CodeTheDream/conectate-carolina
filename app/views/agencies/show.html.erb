@@ -1,43 +1,25 @@
 <h1><%= @agency.name %></h1>
-<!-- 
-	<%= @agency.address %>
-	<%= @agency.city %>
-	<%= @agency.state %>
-	<%= @agency.zipcode %></br> -->
 
 <%= link_to "Edit", edit_agency_path %></br>
 <%= link_to "All agencies", agencies_path %></br>
 <%= link_to "Delete", @agency, method: :delete, data: { confirm: "Are you sure?" } %>
-<!-- <p>
-  <strong>Name:</strong>
-  <%= @agency.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @agency.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @agency.city %>
-</p> -->
 
 <div class="col-md-3 col-sm-6">
     <div class="well well-sm well-agency">
         <img src="//placehold.it/200x200">
 
-        <a href="#" class="lead agency-name">
+        <!-- <a href="<%= @agency %>" class="lead agency-name">
           <p>
             <%= @agency.name %>
           </p>
-        </a>
+        </a> -->
+				<%= link_to @agency.name, @agency, class: "btn btn-primary" %>
 
         <address class="agency-address">Agency Address:<br>
           <p><%= @agency.address %></p>
           <!-- <hr> -->
           <p>State: <%= @agency.state %></p>
-          <p>Zip Code: <%= @agency.zip_code %></p>
+          <p>Zip Code: <%= @agency.zipcode %></p>
         </address>
 
         <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
@@ -85,7 +67,3 @@
 <% end %>
 
 </div>
-
-<!-- <%= link_to "All organizations", agencies_path %></br>
-<%= link_to "Edit", edit_agency_path %></br>
-<%= link_to "Delete", @agency, method: :delete, data: { confirm: "Are you sure" } %> -->

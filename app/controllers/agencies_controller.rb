@@ -3,7 +3,7 @@ class AgenciesController < ApplicationController
 
 	def index
   	if params[:search]
-    	@agencies = Agency.search(params[:search]).order("created_at DESC")
+    	@agencies = Agency.search(params[:search])
   	else
     	@agencies = Agency.all.order("created_at DESC")
   	end
@@ -20,7 +20,7 @@ class AgenciesController < ApplicationController
 	def create 
 		@agency = Agency.new(agency_params)
 		if @agency.save
-			flash[:notice] = "Successfully created a agency."
+			flash[:notice] = "Successfully created an organization."
 			redirect_to @agency
 		else
 			render 'new'
@@ -42,7 +42,7 @@ class AgenciesController < ApplicationController
 
 	def destroy
 		Agency.find(params[:id]).destroy
-		flash[:notice] = "Successfully deleted agency."
+		flash[:notice] = "Successfully deleted organization."
 		redirect_to new_agency_url
 	end
 

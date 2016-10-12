@@ -1,14 +1,19 @@
 <h1>Agencies</h1>
 
-
-<%= form_tag(agencies_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>
+<div class="form-horizontal">
+    <div class="form-group">
+        <%= form_for search_path, method: :get, :html => {:class => "form-horizontal center"} do |f| %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search...", :class => 'form-control' %>
+        <%= button_tag(type: "submit", class: "btn btn-info btn-md btn-block center-block", :name => nil) do %>
+        <span class="glyphicon glyphicon-search"></span>
+        Search
+        <% end %>
+        <% end %>
+    </div>
+</div>
 
 <div class="visible-block">
-  <%= link_to 'New Agency', new_agency_path, class: "btn btn-primary" %>
-  
+    <%= link_to 'New Agency', new_agency_path, class: "btn btn-primary" %>
 </div>
 
 <ul>
@@ -16,11 +21,13 @@
     <div class="col-md-3 col-sm-6">
         <div class="well well-sm well-agency">
             <img src="//placehold.it/200x200">
-
-            <a href="#" class="lead agency-name">
+            <a href"#" class="lead agency-name">
                 <p>
                     <strong>Name:</strong>
-                    <%= agency.name %>
+                    <%= link_to agency.try(:highlight).try(:name) ? agency.highlight.name[0].html_safe : agency.name,
+                controller: "agencies",
+                action: "show",
+                id: agency.id %>
                 </p>
             </a>
 
@@ -30,7 +37,7 @@
                 <p>State:
                     <%= agency.state %></p>
                 <p>Zip Code:
-                    <%= agency.zip_code %></p>
+                    <%= agency.zipcode %></p>
             </address>
 
             <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
@@ -72,3 +79,4 @@
         </div>
     </div>
     <% end %>
+</ul>
