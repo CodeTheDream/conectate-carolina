@@ -21,15 +21,15 @@
     <div class="col-md-3 col-sm-6">
         <div class="well well-sm well-agency">
             <img src="//placehold.it/200x200">
-            <a href"#" class="lead agency-name">
-                <p>
-                    <strong>Name:</strong>
-                    <%= link_to agency.try(:highlight).try(:name) ? agency.highlight.name[0].html_safe : agency.name,
-                controller: "agencies",
-                action: "show",
-                id: agency.id %>
-                </p>
-            </a>
+              <p class="lead agency-name">
+                <strong>
+                  <%= link_to agency.try(:highlight).try(:name) ? agency.highlight.name[0].html_safe : agency.name,
+                  controller: "agencies",
+                  action: "show",
+                  id: agency.id %>
+                </strong>
+              </p>
+
 
             <address class="agency-address">Agency Address:<br>
                 <p><%= agency.address %></p>

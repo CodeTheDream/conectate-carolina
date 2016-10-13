@@ -13,7 +13,11 @@
             <%= @agency.name %>
           </p>
         </a> -->
-				<%= link_to @agency.name, @agency, class: "btn btn-primary" %>
+        <p class="lead agency-name">
+          <strong>
+            <%= link_to @agency.name, @agency, class: "" %>
+          </strong>
+        </p>
 
         <address class="agency-address">Agency Address:<br>
           <p><%= @agency.address %></p>

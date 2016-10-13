@@ -6,8 +6,8 @@
             <!-- <%= f.label "Search for" %> -->
             <%= text_field_tag :q, params[:q], placeholder: "Search...", :class => 'form-control' %>
             <%= button_tag(type:'submit', :class => 'btn btn-info btn-md btn-block center-block') do %>
-            <i class="glyphicon glyphicon-search">
-                Search</i>
+            <span class="glyphicon glyphicon-search">
+            </span> Search
             <% end %>
             <% end %>
         </div>
@@ -25,11 +25,13 @@
 
                 <a href="#" class="lead agency-name">
                     <p>
-                        <strong>Name:</strong>
+                        <strong>
+                          
                         <%= link_to agency.try(:highlight).try(:name) ? agency.highlight.name[0].html_safe : agency.name,
                         controller: "agencies",
                         action: "show",
                         id: agency._id %>
+                      </strong>
                     </p>
                 </a>
 
