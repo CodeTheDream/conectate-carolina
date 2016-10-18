@@ -16,7 +16,17 @@
 
  */
 
+// main background color
+main {
+  background-color: rgba(89, 89, 89, .75);
+}
 
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+ 
+ 
  .form-control[type=text] {
    align-items: center;
    width: 150px;
@@ -59,4 +69,86 @@
     border-radius: 4px;
     -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
     box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+
+// navbar overide settings
+
+.navbar-default {
+  background-color: #008752;
+  border-color: #25ab76;
+}
+.navbar-default .navbar-brand {
+  color: #eef4f6;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #88391e;
+}
+.navbar-default .navbar-text {
+  color: #eef4f6;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #eef4f6;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #88391e;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #88391e;
+  background-color: #25ab76;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #88391e;
+  background-color: #25ab76;
+}
+.navbar-default .navbar-toggle {
+  border-color: #25ab76;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #25ab76;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #eef4f6;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #eef4f6;
+}
+.navbar-default .navbar-link {
+  color: #eef4f6;
+}
+.navbar-default .navbar-link:hover {
+  color: #88391e;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #eef4f6;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #88391e;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #88391e;
+    background-color: #25ab76;
+  }
+}
+
+//navbar home button
+#logo {
+  font-size: 1.4em;
+}
+
+// search 
+.search-input {
+  margin-bottom: 10px;
 }

@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem "font-awesome-rails"
+gem 'simple_form'
 group :development, :test do
   gem 'byebug', platform: :mri
 end

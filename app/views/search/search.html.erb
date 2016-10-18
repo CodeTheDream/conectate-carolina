@@ -3,8 +3,7 @@
     <div class="form-horizontal">
         <div class="form-group">
             <%= form_for search_path, method: :get, :html => {:class => "form-horizontal center"} do |f| %>
-            <!-- <%= f.label "Search for" %> -->
-            <%= text_field_tag :q, params[:q], placeholder: "Search...", :class => 'form-control' %>
+            <%= text_field_tag :q, params[:q], placeholder: "Search...", :class => 'form-control search-input' %>
             <%= button_tag(type:'submit', :class => 'btn btn-info btn-md btn-block center-block') do %>
             <span class="glyphicon glyphicon-search">
             </span> Search
@@ -12,6 +11,7 @@
             <% end %>
         </div>
     </div>
+  </div>
 
     <ul>
         <% @agencies.each do |agency| %>
@@ -21,8 +21,7 @@
           id: agency._id%> -->
         <div class="col-md-3 col-sm-6">
             <div class="well well-sm well-agency">
-                <img src="//placehold.it/200x200">
-
+                <%= image_tag 'icon' %>
                 <a href="#" class="lead agency-name">
                     <p>
                         <strong>

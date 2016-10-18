@@ -1,21 +1,14 @@
 <h1>Edit Agency</h1>
 
-<%= form_for(@agency) do |f| %>
+<div class="container">
 
-<%= f.label :name %>
-<%= f.text_field :name %></br>
+  <%= simple_form_for(@agency) do |f| %>
 
-<%= f.label :address %>
-<%= f.text_area :address %></br>
-
-<%= f.label :city %>
-<%= f.text_field :city %></br>
-
-<%= f.label :zipcode %>
-<%= f.text_field :zipcode %></br>
-
-<%= f.label :state %>
-<%= f.text_field :state %></br>
-
-<%= f.submit "Save changes" %>
-<% end %>
+    <%= f.input :name %></br>
+    <%= f.input :address, placeholder: 'Address' %></br>
+    <%= f.input :city, placeholder: 'City' %></br>
+    <%= f.input :state, placeholder: 'NC' %></br>
+    <%= f.input :zipcode, placeholder: '27516' %></br>
+    <%= f.submit :submit, label: 'Submit', class: 'btn btn-primary'%>
+  <% end %>
+</div>

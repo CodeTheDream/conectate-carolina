@@ -1,47 +1,28 @@
-<h1>New Organization</h1>  
+<h1>New Organization</h1>
 
-<%= form_for :agency, url: agencies_path do |f| %>
+<div class="container">
+  <%= simple_form_for @agency, url: agencies_path, as: 'user_horizontal', 
+  html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
 
-  <% if not @agency.nil? and @agency.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@agency.errors.count, "error") %> prohibited
-      this agency from being saved:</h2>
-    <ul>
-    <% @agency.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <% if not @agency.nil? and @agency.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agency.errors.count, "error") %> prohibited
+        this agency from being saved:</h2>
+      <ul>
+      <% @agency.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
     <% end %>
-    </ul>
-  </div>
+
+    <%= f.input :name, placeholder: 'Organization' %>
+    <%= f.input :address, placeholder: 'Address' %>
+    <%= f.input :state, placeholder: 'Ex. NC' %>  
+    <%= f.input :zipcode, placeholder: '27516' %>  
+    
+    <%= f.submit :submit, class: 'btn btn-primary'%>
+
   <% end %>
-
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <%= f.label :address %><br>
-    <%= f.text_area :address %>
-  </p>
-
-  <p>
-    <%= f.label :city %><br>
-    <%= f.text_area :city %>
-  </p>
-
-  <p>
-    <%= f.label :state %><br>
-    <%= f.text_field :state %>
-  </p>
-
-  <p>
-    <%= f.label :zipcode %><br>
-    <%= f.text_field :zipcode %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<%= link_to '<- Back', agencies_path %>
+  <%= link_to '<- Back', agencies_path %>
+</div>
