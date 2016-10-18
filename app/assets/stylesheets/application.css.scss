@@ -152,3 +152,18 @@ ul {
 .search-input {
   margin-bottom: 10px;
 }
+
+// footer
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
