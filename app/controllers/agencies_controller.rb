@@ -20,7 +20,7 @@ class AgenciesController < ApplicationController
 	def create 
 		@agency = Agency.new(agency_params)
 		if @agency.save
-			flash[:notice] = t 'flash_notice.succes'
+			flash[:notice] = (t'flash_notice.success')
 			redirect_to @agency
 		else
 			render 'new'
@@ -34,7 +34,7 @@ class AgenciesController < ApplicationController
 	def update
 		@agency = Agency.find(params[:id])
 		if @agency.update_attributes(agency_params)
-			flash[:notice] = t 'flash_notice.update'
+			flash[:notice] = (t'flash_notice.update')
 			redirect_to @agency
 		else
 			render  'edit'
@@ -50,7 +50,7 @@ class AgenciesController < ApplicationController
 
 private
 	def agency_params
-		params.require(:agency).permit(:name, :address, :city, :state, :zipcode)
+		params.require(:agency).permit :name, :address, :city, :state, :zipcode
 	end
 # =======
 #   
