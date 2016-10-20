@@ -1,1 +1,61 @@
 es:
+  en: Ingles
+  es: Español
+  language: Idioma
+  activerecord:
+    attributes:
+      agency:
+        name: Nombre
+        address: Direccion
+        city: Ciudad
+        state: Estado
+        zip_code: Codigo postal
+  nav_links:
+    home: Inicio
+    about: Acerca
+    sign_in: Iniciar sesion
+    sign_up: Inscribirse
+    edit_accnt: Actualizar cuenta
+    sign_out: Terminar sesion
+  home_page:
+    title: Accion estudiantil con campesinos.
+    browse: Navega a traves de una lista de organizaciones aqui
+  flash_notice: 
+    success: Organización creada!
+    delete: Organización eliminada!
+    update: Organización actualizada!
+  search_page:
+    search: Buscar a través de organizaciones
+    plchldr_search: Buscar...
+    bttn_search: Buscar
+  about_page:
+    h1: Directorio de recursos para los defensores de los trabajadores agrícolas.
+    h2: Lista de servicios para migrantes y trabajadores agricolas temporarios en Carolina del Norte.
+    p1: "El instituto de trabajadores agricolas es un projecto del comite de ministro consejo de iglesias de Norte Carolina, un grupo que crea materiales educativos, presenta foros públicos, y que reune el trabajo agricola en defensores para compartir estrategias para mejorar las condiciones de los trabajadores agricolas en Carolina del Norte."
+  views_index:
+    h1: Organizaciones
+  new_page:
+    h1: Nueva Organización
+    submit: Crear Organización
+  edit_page:
+   h1: Actualizar Organización
+   submit: Guardar cambios
+  show_page:
+    address: "Direccion:"
+    state: "Estado:"
+    zip: "Codigo postal:"
+  buttons_t:
+    back: <-- Atras
+    edit: Actualizar
+    delete: Eliminar
+    save: Guardar
+    all_org: Todas las organizaciones
+  plchldr_forms:
+    name: Nombre
+    address: "123 main street"
+    city: Raleigh
+    state: Ej. NC
+    zipcode: "27516"
+  footer:
+    about: Acerca
+    organizations: Organizaciones

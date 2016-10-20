@@ -1,4 +1,4 @@
-<h1>New Organization</h1>
+<h1><%= t'new_page.h1'%></h1>
 
 <div class="container">
   <%= simple_form_for @agency, url: agencies_path, as: 'user_horizontal', 
@@ -16,13 +16,14 @@
     </div>
     <% end %>
 
-    <%= f.input :name, placeholder: 'Organization' %>
-    <%= f.input :address, placeholder: 'Address' %>
-    <%= f.input :state, placeholder: 'Ex. NC' %>  
-    <%= f.input :zipcode, placeholder: '27516' %>  
+    <%= f.input :name, placeholder: (t'plchldr_forms.name') %>
+    <%= f.input :address, placeholder: (t'plchldr_forms.address') %>
+    <%= f.input :city, placeholder: (t'plchldr_forms.city') %>
+    <%= f.input :state, placeholder:(t'plchldr_forms.state') %>  
+    <%= f.input :zip_code, placeholder: (t'plchldr_forms.zipcode') %>  
     
-    <%= f.submit :submit, class: 'btn btn-primary'%>
+    <%= f.submit (t'buttons_t.save'),class: 'btn btn-primary'%>
 
   <% end %>
-  <%= link_to '<- Back', agencies_path %>
+  <%= link_to (t'buttons_t.back'), agencies_path %>
 </div>

@@ -18,7 +18,7 @@ class Agency < ApplicationRecord
       indexes :address, analyzer: 'english'
       indexes :city, analyzer: 'english'
       indexes :state, analyzer: 'english'
-      indexes :zipcode, analyzer: 'english'
+      indexes :zip_code, analyzer: 'english'
     end
   end
 

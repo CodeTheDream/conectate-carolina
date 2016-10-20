@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160916194003) do
+ActiveRecord::Schema.define(version: 20160924002016) do
 
   create_table "agencies", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
     t.string   "city"
-    t.string   "state"
-    t.string   "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "zip_code"
+    t.string   "state"
   end
 
   create_table "users", force: :cascade do |t|

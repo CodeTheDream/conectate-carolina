@@ -20,4 +20,63 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  en: English
+  es: Spanish
+  language: Language
+  activerecord:
+    attributes:
+      agency:
+        name: Name
+        address: Address
+        city: City
+        state: State
+        zip_code: Zip code
+  nav_links:
+    home: Home
+    about: About
+    sign_in: Sign In
+    sign_up: Sign up
+    edit_accnt: Edit Account
+    sign_out: Sign out
+  home_page:
+    title: Student Action with Farm Workers
+    browse: Browse through a list of organizations here
+  flash_notice:
+    success: Organization Succesfully created!
+    delete: Organization Succesfully deleted!
+    update: Organization Succesfully updated!
+  search_page:
+    search: Search through organizations
+    plchldr_search: Search...
+    bttn_search: Search
+  about_page: 
+    h1: Resource Directory for Farmworker Advocates
+    h2: Listing of Services for Migrant and Seasonal Farmworkers in North Carolina
+    p1: "The Farmworker Institute is a project of the Farmworker Ministry Committee of the North Carolina Council of Churches, a group that creates educational materials, presents public forums, and brings together farmworker advocates to share strategies to improve farmworker conditions in North Carolina."
+  views_index:
+    h1: Organizations
+  new_page:
+    h1: New Organization
+    submit: Create Organization
+  edit_page:
+   h1: Edit Organization
+   submit: Save changes
+  show_page:
+    address: "Organization Address:"
+    state: "State:"
+    zip: "Zip code:"
+  buttons_t:
+    back: <-- Back
+    edit: Edit
+    delete: Delete
+    save: Save
+    all_org: All Organizations
+  plchldr_forms:
+    name: Name
+    address: "123 main street"
+    city: Raleigh
+    state: Ex. NC
+    zipcode: "27516"
+  footer:
+    about: About
+    organizations: Organizations

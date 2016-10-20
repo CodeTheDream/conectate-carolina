@@ -1,8 +1,8 @@
 <h1><%= @agency.name %></h1>
 
-<%= link_to "Edit", edit_agency_path %></br>
-<%= link_to "All agencies", agencies_path %></br>
-<%= link_to "Delete", @agency, method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to (t'buttons_t.edit'), edit_agency_path %></br>
+<%= link_to (t'buttons_t.all_org'), agencies_path %></br>
+<%= link_to (t'buttons_t.delete'), @agency, method: :delete, data: { confirm: "Are you sure?" } %>
 
 
 <div class="col-md-3 col-sm-6">
@@ -20,11 +20,11 @@
           </strong>
         </p>
 
-        <address class="agency-address">Agency Address:<br>
+        <address class="agency-address"><%=(t'show_page.address') %><br>
           <p><%= @agency.address %></p>
           <!-- <hr> -->
-          <p>State: <%= @agency.state %></p>
-          <p>Zip Code: <%= @agency.zipcode %></p>
+          <p><%= (t'show_page.state') %> <%= @agency.state %></p>
+          <p><%= (t'show_page.zip')%> <%= @agency.zip_code %></p>
         </address>
 
         <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">

@@ -20,7 +20,7 @@ class AgenciesController < ApplicationController
 	def create 
 		@agency = Agency.new(agency_params)
 		if @agency.save
-			flash[:notice] = "Successfully created an organization."
+			flash[:notice] = t 'flash_notice.succes'
 			redirect_to @agency
 		else
 			render 'new'
@@ -34,6 +34,7 @@ class AgenciesController < ApplicationController
 	def update
 		@agency = Agency.find(params[:id])
 		if @agency.update_attributes(agency_params)
+			flash[:notice] = t 'flash_notice.update'
 			redirect_to @agency
 		else
 			render  'edit'
@@ -42,14 +43,14 @@ class AgenciesController < ApplicationController
 
 	def destroy
 		Agency.find(params[:id]).destroy
-		flash[:notice] = "Successfully deleted organization."
+		flash[:notice] = t 'flash_notice.delete'
 		redirect_to new_agency_url
 	end
 
 
 private
 	def agency_params
-		params.require(:agency).permit(:name, :address, :city, :state, :zipcode)
+		params.require(:agency).permit(:name, :address, :city, :state, :zip_code)
 	end
 # =======
 #   

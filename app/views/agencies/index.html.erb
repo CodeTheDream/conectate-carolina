@@ -1,12 +1,13 @@
-<h1>Agencies</h1>
+<h1><%= (t'home_page.title') %></h1>
+<h2><%= (t'home_page.browse') %></h2>
 <div class="container">
 <div class="form-horizontal">
     <div class="form-group">
         <%= form_for search_path, method: :get, :html => {:class => "form-horizontal center"} do |f| %>
-        <%= text_field_tag :search, params[:search], placeholder: "Search...", :class => 'form-control search-input' %>
+        <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control search-input' %>
         <%= button_tag(type: "submit", class: "btn btn-info btn-md btn-block center-block", :name => nil) do %>
         <span class="glyphicon glyphicon-search"></span>
-        Search
+        <%= (t'search_page.bttn_search') %> 
         <% end %>
         <% end %>
     </div>
@@ -14,7 +15,7 @@
 </div>
 
 <div class="container visible-block">
-    <%= link_to 'New Agency', new_agency_path, class: "btn btn-primary" %>
+    <%= link_to (t'new_page.h1'), new_agency_path, class: "btn btn-primary" %>
 </div>
 
 <ul>
@@ -32,13 +33,13 @@
               </p>
 
 
-            <address class="agency-address">Agency Address:<br>
+            <address class="agency-address"><%=(t'show_page.address') %><br>
                 <p><%= agency.address %></p>
                 <!-- <hr> -->
-                <p>State:
+                <p><%=(t'show_page.state') %>
                     <%= agency.state %></p>
-                <p>Zip Code:
-                    <%= agency.zipcode %></p>
+                <p><%=(t'show_page.zip') %>
+                    <%= agency.zip_code %></p>
             </address>
 
             <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">

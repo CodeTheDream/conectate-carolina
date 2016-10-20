@@ -1,4 +1,4 @@
-<h1>Edit Agency</h1>
+<h1><%= t'edit_page.h1' %></h1>
 
 <div class="container">
 
@@ -8,7 +8,7 @@
     <%= f.input :address, placeholder: 'Address' %></br>
     <%= f.input :city, placeholder: 'City' %></br>
     <%= f.input :state, placeholder: 'NC' %></br>
-    <%= f.input :zipcode, placeholder: '27516' %></br>
-    <%= f.submit :submit, label: 'Submit', class: 'btn btn-primary'%>
+    <%= f.input :zip_code, placeholder: '27516' %></br>
+    <%= f.submit (t'edit_page.submit') , class: 'btn btn-primary'%>
   <% end %>
 </div>
