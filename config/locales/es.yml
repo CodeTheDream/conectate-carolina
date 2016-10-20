@@ -9,7 +9,7 @@ es:
         address: Direccion
         city: Ciudad
         state: Estado
-        zip_code: Codigo postal
+        zipcode: Codigo postal
   nav_links:
     home: Inicio
     about: Acerca

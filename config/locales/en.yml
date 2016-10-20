@@ -30,7 +30,7 @@ en:
         address: Address
         city: City
         state: State
-        zip_code: Zip code
+        zipcode: Zip code
   nav_links:
     home: Home
     about: About
