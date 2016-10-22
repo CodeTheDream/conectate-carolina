@@ -1,21 +1,25 @@
 <h1><%= t'new_page.h1'%></h1>
 
 <div class="container">
-
-  <%= simple_form_for @agency, url: agencies_path, html: { class: 'form-horizontal' } do |f| %>
-
+    <%= simple_form_for @agency, url: agencies_path, html: { class: 'form-horizontal' } do |f| %>
+    <% if not @agency.nil? and @agency.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@agency.errors.count, "error") %>
+            prohibited this agency from being saved:</h2>
+        <ul>
+            <% @agency.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+        </ul>
+    </div>
+    <% end %>
     <%= f.input :name, placeholder: (t'plchldr_forms.name') %>
-
     <%= f.input :address, placeholder: (t'plchldr_forms.address') %>
-
     <%= f.input :city, placeholder: (t'plchldr_forms.city') %>
-
-    <%= f.input :state, placeholder:(t'plchldr_forms.state') %> 
-
+    <%= f.input :state, placeholder:(t'plchldr_forms.state') %>
     <%= f.input :zipcode, placeholder: (t'plchldr_forms.zipcode') %>
     
     <%= f.submit (t'buttons_t.save'),class: 'btn btn-primary'%>
-
-  <% end %>
-  <%= link_to (t'buttons_t.back'), agencies_path %>
+    <% end %>
+    <%= link_to (t'buttons_t.back'), agencies_path %>
 </div>
