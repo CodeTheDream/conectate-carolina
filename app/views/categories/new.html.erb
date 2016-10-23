@@ -1,0 +1,9 @@
+<h1 class="center">Create new category</h1>
+
+<%= simple_form_for @category, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f| %>
+
+  <%= f.input :name, placeholder: (t'plchldr_forms.name') %>
+
+  <%= f.submit (t'buttons_t.save'),class: 'btn btn-primary'%>
+<% end %>
+<%= link_to (t'buttons_t.back'), categories_path %>

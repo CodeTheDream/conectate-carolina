@@ -1,7 +1,7 @@
-<h1><%= t'new_page.h1'%></h1>
+<h1 class="center"><%= t'new_page.h1'%></h1>
 
-<div class="container">
-    <%= simple_form_for @agency, url: agencies_path, html: { class: 'form-horizontal' } do |f| %>
+
+    <%= simple_form_for @agency, url: agencies_path, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
     <% if not @agency.nil? and @agency.errors.any? %>
     <div id="error_explanation">
         <h2><%= pluralize(@agency.errors.count, "error") %>
@@ -22,4 +22,3 @@
     <%= f.submit (t'buttons_t.save'),class: 'btn btn-primary'%>
     <% end %>
     <%= link_to (t'buttons_t.back'), agencies_path %>
-</div>

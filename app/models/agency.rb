@@ -1,5 +1,6 @@
 # <<<<<<< HEAD
 class Agency < ApplicationRecord
+	validates :name, presence: true
 	#check what this methos does?------------
 	def self.search(search)
   	where("name LIKE ? OR city LIKE ? ", "%#{search}%", "%#{search}%")

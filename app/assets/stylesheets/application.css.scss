@@ -15,10 +15,16 @@
  *= require font-awesome
 
  */
+ 
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 // main background color
 main {
   background-color: rgba(89, 89, 89, .75);
+}
+.center {
+  text-align: center;
 }
 
 ul {
