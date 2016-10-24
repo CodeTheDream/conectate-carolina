@@ -1,5 +1,8 @@
 <h1 class="center">Listing All Categories</h1>
 
+<div class="container">  
+  <!-- uncomment when pagination gem is added -->
+  <%#= will_paginate %>
 <% @categories.each do |category| %>
   <ul class="listing">
     <div class="row">
@@ -10,5 +13,6 @@
       </div>
     </div>
   </ul>
-
 <% end %>
+<%#= will_paginate %>
+</div>
