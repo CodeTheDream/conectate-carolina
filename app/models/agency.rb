@@ -1,15 +1,14 @@
-# <<<<<<< HEAD
-class Agency < ApplicationRecord
-	validates :name, presence: true
-	#check what this methos does?------------
-	def self.search(search)
-  	where("name LIKE ? OR city LIKE ? ", "%#{search}%", "%#{search}%")
-	end
-end
-# =======
 require 'elasticsearch/model'
 
 class Agency < ApplicationRecord
+	has_many :agency_categories
+	has_many :categories, through: :agency_categories
+	
+	validates :name, presence: true
+	
+	
+	
+	# Elasticsearch methods
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
@@ -55,4 +54,3 @@ Agency.__elasticsearch__.client.indices.create \
   
 # Index all agency records from the DB to Elasticsearch
 Agency.import # for auto sync model with elastic search
-# >>>>>>> UIBranch
