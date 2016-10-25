@@ -10,6 +10,7 @@
         <li class="agency-title">
           <%= link_to "#{category.name}", category_path(category) %>
         </li>
+        <li><small><%= pluralize(category.agencies.count, "agency") %></small></li>
       </div>
     </div>
   </ul>

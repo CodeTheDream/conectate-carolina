@@ -18,7 +18,9 @@
     <%= f.input :city, placeholder: (t'plchldr_forms.city') %>
     <%= f.input :state, placeholder:(t'plchldr_forms.state') %>
     <%= f.input :zipcode, placeholder: (t'plchldr_forms.zipcode') %>
-    
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+      <% cb.label(class: 'checkbox-inline input_checkbox') {cb.check_box(class: 'checkbox') + cb.text} %>
+    <% end %>
     <%= f.submit (t'buttons_t.save'),class: 'btn btn-primary'%>
     <% end %>
     <%= link_to (t'buttons_t.back'), agencies_path %>

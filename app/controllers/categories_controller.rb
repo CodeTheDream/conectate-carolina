@@ -9,6 +9,9 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @category = Category.find(params[:id])
+    @category_agencies = @category.agencies.all #replace with paginate
+    #@category_agencies = @category.agencies.paginate(page: params[:page], per_page: 5)
   end
   
   def create
@@ -19,6 +22,20 @@ class CategoriesController < ApplicationController
     else
       render 'new'
     end
+  end
+  
+  def edit
+		@category = Category.find(params[:id])
+  end
+  
+  def update
+		@category = Category.find(params[:id])
+		if @category.update_attributes(category_params)
+			flash[:notice] = (t'flash_notice.update')
+			redirect_to @category
+		else
+			render  'edit'
+		end
   end
   
   private

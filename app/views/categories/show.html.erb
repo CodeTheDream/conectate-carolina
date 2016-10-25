@@ -1,2 +1,11 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<h1 class="center">
+  <%= "Category: " + @category.name %>
+</h1>
+<%= link_to (t'buttons_t.edit'), edit_category_path %></br>
+<div class="center">
+  <%#= will_paginate @category_articles %>
+</div>
+<%= render 'agencies/agency', obj: @category_agencies %>
+<div class="center">
+  <%#= will_paginate @category_articles %>
+</div>

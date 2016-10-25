@@ -50,7 +50,8 @@ class AgenciesController < ApplicationController
 
 private
 	def agency_params
-		params.require(:agency).permit :name, :address, :city, :state, :zipcode
+		params.require(:agency).permit(:name, :address, :city, 
+																	 :state, :zipcode, category_ids: [])
 	end
 # =======
 #   

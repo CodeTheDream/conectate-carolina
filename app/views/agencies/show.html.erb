@@ -26,6 +26,11 @@
           <p><%= (t'show_page.state') %> <%= @agency.state %></p>
           <p><%= (t'show_page.zip')%> <%= @agency.zipcode %></p>
         </address>
+        
+        <% if @agency.categories.any? %>
+          <!-- Same effect @agency.categories.each do etc...(using partial instead) -->
+          <p>Categories: <%= render @agency.categories %></p> 
+        <% end %>
 
         <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
             <span class="agency-phone">
