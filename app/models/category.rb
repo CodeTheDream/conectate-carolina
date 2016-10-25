@@ -1,4 +1,4 @@
-class Category < ApplicationRecord\
+class Category < ApplicationRecord
   has_many :agency_categories
   has_many :agencies, through: :agency_categories
   
