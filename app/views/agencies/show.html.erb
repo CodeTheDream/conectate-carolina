@@ -37,7 +37,7 @@
                 <i class="fa fa-envelope fa-lg"></i>
             </span>
         </a>
-        <a href="#" class="btn btn-default btn-sm btn-link">
+        <a href= "https://www.google.com/maps/dir/Current+Location/<%= @agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank"> 
             <span class="agency-phone">
                 <i class="fa fa-map-marker fa-lg"></i>
             </span>
@@ -65,6 +65,11 @@
         </a>
     </div>
 </div>
+
+<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@agency.latitude},#{@agency.longitude}&markers=#{@agency.latitude},#{@agency.longitude}&zoom=7&size=940x0&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8",
+              class: 'img-fluid img-rounded', alt: "#{@agency.name} on the map"%>
+
+
 
 <div>
 <%= link_to agencies_path, :class => "btn btn-info btn-md" do %>

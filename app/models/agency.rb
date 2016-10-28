@@ -1,8 +1,17 @@
 # <<<<<<< HEAD
 class Agency < ApplicationRecord
+  #attr_accessor :full_address, :latitude, :longitude
+  geocoded_by :full_address
+  after_validation :geocode, if: ->(obj){ obj.full_address.present? and obj.address_changed? }
+
+
+  def full_address
+    [address, city, state, zipcode].compact.join(',')
+  end
+
 	#check what this methos does?------------
 	def self.search(search)
-  	where("name LIKE ? OR city LIKE ? ", "%#{search}%", "%#{search}%")
+  	where("name LIKE ? OR city LIKE ? OR address LIKE ? OR zipcode LIKE ?" , "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
 	end
 end
 # =======
@@ -18,7 +27,7 @@ class Agency < ApplicationRecord
       indexes :address, analyzer: 'english'
       indexes :city, analyzer: 'english'
       indexes :state, analyzer: 'english'
-      indexes :zip_code, analyzer: 'english'
+      indexes :zipcode, analyzer: 'english'
     end
   end
 

@@ -12,6 +12,8 @@ gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
 gem "font-awesome-rails"
 gem 'simple_form'
+gem 'geocoder'
+
 group :development, :test do
   gem 'byebug', platform: :mri
 end
@@ -27,6 +29,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'high_voltage'
 gem 'pundit'
+
 group :development do
   gem 'better_errors'
   gem 'foreman'
@@ -42,6 +45,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'sqlite3'
 end
+
 group :production do
   gem 'pg'
   gem 'bonsai-elasticsearch-rails'
