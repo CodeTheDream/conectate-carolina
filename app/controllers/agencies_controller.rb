@@ -1,11 +1,12 @@
 class AgenciesController < ApplicationController
 
 	def index
-  	if params[:search].present?
-    	@agencies = Agency.near(params[:search], 20, :order => :distance)
-  	else
-    	@agencies = Agency.all.order("created_at DESC")
-  	end
+		@agencies = Agency.all
+		if params[:search]
+			@agencies = Agency.near(params[:search]).order("created_at DESC")
+		else
+			@agencies = Agency.all.order('created_at DESC')
+		end
 	end
 
 	def show
@@ -49,6 +50,6 @@ class AgenciesController < ApplicationController
 
 private
 	def agency_params
-		params.require(:agency).permit :name, :address, :city, :state, :zipcode
+		params.require(:agency).permit(:name, :address, :city, :state, :zipcode, category_ids: [])
 	end
 end

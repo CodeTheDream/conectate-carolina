@@ -1,9 +1,9 @@
 class SearchController < ApplicationController
-  def search
-    if params[:q].nil?
-      @agencies = []
+  def index
+    if params[:location].present?
+     @agencies = Agency.near(params[:location], params[:distance] || 10, order: :distance)
     else
-      @agencies = Agency.search(params[:q])
+      @agencies = Agency.all
     end
   end
 end

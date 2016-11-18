@@ -1,84 +1,56 @@
 <h1><%= (t'home_page.title') %></h1>
 <h2><%= (t'home_page.browse') %></h2>
+
+<script>
+
+var x = document.getElementById("gps");
+
+function getLocation() {
+
+    if (navigator.geolocation) {
+
+        navigator.geolocation.getCurrentPosition(showPosition);
+
+    } else {
+
+        x.innerHTML = "Geolocation is not supported by this browser.";
+
+    }
+
+}
+
+function showPosition(position) {
+
+    x.value = position.coords.latitude + "," + position.coords.longitude; 
+
+}
+
+getLocation();
+
+</script>
+
 <div class="container">
-<div class="form-horizontal">
-    <div class="form-group">
-        <%= form_for search_path, method: :get, :html => {:class => "form-horizontal center"} do |f| %>
-        <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control search-input' %>
-        <%= button_tag(type: "submit", class: "btn btn-info btn-md btn-block center-block", :name => nil) do %>
-        <span class="glyphicon glyphicon-search"></span>
-        <%= (t'search_page.bttn_search') %> 
-        <% end %>
-        <% end %>
-    </div>
-</div>
+  <div class="form-horizontal">
+      <div class="form-group">
+          <%= form_for search_path, method: :get, :html => {:class => "form-horizontal center"} do |f| %>
+          <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control search-input' %>
+          <%= button_tag(type: "submit", class: "btn btn-info btn-md btn-block center-block", :name => nil) do %>
+          <span class="glyphicon glyphicon-search"></span>
+          <%= (t'search_page.bttn_search') %> 
+          <% end %>
+          <% end %>
+      </div>
+  </div>
 </div>
 
 <div class="container visible-block">
-    <%= link_to (t'new_page.h1'), new_agency_path, class: "btn btn-primary" %>
+  <%= link_to (t'new_page.h1'), new_agency_path, class: "btn btn-primary" %>
 </div>
-
-<ul>
-    <% @agencies.each do |agency| %>
-    <div class="col-md-3 col-sm-6">
-        <div class="well well-sm well-agency">
-            <%= image_tag 'icon' %>
-              <p class="lead agency-name">
-                <strong>
-                  <%= link_to agency.try(:highlight).try(:name) ? agency.highlight.name[0].html_safe : agency.name,
-                  controller: "agencies",
-                  action: "show",
-                  id: agency.id %>
-                </strong>
-              </p>
-
-
-            <address class="agency-address"><%=(t'show_page.address') %><br>
-                <p><%= agency.address %></p>
-                <!-- <hr> -->
-                <p><%=(t'show_page.state') %>
-                    <%= agency.state %></p>
-                <p><%=(t'show_page.zip') %>
-                    <%= agency.zipcode %></p>
-            </address>
-
-            <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
-                <span class="agency-phone">
-                    <i class="fa fa-phone fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link ">
-                <span class="agency-phone">
-                    <i class="fa fa-envelope fa-lg"></i>
-                </span>
-            </a>
-            <a href= "https://www.google.com/maps/dir/Current+Location/" class="btn btn-default btn-sm btn-link"> 
-                <span class="agency-phone">
-                    <i class="fa fa-map-marker fa-lg"></i>
-                </span>
-            </a>
-
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-facebook">
-                    <i class="fa fa-facebook fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-twitter">
-                    <i class="fa fa-twitter fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-instagram">
-                    <i class="fa fa-instagram fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-youtube">
-                    <i class="fa fa-youtube fa-lg"></i>
-                </span>
-            </a>
-        </div>
-    </div>
-    <% end %>
-</ul>
+<h1 class="center">Listing all organizations</h1>
+<div class="center">
+  <%#= will_paginate %>
+</div>
+<%= render 'agency', obj: @agencies %>
+<div class="center">
+  <%#= will_paginate %>
+</div>

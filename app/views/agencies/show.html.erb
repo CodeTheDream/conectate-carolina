@@ -1,4 +1,5 @@
 <h1><%= @agency.name %></h1>
+<% request.location %></br>
 
 <%= link_to (t'buttons_t.edit'), edit_agency_path %></br>
 <%= link_to (t'buttons_t.all_org'), agencies_path %></br>
@@ -26,6 +27,11 @@
           <p><%= (t'show_page.state') %> <%= @agency.state %></p>
           <p><%= (t'show_page.zip')%> <%= @agency.zipcode %></p>
         </address>
+        
+        <% if @agency.categories.any? %>
+          <!-- Same effect @agency.categories.each do etc...(using partial instead) -->
+          <p><%= (t'category.categories') %><%= render @agency.categories %></p> 
+        <% end %>
 
         <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
             <span class="agency-phone">
@@ -65,10 +71,6 @@
         </a>
     </div>
 </div>
-
-<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@agency.latitude},#{@agency.longitude}&markers=#{@agency.latitude},#{@agency.longitude}&zoom=7&size=940x0&key=AIzaSyA4BHW3txEdqfxzdTlPwaHsYRSZbfeIcd8",
-              class: 'img-fluid img-rounded', alt: "#{@agency.name} on the map"%>
-
 
 
 <div>

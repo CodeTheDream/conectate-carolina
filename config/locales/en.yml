@@ -31,6 +31,8 @@ en:
         city: City
         state: State
         zipcode: Zip code
+      category:
+        categories: Categories
   nav_links:
     home: Home
     about: About
@@ -38,6 +40,11 @@ en:
     sign_up: Sign up
     edit_accnt: Edit Account
     sign_out: Sign out
+  category:
+    categories: Categories
+    all_cat: All Categories
+    new_cat: Create New Category
+    edit_cat: Edit Category
   home_page:
     title: Student Action with Farm Workers
     browse: Browse through a list of organizations here

@@ -15,10 +15,16 @@
  *= require font-awesome
 
  */
+ 
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 // main background color
 main {
   background-color: rgba(89, 89, 89, .75);
+}
+.center {
+  text-align: center;
 }
 
 ul {
@@ -151,6 +157,18 @@ ul {
 // search 
 .search-input {
   margin-bottom: 10px;
+}
+
+//badge categories show
+.badge {
+  background-color: #CEF6F5;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+.input_checkbox input {
+  width: auto !important;
 }
 
 // footer
