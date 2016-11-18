@@ -26,6 +26,9 @@
           <!-- <hr> -->
           <p><%= (t'show_page.state') %> <%= @agency.state %></p>
           <p><%= (t'show_page.zip')%> <%= @agency.zipcode %></p>
+          <p><%= 'Contact : ' %> <%= @agency.contact %></p>
+          <p><%= 'Phone number : ' %> <%= @agency.phone %></p>
+          <p><%= 'Description : ' %> <%= @agency.description %></p>
         </address>
         
         <% if @agency.categories.any? %>

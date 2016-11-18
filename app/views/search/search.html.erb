@@ -20,10 +20,3 @@ function showPosition(position) {
 }
 getLocation();
 </script>
- 
- <% @agency.nearbys(10).each do |nearby_agency| %>
-
-    <%= link_to nearby_agency.name, nearby_agency %>
-
-<% end %>
-
