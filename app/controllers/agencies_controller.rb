@@ -2,6 +2,12 @@ class AgenciesController < ApplicationController
 
 	def index
 		@agencies = Agency.all
+		#Code hash send info of all agencies to the view to get converted to JSON
+		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
+  	marker.lat agency.latitude
+  	marker.lng agency.longitude
+		marker.infowindow agency.name
+		end
 		if params[:search]
 			@agencies = Agency.near(params[:search]).order("created_at DESC")
 		else
@@ -11,6 +17,12 @@ class AgenciesController < ApplicationController
 
 	def show
 		@agency = Agency.find(params[:id])
+		#single agency info
+		@hash = Gmaps4rails.build_markers(@agency) do |agency, marker|
+  	marker.lat agency.latitude
+  	marker.lng agency.longitude
+		marker.infowindow agency.name
+		end
 	end
 
 	def new
