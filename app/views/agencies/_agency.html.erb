@@ -1,0 +1,71 @@
+<ul>
+<% obj.each do |agency| %>
+    <div class="col-md-3 col-sm-6">
+        <div class="well well-sm well-agency">
+            <%= image_tag 'icon' %>
+              <p class="lead agency-name">
+                <strong>
+                  <%= link_to agency.name,
+                  controller: "agencies",
+                  action: "show",
+                  id: agency.id %>
+                </strong>
+              </p>
+
+
+            <address class="agency-address"><%=(t'show_page.address') %><br>
+                <p><%= agency.address %></p>
+                <!-- <hr> -->
+                <p><%=(t'show_page.state') %>
+                    <%= agency.state %></p>
+                <p><%=(t'show_page.zip') %>
+                    <%= agency.zipcode %></p>
+                    <%= agency.contact %>
+                    <%= agency.phone %>
+                    <%= agency.description %>
+            </address>
+            
+            <% if agency.categories.any? %>
+              <p><%= (t'category.categories')%> <%= render agency.categories %></p>
+            <% end %>
+
+            <a <%= agency.phone %> class="btn btn-default btn-sm btn-link">
+                <span class="agency-phone">
+                    <i class="fa fa-phone fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link ">
+                <span class="agency-phone">
+                    <i class="fa fa-envelope fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-phone">
+                    <i class="fa fa-map-marker fa-lg"></i>
+                </span>
+            </a>
+
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-facebook">
+                    <i class="fa fa-facebook fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-twitter">
+                    <i class="fa fa-twitter fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-instagram">
+                    <i class="fa fa-instagram fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-youtube">
+                    <i class="fa fa-youtube fa-lg"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+<% end %>
+</ul>

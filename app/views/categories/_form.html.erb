@@ -1,0 +1,17 @@
+<%= simple_form_for @category, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f| %>
+  <% if not @category.nil? and @category.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@category.errors.count, "error") %>
+      prohibited this agency from being saved:</h2>
+    <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <%= f.input :name, placeholder: 'English' %>
+  <%= f.input :categoria, placeholder: 'Español' %>
+
+  <%= f.submit (t'buttons_t.save'),class: 'btn btn-primary'%>
+<% end %>

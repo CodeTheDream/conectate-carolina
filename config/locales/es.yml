@@ -10,6 +10,8 @@ es:
         city: Ciudad
         state: Estado
         zipcode: Codigo postal
+      category:
+        categories: Categorias
   nav_links:
     home: Inicio
     about: Acerca
@@ -17,6 +19,11 @@ es:
     sign_up: Inscribirse
     edit_accnt: Actualizar cuenta
     sign_out: Terminar sesion
+  category:
+    categories: Categorías
+    all_cat: Lista de Categorias
+    new_cat: Crear nueva categoría
+    edit_cat: Actualizar Categoría
   home_page:
     title: Accion estudiantil con campesinos.
     browse: Navega a traves de una lista de organizaciones aqui

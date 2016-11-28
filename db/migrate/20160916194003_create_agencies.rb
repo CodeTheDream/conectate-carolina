@@ -1,4 +1,5 @@
 class CreateAgencies < ActiveRecord::Migration[5.0]
+  has_many :social_media
   def change
     create_table :agencies do |t|
       t.string :name

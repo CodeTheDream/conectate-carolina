@@ -1,16 +1,28 @@
 class AgenciesController < ApplicationController
-# <<<<<<< HEAD
 
 	def index
-  	if params[:search]
-    	@agencies = Agency.search(params[:search])
-  	else
-    	@agencies = Agency.all.order("created_at DESC")
-  	end
+		@agencies = Agency.all
+		#Code hash send info of all agencies to the view to get converted to JSON
+		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
+  	marker.lat agency.latitude
+  	marker.lng agency.longitude
+		marker.infowindow agency.name
+		end
+		if params[:search]
+			@agencies = Agency.search(params[:search])
+		else
+			@agencies = Agency.all
+		end
 	end
 
 	def show
 		@agency = Agency.find(params[:id])
+		#single agency info
+		@hash = Gmaps4rails.build_markers(@agency) do |agency, marker|
+  	marker.lat agency.latitude
+  	marker.lng agency.longitude
+		marker.infowindow agency.name
+		end
 	end
 
 	def new
@@ -50,53 +62,6 @@ class AgenciesController < ApplicationController
 
 private
 	def agency_params
-		params.require(:agency).permit :name, :address, :city, :state, :zipcode
+		params.require(:agency).permit(:name, :address, :city, :state, :zipcode, category_ids: [])
 	end
-# =======
-#   
-#   def index
-#   @agencies = Agency.all
-#   end
-# 
-#   def show
-#     @agency = Agency.find params[:id]
-#   end
-# 
-#   def new
-#   end
-# 
-#   def create
-#     @agency = Agency.new agency_params
-#     if @agency.save
-#       flash[:notice] = "Succesfully created an organization"
-#       redirect_to @agency
-#     else
-#       render 'new'
-#     end
-#   end
-# 
-#   def edit
-#     @agency = Agency.find(params[:id])
-#   end
-# 
-#   def update
-#     @agency = Agency.find(params[:id])
-#     if @agency.update_attributes(agency_params)
-#       redirect_to @agency
-#     else
-#       render 'edit'
-#     end
-#   end
-# 
-#   def destroy
-#     Agency.find(params[:id]).destroy
-#     flash[:notice] = "Succesfully deleted."
-#     redirect_to new_agency_url
-#   end
-# 
-#   private
-#     def agency_params
-#       params.require(:agency).permit :name, :address, :city, :state, :zip_code
-#     end
-# >>>>>>> UIBranch
 end

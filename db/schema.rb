@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160916194003) do
+ActiveRecord::Schema.define(version: 20161128222949) do
 
   create_table "agencies", force: :cascade do |t|
     t.string   "name"
@@ -18,8 +18,32 @@ ActiveRecord::Schema.define(version: 20160916194003) do
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "contact"
+    t.string   "phone"
+    t.string   "description"
+  end
+
+  create_table "agency_categories", force: :cascade do |t|
+    t.integer "agency_id"
+    t.integer "category_id"
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "categoria"
+  end
+
+  create_table "social_media", force: :cascade do |t|
+    t.integer  "agency_id_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["agency_id_id"], name: "index_social_media_on_agency_id_id"
   end
 
   create_table "users", force: :cascade do |t|

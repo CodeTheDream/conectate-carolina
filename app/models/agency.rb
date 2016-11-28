@@ -1,57 +1,18 @@
-# <<<<<<< HEAD
 class Agency < ApplicationRecord
-	#check what this methos does?------------
-	def self.search(search)
-  	where("name LIKE ? OR city LIKE ? ", "%#{search}%", "%#{search}%")
-	end
-end
-# =======
-require 'elasticsearch/model'
+	has_many :agency_categories
+	has_many :categories, through: :agency_categories
+	validates :name, presence: true
+  #attr_accessor :full_address, :latitude, :longitude
+  geocoded_by :full_address
+  after_validation :geocode, if: ->(obj){ obj.full_address.present? and obj.address_changed? }
 
-class Agency < ApplicationRecord
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
 
-  settings index: { number_of_shards: 1 } do
-    mappings dynamic: 'false' do
-      indexes :name, analyzer: 'english', index_options: 'offsets'
-      indexes :address, analyzer: 'english'
-      indexes :city, analyzer: 'english'
-      indexes :state, analyzer: 'english'
-      indexes :zip_code, analyzer: 'english'
-    end
+
+  def self.search(search)
+    where("name LIKE ? OR address LIKE ? OR zipcode LIKE ? OR state LIKE ? OR city LIKE ?", "%#{search}", "%#{search}", "%#{search}", "%#{search}", "%#{search}")
   end
 
-  def self.search(query)
-    __elasticsearch__.search(
-      {
-        query: {
-          multi_match: {
-            query: query,
-            fields: ['name^5', 'address', 'city']
-          }
-        },
-        highlight: {
-          pre_tags: ['<em>'],
-          post_tags: ['</em>'],
-          fields: {
-            name: {},
-            address: {},
-            city: {}
-          }
-        }
-      }
-    )
+  def full_address
+    [address, city, state, zipcode].compact.join(',')
   end
 end
-# Delete the previous agencies index in Elasticsearch
-Agency.__elasticsearch__.client.indices.delete index: Agency.index_name rescue nil
-
-# Create the new index with the new mapping
-Agency.__elasticsearch__.client.indices.create \
-  index: Agency.index_name,
-  body: { settings: Agency.settings.to_hash, mappings: Agency.mappings.to_hash }
-  
-# Index all agency records from the DB to Elasticsearch
-Agency.import # for auto sync model with elastic search
-# >>>>>>> UIBranch
