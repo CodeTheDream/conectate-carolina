@@ -20,13 +20,16 @@
                     <%= agency.state %></p>
                 <p><%=(t'show_page.zip') %>
                     <%= agency.zipcode %></p>
+                    <%= agency.contact %>
+                    <%= agency.phone %>
+                    <%= agency.description %>
             </address>
             
             <% if agency.categories.any? %>
               <p><%= (t'category.categories')%> <%= render agency.categories %></p>
             <% end %>
 
-            <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
+            <a <%= agency.phone %> class="btn btn-default btn-sm btn-link">
                 <span class="agency-phone">
                     <i class="fa fa-phone fa-lg"></i>
                 </span>

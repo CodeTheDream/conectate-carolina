@@ -9,9 +9,9 @@ class AgenciesController < ApplicationController
 		marker.infowindow agency.name
 		end
 		if params[:search]
-			@agencies = Agency.near(params[:search]).order("created_at DESC")
+			@agencies = Agency.search(params[:search])
 		else
-			@agencies = Agency.all.order('created_at DESC')
+			@agencies = Agency.all
 		end
 	end
 

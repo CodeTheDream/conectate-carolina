@@ -22,7 +22,7 @@
     <%= f.input :phone, placeholder: '555-555-5555' %>
     <%= f.input :description, placeholder: 'Lawyer information' %>
     <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
-      <% cb.label(class: 'checkbox-inline input_checkbox') {cb.check_box(class: 'checkbox') + cb.text} %></br>
+      <% cb.label(class: 'checkbox-inline input_checkbox') {cb.check_box(class: 'checkbox') + cb.text} %>
     <% end %>
     <%= f.submit (t'buttons_t.save'),class: 'btn btn-primary'%>
     <% end %>

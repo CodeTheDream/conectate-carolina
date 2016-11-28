@@ -6,34 +6,6 @@
 <h1><%= (t'home_page.title') %></h1>
 <h2><%= (t'home_page.browse') %></h2>
 
-<!--<script>
-
-var x = document.getElementById("gps");
-
-function getLocation() {
-
-    if (navigator.geolocation) {
-
-        navigator.geolocation.getCurrentPosition(showPosition);
-
-    } else {
-
-        x.innerHTML = "Geolocation is not supported by this browser.";
-
-    }
-
-}
-
-function showPosition(position) {
-
-    x.value = position.coords.latitude + "," + position.coords.longitude; 
-
-}
-
-getLocation();
-
-</script>-->
-
 <div class="container">
   <div class="form-horizontal">
       <div class="form-group">
@@ -52,6 +24,7 @@ getLocation();
   <%= link_to (t'new_page.h1'), new_agency_path, class: "btn btn-primary" %>
 </div>
 <h1 class="center">Listing all organizations</h1>
+
 <!-- Code here is used to build the map by google-maps-for-rails-->
 <div class="col-md-6 col-sm-3">
 <div class="map-responsive">
@@ -70,7 +43,71 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
 });
-</script>
+</script></br>
+
+<ul>
+    <% @agencies.each do |agency| %>
+    <div class="col-md-3 col-sm-6">
+        <div class="well well-sm well-agency">
+            <%= image_tag 'icon' %>
+              <p class="lead agency-name">
+                <strong>
+                  <%= link_to agency.name,
+                  controller: "agencies",
+                  action: "show",
+                  id: agency.id %>
+                </strong>
+              </p>
+
+            <address class="agency-address"><%=(t'show_page.address') %><br>
+                <p><%= agency.address %></p>
+                <!-- <hr> -->
+                <p><%=(t'show_page.state') %>
+                    <%= agency.state %></p>
+                <p><%=(t'show_page.zip') %>
+                    <%= agency.zipcode %></p>
+            </address>
+
+            <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
+                <span class="agency-phone">
+                    <i class="fa fa-phone fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link ">
+                <span class="agency-phone">
+                    <i class="fa fa-envelope fa-lg"></i>
+                </span>
+            </a>
+            <a href= "https://www.google.com/maps/dir/Current+Location/"  class="btn btn-default btn-sm btn-link" target="_blank"> 
+                <span class="agency-phone">
+                    <i class="fa fa-map-marker fa-lg"></i>
+                </span>
+            </a>
+
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-facebook">
+                    <i class="fa fa-facebook fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-twitter">
+                    <i class="fa fa-twitter fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-instagram">
+                    <i class="fa fa-instagram fa-lg"></i>
+                </span>
+            </a>
+            <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-youtube">
+                    <i class="fa fa-youtube fa-lg"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+    <% end %>
+</ul>
 
 <div class="center">
   <%#= will_paginate %>
