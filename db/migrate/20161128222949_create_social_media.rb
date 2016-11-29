@@ -1,5 +1,4 @@
 class CreateSocialMedia < ActiveRecord::Migration[5.0]
-	belongs_to :agency
 	
   def change
     create_table :social_media do |t|
