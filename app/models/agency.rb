@@ -1,4 +1,5 @@
 class Agency < ApplicationRecord
+  has_many :websites
 	has_many :agency_categories
 	has_many :categories, through: :agency_categories
 	validates :name, presence: true
