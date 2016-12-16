@@ -1,17 +1,2 @@
-<h1><%= t'edit_page.h1' %></h1>
 
-<div class="container">
-
-  <%= simple_form_for(@agency) do |f| %>
-
-    <%= f.input :name %></br>
-    <%= f.input :address, placeholder: 'Address' %></br>
-    <%= f.input :city, placeholder: 'City' %></br>
-    <%= f.input :state, placeholder: 'NC' %></br>
-    <%= f.input :zipcode, placeholder: '27516' %></br>
-    <%= f.input :contact, placeholder: 'John Smith Director of resources' %>
-    <%= f.input :phone, placeholder: '555-555-5555' %>
-    <%= f.input :description, placeholder: 'Lawyer information' %>
-    <%= f.submit (t'edit_page.submit') , class: 'btn btn-primary'%>
-  <% end %>
-</div>
+<%= render 'form' %>

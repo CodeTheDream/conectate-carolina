@@ -1,29 +1,3 @@
 <h1 class="center"><%= t'new_page.h1'%></h1>
-
-
-    <%= simple_form_for @agency, url: agencies_path, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f| %>
-    <% if not @agency.nil? and @agency.errors.any? %>
-    <div id="error_explanation">
-        <h2><%= pluralize(@agency.errors.count, "error") %>
-            prohibited this agency from being saved:</h2>
-        <ul>
-            <% @agency.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-            <% end %>
-        </ul>
-    </div>
-    <% end %>
-    <%= f.input :name, placeholder: (t'plchldr_forms.name') %>
-    <%= f.input :address, placeholder: (t'plchldr_forms.address') %>
-    <%= f.input :city, placeholder: (t'plchldr_forms.city') %>
-    <%= f.input :state, placeholder:(t'plchldr_forms.state') %>
-    <%= f.input :zipcode, placeholder: (t'plchldr_forms.zipcode') %>
-    <%= f.input :contact, placeholder: 'John Smith Director of resources' %>
-    <%= f.input :phone, placeholder: '555-555-5555' %>
-    <%= f.input :description, placeholder: 'Lawyer information' %>
-    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
-      <% cb.label(class: 'checkbox-inline input_checkbox') {cb.check_box(class: 'checkbox') + cb.text} %>
-    <% end %>
-    <%= f.submit (t'buttons_t.save'),class: 'btn btn-primary'%>
-    <% end %>
-    <%= link_to (t'buttons_t.back'), agencies_path, class: 'btn btn-primary' %>
+<%= render 'form' %>
+<%= link_to (t'buttons_t.back'), agencies_path, class: 'btn btn-primary' %>

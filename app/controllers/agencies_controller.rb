@@ -4,8 +4,8 @@ class AgenciesController < ApplicationController
 		@agencies = Agency.all
 		#Code hash send info of all agencies to the view to get converted to JSON
 		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
-  	marker.lat agency.latitude
-  	marker.lng agency.longitude
+  		marker.lat agency.latitude
+  		marker.lng agency.longitude
 		marker.infowindow agency.name
 		end
 		if params[:search]
@@ -19,8 +19,8 @@ class AgenciesController < ApplicationController
 		@agency = Agency.find(params[:id])
 		#single agency info
 		@hash = Gmaps4rails.build_markers(@agency) do |agency, marker|
-  	marker.lat agency.latitude
-  	marker.lng agency.longitude
+  		marker.lat agency.latitude
+		marker.lng agency.longitude
 		marker.infowindow agency.name
 		end
 	end
@@ -62,6 +62,6 @@ class AgenciesController < ApplicationController
 
 private
 	def agency_params
-		params.require(:agency).permit(:name, :address, :city, :state, :zipcode, category_ids: [])
+		params.require(:agency).permit(:name, :address, :city, :state, :zipcode, :description, :contact, :phone, category_ids: [])
 	end
 end

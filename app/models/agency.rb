@@ -7,6 +7,12 @@ class Agency < ApplicationRecord
   geocoded_by :full_address
   after_validation :geocode, if: ->(obj){ obj.full_address.present? and obj.address_changed? }
 
+  before_save :upcase_fields
+  # method to convert state to all uppercase and save in database -JR
+  def upcase_fields
+    self.state.upcase!
+  end
+
 
 
   def self.search(search)
@@ -14,6 +20,6 @@ class Agency < ApplicationRecord
   end
 
   def full_address
-    [address, city, state, zipcode].compact.join(',')
+    [address, city, state, zipcode].compact.join(', ')
   end
 end

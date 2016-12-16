@@ -1,4 +1,6 @@
-<%= simple_form_for @category, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f| %>
+<div class="container-fluid">
+
+<%= simple_form_for @category, html: {class: 'form-horizontal register-form'}, wrapper: :horizontal_form do |f| %>
   <% if not @category.nil? and @category.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@category.errors.count, "error") %>
@@ -9,9 +11,11 @@
       <% end %>
     </ul>
   </div>
+  <%#f.use :label_input, class: ''%>
   <% end %>
-  <%= f.input :name, placeholder: 'English' %>
-  <%= f.input :categoria, placeholder: 'Español' %>
+  <%= f.input_field :name, placeholder: 'English', class: "row" %>
+  <%= f.input_field :categoria, placeholder: 'Español' %>
 
-  <%= f.submit (t'buttons_t.save'),class: 'btn btn-primary'%>
+  <%= f.submit (t'buttons_t.save'), class: 'btn btn-primary'%>
 <% end %>
+</div>
