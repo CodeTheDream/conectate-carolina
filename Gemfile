@@ -8,8 +8,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
 gem "font-awesome-rails"
 gem 'simple_form'
 gem 'geocoder'
