@@ -13,6 +13,8 @@ class AgenciesController < ApplicationController
 		else
 			@agencies = Agency.all
 		end
+
+		@categories = Category.all
 	end
 
 	def show
