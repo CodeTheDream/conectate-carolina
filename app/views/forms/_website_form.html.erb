@@ -1,0 +1,15 @@
+
+
+
+
+<!-- This code is used to ask if they have a social media to add one =, if not then it will just prompt the admin to continue without social media NOT IMPLEMENTED CORRECTLY -->
+<%# puts "Do you want to add a social media? if so, type, yes"
+social_media = gets
+social_media = social_media.chomp
+if social_media == "yes" 
+    <%= form_for(@website, html: { multipart: true }) do |f| %>
+    <%# f.text_area :socialmedia, placeholder: "type url..." %>
+  	<%# f.submit "Post", class: "btn btn-primary" %>
+<%# else #>
+    puts "continue with everything"
+<%# end %> 

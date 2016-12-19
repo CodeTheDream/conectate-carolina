@@ -23,6 +23,7 @@ group :development do
   gem 'web-console'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
+  gem 'rb-readline'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
@@ -42,8 +43,6 @@ end
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'faker'
-  gem 'pry-rails'
-  gem 'pry-rescue'
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'sqlite3'

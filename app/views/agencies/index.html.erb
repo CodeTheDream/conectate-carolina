@@ -7,11 +7,13 @@
 <h2><%= (t'home_page.browse') %></h2>
 
 <div class="container">
-  <div class="form-horizontal">
+  <div class="form-inline">
       <div class="form-group">
-          <%= form_for search_path, method: :get, :html => {:class => "form-horizontal center"} do |f| %>
-          <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control search-input' %>
-          <%= button_tag(type: "submit", class: "btn btn-info btn-md btn-block center-block", :name => nil) do %>
+          <%= form_tag search_path, method: :get, :html => {:class => "form-inline center"} do |f| %>
+          <%= text_field_tag :search, nil, placeholder: (t'search_page.plchldr_search'), :class => 'form-inline search-input' %>
+          <%= text_field_tag :location, nil, placeholder: "Search again", :class => 'form-inline search-input' %>
+          <%= select_tag :category, options_for_select(Category.all.map{ |c| [c.name, c.id]}) %>
+          <%= button_tag(type: "submit", class: "btn btn-info btn-md left-block", :name => nil) do %>
           <span class="glyphicon glyphicon-search"></span>
           <%= (t'search_page.bttn_search') %> 
           <% end %>
