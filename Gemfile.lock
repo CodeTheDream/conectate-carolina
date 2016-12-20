@@ -49,6 +49,8 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
       rack (>= 0.9.0)
+    binding_of_caller (0.7.2)
+      debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -71,7 +73,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.0.2)
+    concurrent-ruby (1.0.3)
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     devise (4.2.0)
@@ -272,6 +274,7 @@ PLATFORMS
 
 DEPENDENCIES
   better_errors
+  binding_of_caller
   bootstrap-sass
   byebug
   capybara

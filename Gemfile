@@ -36,6 +36,7 @@ group :development do
   gem 'foreman'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
+  gem "binding_of_caller"
 end
 group :development, :test do
   gem 'factory_girl_rails'
