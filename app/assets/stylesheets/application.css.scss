@@ -18,6 +18,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome";
 // main background color
 main {
     background-color: rgba(22, 160, 133,1.0);
@@ -31,18 +32,6 @@ ul {
     padding: 0;
     list-style-type: none;
 }
-
-.form-control[type=text] {
-    align-items: center;
-    width: 150px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-}
-
-.form-control[type=text]:focus {
-    width: 100%;
-}
-
 
 /* Agency cards css */
 
@@ -234,6 +223,67 @@ footer ul li {
     padding-bottom: 56.25%;
     position: relative;
     height: 0;
+}
+
+// Form CSS
+.register-form{
+    font-size: 16px;
+   left: 50%;
+    top: 50%;
+    position: relative;
+    -webkit-transform: translate3d(-50%, -50%, 0);
+    -moz-transform: translate3d(-50%, -50%, 0);
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.regbutton{    
+    height: 50px;
+    width: 200px;
+    background-color:tomato;
+    border-radius: 0px;
+    font-size: 18px;
+    color:white;
+    border: none !important;
+    margin-bottom: 5px;
+}
+.regbutton:hover{    
+    color: white;
+    background-color:#aa422f;
+}
+.regbutton:active{    
+    color: white;
+    background-color:#aa422f;
+}
+.logbutton{
+    height: 50px;
+    width: 200px;
+    background-color:yellowgreen;
+    border-radius: 0px;
+    font-size: 18px;
+    color:white;
+    border: none !important;
+    margin-bottom: 5px;
+}
+.logbutton:hover{
+    color: white;
+    background-color:darkolivegreen;
+}
+.logbutton:active{
+    color: white;
+    background-color:darkolivegreen;
+}
+
+
+
+.register-form label{
+    color: aliceblue;
+    
+}
+.register-form input{
+    margin-bottom: 5px;
+    width: 430px;
+    height: 40px;
+    border-radius: 0px;
 }
 
 

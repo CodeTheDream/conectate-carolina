@@ -1,17 +1,15 @@
-<h1><%= t'edit_page.h1' %></h1>
 
-<div class="horizontal">
-
-  <%= simple_form_for(@agency) do |f| %>
-
-    <%= f.input :name %></br>
-    <%= f.input :address, placeholder: 'Address' %></br>
-    <%= f.input :city, placeholder: 'City' %></br>
-    <%= f.input :state, placeholder: 'NC' %></br>
-    <%= f.input :zipcode, placeholder: '27516' %></br>
-    <%= f.input :contact, placeholder: 'John Smith Director of resources' %>
-    <%= f.input :phone, placeholder: '555-555-5555' %>
-    <%= f.input :description, placeholder: 'Lawyer information' %>
-    <%= f.submit (t'edit_page.submit') , class: 'btn btn-primary'%>
-  <% end %>
-</div>
+<div class="container">
+  <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+          <div class="panel-title"><%= "Edit " + @agency.name.capitalize %></div>
+          <div style="float:right; font-size: 85%; position: relative; top:-10px"></div>
+      </div> 
+      <div class="panel-body">
+        <%= render 'form' %>
+        <%= link_to (t'buttons_t.back'), agencies_path, class: 'btn btn-primary' %>
+      </div> <%#end panel-body%>
+    </div> <%# end of panel-info div%>
+  </div> <%# end of titlebox %>
+</div> 

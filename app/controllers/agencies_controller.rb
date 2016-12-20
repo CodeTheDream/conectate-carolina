@@ -2,15 +2,32 @@ class AgenciesController < ApplicationController
 
 	def index
 		@agencies = Agency.all
+		#Code hash send info of all agencies to the view to get converted to JSON
+		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
+  		marker.lat agency.latitude
+  		marker.lng agency.longitude
+		marker.infowindow agency.name
+		end
 		if params[:search]
 			@agencies = Agency.search(params[:search])
 		else
 			@agencies = Agency.all
-		end
+
 		#Code hash send info of all agencies to the view to get converted to JSON
 		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
   	marker.lat agency.latitude
   	marker.lng agency.longitude
+
+
+		@categories = Category.all
+	end
+
+	def show
+		@agency = Agency.find(params[:id])
+		#single agency info
+		@hash = Gmaps4rails.build_markers(@agency) do |agency, marker|
+  	marker.lat agency.latitude
+		marker.lng agency.longitude
 		marker.infowindow agency.name
 		end
 	end
@@ -58,7 +75,8 @@ class AgenciesController < ApplicationController
 	end
 
 	def destroy
-		Agency.find(params[:id]).destroy
+		@agency = Agency.find(params[:id])
+		@agency.destroy
 		flash[:notice] = t 'flash_notice.delete'
 		redirect_to new_agency_url
 	end
@@ -66,6 +84,6 @@ class AgenciesController < ApplicationController
 
 private
 	def agency_params
-		params.require(:agency).permit(:name, :address, :city, :state, :zipcode, category_ids: [])
+		params.require(:agency).permit(:name, :address, :city, :state, :zipcode, :description, :contact, :phone, category_ids: [])
 	end
 end

@@ -1,17 +1,33 @@
-<%= simple_form_for @category, html: {class: 'form-horizontal'}, wrapper: :horizontal_form do |f| %>
+<%= form_for @category, :html => { :class => "form-horizontal" } do |f| %>
   <% if not @category.nil? and @category.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@category.errors.count, "error") %>
-      prohibited this agency from being saved:</h2>
-    <ul>
-      <% @category.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <ul>
+        <% @category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
   <% end %>
-  <%= f.input :name, placeholder: 'English' %>
-  <%= f.input :categoria, placeholder: 'Español' %>
 
-  <%= f.submit (t'buttons_t.save'),class: 'btn btn-primary'%>
-<% end %>
+  <div class="form-group required">
+    <%= f.label(:name, "Category name: ", class: 'control-label col-md-4') %>
+    <div class="controls col-md-8">
+      <%= f.text_field :name, class: 'input-md  textinput textInput form-control' %>
+    </div>
+  </div>
+  <div class="form-group required">
+    <%= f.label(:categoria, "Nombre de la categoria: ", class: 'control-label col-md-4') %>
+    <div class="controls col-md-8">
+      <%= f.text_field :categoria, class: 'input-md  textinput textInput form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="controls col-md-8">
+      <%= button_tag type: 'submit', class: "btn btn-primary btn-info" do %>
+      <i class="fa fa-archive"></i> SAVE
+      <% end %>
+    </div>
+  </div>
+<% end %> <%# end of form_for %>

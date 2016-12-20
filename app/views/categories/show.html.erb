@@ -1,11 +1,23 @@
-<h1 class="center">
-  <%= "Category: " + @category.name %>
-</h1>
-<%= link_to (t'buttons_t.edit'), edit_category_path %>
 <div class="center">
   <%#= will_paginate @category_articles %>
 </div>
-<%= render 'agencies/agency', obj: @category_agencies %>
+<div class="page-header">
+  <h1 class="center">
+    <%= @category.name + " Category"%>
+  </h1>
+</div>
+<div class = "panel panel-primary">
+   <div class = "panel-heading">
+      <h3 class = "panel-title"><%= "Organizations with the " + @category.name.upcase + " category"%></h3>
+   </div>
+   
+   <div class = "panel-body">
+      <div class="list-group col-md-6">
+        <%= render 'agencies/agency', obj: @category_agencies %>
+      </div>
+   </div>
+</div>
+
 <div class="center">
   <%#= will_paginate @category_articles %>
 </div>

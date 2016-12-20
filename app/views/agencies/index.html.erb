@@ -2,10 +2,9 @@
 <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
  <!-- Script is used to connect to Google API, This nees to be moved to a better location 
- since it has been copied in index and show view-->
+ since it has been copied in index and show view -JR -->
 <h1><%= (t'home_page.title') %></h1>
 <h2><%= (t'home_page.browse') %></h2>
-
 <div class="container">
   <div class="form-inline">
       <div class="form-group">
@@ -20,101 +19,149 @@
           <% end %>
       </div>
   </div>
-</div>
 
-<div class="container visible-block">
-  <%= link_to (t'new_page.h1'), new_agency_path, class: "btn btn-primary" %>
-</div>
-<h1 class="center">Listing all organizations</h1>
 
-<!-- Code here is used to build the map by google-maps-for-rails-->
-<div class="col-md-6 col-sm-3">
-<div class="map-responsive">
-<div style='width: 800px;'>
-  <div id="map" style='width: 800px; height: 400px;'>
-  </div>
-</div>
-</div>
-</div>
+    <div class="row row-centered">
+         <div class="col-md-3 col-centered">
+            <div class="panel">
+                <div class="panel-body">
+                    <%= form_for search_path, method: :get, :html => {:class => "form-horizontal center"} do |f| %>
+                        <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control search-input' %>
+                        <%= button_tag(type: "submit", class: "btn btn-info btn-lg center-block", :name => nil) do %>
+                            <span class="glyphicon glyphicon-search"></span>
+                        <%= (t'search_page.bttn_search') %> 
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
 
-<script type="text/javascript">
-handler = Gmaps.build('Google');
-handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+            <div class="panel">
+                <div class="panel-body">
+                    <%= link_to (t'new_page.h1'), new_agency_path, class: "btn btn-success btn-block" %>
+                </div>
+            </div>
 
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
-});
-</script></br>
+            <div class="panel">
+                <div class="panel-body">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><%= link_to 'All categories', categories_path %></li>
+                        <% @categories.each do |category| %>
+                        <li class="agency-title">
+                            <%= link_to "#{category.name}", category_path(category) %>
+                        </li>
+                        <% end %>
+                    </ul>
+                </div>
+            </div>
 
-<ul>
-    <% @agencies.each do |agency| %>
-    <div class="col-md-3 col-sm-6">
-        <div class="well well-sm well-agency">
-            <%= image_tag 'icon' %>
-              <p class="lead agency-name">
-                <strong>
-                  <%= link_to agency.name,
-                  controller: "agencies",
-                  action: "show",
-                  id: agency.id %>
-                </strong>
-              </p>
-
-            <address class="agency-address"><%=(t'show_page.address') %><br>
-                <p><%= agency.address %></p>
-                <!-- <hr> -->
-                <p><%=(t'show_page.state') %>
-                    <%= agency.state %></p>
-                <p><%=(t'show_page.zip') %>
-                    <%= agency.zipcode %></p>
-            </address>
-
-            <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
-                <span class="agency-phone">
-                    <i class="fa fa-phone fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link ">
-                <span class="agency-phone">
-                    <i class="fa fa-envelope fa-lg"></i>
-                </span>
-            </a>
-            <a href= "https://www.google.com/maps/dir/Current+Location/"  class="btn btn-default btn-sm btn-link" target="_blank"> 
-                <span class="agency-phone">
-                    <i class="fa fa-map-marker fa-lg"></i>
-                </span>
-            </a>
-
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-facebook">
-                    <i class="fa fa-facebook fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-twitter">
-                    <i class="fa fa-twitter fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-instagram">
-                    <i class="fa fa-instagram fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-youtube">
-                    <i class="fa fa-youtube fa-lg"></i>
-                </span>
-            </a>
+            <div class="panel">
+                <div class="panel-body">
+                    <%= link_to "Add category", new_category_path, class: "btn btn-success btn-block" %>
+                </div>
+            </div>
         </div>
-    </div>
-    <% end %>
-</ul>
 
-<div class="center">
-  <%#= will_paginate %>
-</div>
-<%# render 'agency', obj: @agencies %>
-<div class="center">
-  <%#= will_paginate %>
-</div>
+<div class="col-md-9">
+    <div class="panel">
+        <div class="panel-heading">
+            <h1 class="panel-title">Listing all organizations</h1>
+        </div>
+        <div class="panel-body">
+
+            <!-- Code here is used to build the map by google-maps-for-rails-->
+            <div class="col-md-12">
+                <div class="map-responsive">
+                    <div style='width: 800px;'>
+                        <div id="map" style='width: 800px; height: 400px;'></div>
+                    </div>
+                </div>
+            </div>
+
+    <script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+
+    handler.bounds.extendWith(markers);
+    handler.fitMapToBounds();
+    });
+    </script></br>
+
+    <ul class="col-md-12">
+        <% @agencies.each do |agency| %>
+        <div class="col-sm-6">
+            <div class="well well-sm well-agency">
+                <%= image_tag 'icon' %>
+                <p class="lead agency-name">
+                    <strong>
+                    <%= link_to agency.name,
+                    controller: "agencies",
+                    action: "show",
+                    id: agency.id %>
+                    </strong>
+                </p>
+
+                <address class="agency-address"><%=(t'show_page.address') %><br>
+                    <p><%= agency.address %></p>
+                    <!-- <hr> -->
+                    <p><%=(t'show_page.state') %>
+                        <%= agency.state %></p>
+                    <p><%=(t'show_page.zip') %>
+                        <%= agency.zipcode %></p>
+                </address>
+
+                <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
+                    <span class="agency-phone">
+                        <i class="fa fa-phone fa-lg"></i>
+                    </span>
+                </a>
+                <a href="#" class="btn btn-default btn-sm btn-link ">
+                    <span class="agency-phone">
+                        <i class="fa fa-envelope fa-lg"></i>
+                    </span>
+                </a>
+                <a href= "https://www.google.com/maps/dir/Current+Location/"  class="btn btn-default btn-sm btn-link" target="_blank"> 
+                    <span class="agency-phone">
+                        <i class="fa fa-map-marker fa-lg"></i>
+                    </span>
+                </a>
+
+                <a href="#" class="btn btn-default btn-sm btn-link">
+                    <span class="agency-facebook">
+                        <i class="fa fa-facebook fa-lg"></i>
+                    </span>
+                </a>
+                <a href="#" class="btn btn-default btn-sm btn-link">
+                    <span class="agency-twitter">
+                        <i class="fa fa-twitter fa-lg"></i>
+                    </span>
+                </a>
+                <a href="#" class="btn btn-default btn-sm btn-link">
+                    <span class="agency-instagram">
+                        <i class="fa fa-instagram fa-lg"></i>
+                    </span>
+                </a>
+                <a href="#" class="btn btn-default btn-sm btn-link">
+                    <span class="agency-youtube">
+                        <i class="fa fa-youtube fa-lg"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+        <% end %>
+    </ul>
+
+    <div class="center">
+    <%#= will_paginate %>
+    </div>
+    <%# render 'agency', obj: @agencies %>
+    <div class="center">
+    <%#= will_paginate %>
+    </div>
+
+    </div> <%#end panel-body%>
+    </div> <%#end panel%>
+    </div> <%# end col-md-8%>
+    </div> <%#end row col-row%>
+
+</div> <%#end container%>
