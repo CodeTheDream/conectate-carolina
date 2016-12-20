@@ -54,14 +54,14 @@
         </div>
         <div class="panel-body">
 
-    <!-- Code here is used to build the map by google-maps-for-rails-->
-    <div class="col-md-12">
-        <div class="map-responsive">
-            <div style='width: 800px;'>
-                <div id="map" style='width: 800px; height: 400px;'></div>
+            <!-- Code here is used to build the map by google-maps-for-rails-->
+            <div class="col-md-12">
+                <div class="map-responsive">
+                    <div style='width: 800px;'>
+                        <div id="map" style='width: 800px; height: 400px;'></div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
     <script type="text/javascript">
     handler = Gmaps.build('Google');
@@ -73,9 +73,9 @@
     });
     </script></br>
 
-    <ul class"col-md-12">
+    <ul class="col-md-12">
         <% @agencies.each do |agency| %>
-        <div class="col-md-3 col-sm-6">
+        <div class="col-sm-6">
             <div class="well well-sm well-agency">
                 <%= image_tag 'icon' %>
                 <p class="lead agency-name">

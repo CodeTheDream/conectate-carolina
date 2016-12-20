@@ -1,2 +1,18 @@
-<%= render 'form' %>
-<%= link_to (t'buttons_t.back'), categories_path %>
+<h2 class="center"><%= (t'category.edit_cat')%></h2>
+<div class="container">
+  <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="row row-centered">
+      <div class="col-centered">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+              <h3 class="panel-title"><%= "Add your new category" %></h3>
+          </div>
+          <div class="panel-body">
+            <%= render 'form' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

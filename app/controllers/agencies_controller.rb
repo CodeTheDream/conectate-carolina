@@ -56,7 +56,8 @@ class AgenciesController < ApplicationController
 	end
 
 	def destroy
-		Agency.find(params[:id]).destroy
+		@agency = Agency.find(params[:id])
+		@agency.destroy
 		flash[:notice] = t 'flash_notice.delete'
 		redirect_to new_agency_url
 	end

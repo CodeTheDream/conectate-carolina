@@ -1,46 +1,33 @@
-<div class="container">
-  <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-    <div class="panel panel-info">
-      <div class="panel-heading">
-          <div class="panel-title"><%= t'category.new_cat' %></div>
-          <div style="float:right; font-size: 85%; position: relative; top:-10px"></div>
-      </div> 
-      <div class="panel-body">
-
-      <%= form_for @category, :html => { :class => "form-horizontal" } do |f| %>
-        <% if not @category.nil? and @category.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
-            <ul>
-              <% @category.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
+<%= form_for @category, :html => { :class => "form-horizontal" } do |f| %>
+  <% if not @category.nil? and @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <ul>
+        <% @category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
         <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-        <div class="form-group required">
-          <%= f.label(:name, "Category name: ", class: 'control-label col-md-4') %>
-          <div class="controls col-md-8">
-            <%= f.text_field :name, class: 'input-md  textinput textInput form-control' %>
-          </div>
-        </div>
-        <div class="form-group required">
-          <%= f.label(:categoria, "Nombre de la categoria: ", class: 'control-label col-md-4') %>
-          <div class="controls col-md-8">
-            <%= f.text_field :categoria, class: 'input-md  textinput textInput form-control' %>
-          </div>
-        </div>
+  <div class="form-group required">
+    <%= f.label(:name, "Category name: ", class: 'control-label col-md-4') %>
+    <div class="controls col-md-8">
+      <%= f.text_field :name, class: 'input-md  textinput textInput form-control' %>
+    </div>
+  </div>
+  <div class="form-group required">
+    <%= f.label(:categoria, "Nombre de la categoria: ", class: 'control-label col-md-4') %>
+    <div class="controls col-md-8">
+      <%= f.text_field :categoria, class: 'input-md  textinput textInput form-control' %>
+    </div>
+  </div>
 
-        <div class="form-group">
-          <div class="controls col-md-8">
-            <%= button_tag type: 'submit', class: "btn btn-primary btn-info" do %>
-            <i class="fa fa-archive"></i> SAVE
-            <% end %>
-          </div>
-        </div>
-      <% end %> <%# end of form_for %>
-      </div>
-    </div> <%# end of panelbody div%>
-  </div> <%# end of titlebox %>
-</div>
+  <div class="form-group">
+    <div class="controls col-md-8">
+      <%= button_tag type: 'submit', class: "btn btn-primary btn-info" do %>
+      <i class="fa fa-archive"></i> SAVE
+      <% end %>
+    </div>
+  </div>
+<% end %> <%# end of form_for %>
