@@ -90,19 +90,17 @@
                     </div>
                 </div>
                 <div class = "panel-footer">
-                    <div class="btn-group btn-group-sm">
-                    <tr>
-                        <td>
+                    <div class="btn-group btn-group-justified">
+                        <div class="btn-group" role="group">
                             <%= link_to agencies_path, class: 'btn btn-primary' do %>
-                            <i class="fa fa-university" aria-hidden="true"></i> Show all organizations
+                            <i class="fa fa-university" aria-hidden="true"></i> Show all
                             <% end %>
-                        </td>
-                        <td><%= link_to edit_agency_path(@agency), class: 'btn btn-info' do %><i class="fa fa-pencil-square-o"></i> Edit<% end %></td>
-                        <td><%= link_to agency_path(@agency), method: :delete, class: 'btn btn-danger' , data: { confirm: 'Are you sure?'} do %>
+                        </div>
+                        <div class="btn-group" role="group"><%= link_to edit_agency_path(@agency), class: 'btn btn-info' do %><i class="fa fa-pencil-square-o"></i> Edit<% end %></div>
+                        <div class="btn-group" role="group"><%= link_to agency_path(@agency), method: :delete, class: 'btn btn-danger' , data: { confirm: 'Are you sure?'} do %>
                             <i class="fa fa-trash-o"></i> Delete
                             <% end %>
-                        </td>
-                    </tr>
+                        </div>
                     </div>
                 </div>
             </div>

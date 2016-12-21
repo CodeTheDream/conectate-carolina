@@ -25,12 +25,15 @@
          <div class="col-md-3 col-centered">
             <div class="panel">
                 <div class="panel-body">
-                    <%= form_for search_path, method: :get, :html => {:class => "form-horizontal center"} do |f| %>
-                        <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control search-input' %>
-                        <%= button_tag(type: "submit", class: "btn btn-info btn-lg center-block", :name => nil) do %>
-                            <span class="glyphicon glyphicon-search"></span>
-                        <%= (t'search_page.bttn_search') %> 
-                        <% end %>
+                    <%= form_for search_path, method: :get, :html => {:class => "search-form"}, data: { behaviors: 'turboform' } do %>
+                        <div class="input-group">
+                            <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control search-input', autofocus: params[:search].present? %>
+                            <div class="input-group-btn">
+                                <%= button_tag(type: "submit", class: "btn btn-default", :name => nil) do %>
+                                <span class="glyphicon glyphicon-search"></span> <%= (t'search_page.bttn_search') %>
+                                <% end %>
+                            </div>
+                        </div>
                     <% end %>
                 </div>
             </div>
