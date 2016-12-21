@@ -11,6 +11,6 @@
     </ul>
   </div>
   <% end %>
-  <%= select_tag :category, options_for_select(Category.all.map{ |c| [c.name, c.id]}) %>
+  <%= f.text_field :socialmedia, placeholder: "URL here" %>
   <%= f.submit (t'buttons_t.save'),class: 'btn btn-primary' %>
 <% end %>

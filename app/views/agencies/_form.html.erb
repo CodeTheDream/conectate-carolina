@@ -68,4 +68,18 @@
     <div class="controls col-md-12">
       <%= f.button "Save", class: "btn btn-primary btn-info", data: {disable_with: "<i class='fa fa-spinner fa-pulse fa-lg fa-fw'></i> Saving..."} %>
     </div>
+  
+    <!-- This is the code that adds the ability to add a website to the social media. It doesnt render idk why. form still works. it just doesnt show this field. I had it above description field. I put it here so maybe you can fit it in. -->
+    <div class="form-group">
+      <%= f.fields_for :websites do |builder| %>
+      <%= builder.label(:socialmedia, "URl here ", class: 'control-label col-md-4') %>
+      <div class="controls col-md-8">
+      <%= builder.text_field(:socialmedia, class: 'input-md  textinput textInput form-control') %>
+      </div>
+      <% end %>
+    </div>
 <% end %> <%# end of form_for %>
+
+
+
+
