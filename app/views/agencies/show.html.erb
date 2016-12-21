@@ -16,11 +16,6 @@
     <div class="well well-sm well-agency">
         <%= image_tag 'icon' %>
 
-        <!-- <a href="<%= @agency %>" class="lead agency-name">
-          <p>
-            <%= @agency.name %>
-          </p>
-        </a> -->
         <p class="lead agency-name">
           <strong>
             <%= link_to @agency.name, @agency, class: "" %>
@@ -28,10 +23,8 @@
         </p>
 
         <address class="agency-address"><%=(t'show_page.address') %><br>
-          <p><%= @agency.address %></p>
+          <p><%= @agency.full_address %></p>
           <!-- <hr> -->
-          <p><%= (t'show_page.state') %> <%= @agency.state %></p>
-          <p><%= (t'show_page.zip')%> <%= @agency.zipcode %></p>
           <p><%= 'Contact : ' %> <%= @agency.contact %></p>
           <p><%= 'Phone number : ' %> <%= @agency.phone %></p>
           <p><%= 'Description : ' %> <%= @agency.description %></p>

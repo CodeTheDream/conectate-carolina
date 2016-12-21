@@ -1,7 +1,6 @@
 class AgenciesController < ApplicationController
 
 	def index
-		@agencies = Agency.all
 		if params[:search]
 			@agencies = Agency.search(params[:search])
 		else
@@ -66,6 +65,6 @@ class AgenciesController < ApplicationController
 
 private
 	def agency_params
-		params.require(:agency).permit(:name, :address, :city, :state, :zipcode, category_ids: [])
+		params.require(:agency).permit(:name, :address, :city, :state, :zipcode, :socialmedia, category_ids: [])
 	end
 end

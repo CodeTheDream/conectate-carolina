@@ -18,6 +18,11 @@ class WebsitesController < ApplicationController
     @website_agencies = @website.agencies.all
   end
 
+  def edit
+    @website = Website.find(params[:id])
+
+  end
+
   def destroy
   end
 
@@ -25,6 +30,5 @@ class WebsitesController < ApplicationController
   	def website_params
   		params.require(:website).permit(:socialmedia)
   	end
-  	
   end
 end
