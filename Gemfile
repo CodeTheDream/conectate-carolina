@@ -45,6 +45,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'rspec-rails'
+  gem 'simplecov'
   gem 'rubocop'
   gem 'sqlite3'
 end
