@@ -1,4 +1,5 @@
 class AgenciesController < ApplicationController
+	before_action :authenticate_user!, except: [:show, :index]
 
 	def index
 		@agencies = Agency.all
@@ -10,8 +11,8 @@ class AgenciesController < ApplicationController
 		end
 		#Code hash send info of all agencies to the view to get converted to JSON
 		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
-  	marker.lat agency.latitude
-  	marker.lng agency.longitude
+	  	marker.lat agency.latitude
+	  	marker.lng agency.longitude
 		end
 
 		@categories = Category.all
@@ -31,7 +32,7 @@ class AgenciesController < ApplicationController
 		@agency = Agency.new
 	end
 
-	def create 
+	def create
 		@agency = Agency.new(agency_params)
 		if @agency.save
 			flash[:notice] = (t'flash_notice.success')
