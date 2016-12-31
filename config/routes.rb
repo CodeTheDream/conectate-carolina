@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'websites/new'
 
 	scope ":locale", locale:  /en|es/ do
 		root to: 'agencies#index'
@@ -7,7 +6,8 @@ Rails.application.routes.draw do
 	  resources :agencies
 	  get 'search', to: 'search#search'
     resources :categories, except: [:destroy]
-    resources :websites
+    resources :websites, only: [:create, :destroy]
+    get 'websites/new'
 	end
 #get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
 get '', to: redirect("/#{I18n.default_locale}/")

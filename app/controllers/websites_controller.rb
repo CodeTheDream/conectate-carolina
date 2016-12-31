@@ -2,6 +2,7 @@ class WebsitesController < ApplicationController
   
   def new
   	@website = Website.new
+    @website = agencies.new
   end
 
   def create
@@ -11,6 +12,7 @@ class WebsitesController < ApplicationController
   		redirect_to @agency
   	else
   		render 'new'
+    end
   end
   
   def show
@@ -24,11 +26,15 @@ class WebsitesController < ApplicationController
   end
 
   def destroy
+    @website = Website.find(params[:id])
+    @website.destroy
+    flash[:notice] = t 'flash_notice.delete'
+    redirect_to new_category_url
   end
 
   private
+  # We will need to add the facebook, twitter, and insta as params once we have full implementation of this.
   	def website_params
   		params.require(:website).permit(:socialmedia)
   	end
-  end
 end

@@ -26,11 +26,14 @@ en:
   activerecord:
     attributes:
       agency:
-        name: Name
-        address: Address
-        city: City
-        state: State
-        zipcode: Zip code
+        name: "Name:"
+        address: "Address:"
+        city: "City:"
+        state: "State:"
+        zipcode: "Zip Code:"
+        contact: "Contact:"
+        phone: "Phone Number:"
+        description: "Description:"
       category:
         categories: Categories
   nav_links:
@@ -43,11 +46,14 @@ en:
   category:
     categories: Categories
     all_cat: All Categories
-    new_cat: Create New Category
+    new_cat: Create new category
     edit_cat: Edit Category
+    cat_view: Organizations with the 
+    cat_view1: category
   home_page:
     title: Student Action with Farm Workers
     browse: Browse through a list of organizations here
+    listing: Listing all organizations
   flash_notice:
     success: Organization Succesfully created!
     delete: Organization Succesfully deleted!
@@ -65,15 +71,20 @@ en:
   new_page:
     h1: New Organization
     submit: Create Organization
+    fill_fields: "Fill the following fields" 
   edit_page:
    h1: Edit Organization
    submit: Save changes
   show_page:
     address: "Organization Address:"
     state: "State:"
+    city: "City:"
     zip: "Zip code:"
+    contact: "Contact:"
+    phone: "Phone:"
+    description: "Description:"
   buttons_t:
-    back: <-- Back
+    back: Back
     edit: Edit
     delete: Delete
     save: Save

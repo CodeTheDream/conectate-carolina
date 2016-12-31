@@ -28,11 +28,11 @@
                             <address class="agency-address"><%=(t'show_page.address') %><br>
                             <p><%= @agency.full_address %></p>
                             <!-- <hr> -->
-                            <p><%= 'Contact : ' %> <%= @agency.contact %></p>
-                            <p><%= 'Phone number : ' %> <%= @agency.phone %></p>
-                            <p><%= 'Description : ' %> <%= @agency.description %></p>
-                            <p><%= 'Latitude : ' %> <%= @agency.latitude %></p>
-                            <p><%= 'Longitude : ' %> <%= @agency.longitude %></p>
+                            <p><%= (Agency.human_attribute_name("contact")) %> <%= @agency.contact %></p>
+                            <p><%= Agency.human_attribute_name("phone") %> <%= @agency.phone %></p>
+                            <p><%= Agency.human_attribute_name("description")%> <%= @agency.description %></p>
+                            <p><%# 'Latitude : ' %> <%# @agency.latitude %></p>
+                            <p><%# 'Longitude : ' %> <%# @agency.longitude %></p>
                             </address>
                             
                             <% if @agency.categories.any? %>
@@ -40,7 +40,7 @@
                             <p><%= (t'category.categories') %><%= render @agency.categories %></p> 
                             <% end %>
 
-                            <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
+                            <a href="#" class="btn btn-default btn-sm btn-link">
                                 <span class="agency-phone">
                                     <i class="fa fa-phone fa-lg"></i>
                                 </span>
@@ -70,7 +70,7 @@
                                 <span class="agency-instagram">
                                     <i class="fa fa-instagram fa-lg"></i>
                                 </span>
-                            </a>
+            f                </a>
                             <a href="#" class="btn btn-default btn-sm btn-link">
                                 <span class="agency-youtube">
                                     <i class="fa fa-youtube fa-lg"></i>
@@ -93,12 +93,13 @@
                     <div class="btn-group btn-group-justified">
                         <div class="btn-group" role="group">
                             <%= link_to agencies_path, class: 'btn btn-primary' do %>
-                            <i class="fa fa-university" aria-hidden="true"></i> Show all
+                            <i class="fa fa-university" aria-hidden="true"></i> 
+                            <%= (t'buttons_t.all_org')%> 
                             <% end %>
                         </div>
-                        <div class="btn-group" role="group"><%= link_to edit_agency_path(@agency), class: 'btn btn-info' do %><i class="fa fa-pencil-square-o"></i> Edit<% end %></div>
+                        <div class="btn-group" role="group"><%= link_to edit_agency_path(@agency), class: 'btn btn-info' do %><i class="fa fa-pencil-square-o"></i><%= (t'buttons_t.edit') %> <% end %></div>
                         <div class="btn-group" role="group"><%= link_to agency_path(@agency), method: :delete, class: 'btn btn-danger' , data: { confirm: 'Are you sure?'} do %>
-                            <i class="fa fa-trash-o"></i> Delete
+                            <i class="fa fa-trash-o"></i><%= (t'buttons_t.delete')%>
                             <% end %>
                         </div>
                     </div>
@@ -121,6 +122,6 @@ handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
 
 <div>
 <%= link_to agencies_path, :class => "btn btn-info btn-md" do %>
-  <span class="glyphicon glyphicon-chevron-left"></span>Back</br>
+  <span class="glyphicon glyphicon-chevron-left"></span><%= (t'buttons_t.back')%></br>
 <% end %>
 </div>

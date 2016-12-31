@@ -5,11 +5,14 @@ es:
   activerecord:
     attributes:
       agency:
-        name: Nombre
-        address: Direccion
-        city: Ciudad
-        state: Estado
-        zipcode: Codigo postal
+        name: "Nombre:"
+        address: "Direccion:"
+        city: "Ciudad:"
+        state: "Estado:"
+        zipcode: "Codigo Postal"
+        contact: "Contacto:"
+        phone: "Numero de telefono:"
+        description: "Descripción:"
       category:
         categories: Categorias
   nav_links:
@@ -24,9 +27,12 @@ es:
     all_cat: Lista de Categorias
     new_cat: Crear nueva categoría
     edit_cat: Actualizar Categoría
+    cat_view: Organizaciones con  
+    cat_view1: categoria
   home_page:
     title: Accion estudiantil con campesinos.
     browse: Navega a traves de una lista de organizaciones aqui
+    listing: Demonstrando todas las organizaciones
   flash_notice: 
     success: Organización creada!
     delete: Organización eliminada!
@@ -44,15 +50,20 @@ es:
   new_page:
     h1: Nueva Organización
     submit: Crear Organización
+    fill_fields: "Llena las siguientes columnas"
   edit_page:
    h1: Actualizar Organización
    submit: Guardar cambios
   show_page:
     address: "Direccion:"
     state: "Estado:"
+    city: "Ciudad:"
     zip: "Codigo postal:"
+    contact: "Contacto:"
+    phone: "Numero De telefono:"
+    description: "Descripcion:"
   buttons_t:
-    back: <-- Atras
+    back: Atras
     edit: Actualizar
     delete: Eliminar
     save: Guardar

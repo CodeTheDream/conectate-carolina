@@ -1,7 +1,11 @@
 class SearchController < ApplicationController
   
  	def search
-		@agencies = Agency.search(params)
+ 		if params[:location].present?
+ 			@gencies = Agency.near(params[:location])
+ 		else
+ 			@agencies = Agency.all
+ 		end
 		#Code hash send info of all agencies to the view to get converted to JSON
 		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
   	marker.lat agency.latitude

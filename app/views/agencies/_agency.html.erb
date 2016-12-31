@@ -15,8 +15,6 @@
             <p><%= 'Contact: ' %> <%= agency.contact %></p>
             <p><%= 'Phone number: ' %> <%= agency.phone %></p>
             <p><%= 'Description: ' %> <%= agency.description %></p>
-            <p><%= 'Latitude: ' %> <%= agency.latitude %></p>
-            <p><%= 'Longitude: ' %> <%= agency.longitude %></p>
             </address>
             
             <% if agency.categories.any? %>
@@ -24,7 +22,7 @@
             <p><%= (t'category.categories') %><%= render agency.categories %></p> 
             <% end %>
 
-            <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
+            <a href="#" class="btn btn-default btn-sm btn-link">
                 <span class="agency-phone">
                     <i class="fa fa-phone fa-lg"></i>
                 </span>

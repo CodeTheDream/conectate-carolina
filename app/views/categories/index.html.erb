@@ -1,4 +1,4 @@
-<h1 class="center">Listing All Categories</h1>
+<h1 class="center"><%= (t'category.all_cat')%></h1>
 
 <div class="container">  
   <!-- uncomment when pagination gem is added -->
@@ -15,7 +15,7 @@
       </ul>
       <div class="btn-group btn-group-sm">
       <tr>
-          <td><%= link_to edit_category_path(category), class: 'btn btn-info' do %><i class="fa fa-pencil-square-o"></i> Edit<% end %></td>
+          <td><%= link_to edit_category_path(category), class: 'btn btn-info' do %><i class="fa fa-pencil-square-o"></i><%= (t'buttons_t.edit')%><% end %></td>
       </tr>
       </div>
       </div>

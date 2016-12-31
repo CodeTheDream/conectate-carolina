@@ -5,22 +5,8 @@
  since it has been copied in index and show view -JR -->
 <h1><%= (t'home_page.title') %></h1>
 <h2><%= (t'home_page.browse') %></h2>
-<div class="container">
-  <div class="form-inline">
-      <div class="form-group">
-          <%= form_tag search_path, method: :get, :html => {:class => "form-inline center"} do |f| %>
-          <%= text_field_tag :search, nil, placeholder: (t'search_page.plchldr_search'), :class => 'form-inline search-input' %>
-          <%= text_field_tag :location, nil, placeholder: "Search again", :class => 'form-inline search-input' %>
-          <%= select_tag :category, options_for_select(Category.all.map{ |c| [c.name, c.id]}) %>
-          <%= button_tag(type: "submit", class: "btn btn-info btn-md left-block", :name => nil) do %>
-          <span class="glyphicon glyphicon-search"></span>
-          <%= (t'search_page.bttn_search') %> 
-          <% end %>
-          <% end %>
-      </div>
-  </div>
 
-
+</br>
     <div class="row row-centered">
          <div class="col-md-3 col-centered">
             <div class="panel">
@@ -28,6 +14,7 @@
                     <%= form_for search_path, method: :get, :html => {:class => "search-form"}, data: { behaviors: 'turboform' } do %>
                         <div class="input-group">
                             <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control search-input', autofocus: params[:search].present? %>
+                            <%# text_field_tag :location, params[:location], placeholder: ('Search by location'), :class => 'form-control search-input', autofocus: params[:location].present? %>
                             <div class="input-group-btn">
                                 <%= button_tag(type: "submit", class: "btn btn-default", :name => nil) do %>
                                 <span class="glyphicon glyphicon-search"></span> <%= (t'search_page.bttn_search') %>
@@ -47,7 +34,7 @@
             <div class="panel">
                 <div class="panel-body">
                     <ul class="nav nav-pills nav-stacked">
-                        <li class="active"><%= link_to 'All categories', categories_path %></li>
+                        <li class="active"><%= link_to (t'category.all_cat'), categories_path %></li>
                         <% @categories.each do |category| %>
                         <li class="agency-title">
                             <%= link_to "#{category.name}", category_path(category) %>
@@ -59,7 +46,7 @@
 
             <div class="panel">
                 <div class="panel-body">
-                    <%= link_to "Add category", new_category_path, class: "btn btn-success btn-block" %>
+                    <%= link_to (t'category.new_cat'), new_category_path, class: "btn btn-success btn-block" %>
                 </div>
             </div>
         </div>
@@ -67,7 +54,7 @@
 <div class="col-md-9">
     <div class="panel">
         <div class="panel-heading">
-            <h1 class="panel-title">Listing all organizations</h1>
+            <h1 class="panel-title"><%= t('home_page.listing')%></h1>
         </div>
         <div class="panel-body">
 
@@ -109,11 +96,15 @@
                     <!-- <hr> -->
                     <p><%=(t'show_page.state') %>
                         <%= agency.state %></p>
+                    <p><%= (t'show_page.city')%> 
+                        <%= agency.city %></p>
                     <p><%=(t'show_page.zip') %>
                         <%= agency.zipcode %></p>
+                    <p><%= (t'show_page.contact') %>
+                        <%= agency.contact %></p>
                 </address>
 
-                <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
+                <a href="#" class="btn btn-default btn-sm btn-link">
                     <span class="agency-phone">
                         <i class="fa fa-phone fa-lg"></i>
                     </span>

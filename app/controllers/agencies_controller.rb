@@ -1,8 +1,6 @@
 class AgenciesController < ApplicationController
 
 	def index
-		@agencies = Agency.all
-
 		if params[:search]
 			@agencies = Agency.search(params[:search])
 		else
@@ -13,7 +11,6 @@ class AgenciesController < ApplicationController
   	marker.lat agency.latitude
   	marker.lng agency.longitude
 		end
-
 		@categories = Category.all
 	end
 
@@ -78,7 +75,8 @@ class AgenciesController < ApplicationController
 
 
 	private
+	#probably dont need the socialmedia and categoria here. left just in case.
 	def agency_params
-		params.require(:agency).permit(:name, :address, :city, :state, :zipcode, :socialmedia, category_ids: [])
+		params.require(:agency).permit(:name, :address, :city, :state, :zipcode, :contact, :phone, :description, :categoria, category_ids: [], websites_attributes: [:id, :socialmedia, :destroy])
 	end
 end

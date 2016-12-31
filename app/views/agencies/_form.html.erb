@@ -11,49 +11,57 @@
   <% end %>
 
   <div class="form-group required">
-    <%= f.label(:name, "Name: ", class: 'control-label col-md-4') %>
+    <%= f.label( Agency.human_attribute_name("name"), class: 'control-label col-md-4') %>
     <div class="controls col-md-8">
       <%= f.text_field :name, class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <div class="form-group required">
-    <%= f.label(:address, "Address: ", class: 'control-label col-md-4') %>
+    <%= f.label( Agency.human_attribute_name("address"), class: 'control-label col-md-4') %>
     <div class="controls col-md-8">
       <%= f.text_field :address, class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <div class="form-group required">
-    <%= f.label(:city, "City: ", class: 'control-label col-md-4') %>
+    <%= f.label( Agency.human_attribute_name("city"), class: 'control-label col-md-4') %>
     <div class="controls col-md-8">
       <%= f.text_field :city, class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <div class="form-group required">
-    <%= f.label(:state, "State: ", class: 'control-label col-md-4') %>
+    <%= f.label(Agency.human_attribute_name("state"), class: 'control-label col-md-4') %>
     <div class="controls col-md-8">
       <%= f.text_field :state, class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <div class="form-group required">
-    <%= f.label(:zipcode, "Zip: ", class: 'control-label col-md-4') %>
+    <%= f.label(Agency.human_attribute_name("zipcode"), class: 'control-label col-md-4') %>
     <div class="controls col-md-8">
       <%= f.text_field :zipcode, class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <div class="form-group required">
-    <%= f.label(:contact, "Person of contact: ", class: 'control-label col-md-4') %>
+    <%= f.label(Agency.human_attribute_name("contact"), class: 'control-label col-md-4') %>
     <div class="controls col-md-8">
       <%= f.text_field :contact, class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <div class="form-group required">
-    <%= f.label(:phone, "Telephone: ", class: 'control-label col-md-4') %>
+    <%= f.label(Agency.human_attribute_name("phone"), class: 'control-label col-md-4') %>
     <div class="controls col-md-8">
       <%= f.telephone_field :phone, class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
+  <div class="form-group required">
+    <%= f.fields_for :websites do |p| %>
+      <%= p.label(:socialmedia, "URL : ", class: 'control-label col-md-4') %>
+      <div class="controls col-md-8">
+        <%= p.text_field :socialmedia, class: 'input-md  textinput textInput form-control' %>
+      </div>
+    <% end %>
+  </div>
   <div class="form-group">
-    <%= f.label(:description, "Description: ", class: 'control-label col-md-4') %>
+    <%= f.label(Agency.human_attribute_name("description"), class: 'control-label col-md-4') %>
     <div class="controls col-md-8">
       <%= f.text_area(:description, class: 'input-md  textinput textInput form-control') %>
     </div>
@@ -64,20 +72,22 @@
       <%= cb.label(class: 'checkbox input_checkbox btn btn-default') {cb.check_box(class: 'checkbox') + cb.text}  %>
     <% end %>
   </div>
+</br>
 
-    <div class="controls col-md-12">
-      <%= f.button "Save", class: "btn btn-primary btn-info", data: {disable_with: "<i class='fa fa-spinner fa-pulse fa-lg fa-fw'></i> Saving..."} %>
+    <div class="panel-inline-body">
+      <%= link_to (t'buttons_t.back'), agencies_path, class: 'btn btn-primary' %>
+      <%= f.button (t'buttons_t.save'), class: "btn btn-primary btn-info", data: {disable_with: "<i class='fa fa-spinner fa-pulse fa-lg fa-fw'></i> Saving..."} %></br>
     </div>
   
     <!-- This is the code that adds the ability to add a website to the social media. It doesnt render idk why. form still works. it just doesnt show this field. I had it above description field. I put it here so maybe you can fit it in. -->
-    <div class="form-group">
-      <%= f.fields_for :websites do |builder| %>
-      <%= builder.label(:socialmedia, "URl here ", class: 'control-label col-md-4') %>
-      <div class="controls col-md-8">
-      <%= builder.text_field(:socialmedia, class: 'input-md  textinput textInput form-control') %>
-      </div>
-      <% end %>
+  <!-- <div class="form-group">
+    <%# f.fields_for :websites do |p| %>
+    <%# p.label(:socialmedia, "URl here ", class: 'control-label col-md-4') %>
+    <div class="controls col-md-8">
+      <%# p.text_field(:socialmedia, class: 'input-md  textinput textInput form-control') %>
     </div>
+    <%# end %>
+  </div> -->
 <% end %> <%# end of form_for %>
 
 
