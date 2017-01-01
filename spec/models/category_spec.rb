@@ -3,8 +3,6 @@ require 'rails_helper'
 RSpec.describe Category, type: :model do
   
   scenario "validates category model attributes" do
-    category = create( name: )
-  
     expect(category).to be_valid
   end
 end

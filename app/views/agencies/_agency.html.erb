@@ -12,9 +12,9 @@
             <address class="agency-address"><%=(t'show_page.address') %><br>
             <p><%= agency.full_address %></p>
             <!-- <hr> -->
-            <p><%= 'Contact: ' %> <%= agency.contact %></p>
-            <p><%= 'Phone number: ' %> <%= agency.phone %></p>
-            <p><%= 'Description: ' %> <%= agency.description %></p>
+            <p><%= Agency.human_attribute_name("contact") %> <%= agency.contact %></p>
+            <p><%= Agency.human_attribute_name("phone") %> <%= agency.phone %></p>
+            <p><%= Agency.human_attribute_name("description") %> <%= agency.description %></p>
             </address>
             
             <% if agency.categories.any? %>
