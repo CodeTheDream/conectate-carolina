@@ -1,11 +1,13 @@
 class CategoriesController < ApplicationController
   def new
     @category = Category.new
+    authorize @category
   end
 
   def index
     @categories = Category.all
     # @categories = Category.paginate(page: params[:page], per_page: 5)
+    authorize @categories
   end
 
   def show
@@ -13,7 +15,7 @@ class CategoriesController < ApplicationController
     @category_agencies = @category.agencies.all #replace with paginate
     #@category_agencies = @category.agencies.paginate(page: params[:page], per_page: 5)
   end
-  
+
   def create
     @category = Category.new(category_params)
     if @category.save
@@ -23,11 +25,11 @@ class CategoriesController < ApplicationController
       render 'new'
     end
   end
-  
+
   def edit
 		@category = Category.find(params[:id])
   end
-  
+
   def update
 		@category = Category.find(params[:id])
 		if @category.update_attributes(category_params)
@@ -44,7 +46,7 @@ class CategoriesController < ApplicationController
 		flash[:notice] = t 'flash_notice.delete'
 		redirect_to new_category_url
   end
-  
+
   private
   def category_params
     params.require(:category).permit(:name, :categoria)

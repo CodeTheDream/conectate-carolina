@@ -14,17 +14,20 @@
       <% end %>
     </div>
   </div>
-
+  <% if policy(Agency).new? %>
   <div class="panel">
     <div class="panel-body">
       <%= link_to (t'new_page.h1'), new_agency_path, class: "btn btn-success btn-block" %>
     </div>
   </div>
+  <% end %>
 
   <div class="panel">
     <div class="panel-body">
       <ul class="nav nav-pills nav-stacked">
-        <li class="active"><%= link_to (t'category.all_cat'), categories_path %></li>
+        <li class="active">
+          <%= link_to (t'category.all_cat'), categories_path %>
+        </li>
         <% @categories.each do |category| %>
           <li class="agency-title">
             <%= link_to "#{category.name}", category_path(category) %>
@@ -33,10 +36,11 @@
       </ul>
     </div>
   </div>
-
+  <% if policy(Category).new? %>
   <div class="panel">
     <div class="panel-body">
       <%= link_to (t'category.new_cat'), new_category_path, class: "btn btn-success btn-block" %>
     </div>
   </div>
+  <% end %>
 </div><!-- end col-md-3 sidebar-->

@@ -13,6 +13,9 @@ class AgenciesController < ApplicationController
 	  	marker.lng agency.longitude
 		end
 		@categories = Category.all
+		#Pundit methods
+		authorize @agencies
+		authorize @categories
 	end
 
 	def show
@@ -27,6 +30,7 @@ class AgenciesController < ApplicationController
 
 	def new
 		@agency = Agency.new
+		authorize @agency
 	end
 
 	def create
@@ -37,6 +41,7 @@ class AgenciesController < ApplicationController
 		else
 			render 'new'
 		end
+		authorize @agency
 	end
 
 	def show
@@ -47,6 +52,7 @@ class AgenciesController < ApplicationController
   	marker.lng agency.longitude
 		marker.infowindow agency.name
 		end
+		authorize @agency
 	end
 
 	def search
@@ -55,6 +61,7 @@ class AgenciesController < ApplicationController
 
 	def edit
 		@agency = Agency.find(params[:id])
+		authorize @agency
 	end
 
 	def update
@@ -65,6 +72,7 @@ class AgenciesController < ApplicationController
 		else
 			render  'edit'
 		end
+		authorize @agency
 	end
 
 	def destroy
@@ -72,6 +80,7 @@ class AgenciesController < ApplicationController
 		@agency.destroy
 		flash[:notice] = t 'flash_notice.delete'
 		redirect_to new_agency_url
+		authorize @agency
 	end
 
 

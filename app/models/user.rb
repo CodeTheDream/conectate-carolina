@@ -1,4 +1,8 @@
 class User < ApplicationRecord
+  # you can also define enum as: enum role: [:user => 0, :vip => 2, etc.]
+  # user.admin! # sets the role to "admin"
+  # user.admin? # => true
+  # user.role  # => "admin"
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
