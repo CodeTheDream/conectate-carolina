@@ -2,11 +2,12 @@ class AgenciesController < ApplicationController
 	before_action :authenticate_user!, except: [:show, :index]
 
 	def index
-		if params[:search]
-			@agencies = Agency.search(params[:search])
-		else
-			@agencies = Agency.all
-		end
+		@agencies = Agency.search(params)
+		# if params[:search].present?
+ 	# 		@agency = Agency.near(params[:search], 10, :order => :distance)
+ 	# 	else
+ 	# 		@agencies = Agency.all
+ 	# 	end
 		#Code hash send info of all agencies to the view to get converted to JSON
 		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
 	  	marker.lat agency.latitude

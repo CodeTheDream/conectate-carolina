@@ -3,7 +3,12 @@
     <div class="panel-body">
       <%= form_tag agencies_path, method: :get, class: 'search-form', id: 'agency-lookup-form', data: { behaviors: 'turboform' } do %>
       <div class="input-group">
+        
         <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control search-input', autofocus: params[:search].present? %>
+        
+        <%= text_field_tag :location, params[:location], placeholder: "search by location", :class => 'form-control search-input', autofocus: params[:location].present? %>
+
+        <%# select_tag :category, options_from_collection_for_select(Category.all, :id, :name), class: "form-control input-lg"%>
         <div class="input-group-btn">
           <%= button_tag(type: "submit", class: "btn btn-default", :name => nil) do %>
           <span class="glyphicon glyphicon-search"></span>
