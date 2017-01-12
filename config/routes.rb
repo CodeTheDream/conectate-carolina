@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 
 	scope ":locale", locale:  /en|es/ do
+		devise_for :users
 		root to: 'agencies#index'
-	  devise_for :users
 	  resources :agencies
+		resources :users
 	  get 'search', to: 'search#search'
     resources :categories, except: [:destroy]
     resources :websites, only: [:create, :destroy]

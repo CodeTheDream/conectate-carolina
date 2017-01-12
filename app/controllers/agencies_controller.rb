@@ -3,35 +3,25 @@ class AgenciesController < ApplicationController
 
 	def index
 		@agencies = Agency.search(params)
-		# if params[:search].present?
- 	# 		@agency = Agency.near(params[:search], 10, :order => :distance)
- 	# 	else
- 	# 		@agencies = Agency.all
- 	# 	end
+		authorize @agencies
 		#Code hash send info of all agencies to the view to get converted to JSON
 		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
 	  	marker.lat agency.latitude
 	  	marker.lng agency.longitude
 		end
 		@categories = Category.all
-	end
-
-	def show
-		@agency = Agency.find(params[:id])
-		#single agency info
-		@hash = Gmaps4rails.build_markers(@agency) do |agency, marker|
-  	marker.lat agency.latitude
-		marker.lng agency.longitude
-		marker.infowindow agency.name
-		end
+		#Pundit methods
+		authorize @categories
 	end
 
 	def new
 		@agency = Agency.new
+		authorize @agency
 	end
 
 	def create
 		@agency = Agency.new(agency_params)
+		authorize @agency
 		if @agency.save
 			flash[:notice] = (t'flash_notice.success')
 			redirect_to @agency
@@ -48,6 +38,7 @@ class AgenciesController < ApplicationController
   	marker.lng agency.longitude
 		marker.infowindow agency.name
 		end
+		authorize @agency
 	end
 
 	def search
@@ -56,10 +47,12 @@ class AgenciesController < ApplicationController
 
 	def edit
 		@agency = Agency.find(params[:id])
+		authorize @agency
 	end
 
 	def update
 		@agency = Agency.find(params[:id])
+		authorize @agency
 		if @agency.update_attributes(agency_params)
 			flash[:notice] = (t'flash_notice.update')
 			redirect_to @agency
@@ -70,6 +63,7 @@ class AgenciesController < ApplicationController
 
 	def destroy
 		@agency = Agency.find(params[:id])
+		authorize @agency
 		@agency.destroy
 		flash[:notice] = t 'flash_notice.delete'
 		redirect_to new_agency_url
