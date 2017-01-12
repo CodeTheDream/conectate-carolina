@@ -9,17 +9,18 @@
             </strong>
             </p>
 
-            <address class="agency-address"><%=(t'show_page.address') %><br>
+            <address class="agency-address">
+            <p><%=(t'show_page.address') %><br></p>
             <p><%= agency.full_address %></p>
-            <!-- <hr> -->
+            <hr>
             <p><%= Agency.human_attribute_name("contact") %> <%= agency.contact %></p>
             <p><%= Agency.human_attribute_name("phone") %> <%= agency.phone %></p>
             <p><%= Agency.human_attribute_name("description") %> <%= agency.description %></p>
             </address>
-            
+
             <% if agency.categories.any? %>
             <!-- Same effect agency.categories.each do etc...(using partial instead) -->
-            <p><%= (t'category.categories') %><%= render agency.categories %></p> 
+            <p><%= (t'category.categories') %><%= render agency.categories %></p>
             <% end %>
 
             <a href="#" class="btn btn-default btn-sm btn-link">
@@ -32,7 +33,7 @@
                     <i class="fa fa-envelope fa-lg"></i>
                 </span>
             </a>
-            <a href= "https://www.google.com/maps/dir/Current+Location/<%= agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank"> 
+            <a href= "https://www.google.com/maps/dir/Current+Location/<%= agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank">
                 <span class="agency-phone">
                     <i class="fa fa-map-marker fa-lg"></i>
                 </span>
