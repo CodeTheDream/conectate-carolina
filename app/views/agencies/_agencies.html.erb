@@ -44,13 +44,12 @@
             </strong>
           </p>
 
-          <address class="agency-address"><%=(t'show_page.address') %><br>
-            <p><%= agency.address %></p>
-            <!-- <hr> -->
-            <p><%=(t'show_page.state') %>
-              <%= agency.state %></p>
-            <p><%=(t'show_page.zip') %>
-              <%= agency.zipcode %></p>
+          <address class="agency-address">
+            <p><%= agency.full_address %></p>
+            <hr>
+            <p><%= Agency.human_attribute_name("contact") %> <%= agency.contact %></p>
+            <p><%= Agency.human_attribute_name("phone") %> <%= agency.phone %></p>
+            <p><%= Agency.human_attribute_name("description") %> <%= agency.description %></p>
           </address>
 
           <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
@@ -114,4 +113,3 @@
   <li><%# link_to agency.address, location %> (<%# location.distance.round(2) %> miles)</li>
 <%# end %>
 </ul> -->
-

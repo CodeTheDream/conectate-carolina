@@ -24,6 +24,51 @@ main {
     background-color: rgba(22, 160, 133,1.0);
 }
 
+// Header index
+h1 {
+	color: #75C9BB;
+	font-size: 32px;
+	font-weight: 500;
+	letter-spacing: 3px;
+	line-height: 72px;
+	margin-bottom: 24px;
+	text-align: center;
+	text-transform: uppercase;
+}
+h2 {
+	color: #75C9BB;
+	font-size: 26px;
+	font-weight: 500;
+	letter-spacing: 2px;
+	line-height: 42px;
+	margin-bottom: 14px;
+	text-align: center;
+	text-transform: uppercase;
+  border-bottom: 3px solid #f5f5f5;
+}
+
+p {
+	color: black;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 17px;
+	margin: 0 auto 24px;
+	max-width: 500px;
+	text-align: center;
+}
+
+a {
+	color: #E0792B;	font-size: 18px;
+	font-style: italic;
+	text-align: center;
+}
+
+a:hover {
+	color: #42393B;
+}
+//
+
+
 .center {
     text-align: center;
 }
@@ -185,7 +230,7 @@ ul {
     font-size: 1.4em;
 }
 
-// search 
+// search
 .search-input {
     margin-bottom: 10px;
 }
@@ -236,7 +281,7 @@ footer ul li {
     transform: translate3d(-50%, -50%, 0);
 }
 
-.regbutton{    
+.regbutton{
     height: 50px;
     width: 200px;
     background-color:tomato;
@@ -246,11 +291,11 @@ footer ul li {
     border: none !important;
     margin-bottom: 5px;
 }
-.regbutton:hover{    
+.regbutton:hover{
     color: white;
     background-color:#aa422f;
 }
-.regbutton:active{    
+.regbutton:active{
     color: white;
     background-color:#aa422f;
 }
@@ -277,7 +322,7 @@ footer ul li {
 
 .register-form label{
     color: aliceblue;
-    
+
 }
 .register-form input{
     margin-bottom: 5px;

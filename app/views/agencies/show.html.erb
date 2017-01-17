@@ -26,9 +26,10 @@
               </strong>
             </p>
 
-            <address class="agency-address"><%=(t'show_page.address') %><br>
+            <address class="agency-address">
+              <p><%=(t'show_page.address') %><br></p>
               <p><%= @agency.full_address %></p>
-              <!-- <hr> -->
+              <hr>
               <p><%= (t'show_page.contact') %>
                 <%= @agency.contact %></p>
               <p><%= (t'show_page.phone') %>
@@ -99,7 +100,7 @@
             <%= (t'buttons_t.all_org')%>
             <% end %>
           </div>
-          
+
           <% if policy(@agency).edit? %>
           <div class="btn-group" role="group">
             <%= link_to edit_agency_path(@agency), class: 'btn btn-info' do %>
