@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   before_filter :authenticate_user!
-  after_action :verify_authorized
-  
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  after_action  :verify_authorized
+
   def index
     @users = User.all
     authorize @users

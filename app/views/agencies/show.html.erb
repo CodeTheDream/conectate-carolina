@@ -8,117 +8,115 @@
 <h1><%= @agency.name %></h1>
 <% request.location %></br>
 
-<div class="container">
-<div class="row row-centered">
-  <div class="col-centered">
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        <h3 class="panel-title"><%= @agency.name %></h3>
-      </div>
-      <div class="panel-body">
-        <div class="col-md-6 col-sm-6">
-          <div class="well well-sm well-agency">
-            <%= image_tag 'icon' %>
+<div class="row row-centered" id="padding-resize">
+<div class="col-centered">
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <h3 class="panel-title"><%= @agency.name %></h3>
+    </div>
+    <div class="panel-body" id="padding-resize">
+      <div class="col-md-6 col-sm-6" id="padding-resize">
+        <div class="well well-sm well-agency">
+          <%= image_tag 'icon' %>
 
-            <p class="lead agency-name">
-              <strong>
-                <%= link_to @agency.name, @agency, class: "" %>
-              </strong>
-            </p>
+          <p class="lead agency-name">
+            <strong>
+              <%= link_to @agency.name, @agency %>
+            </strong>
+          </p>
 
-            <address class="agency-address">
-              <p><%=(t'show_page.address') %><br></p>
-              <p><%= @agency.full_address %></p>
-              <hr>
-              <p><%= (t'show_page.contact') %>
-                <%= @agency.contact %></p>
-              <p><%= (t'show_page.phone') %>
-                <%= @agency.phone %></p>
-              <p><%= (t'show_page.description') %>
-                <%= @agency.description %></p>
-            </address>
+          <address class="agency-address">
+            <p><%=(t'show_page.address') %><br></p>
+            <p><%= @agency.full_address %></p>
+            <hr>
+            <p><%= (t'show_page.contact') %>
+              <%= @agency.contact %></p>
+            <p><%= (t'show_page.phone') %>
+              <%= @agency.phone %></p>
+            <p><%= (t'show_page.description') %>
+              <%= @agency.description %></p>
+          </address>
 
-            <% if @agency.categories.any? %>
-            <!-- Same effect @agency.categories.each do etc...(using partial instead) -->
-            <p><%= (t'category.categories') %><%= render @agency.categories %></p>
-            <% end %>
-
-            <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
-              <span class="agency-phone">
-                <i class="fa fa-phone fa-lg"></i>
-              </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link ">
-              <span class="agency-phone">
-                <i class="fa fa-envelope fa-lg"></i>
-              </span>
-            </a>
-            <a href="https://www.google.com/maps/dir/Current+Location/<%= @agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank">
-              <span class="agency-phone">
-                <i class="fa fa-map-marker fa-lg"></i>
-              </span>
-            </a>
-
-            <a href="#" class="btn btn-default btn-sm btn-link">
-              <span class="agency-facebook">
-                <i class="fa fa-facebook fa-lg"></i>
-              </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link">
-              <span class="agency-twitter">
-                <i class="fa fa-twitter fa-lg"></i>
-              </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link">
-              <span class="agency-instagram">
-                <i class="fa fa-instagram fa-lg"></i>
-              </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link">
-              <span class="agency-youtube">
-                <i class="fa fa-youtube fa-lg"></i>
-              </span>
-            </a>
-          </div>
-        </div>
-
-        <!-- Code here is used to build the map by google-maps-for-rails-->
-        <div class="col-md-6 col-sm-6">
-          <div class="map-responsive">
-            <div style='width: 800px;'>
-              <div id="map" style='width: 800px; height: 400px;'></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- end of panel body -->
-      <div class="panel-footer">
-        <div class="btn-group btn-group-justified">
-          <div class="btn-group" role="group">
-            <%= link_to agencies_path, class: 'btn btn-primary' do %>
-            <i class="fa fa-university" aria-hidden="true"></i>
-            <%= (t'buttons_t.all_org')%>
-            <% end %>
-          </div>
-
-          <% if policy(@agency).edit? %>
-          <div class="btn-group" role="group">
-            <%= link_to edit_agency_path(@agency), class: 'btn btn-info' do %>
-            <i class="fa fa-pencil-square-o"></i>
-            <%= (t'buttons_t.edit')%><% end %>
-          </div>
+          <% if @agency.categories.any? %>
+          <!-- Same effect @agency.categories.each do etc...(using partial instead) -->
+          <p><%= (t'category.categories') %><%= render @agency.categories %></p>
           <% end %>
 
-          <% if policy(@agency).destroy? %>
-          <div class="btn-group" role="group">
-            <%= link_to agency_path(@agency), method: :delete,
+          <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
+            <span class="agency-phone">
+              <i class="fa fa-phone fa-lg"></i>
+            </span>
+          </a>
+          <a href="#" class="btn btn-default btn-sm btn-link ">
+            <span class="agency-phone">
+              <i class="fa fa-envelope fa-lg"></i>
+            </span>
+          </a>
+          <a href="https://www.google.com/maps/dir/Current+Location/<%= @agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank">
+            <span class="agency-phone">
+              <i class="fa fa-map-marker fa-lg"></i>
+            </span>
+          </a>
+
+          <a href="#" class="btn btn-default btn-sm btn-link">
+            <span class="agency-facebook">
+              <i class="fa fa-facebook fa-lg"></i>
+            </span>
+          </a>
+          <a href="#" class="btn btn-default btn-sm btn-link">
+            <span class="agency-twitter">
+              <i class="fa fa-twitter fa-lg"></i>
+            </span>
+          </a>
+          <a href="#" class="btn btn-default btn-sm btn-link">
+            <span class="agency-instagram">
+              <i class="fa fa-instagram fa-lg"></i>
+            </span>
+          </a>
+          <a href="#" class="btn btn-default btn-sm btn-link">
+            <span class="agency-youtube">
+              <i class="fa fa-youtube fa-lg"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Code here is used to build the map by google-maps-for-rails-->
+      <div class="col-md-6 col-sm-6">
+        <div class="map-responsive">
+
+            <div id="map" style='width: 800px; height: 400px;'></div>
+
+        </div>
+      </div>
+    </div>
+    <!-- end of panel body -->
+    <div class="panel-footer">
+      <div class="btn-group btn-group-justified">
+        <div class="btn-group" role="group">
+          <%= link_to agencies_path, class: 'btn btn-primary' do %>
+          <i class="fa fa-university" aria-hidden="true"></i>
+          <%= (t'buttons_t.all_org')%>
+          <% end %>
+        </div>
+
+        <% if policy(@agency).edit? %>
+        <div class="btn-group" role="group">
+          <%= link_to edit_agency_path(@agency), class: 'btn btn-info' do %>
+          <i class="fa fa-pencil-square-o"></i>
+          <%= (t'buttons_t.edit')%><% end %>
+        </div>
+        <% end %>
+
+        <% if policy(@agency).destroy? %>
+        <div class="btn-group" role="group">
+          <%= link_to agency_path(@agency), method: :delete,
                 class: 'btn btn-danger', data: { confirm: 'Are you sure?'} do %>
-            <i class="fa fa-trash-o"></i>
-            <%= (t'buttons_t.delete')%>
-            <% end %>
-          </div>
+          <i class="fa fa-trash-o"></i>
+          <%= (t'buttons_t.delete')%>
           <% end %>
         </div>
+        <% end %>
       </div>
     </div>
   </div>

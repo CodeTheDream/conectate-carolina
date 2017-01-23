@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 		root to: 'agencies#index'
 	  resources :agencies
 		resources :users
+		get 'visitors/about'
 	  get 'search', to: 'search#search'
     resources :categories, except: [:destroy]
     resources :websites, only: [:create, :destroy]

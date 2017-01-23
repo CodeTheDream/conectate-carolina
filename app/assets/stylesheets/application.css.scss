@@ -27,20 +27,20 @@ main {
 // Header index
 h1 {
 	color: #75C9BB;
-	font-size: 32px;
+	font-size: 26px;
 	font-weight: 500;
 	letter-spacing: 3px;
-	line-height: 72px;
+	line-height: 42px;
 	margin-bottom: 24px;
 	text-align: center;
 	text-transform: uppercase;
 }
 h2 {
 	color: #75C9BB;
-	font-size: 26px;
+	font-size: 18px;
 	font-weight: 500;
 	letter-spacing: 2px;
-	line-height: 42px;
+	line-height: 32px;
 	margin-bottom: 14px;
 	text-align: center;
 	text-transform: uppercase;
@@ -50,7 +50,7 @@ h2 {
 p {
 	color: black;
 	font-size: 16px;
-	font-weight: 500;
+	font-weight: 400;
 	line-height: 17px;
 	margin: 0 auto 24px;
 	max-width: 500px;
@@ -76,6 +76,26 @@ a:hover {
 ul {
     padding: 0;
     list-style-type: none;
+}
+
+#about-page {
+  color: #333;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 36px;
+	margin: 0 auto 48px;
+	max-width: 600px;
+	text-align: center;
+}
+
+#padding-resize {
+  // left padding: justify;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+#gmap {
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 /* Agency cards css */
@@ -268,6 +288,14 @@ footer ul li {
     padding-bottom: 56.25%;
     position: relative;
     height: 0;
+}
+#map {
+  border-width: 1px;
+  border-style: solid;
+  border-color: #ccc #ccc #999 #ccc;
+  -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+  -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+  box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
 }
 
 // Form CSS

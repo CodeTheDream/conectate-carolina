@@ -1,11 +1,12 @@
-<ul>
+<ul id="padding-resize">
 <% obj.each do |agency| %>
-    <div class="col-md-6 col-sm-6">
+    <div class="col-md-6 col-sm-6" id="padding-resize">
         <div class="well well-sm well-agency">
             <%= image_tag 'icon' %>
             <p class="lead agency-name">
             <strong>
-                <%= link_to agency.name, agency, class: "" %>
+                <%= link_to agency.name, controller: 'agencies',
+                                         action: 'show', id: agency.id%>
             </strong>
             </p>
 

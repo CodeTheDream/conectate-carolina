@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  after_action  :verify_authorized
   def new
     @category = Category.new
     authorize @category
