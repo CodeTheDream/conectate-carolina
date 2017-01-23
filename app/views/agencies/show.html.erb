@@ -82,11 +82,9 @@
       </div>
 
       <!-- Code here is used to build the map by google-maps-for-rails-->
-      <div class="col-md-6 col-sm-6">
-        <div class="map-responsive">
-
-            <div id="map" style='width: 800px; height: 400px;'></div>
-
+      <div class="col-md-6 col-sm-6" id="padding-resize">
+        <div class="well-sm">
+          <div class="map-responsive" id="map" style='width: 100%; height: 400px;'></div>
         </div>
       </div>
     </div>
@@ -124,8 +122,8 @@
 </div>
 
 <script type="text/javascript">
-handler = Gmaps.build('Google');
-handler.buildMap({
+  handler = Gmaps.build('Google');
+  handler.buildMap({
   provider: {},
   internal: {
     id: 'map'
@@ -135,6 +133,7 @@ handler.buildMap({
 
   handler.bounds.extendWith(markers);
   handler.fitMapToBounds();
+  handler.getMap().setZoom(14);
 });
 </script>
 
