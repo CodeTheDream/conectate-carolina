@@ -20,7 +20,15 @@
 
             <% if agency.categories.any? %>
             <!-- Same effect agency.categories.each do etc...(using partial instead) -->
-            <p><%= (t'category.categories') %><%= render agency.categories %></p>
+            <p><%= (t'category.categories') %>
+              <% agency.categories.each do |category| %>
+                <% if params[:locale] == "en" %>
+                  <%= link_to category.name, category %>
+                <% else %>
+                  <%= link_to category.categoria, category %>
+                <% end %>
+              <% end %>
+            </p>
             <% end %>
 
             <a href="#" class="btn btn-default btn-sm btn-link">
@@ -55,8 +63,8 @@
                 </span>
             </a>
             <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-youtube">
-                    <i class="fa fa-youtube fa-lg"></i>
+                <span class="agency-globe">
+                    <i class="fa fa-globe fa-lg"></i>
                 </span>
             </a>
         </div>

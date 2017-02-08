@@ -4,6 +4,23 @@
 <!-- only if you need custom infoboxes -->
 <!-- Script is used to connect to Google API, This nees to be moved to a better location
  since it has been copied in index and show view -JR -->
+
+<script>
+
+var x = document.getElementById("gps");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+function showPosition(position) {
+    x.value = position.coords.latitude + "," + position.coords.longitude; 
+}
+getLocation();
+</script>
+
 <h1><%= (t'home_page.title') %></h1>
 <h2><%= (t'home_page.browse') %></h2>
 </br>

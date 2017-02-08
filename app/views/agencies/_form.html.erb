@@ -53,11 +53,12 @@
     </div>
   </div>
   <div class="form-group required">
-    <%= f.fields_for :websites do |p| %>
-      <%= p.label(:socialmedia, "URL : ", class: 'control-label col-md-4') %>
-      <div class="controls col-md-8">
-        <%= p.text_field :socialmedia, class: 'input-md  textinput textInput form-control' %>
-      </div>
+    <% WebsiteType.all.each do |website_type| %>
+      <% website = @agency.websites.find_by(website_type_id: website_type.id) %>
+      <%= f.fields_for :website_types, website_types do |website_fields| %>
+        <% website_fields.hidden_field :website_type %>
+        <% website_type.name %>:  <%= website_fields.text_field :url %>
+      <% end %>
     <% end %>
   </div>
   <div class="form-group">

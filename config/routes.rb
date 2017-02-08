@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :categories, except: [:destroy]
     resources :websites, only: [:create, :destroy]
     get 'websites/new'
+    get 'help_pages/faq'
 	end
 #get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
 get '', to: redirect("/#{I18n.default_locale}/")
