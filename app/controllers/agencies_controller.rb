@@ -1,17 +1,17 @@
 class AgenciesController < ApplicationController
 	before_action :authenticate_user!, except: [:show, :index]
+	rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  after_action  :verify_authorized, except: [:show, :index]
 
 	def index
 		@agencies = Agency.search(params)
-		authorize @agencies
 		#Code hash send info of all agencies to the view to get converted to JSON
 		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
 	  	marker.lat agency.latitude
 	  	marker.lng agency.longitude
 		end
 		@categories = Category.all
-		#Pundit methods
-		authorize @categories
+
 	end
 
 	def new
@@ -38,7 +38,6 @@ class AgenciesController < ApplicationController
   	marker.lng agency.longitude
 		marker.infowindow agency.name
 		end
-		authorize @agency
 	end
 
 	def search

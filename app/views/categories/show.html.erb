@@ -10,9 +10,9 @@
    <div class = "panel-heading">
       <h3 class = "panel-title"><%= (t'category.cat_view') + ' ' + @category.name.upcase + ' ' +(t'category.cat_view1')%></h3>
    </div>
-   
+
    <div class = "panel-body">
-      <div class="list-group col-md-6">
+      <div class="list-group row">
         <%= render 'agencies/agency', obj: @category_agencies %>
       </div>
    </div>

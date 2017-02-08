@@ -5,11 +5,12 @@ Rails.application.routes.draw do
 		root to: 'agencies#index'
 	  resources :agencies
 		resources :users
+		get 'visitors/about'
 	  get 'search', to: 'search#search'
     resources :categories, except: [:destroy]
     resources :websites, only: [:create, :destroy]
     get 'websites/new'
-    get 'help_pages/faq'
+    get 'faq', :to => 'help_pages#faq'
 	end
 #get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
 get '', to: redirect("/#{I18n.default_locale}/")
