@@ -1,0 +1,12 @@
+You have a comment on your web app
+===============================================
+
+ The comment is from <%= @name %>.
+
+ <% if @email.nil? %>
+   The user did not provide an email and/or wants to remain anonymous
+ <% else %>
+   The user's email is <%= @email %>
+ <% end %>
+
+ The Message sent is: <%= @body %>
