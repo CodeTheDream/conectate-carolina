@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     get 'websites/new'
 		# match '/send_mail', to: 'contact#send_mail', via: 'post'
 		resources :feedback_forms
+    get 'faq', :to => 'help_pages#faq'
 	end
 #get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
 get '', to: redirect("/#{I18n.default_locale}/")
