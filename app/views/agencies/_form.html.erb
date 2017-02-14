@@ -52,12 +52,12 @@
       <%= f.telephone_field :phone, class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
-  <div class="form-group required">
+  <div class="form-group">
     <% WebsiteType.all.each do |website_type| %>
       <% website = @agency.websites.find_by(website_type_id: website_type.id) %>
-      <%= f.fields_for :website_types, website_types do |website_fields| %>
-        <% website_fields.hidden_field :website_type %>
-        <% website_type.name %>:  <%= website_fields.text_field :url %>
+      <%= f.fields_for :website_type, @agency.websites.find_by(website_type_id: website_type.id) do |website_fields| %>
+        <% website_fields.hidden_field :website_type %> 
+        <%= website_type.name %>:  <%= website_fields.text_field :url, class: 'input-md  textinput textInput form-control' %>
       <% end %>
     <% end %>
   </div>

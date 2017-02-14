@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 	  get 'search', to: 'search#search'
     resources :categories, except: [:destroy]
     resources :websites, only: [:create, :destroy]
+    resources :website_types, only: [:create, :destroy]
     get 'websites/new'
     get 'faq', :to => 'help_pages#faq'
 	end

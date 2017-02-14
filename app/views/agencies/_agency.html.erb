@@ -12,10 +12,22 @@
 
             <address class="agency-address">
             <p><%=(t'show_page.address') %><br></p>
-            <p><%= agency.full_address %></p>
+            <p><%= agency.full_address %>
+            <a href= "https://www.google.com/maps/dir/Current+Location/<%= agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank">
+                <span class="agency-phone">
+                    <i class="fa fa-map-marker fa-lg"></i>
+                </span>
+            </a>
+            </p>
             <hr>
             <p><%= Agency.human_attribute_name("contact") %> <%= agency.contact %></p>
-            <p><%= Agency.human_attribute_name("phone") %> <%= agency.phone %></p>
+            <p><%= Agency.human_attribute_name("phone") %> <%= agency.phone %>
+                <a href="#" class="btn btn-default btn-sm btn-link">
+                <span class="agency-phone">
+                    <i class="fa fa-phone fa-lg"></i>
+                </span>
+            </a>
+            </p>
             <p><%= Agency.human_attribute_name("description") %> <%= agency.description %></p>
             </address>
 
@@ -32,21 +44,21 @@
             </p>
             <% end %>
 
-            <a href="#" class="btn btn-default btn-sm btn-link">
+            <!-- <a href="#" class="btn btn-default btn-sm btn-link">
                 <span class="agency-phone">
                     <i class="fa fa-phone fa-lg"></i>
                 </span>
-            </a>
+            </a> -->
             <a href="#" class="btn btn-default btn-sm btn-link ">
                 <span class="agency-phone">
                     <i class="fa fa-envelope fa-lg"></i>
                 </span>
             </a>
-            <a href= "https://www.google.com/maps/dir/Current+Location/<%= agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank">
+            <!-- <a href= "https://www.google.com/maps/dir/Current+Location/<%= agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank">
                 <span class="agency-phone">
                     <i class="fa fa-map-marker fa-lg"></i>
                 </span>
-            </a>
+            </a> -->
 
             <a href="#" class="btn btn-default btn-sm btn-link">
                 <span class="agency-facebook">
