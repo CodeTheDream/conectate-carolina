@@ -59,6 +59,13 @@
                     <i class="fa fa-map-marker fa-lg"></i>
                 </span>
             </a> -->
+            <% @agency.websites.each do |website| %>
+              <a href="<%= website.url %>" class="btn btn-default btn-sm btn-link">
+                  <span class="agency-facebook">
+                      <i class="fa fa-<%= website.website_type.icon %> fa-lg"></i>
+                  </span>
+              </a>
+            <% end %>
 
             <a href="#" class="btn btn-default btn-sm btn-link">
                 <span class="agency-facebook">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213045028) do
+ActiveRecord::Schema.define(version: 20170217000403) do
 
   create_table "agencies", force: :cascade do |t|
     t.string   "name"
@@ -39,13 +39,6 @@ ActiveRecord::Schema.define(version: 20170213045028) do
     t.string   "categoria"
   end
 
-  create_table "social_media", force: :cascade do |t|
-    t.integer  "agency_id_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["agency_id_id"], name: "index_social_media_on_agency_id_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -70,15 +63,16 @@ ActiveRecord::Schema.define(version: 20170213045028) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "icon"
-    t.string   "url"
   end
 
   create_table "websites", force: :cascade do |t|
     t.integer  "agency_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "socialmedia"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "url"
+    t.integer  "website_type_id"
     t.index ["agency_id"], name: "index_websites_on_agency_id"
+    t.index ["website_type_id"], name: "index_websites_on_website_type_id"
   end
 
 end

@@ -72,32 +72,20 @@
               <i class="fa fa-envelope fa-lg"></i>
             </span>
           </a> -->
-          <!-- <a href="https://www.google.com/maps/dir/Current+Location/<%= @agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank"> 
+          <!-- <a href="https://www.google.com/maps/dir/Current+Location/<%= @agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank">
             <span class="agency-phone">
               <i class="fa fa-map-marker fa-lg"></i>
             </span>
           </a> -->
 
-          <a href="#" class="btn btn-default btn-sm btn-link">
-            <span class="agency-facebook">
-              <i class="fa fa-facebook fa-lg"></i>
-            </span>
-          </a>
-          <a href="#" class="btn btn-default btn-sm btn-link">
-            <span class="agency-twitter">
-              <i class="fa fa-twitter fa-lg"></i>
-            </span>
-          </a>
-          <a href="#" class="btn btn-default btn-sm btn-link">
-            <span class="agency-instagram">
-              <i class="fa fa-instagram fa-lg"></i>
-            </span>
-          </a>
-          <a href="#" class="btn btn-default btn-sm btn-link">
-            <span class="agency-youtube">
-              <i class="fa fa-youtube fa-lg"></i>
-            </span>
-          </a>
+          <% @agency.websites.each do |website| %>
+            <a href="http://<%= website.url %>" class="btn btn-default btn-sm btn-link">
+                <span class="agency-facebook">
+                    <i class="fa fa-<%= website.website_type.icon %> fa-lg"></i>
+                </span>
+            </a>
+          <% end %>
+
         </div>
       </div>
 

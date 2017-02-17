@@ -23,6 +23,13 @@ class AgenciesController < ApplicationController
 		@agency = Agency.new(agency_params)
 		authorize @agency
 		if @agency.save
+			params[:agency][:website].each do |website_type_id, url|
+				next if url.blank?
+				@agency.websites.create(
+					website_type_id: website_type_id,
+					url: url
+				)
+			end
 			flash[:notice] = (t'flash_notice.success')
 			redirect_to @agency
 		else
@@ -53,6 +60,16 @@ class AgenciesController < ApplicationController
 		@agency = Agency.find(params[:id])
 		authorize @agency
 		if @agency.update_attributes(agency_params)
+			@agency.websites.each do |website|
+				website.destroy
+			end
+			params[:agency][:website].each do |website_type_id, url|
+				next if url.blank?
+				@agency.websites.create(
+					website_type_id: website_type_id,
+					url: url
+				)
+			end
 			flash[:notice] = (t'flash_notice.update')
 			redirect_to @agency
 		else

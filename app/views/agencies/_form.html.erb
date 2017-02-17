@@ -52,15 +52,15 @@
       <%= f.telephone_field :phone, class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
-  <div class="form-group">
-    <% WebsiteType.all.each do |website_type| %>
-      <% website = @agency.websites.find_by(website_type_id: website_type.id) %>
-      <%= f.fields_for :website_type, @agency.websites.find_by(website_type_id: website_type.id) do |website_fields| %>
-        <% website_fields.hidden_field :website_type %> 
-        <%= website_type.name %>:  <%= website_fields.text_field :url, class: 'input-md  textinput textInput form-control' %>
-      <% end %>
-    <% end %>
-  </div>
+  <% WebsiteType.all.each do |website_type| %>
+    <% website = @agency.websites.find_by(website_type_id: website_type.id) %>
+    <div class="form-group">
+        <%= f.label("#{website_type.name}:", class: 'control-label col-md-4') %>
+        <div class="controls col-md-8">
+          <%= text_field_tag "agency[website][#{website_type.id}]", (website ? website.url : ''), class: 'input-md  textinput textInput form-control' %>
+        </div>
+    </div>
+  <% end %>
   <div class="form-group">
     <%= f.label(Agency.human_attribute_name("description"), class: 'control-label col-md-4') %>
     <div class="controls col-md-8">
@@ -81,7 +81,3 @@
     </div>
 
 <% end %> <%# end of form_for %>
-
-
-
-
