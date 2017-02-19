@@ -26,14 +26,16 @@ en:
   activerecord:
     attributes:
       agency:
-        name: "Name:"
+        name: "Name of Organization:"
         address: "Address:"
         city: "City:"
         state: "State:"
         zipcode: "Zip Code:"
-        contact: "Contact:"
+        contact: "Contact Person:"
+        email: "Email:"
         phone: "Phone Number:"
-        description: "Description:"
+        description: "Description(eng):"
+        descripcion: "Descripción:"
       category:
         categories: Categories
   nav_links:
@@ -48,7 +50,7 @@ en:
     all_cat: All Categories
     new_cat: Create new category
     edit_cat: Edit Category
-    cat_view: Organizations with the 
+    cat_view: Organizations with the
     cat_view1: category
   home_page:
     title: Student Action with Farm Workers
@@ -62,7 +64,7 @@ en:
     search: Search through organizations
     plchldr_search: Search...
     bttn_search: Search
-  about_page: 
+  about_page:
     h1: Resource Directory for Farmworker Advocates
     h2: Listing of Services for Migrant and Seasonal Farmworkers in North Carolina
     p1: "The Farmworker Institute is a project of the Farmworker Ministry Committee of the North Carolina Council of Churches, a group that creates educational materials, presents public forums, and brings together farmworker advocates to share strategies to improve farmworker conditions in North Carolina."
@@ -71,7 +73,7 @@ en:
   new_page:
     h1: New Organization
     submit: Create Organization
-    fill_fields: "Fill the following fields" 
+    fill_fields: "Fill the following fields"
   edit_page:
    h1: Edit Organization
    submit: Save changes

@@ -5,14 +5,16 @@ es:
   activerecord:
     attributes:
       agency:
-        name: "Nombre:"
+        name: "Nombre de la organizacion:"
         address: "Direccion:"
         city: "Ciudad:"
         state: "Estado:"
         zipcode: "Codigo Postal"
-        contact: "Contacto:"
+        contact: "Persona de contacto:"
+        email: "Correo Electronico:"
         phone: "Numero de telefono:"
-        description: "Descripción:"
+        description: "Description(eng):"
+        descripcion: "Descripción:"
       category:
         categories: Categorias
   nav_links:
@@ -27,13 +29,13 @@ es:
     all_cat: Lista de Categorias
     new_cat: Crear nueva categoría
     edit_cat: Actualizar Categoría
-    cat_view: Organizaciones con  
+    cat_view: Organizaciones con
     cat_view1: categoria
   home_page:
     title: Accion estudiantil con campesinos.
     browse: Navega a traves de una lista de organizaciones aqui
     listing: Demonstrando todas las organizaciones
-  flash_notice: 
+  flash_notice:
     success: Organización creada!
     delete: Organización eliminada!
     update: Organización actualizada!

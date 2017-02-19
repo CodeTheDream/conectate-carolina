@@ -46,7 +46,13 @@
           </a>
             </p>
             <p><%= (t'show_page.description') %>
-              <%= @agency.description %></p>
+              <% if params[:locale] == "en" %>
+                <%= @agency.description %>
+              <% else %>
+                <%= @agency.descripcion %>
+              <% end %>
+            </p>
+
           </address>
 
             <% if @agency.categories.any? %>

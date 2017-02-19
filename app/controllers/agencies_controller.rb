@@ -87,8 +87,9 @@ class AgenciesController < ApplicationController
 
 
 	private
-	#probably dont need the socialmedia and categoria here. left just in case.
 	def agency_params
-		params.require(:agency).permit(:name, :address, :city, :state, :zipcode, :contact, :phone, :description, :name, :website_type, category_ids: [])
+		params.require(:agency).permit(:name, :address, :city, :state, :zipcode,
+		:contact, :phone, :description, :descripcion, :email, :name, :website_type,
+		category_ids: [])
 	end
 end
