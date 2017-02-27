@@ -15,6 +15,7 @@ gem 'gmaps4rails'
 gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
 gem 'mail_form'
 gem 'figaro'
+gem "autoprefixer-rails"
 group :development, :test do
   gem 'byebug', platform: :mri
 end

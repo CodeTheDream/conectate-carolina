@@ -70,6 +70,7 @@
 
   <div class="checkbox">
     <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+      <%= fa_icon cb.fa_name, text: cb.name, left: true %>
       <%= cb.label(class: 'checkbox input_checkbox btn btn-default') {cb.check_box(class: 'checkbox') + cb.text}  %>
     <% end %>
   </div>
@@ -81,7 +82,3 @@
     </div>
 
 <% end %> <%# end of form_for %>
-
-
-
-

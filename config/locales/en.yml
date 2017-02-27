@@ -35,7 +35,7 @@ en:
         phone: "Phone Number:"
         description: "Description:"
       category:
-        categories: Categories
+        categories: Categories this organization can help you with
   nav_links:
     home: Home
     about: About
@@ -48,7 +48,7 @@ en:
     all_cat: All Categories
     new_cat: Create new category
     edit_cat: Edit Category
-    cat_view: Organizations with the 
+    cat_view: Organizations with the
     cat_view1: category
   home_page:
     title: Student Action with Farm Workers
@@ -62,16 +62,16 @@ en:
     search: Search through organizations
     plchldr_search: Search...
     bttn_search: Search
-  about_page: 
+  about_page:
     h1: Resource Directory for Farmworker Advocates
     h2: Listing of Services for Migrant and Seasonal Farmworkers in North Carolina
     p1: "The Farmworker Institute is a project of the Farmworker Ministry Committee of the North Carolina Council of Churches, a group that creates educational materials, presents public forums, and brings together farmworker advocates to share strategies to improve farmworker conditions in North Carolina."
   views_index:
     h1: Organizations
   new_page:
-    h1: New Organization
+    h1: Add New Organization
     submit: Create Organization
-    fill_fields: "Fill the following fields" 
+    fill_fields: "Fill the following fields"
   edit_page:
    h1: Edit Organization
    submit: Save changes

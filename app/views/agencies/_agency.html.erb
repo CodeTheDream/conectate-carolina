@@ -1,74 +1,77 @@
-<ul id="padding-resize">
 <% obj.each do |agency| %>
-    <div class="col-md-6 col-sm-6" id="padding-resize">
-        <div class="well well-sm well-agency">
-            <%= image_tag 'icon' %>
-            <p class="lead agency-name">
-            <strong>
-                <%= link_to agency.name, controller: 'agencies',
-                                         action: 'show', id: agency.id%>
-            </strong>
-            </p>
+<div class="col-sm-6 col-lg-4 col-md-6">
+  <div class="well well-sm well-agency">
+    <p class="lead agency-name">
+      <strong>
+        <%= link_to agency.name, controller: 'agencies',
+                                     action: 'show', id: agency.id%>
+      </strong>
+    </p>
 
-            <address class="agency-address">
-            <p><%=(t'show_page.address') %><br></p>
-            <p><%= agency.full_address %></p>
-            <hr>
-            <p><%= Agency.human_attribute_name("contact") %> <%= agency.contact %></p>
-            <p><%= Agency.human_attribute_name("phone") %> <%= agency.phone %></p>
-            <p><%= Agency.human_attribute_name("description") %> <%= agency.description %></p>
-            </address>
+    <address class="agency-address">
+      <p><%=(t'show_page.address') %><br></p>
+      <p><%= agency.full_address %></p>
+      <p><%= Agency.human_attribute_name("contact") %>
+        <%= agency.contact %></p>
+      <p><%= Agency.human_attribute_name("phone") %>
+        <%= agency.phone %></p>
+    </address>
 
-            <% if agency.categories.any? %>
-            <!-- Same effect agency.categories.each do etc...(using partial instead) -->
-            <p><%= (t'category.categories') %>
-              <% agency.categories.each do |category| %>
-                <% if params[:locale] == "en" %>
-                  <%= link_to category.name, category %>
-                <% else %>
-                  <%= link_to category.categoria, category %>
-                <% end %>
-              <% end %>
-            </p>
-            <% end %>
+    <div>
+      <a href="#" class="btn btn-default btn-sm btn-link">
+        <span class="agency-phone">
+          <i class="fa fa-phone fa-lg"></i>
+        </span>
+      </a>
+      <a href="#" class="btn btn-default btn-sm btn-link ">
+        <span class="agency-phone">
+          <i class="fa fa-envelope fa-lg"></i>
+        </span>
+      </a>
+      <a href="https://www.google.com/maps/dir/Current+Location/<%= agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank">
+        <span class="agency-phone">
+          <i class="fa fa-map-marker fa-lg"></i>
+        </span>
+      </a>
 
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-phone">
-                    <i class="fa fa-phone fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link ">
-                <span class="agency-phone">
-                    <i class="fa fa-envelope fa-lg"></i>
-                </span>
-            </a>
-            <a href= "https://www.google.com/maps/dir/Current+Location/<%= agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank">
-                <span class="agency-phone">
-                    <i class="fa fa-map-marker fa-lg"></i>
-                </span>
-            </a>
-
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-facebook">
-                    <i class="fa fa-facebook fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-twitter">
-                    <i class="fa fa-twitter fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-instagram">
-                    <i class="fa fa-instagram fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-globe">
-                    <i class="fa fa-globe fa-lg"></i>
-                </span>
-            </a>
-        </div>
+      <a href="#" class="btn btn-default btn-sm btn-link">
+        <span class="agency-facebook">
+          <i class="fa fa-facebook fa-lg"></i>
+        </span>
+      </a>
+      <a href="#" class="btn btn-default btn-sm btn-link">
+        <span class="agency-twitter">
+          <i class="fa fa-twitter fa-lg"></i>
+        </span>
+      </a>
+      <a href="#" class="btn btn-default btn-sm btn-link">
+        <span class="agency-instagram">
+          <i class="fa fa-instagram fa-lg"></i>
+        </span>
+      </a>
+      <a href="#" class="btn btn-default btn-sm btn-link">
+        <span class="agency-globe">
+          <i class="fa fa-globe fa-lg"></i>
+        </span>
+      </a>
     </div>
+    <hr>
+
+    <% if agency.categories.any? %>
+      <!-- Same effect agency.categories.each do etc...(using partial instead) -->
+      <p><%= (t'category.categories') %></p>
+      <% agency.categories.each do |category| %>
+        <% if params[:locale] == "en" %>
+          <%= link_to category do %>
+          <%= fa_icon category.fa_name, text: category.name, left: true %>
+          <% end %>
+        <% else %>
+          <%= link_to category do %>
+            <%= fa_icon category.fa_name, text: category.categoria, left: true %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 <% end %>
-</ul>

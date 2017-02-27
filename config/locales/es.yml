@@ -23,17 +23,17 @@ es:
     edit_accnt: Actualizar cuenta
     sign_out: Terminar sesion
   category:
-    categories: Categorías
+    categories: Categorías en que esta organización es distinguida
     all_cat: Lista de Categorias
     new_cat: Crear nueva categoría
     edit_cat: Actualizar Categoría
-    cat_view: Organizaciones con  
+    cat_view: Organizaciones con
     cat_view1: categoria
   home_page:
     title: Accion estudiantil con campesinos.
     browse: Navega a traves de una lista de organizaciones aqui
     listing: Demonstrando todas las organizaciones
-  flash_notice: 
+  flash_notice:
     success: Organización creada!
     delete: Organización eliminada!
     update: Organización actualizada!
@@ -48,7 +48,7 @@ es:
   views_index:
     h1: Organizaciones
   new_page:
-    h1: Nueva Organización
+    h1: Añadir Nueva Organización
     submit: Crear Organización
     fill_fields: "Llena las siguientes columnas"
   edit_page:
