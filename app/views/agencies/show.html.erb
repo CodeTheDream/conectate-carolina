@@ -6,8 +6,6 @@
  since it has been copied in index and show view-->
 
 <h1><%= @agency.name %></h1>
-<% request.location %></br>
-
 <div class="row row-centered" id="padding-resize">
 <div class="col-centered">
   <div class="panel panel-success">
@@ -36,7 +34,13 @@
             </p>
             <hr>
             <p><%= (t'show_page.contact') %>
-              <%= @agency.contact %></p>
+              <%= @agency.contact %>
+              <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
+                <span class="agency-phone">
+                <i class="fa fa-envelope fa-2x"></i>
+                </span>
+              </a>
+            </p>
             <p><%= (t'show_page.phone') %>
               <%= @agency.phone %>
               <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
@@ -60,30 +64,13 @@
             <p><%= (t'category.categories') %>
               <% @agency.categories.each do |category|%>
                 <% if params[:locale] == "en" %>
-                  <%= link_to category.name, category  %>
+                  <%= link_to "#{category.name}", category_path(category)  %>
                 <% else %>
-                  <%= link_to category.categoria, category %>
+                  <%= link_to "#{category.categoria}", category_path(category) %>
                 <% end %>
               <% end %>
             </p>
             <% end %>
-
-          <!-- <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
-            <span class="agency-phone">
-              <i class="fa fa-phone fa-lg"></i>
-            </span>
-          </a>
- -->      <!-- <a href="#" class="btn btn-default btn-sm btn-link ">
-            <span class="agency-phone">
-              <i class="fa fa-envelope fa-lg"></i>
-            </span>
-          </a> -->
-          <!-- <a href="https://www.google.com/maps/dir/Current+Location/<%= @agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank">
-            <span class="agency-phone">
-              <i class="fa fa-map-marker fa-lg"></i>
-            </span>
-          </a> -->
-
           <% @agency.websites.each do |website| %>
             <a href="http://<%= website.url %>" class="btn btn-default btn-sm btn-link">
                 <span class="agency-facebook">

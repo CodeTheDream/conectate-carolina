@@ -35,7 +35,11 @@
         </li>
         <% @categories.each do |category| %>
           <li class="agency-title">
-            <%= link_to "#{category.name}", category_path(category) %>
+            <% if params[:locale] == "en" %>
+              <%= link_to category.name, category_path(category) %>
+            <% else %>
+              <%= link_to category.categoria, category_path(category) %>
+            <% end %>
           </li>
         <% end %>
       </ul>

@@ -9,7 +9,11 @@
       <div class="well col-md-4 col-md-offset-4">
       <ul class="list-group">
         <li class="agency-title list-group-item">
-          <%= link_to "#{category.name}", category_path(category) %>
+          <% if params[:locale] == "en" %>
+            <%= link_to "#{category.name}", category_path(category) %>
+          <% else %>
+            <%= link_to "#{category.categoria}", category_path(category) %>
+            <% end %>          
         </li>
         <li class="list-group-item"><small><%= pluralize(category.agencies.count, "agency") %></small></li>
       </ul>
