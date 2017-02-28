@@ -41,7 +41,11 @@
             content (the block is your text content). -->
             <%= link_to category_path(category) do %>
               <%= fa_icon category.fa_name %>
-              <%= fa_icon "chevron-right", text: category.name, right: true %>
+              <% if params[:locale] == "en" %>
+                <%= fa_icon "chevron-right", text: category.name, right: true %>
+              <% else %>
+                <%= fa_icon "chevron-right", text: category.categoria, right: true %>
+              <% end %>
               <%= content_tag :span, category.agencies.count, :class => "badge" %>
             <% end %>
           </li>
@@ -52,7 +56,6 @@
   <% if policy(Category).new? %>
   <div class="panel">
     <div class="panel-body">
-
       <%= link_to new_category_path, class: "btn btn-success btn-block" do %>
         <%= fa_icon "plus", text: (t'category.new_cat') %>
       <% end %>

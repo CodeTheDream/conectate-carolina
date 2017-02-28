@@ -12,6 +12,11 @@
           <%= link_to category_path(category) do %>
             <%= fa_icon category.fa_name, text: category.name, left: true %>
           <% end %>
+          <% if params[:locale] == "en" %>
+            <%= link_to "#{category.name}", category_path(category) %>
+          <% else %>
+            <%= link_to "#{category.categoria}", category_path(category) %>
+            <% end %>          
         </li>
         <li class="list-group-item"><small><%= pluralize(category.agencies.count, "organization") %></small></li>
       </ul>

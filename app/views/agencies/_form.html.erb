@@ -47,24 +47,36 @@
     </div>
   </div>
   <div class="form-group required">
+    <%= f.label(Agency.human_attribute_name("email"), class: 'control-label col-md-4') %>
+    <div class="controls col-md-8">
+      <%= f.text_field :email, class: 'input-md  textinput textInput form-control' %>
+    </div>
+  </div>
+  <div class="form-group required">
     <%= f.label(Agency.human_attribute_name("phone"), class: 'control-label col-md-4') %>
     <div class="controls col-md-8">
       <%= f.telephone_field :phone, class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
-  <div class="form-group required">
-    <% WebsiteType.all.each do |website_type| %>
-      <% website = @agency.websites.find_by(website_type_id: website_type.id) %>
-      <%= f.fields_for :website_types, website_types do |website_fields| %>
-        <% website_fields.hidden_field :website_type %>
-        <% website_type.name %>:  <%= website_fields.text_field :url %>
-      <% end %>
-    <% end %>
-  </div>
+  <% WebsiteType.all.each do |website_type| %>
+    <% website = @agency.websites.find_by(website_type_id: website_type.id) %>
+    <div class="form-group">
+        <%= f.label("#{website_type.name}:", class: 'control-label col-md-4') %>
+        <div class="controls col-md-8">
+          <%= text_field_tag "agency[website][#{website_type.id}]", (website ? website.url : ''), class: 'input-md  textinput textInput form-control' %>
+        </div>
+    </div>
+  <% end %>
   <div class="form-group">
     <%= f.label(Agency.human_attribute_name("description"), class: 'control-label col-md-4') %>
     <div class="controls col-md-8">
       <%= f.text_area(:description, class: 'input-md  textinput textInput form-control') %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label(Agency.human_attribute_name("descripcion"), class: 'control-label col-md-4') %>
+    <div class="controls col-md-8">
+      <%= f.text_area(:descripcion, class: 'input-md  textinput textInput form-control') %>
     </div>
   </div>
 

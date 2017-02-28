@@ -59,12 +59,13 @@ h1 {
     font-family: 'Raleway', Helvetica, Arial, sans-serif;
     color: #1f201f;
     font-size: 28px;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: 2px;
     line-height: 34px;
     margin-bottom: 24px;
     text-align: center;
     text-transform: uppercase;
+    text-shadow: 1px 1px 0 rgba(#636363, 0.61)
 }
 
 h2 {
@@ -84,7 +85,7 @@ p {
     font-size: 16px;
     font-weight: 400;
     line-height: 17px;
-    margin: 0 auto 24px;
+    margin: 0 auto 15px;
     max-width: 500px;
     text-align: left;
 }

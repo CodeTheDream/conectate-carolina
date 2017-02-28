@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215152955) do
+ActiveRecord::Schema.define(version: 20170219045755) do
 
   create_table "agencies", force: :cascade do |t|
     t.string   "name"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20170215152955) do
     t.string   "contact"
     t.string   "phone"
     t.string   "description"
+    t.string   "email"
+    t.string   "descripcion"
   end
 
   create_table "agency_categories", force: :cascade do |t|
@@ -70,13 +72,14 @@ ActiveRecord::Schema.define(version: 20170215152955) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "icon"
   end
 
   create_table "websites", force: :cascade do |t|
     t.integer  "agency_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "socialmedia"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "url"
     t.index ["agency_id"], name: "index_websites_on_agency_id"
   end
 

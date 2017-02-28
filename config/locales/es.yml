@@ -5,14 +5,16 @@ es:
   activerecord:
     attributes:
       agency:
-        name: "Nombre:"
+        name: "Nombre de la organizacion:"
         address: "Direccion:"
         city: "Ciudad:"
         state: "Estado:"
         zipcode: "Codigo Postal"
-        contact: "Contacto:"
+        contact: "Persona de contacto:"
+        email: "Correo Electronico:"
         phone: "Numero de telefono:"
-        description: "Descripción:"
+        description: "Description(eng):"
+        descripcion: "Descripción:"
       category:
         categories: Categorias
   nav_links:

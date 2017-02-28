@@ -7,14 +7,9 @@
                                      action: 'show', id: agency.id%>
       </strong>
     </p>
-
+    <p><%=(t'show_page.address') %></p>
     <address class="agency-address">
-      <p><%=(t'show_page.address') %><br></p>
       <p><%= agency.full_address %></p>
-      <p><%= Agency.human_attribute_name("contact") %>
-        <%= agency.contact %></p>
-      <p><%= Agency.human_attribute_name("phone") %>
-        <%= agency.phone %></p>
     </address>
 
     <div>
@@ -54,24 +49,45 @@
           <i class="fa fa-globe fa-lg"></i>
         </span>
       </a>
-    </div>
-    <hr>
 
-    <% if agency.categories.any? %>
-      <!-- Same effect agency.categories.each do etc...(using partial instead) -->
-      <p><%= (t'category.categories') %></p>
-      <% agency.categories.each do |category| %>
-        <% if params[:locale] == "en" %>
-          <%= link_to category do %>
-          <%= fa_icon category.fa_name, text: category.name, left: true %>
-          <% end %>
-        <% else %>
-          <%= link_to category do %>
-            <%= fa_icon category.fa_name, text: category.categoria, left: true %>
+      <% agency.websites.each do |website| %>
+      <a href="<%= website.url %>" class="btn btn-default btn-sm btn-link">
+        <span class="agency-facebook">
+          <i class="fa fa-<%= website.website_type.icon %> fa-lg"></i>
+        </span>
+      </a>
+      <% end %>
+
+      <hr>
+      <p><%= Agency.human_attribute_name("contact") %>
+        <%= agency.contact %></p>
+      <p><%= Agency.human_attribute_name("phone") %>
+        <%= agency.phone %></p>
+      <p><%= (t'show_page.description') %>
+        <% if params[:locale] = "en" %>
+        <%= agency.description %>
+      <% else %>
+        <%= agency.descripcion %>
+        <% end %>
+      </p>
+      <hr>
+      <% if agency.categories.any? %>
+        <!-- Same effect agency.categories.each do etc...(using partial instead) -->
+        <p><%= (t'category.categories') %></p>
+        <% agency.categories.each do |category| %>
+          <% if params[:locale] == "en" %>
+            <%= link_to category do %>
+              <%= fa_icon category.fa_name, text: category.name, left: true %>
+            <% end %>
+          <% else %>
+            <%= link_to category do %>
+              <%= fa_icon category.fa_name, text: category.categoria, left: true %>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
-    <% end %>
+
+    </div>
   </div>
 </div>
 <% end %>

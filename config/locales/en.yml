@@ -26,14 +26,16 @@ en:
   activerecord:
     attributes:
       agency:
-        name: "Name:"
+        name: "Name of Organization:"
         address: "Address:"
         city: "City:"
         state: "State:"
         zipcode: "Zip Code:"
-        contact: "Contact:"
+        contact: "Contact Person:"
+        email: "Email:"
         phone: "Phone Number:"
-        description: "Description:"
+        description: "Description(eng):"
+        descripcion: "Descripción:"
       category:
         categories: Categories this organization can help you with
   nav_links:

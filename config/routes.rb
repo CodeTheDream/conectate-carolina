@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 	  get 'search', to: 'search#search'
     resources :categories, except: [:destroy]
     resources :websites, only: [:create, :destroy]
+    resources :website_types, only: [:create, :destroy]
     get 'websites/new'
 		# match '/send_mail', to: 'contact#send_mail', via: 'post'
 		resources :feedback_forms
