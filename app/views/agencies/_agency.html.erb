@@ -13,52 +13,6 @@
     </address>
 
     <div>
-      <a href="#" class="btn btn-default btn-sm btn-link">
-        <span class="agency-phone">
-          <i class="fa fa-phone fa-lg"></i>
-        </span>
-      </a>
-      <a href="#" class="btn btn-default btn-sm btn-link ">
-        <span class="agency-phone">
-          <i class="fa fa-envelope fa-lg"></i>
-        </span>
-      </a>
-      <a href="https://www.google.com/maps/dir/Current+Location/<%= agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank">
-        <span class="agency-phone">
-          <i class="fa fa-map-marker fa-lg"></i>
-        </span>
-      </a>
-
-      <a href="#" class="btn btn-default btn-sm btn-link">
-        <span class="agency-facebook">
-          <i class="fa fa-facebook fa-lg"></i>
-        </span>
-      </a>
-      <a href="#" class="btn btn-default btn-sm btn-link">
-        <span class="agency-twitter">
-          <i class="fa fa-twitter fa-lg"></i>
-        </span>
-      </a>
-      <a href="#" class="btn btn-default btn-sm btn-link">
-        <span class="agency-instagram">
-          <i class="fa fa-instagram fa-lg"></i>
-        </span>
-      </a>
-      <a href="#" class="btn btn-default btn-sm btn-link">
-        <span class="agency-globe">
-          <i class="fa fa-globe fa-lg"></i>
-        </span>
-      </a>
-
-      <% agency.websites.each do |website| %>
-      <a href="<%= website.url %>" class="btn btn-default btn-sm btn-link">
-        <span class="agency-facebook">
-          <i class="fa fa-<%= website.website_type.icon %> fa-lg"></i>
-        </span>
-      </a>
-      <% end %>
-
-      <hr>
       <p><%= Agency.human_attribute_name("contact") %>
         <%= agency.contact %></p>
       <p><%= Agency.human_attribute_name("phone") %>
@@ -76,15 +30,23 @@
         <p><%= (t'category.categories') %></p>
         <% agency.categories.each do |category| %>
           <% if params[:locale] == "en" %>
-            <%= link_to category do %>
+            <%= link_to category.name do %>
               <%= fa_icon category.fa_name, text: category.name, left: true %>
             <% end %>
           <% else %>
-            <%= link_to category do %>
+            <%= link_to category.categoria do %>
               <%= fa_icon category.fa_name, text: category.categoria, left: true %>
             <% end %>
           <% end %>
         <% end %>
+      <% end %></br>
+
+      <% agency.websites.each do |website| %>
+      <a href="<%= website.url %>" class="btn btn-default btn-sm btn-link">
+        <span class="agency-facebook">
+          <i class="fa fa-<%= website.website_type.icon %> fa-lg"></i>
+        </span>
+      </a>
       <% end %>
 
     </div>
