@@ -1,5 +1,5 @@
 <% obj.each do |agency| %>
-<div class="col-sm-6 col-lg-4 col-md-6">
+<div class="col-sm-6 col-lg-4 col-md-6" id="padding-resize">
   <div class="well well-sm well-agency">
     <p class="lead agency-name">
       <strong>
@@ -9,7 +9,7 @@
     </p>
     <p><%=(t'show_page.address') %></p>
     <address class="agency-address">
-      <p><%= agency.full_address %></p>
+      <%= agency.full_address %>
     </address>
 
     <div>
@@ -62,13 +62,7 @@
       <p><%= Agency.human_attribute_name("contact") %>
         <%= agency.contact %></p>
       <p><%= Agency.human_attribute_name("phone") %>
-        <%= agency.phone %></p>
-      <p><%= (t'show_page.description') %>
-        <% if params[:locale] = "en" %>
-        <%= agency.description %>
-      <% else %>
-        <%= agency.descripcion %>
-        <% end %>
+        <%= agency.phone %>
       </p>
       <hr>
       <% if agency.categories.any? %>
@@ -76,7 +70,7 @@
         <p><%= (t'category.categories') %></p>
         <% agency.categories.each do |category| %>
           <% if params[:locale] == "en" %>
-            <%= link_to category do %>
+            <%= link_to category, class: 'agency-category' do %>
               <%= fa_icon category.fa_name, text: category.name, left: true %>
             <% end %>
           <% else %>
