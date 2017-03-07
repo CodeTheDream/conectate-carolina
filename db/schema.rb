@@ -42,13 +42,6 @@ ActiveRecord::Schema.define(version: 20170219045755) do
     t.string   "fa_name"
   end
 
-  create_table "social_media", force: :cascade do |t|
-    t.integer  "agency_id_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["agency_id_id"], name: "index_social_media_on_agency_id_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -77,10 +70,12 @@ ActiveRecord::Schema.define(version: 20170219045755) do
 
   create_table "websites", force: :cascade do |t|
     t.integer  "agency_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "website_type_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "url"
     t.index ["agency_id"], name: "index_websites_on_agency_id"
+    t.index ["website_type_id"], name: "index_websites_on_website_type_id"
   end
 
 end
