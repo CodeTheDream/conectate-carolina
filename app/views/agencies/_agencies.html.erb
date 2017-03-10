@@ -1,9 +1,5 @@
 <!-- Code here is used to build the map by google-maps-for-rails-->
 <div class="container" id="gmap">
-  <!-- <div class="col-md-9">
-      <div class="map-responsive"id="map" style='width: 100%; height: 350%;'></div>
-  </div> -->
-
   <div class="col-md-9" id="agency-lookup padding-resize">
     <div class="">
       <!-- class="panel panel-info" -->
@@ -31,22 +27,29 @@
     <%#end panel%>
   </div>
   <%# end col-md-9%>
-
 </div>
+
 <script type="text/javascript">
-handler = Gmaps.build('Google');
-handler.buildMap({
-  provider: {},
-  internal: {
-    id: 'map'
-  }
-}, function () {
-  markers = handler.addMarkers(<%=raw @hash.to_json %>);
-  handler.bounds.extendWith(markers);
-  handler.fitMapToBounds();
+$(function() {
+  $('.show-map').click(function(event){
+    event.preventDefault();
+    $('div#index-map').toggle();
+    handler = Gmaps.build('Google');
+    handler.buildMap({
+      provider: {},
+      internal: {
+        id: 'index-map'
+      }
+    }, function () {
+      google.maps.event.trigger(handler, 'resize');
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+
+    });
+  });
 });
 </script>
-
 
 <!-- <h3>Agencies nearby </h3>
 <ul>

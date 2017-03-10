@@ -15,8 +15,6 @@
     <div class="panel-body" id="padding-resize">
       <div class="col-md-6 col-sm-6" id="padding-resize">
         <div class="well well-sm well-agency">
-          <%= image_tag 'icon' %>
-
           <p class="lead agency-name">
             <strong>
               <%= link_to @agency.name, @agency %>
@@ -86,7 +84,7 @@
       <!-- Code here is used to build the map by google-maps-for-rails-->
       <div class="col-md-6 col-sm-6" id="padding-resize">
         <div class="well-sm">
-          <div class="map-responsive" id="map" style='width: 100%; height: 400px;'></div>
+          <div class="map-responsive" id="show-map" style='width: 100%; height: 400px;'></div>
         </div>
       </div>
     </div>
@@ -128,7 +126,7 @@
   handler.buildMap({
   provider: {},
   internal: {
-    id: 'map'
+    id: 'show-map'
   }
 }, function () {
   markers = handler.addMarkers(<%=raw @hash.to_json %>);
@@ -141,6 +139,6 @@
 
 <div>
 <%= link_to agencies_path, :class => "btn btn-info btn-md" do %>
-<span class="glyphicon glyphicon-chevron-left"></span><%= (t'buttons_t.back')%></br>
+<span class="glyphicon glyphicon-chevron-left"></span><%= (t'buttons_t.back')%><br>
 <% end %>
 </div>
