@@ -17,7 +17,7 @@ function getLocation() {
 }
 function showPosition(position) {
 	var x = document.getElementById("location");
-    x.value = position.coords.latitude + "," + position.coords.longitude; 
+    x.value = position.coords.latitude + "," + position.coords.longitude;
     console.log(x.value)
 }
 getLocation();
@@ -25,7 +25,7 @@ getLocation();
 
 <h1><%= (t'home_page.title') %></h1>
 <h2><%= (t'home_page.browse') %></h2>
-</br>
+<br>
 
 <div class="row row-centered">
   <%= render 'sidebar' %>

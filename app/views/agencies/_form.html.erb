@@ -86,13 +86,13 @@
         cb.check_box(class: 'checkbox') + cb.text }  %>
     <% end %>
   </div>
-</br>
+  <br>
 
     <div class="panel-inline-body">
       <%= link_to (t'buttons_t.back'), agencies_path, class: 'btn btn-primary' %>
       <%= f.button (t'buttons_t.save'), class: "btn btn-primary btn-info",
         data: {disable_with:
-        "<i class='fa fa-spinner fa-pulse fa-lg fa-fw'></i> Saving..."} %></br>
+        "<i class='fa fa-spinner fa-pulse fa-lg fa-fw'></i> Saving..."} %><br>
     </div>
 
 <% end %> <%# end of form_for %>
