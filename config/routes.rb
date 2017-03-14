@@ -7,13 +7,13 @@ Rails.application.routes.draw do
 		resources :users
 		get 'pages/about'
 	  get 'search', to: 'search#search'
+		get '/faqs', to: 'faqs#index', as: 'faqs'
     resources :categories, except: [:destroy]
     resources :websites, only: [:create, :destroy]
     resources :website_types, only: [:create, :destroy]
     get 'websites/new'
 		# match '/send_mail', to: 'contact#send_mail', via: 'post'
 		resources :feedback_forms
-    get 'faq', :to => 'help_pages#faq'
 	end
 #get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
 get '', to: redirect("/#{I18n.default_locale}/")

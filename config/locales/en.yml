@@ -100,3 +100,6 @@ en:
   footer:
     about: About
     organizations: Organizations
+  faq:
+    h1: Frequently Asked Questions
+    nav: FAQ
