@@ -25,7 +25,7 @@ es:
     edit_accnt: Actualizar cuenta
     sign_out: Terminar sesion
   category:
-    categories: Categorías en que esta organización es distinguida
+    categories: Categorías
     all_cat: Lista de Categorias
     new_cat: Crear nueva categoría
     edit_cat: Actualizar Categoría
