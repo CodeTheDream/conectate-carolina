@@ -6,16 +6,18 @@
         <%= link_to agency.name, controller: 'agencies',
                                      action: 'show', id: agency.id%>
       </strong>
+    <hr>
     </p>
-    <p><%=(t'show_page.address') %></p>
-    <address class="agency-address">
-      <%= agency.full_address %>
-    </address>
-
     <div>
-      <p><%= Agency.human_attribute_name("contact") %>
+    <p><%=(t'show_page.address') %><br></p>
+    <address>
+      <%= agency.address %><br>
+      <%= agency.city %>, <%= agency.state %>, <%= agency.zipcode %> <br>
+    </address>
+      <!-- check HTML in this agency card   -->
+      <p><%= Agency.human_attribute_name("contact") %> <br>
         <%= agency.contact %></p>
-      <p><%= Agency.human_attribute_name("phone") %>
+      <p><%= Agency.human_attribute_name("phone") %> <br>
         <%= agency.phone %>
       </p>
       <hr>
