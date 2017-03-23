@@ -15,6 +15,7 @@ class FaqsController < ApplicationController
         else
             flash[:error] = "Question not saved"
         end
+        redirect_to action: 'index'
     end
 
     def edit
@@ -43,6 +44,6 @@ class FaqsController < ApplicationController
 
     private
     def faq_params
-        params.require(:faq).permit(:question, :answer)
+        params.require(:faq).permit(:question, :answer, :pregunta, :respuesta)
     end
 end
