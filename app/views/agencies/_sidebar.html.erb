@@ -6,7 +6,8 @@
 
         <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control search-input', autofocus: params[:search].present? %>
 
-        <%= text_field_tag :location, params[:location], placeholder: "search by location", :class => 'form-control search-input', autofocus: params[:location].present? %>
+        <%= text_field_tag :location, params[:location], placeholder: "Current Location", :class => 'form-control search-input', autofocus: params[:location].present? %>
+        <%= hidden_field_tag :coordinates, params[:coordinates]%>
 
         <%# select_tag :category, options_from_collection_for_select(Category.all, :id, :name), class: "form-control input-lg"%>
         <div class="input-group-btn">

@@ -22,8 +22,13 @@ class Agency < ApplicationRecord
 
   #Method not finished
   def self.search(params)
-    params[:location] = "Raleigh, NC" if not params[:location].present?
-    agencies = Agency.near(params[:location], 50)
+    if params[:location].present?
+      location = params[:location]
+    else
+      location = params[:coordinates]
+    end
+    location = "Raleigh NC" if not location.present?
+    agencies = Agency.near(location, 50)
     if params[:category].present?
       agencies = agencies.where(category_id: params[:category].to_i)
     end

@@ -422,3 +422,19 @@ footer ul li {
 .panel-body {
 
 }
+////////// CSS for the styling of the FAQ page.////////////////
+
+#faq_question {
+    font-family: "Times New Roman", Times, sans-serif;
+    font-size: 2em;
+    color: blue;
+    font-weight: bold;
+    text-indent: 50px;
+    text-align: justify;
+  }
+
+#faq_answer {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.5em;
+  color: black;
+}

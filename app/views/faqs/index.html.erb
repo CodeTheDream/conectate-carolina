@@ -1,14 +1,24 @@
 <% content_for :title do %>FAQ<% end %>
 <div class="jumbotron col-lg-10 center">
-  <h1> Frequently Asked Questions </h1>
-  <% @question.each do |question| %>
+  <h1><%= (t'faq.h1') %></h1>
+  <% @faqs.each do |question| %>
     <% if params[:locale] == "en" %>
-      <%= question.question %><br>
-      <%= question.answer %></br>
+    <div id="faq_question">
+      <%= question.question%><br>
+    </div>
+    <div id="faq_answer">
+      <%= question.answer %>
+    </div>
     <% else %>
-      <%= question.pregunta %><br>
-      <%= question.respuesta %></br>
+    <div id="faq_question">
+      <%= question.pregunta %>
+    </div>
+    <div id="faq_answer">
+      <%= question.respuesta %>
+    </div>
     <% end %>
   <% end %>
-  <%= link_to "new question", new_faq_url %>
+  <% if policy(Faq).new? %>
+    <%= link_to "New Question", new_faq_path %>
+  <% end %>
 </div>
