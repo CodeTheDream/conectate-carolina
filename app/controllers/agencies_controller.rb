@@ -11,7 +11,6 @@ class AgenciesController < ApplicationController
 	  	marker.lng agency.longitude
 		end
 		@categories = Category.all
-
 	end
 
 	def new

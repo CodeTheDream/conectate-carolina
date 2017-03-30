@@ -16,11 +16,9 @@
       <div class="col-md-6 col-sm-6" id="padding-resize">
         <div class="well well-sm well-agency">
           <p class="lead agency-name">
-            <strong>
-              <%= link_to @agency.name, @agency %>
-            </strong>
+            <strong><%= link_to @agency.name, @agency %></strong>
           </p>
-
+          <hr>
           <p><%=(t'show_page.address') %><br></p>
           <address>
             <!-- You may visit them at: <br> -->
@@ -32,9 +30,6 @@
               </span>
             </a>
           </address>
-
-
-            <hr>
             <p><%= (t'show_page.contact') %>
               <%= @agency.contact %>
               <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
@@ -58,6 +53,7 @@
                 <%= @agency.descripcion %>
               <% end %>
             </p>
+            <hr>
             <% if @agency.categories.any? %>
             <!-- Same effect @agency.categories.each do etc...(using partial instead) -->
             <p><%= (t'category.categories') %></p>

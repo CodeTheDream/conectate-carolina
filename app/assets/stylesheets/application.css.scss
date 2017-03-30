@@ -56,13 +56,13 @@ main {
 // Header index
 
 h1 {
-    font-family: 'Raleway', Helvetica, Arial, sans-serif;
+
     color: #1f201f;
     font-size: 28px;
     font-weight: 700;
     letter-spacing: 2px;
     line-height: 38px;
-    margin-bottom: 24px;
+    // margin-bottom: 24px;
     text-align: center;
     text-transform: uppercase;
     text-shadow: 1px 1px 0 rgba(#636363, 0.61)
@@ -71,16 +71,16 @@ h1 {
   font-size: 42px;
 }
 
-h2 {
-    color: #1f201f;
-    font-size: 18px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    line-height: 32px;
-    margin-bottom: 14px;
-    text-align: center;
-    text-transform: uppercase;
-    border-bottom: 3px solid #d9edf7;
+ .row h2 {
+  color: #1f201f;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 32px;
+  margin-bottom: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 3px solid rgba(#515152, 0.8);
 }
 
 p {
@@ -103,10 +103,10 @@ a {
 a:hover {
     color: #42393B;
 }
-//
 
-.center {
-    text-align: left;
+// Makes button in About page to center
+.center-block {
+  float: none;
 }
 
 ul {
@@ -122,6 +122,112 @@ address {
   max-width: 500px;
   text-align: left;
 }
+// top image index page
+.top-background {
+  background: image-url('farm_landscape.jpg');
+  top: 90%;
+  background-position: 50% 70%;
+  height: 500px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin-top: 0px;
+}
+.top-background h1 {
+  color: #13ba1a;
+  font-size: 46px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 38px;
+  // margin-bottom: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  // margin-top: 160px;
+  position: relative;
+}
+.top-background h2 {
+  color: #13ba1a;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 32px;
+  margin-bottom: 14px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-top: 50px;
+  position: relative;
+}
+#farm-background {
+  opacity: 0.8;
+}
+.header {
+  padding: 100px 10px 10px 10px;
+  margin: auto;
+  width: 99%;
+}
+
+.search {
+  width: 90%;
+  height: 50px;
+  background: #ececec;
+  position: absolute;
+}
+
+.search-form {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 95%;
+  height: 80px;
+}
+@media screen and (max-width: 480px) {
+  .top-background h1 {
+    font-size: 36px;
+    color: #f1f5f1;
+    // margin-top: 100px;
+  }
+  .top-background h2 {
+    font-size: 28px;
+    color: #f1f5f1;
+  }
+  .search-form {
+    width: 81%
+  }
+  .header {
+    padding: 10px 0;
+    margin: auto;
+    width: 99%;
+    padding: 5px;
+  }
+}
+
+.index-search #search {
+  display: block;
+  width: 70%;
+  height: 48px;
+  float: left;
+  border: 0;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  background: rgba(#f4f4f4, 0.71);
+  color: #3e3b3b;
+  font-family: "lato-regular",Helvetica,Arial,sans-serif;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 22px;
+}
+
+.index-search button:hover {
+  background: none;
+}
+
+input, select {
+    vertical-align: middle;
+}
+
+
 
 #about-page {
     color: #333;
@@ -334,7 +440,7 @@ footer ul li {
     height: 0;
 }
 
-#map {
+#show-map, #index-map {
     border-width: 2px;
     border-style: solid;
     border-color: #ccc;

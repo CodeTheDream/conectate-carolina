@@ -1,11 +1,8 @@
 <!-- Code here is used to build the map by google-maps-for-rails-->
 <div class="container" id="gmap">
   <div class="col-md-9" id="agency-lookup padding-resize">
+    <h1 id="organizations"><%= (t'footer.organizations')%></h1>  
     <div class="">
-      <!-- class="panel panel-info" -->
-      <div class="panel-heading">
-        <h1 class="panel-title"><%= (t'footer.organizations')%></h1>
-      </div>
       <!-- button -->
       <div class="col-md-pull-4">
         <div class="" data-toggle="buttons">
@@ -23,9 +20,9 @@
       <div class="panel-body" id="padding-resize">
 
       </br>
-        <div class="flex-row row">
-        <%= render 'agency', obj: @agencies %>
-        </div>
+      <div class="flex-row row">
+      <%= render 'agency', obj: @agencies %>
+      </div>
 
       <!-- end ul col-md-12 -->
       <div class="center">
