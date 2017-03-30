@@ -1,0 +1,24 @@
+<div class="jumbotron col-lg-10 center">
+  <h1> FAQ individual page</h1>
+    <% if params[:locale] == "en" %>
+      <div id="faq_question">
+        <%= @faq.question %><br>
+      </div>
+      <div id="faq_answer">
+        <%= @faq.answer %><br>
+      </div>
+    <% else %>
+    <br>
+    <br>
+    <div id="faq_question">
+      <%= @faq.pregunta %><br>
+    </div>
+    <div id="faq_answer">
+      <%= @faq.respuesta %><br>
+    </div>
+    <%= link_to "<< Back to questions", faqs_path %> |
+      <% if policy(Faq).edit? %>
+        <%= link_to "Edit", edit_faq_url %>
+      <% end %>
+    <% end %>
+</div>

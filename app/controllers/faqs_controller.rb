@@ -1,49 +1,61 @@
 class FaqsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
+	rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  after_action  :verify_authorized, except: [:show, :index]
+
+  def index
+    @faqs = Faq.all
+  end
+
+  def show
+    @faq = Faq.find(params[:id])
+  end
 
   def new
-        @question = Faq.new
-    end
+    @faq = Faq.new
+    authorize @faq
+  end
 
-    def index
-        @question = Faq.all
+  def create
+    @faq = Faq.new(faq_params)
+    authorize @faq
+    if @faq.save
+        flash[:success] = "Question Saved"
+        redirect_to(faqs_path)
+    else
+        flash[:error] = "Question not saved"
+        render('new')
     end
+  end
 
-    def create
-        @question = Faq.new(faq_params)
-        if @question.save
-            flash[:success] = "Question Saved"
-        else
-            flash[:error] = "Question not saved"
-        end
-        redirect_to action: 'index'
+  def edit
+    @faq = Faq.find(params[:id])
+    authorize @faq
+  end
+
+  def update
+    @faq = Faq.find(params[:id])
+    authorize @faq
+    if @faq.update_attributes(faq_params)
+        flash[:success] = "Question Succesfully updated"
+        redirect_to '#'
+    else
+        flash[:error] = "Question not saved"
     end
+  end
 
-    def edit
-        @question = Faq.find(params[:id])
+  def destroy
+    @faq = Faq.find(params[:id])
+    authorize @faq
+    if @faq.destroy
+        flash[:success] = "Question Deleted"
+    else
+        flash[:error] = "Error deleting the quesion"
     end
+  end
 
-    def update
-        @question = Faq.find(params[:id])
-        if @question.update_attributes(item_params)
-            flash[:success] = "Question Succesfully updated"
-            redirect_to '#'
-        else
-            flash[:error] = "Question not saved"
-        end
-    end
-
-    def destroy
-        @question = Faq.find(params[:id])
-        if @question.destroy
-            flash[:success] = "Question Deleted"
-        else
-            flash[:error] = "Error deleting the quesion"
-        end
-    end
-
-
-    private
-    def faq_params
-        params.require(:faq).permit(:question, :answer, :pregunta, :respuesta)
-    end
+  private
+  def faq_params
+    params.require(:faq).permit(:question, :answer, :pregunta, :respuesta)
+  end
 end

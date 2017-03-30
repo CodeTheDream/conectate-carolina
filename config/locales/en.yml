@@ -101,5 +101,8 @@ en:
     about: About
     organizations: Organizations
   faq:
+    new: Add a Question
     h1: Frequently Asked Questions
     nav: FAQ
+    add: Create question
+    edit: Edit Question
