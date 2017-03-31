@@ -84,7 +84,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => Rails.application.secrets.domain_name }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
@@ -102,4 +102,11 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  Rails.application.config.middleware.use ExceptionNotification::Rack,
+  :email => {
+    :email_prefix => "[SAFW APP Application Error - Production] ",
+    :sender_address => %{" Exception Notifier" <noreply@example.com>},
+    :exception_recipients => %w{fosorto99@gmail.com, peeweenaldo7@gmail.com, ramiro.rodriguez@gmail.com, lgalarzapunter@gmail.com}
+  }
 end
