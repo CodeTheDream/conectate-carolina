@@ -1,3 +1,5 @@
+<% content_for :title do %><%= (t'category.all_cat') %> | Conectate Carolina<% end %>
+
 <h1 class="center"><%= (t'category.all_cat')%></h1>
 
 <div class="container">
@@ -17,7 +19,7 @@
             <%= link_to category do %>
               <%= fa_icon category.fa_name, text: category.categoria, left: true %>
             <% end %>
-          <% end %> 
+          <% end %>
         </li>
         <li class="list-group-item"><small><%= pluralize(category.agencies.count, "organization") %></small></li>
       </ul>

@@ -1,5 +1,5 @@
-<% content_for :title do %>FAQ<% end %>
-<div class="jumbotron col-lg-10 center">
+<% content_for :title do %><%=(t'faq.nav') %> | Conectate Carolina<% end %>
+<div class="jumbotron col-lg-12 center">
   <h1><%= (t'faq.h1') %></h1>
   <% @faqs.each do |question| %>
     <% if params[:locale] == "en" %>
