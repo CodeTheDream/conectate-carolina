@@ -26,16 +26,18 @@
         <p><%= (t'category.categories') %></p>
         <% agency.categories.each do |category| %>
           <% if params[:locale] == "en" %>
-            <%= link_to category.name do %>
+            <%= link_to category_path(category) do %>
               <%= fa_icon category.fa_name, text: category.name, left: true %>
             <% end %>
           <% else %>
-            <%= link_to category.categoria do %>
+            <%= link_to category_path(category) do %>
               <%= fa_icon category.fa_name, text: category.categoria, left: true %>
             <% end %>
           <% end %>
         <% end %>
-      <% end %><br>
+      <% end %><br/>
+    <br/>
+      <p><%= (t'show_page.websites')%></p>
 
       <% agency.websites.each do |website| %>
       <a href="http://<%= website.url %>" class="btn btn-default btn-sm btn-link">

@@ -53,7 +53,7 @@ en:
     cat_view: Organizations with the
     cat_view1: category
   home_page:
-    title: Student Action with Farm Workers
+    title: CONECTATECAROLINA IS A RESOURCE DIRECTORY DESIGNED TO HELP FARM WORKERS LOCATE SERVICES  THROUGHOUT THE STATE OF NORTH CAROLINA.
     browse: Browse through a list of organizations here
     listing: Listing all organizations
   flash_notice:
@@ -65,9 +65,7 @@ en:
     plchldr_search: Search...
     bttn_search: Search
   about_page:
-    h1: Resource Directory for Farmworker Advocates
-    h2: Listing of Services for Migrant and Seasonal Farmworkers in North Carolina
-    p1: "The Farmworker Institute is a project of the Farmworker Ministry Committee of the North Carolina Council of Churches, a group that creates educational materials, presents public forums, and brings together farmworker advocates to share strategies to improve farmworker conditions in North Carolina."
+    text: THE APP WAS CREATED BY
   views_index:
     h1: Organizations
   new_page:
@@ -85,6 +83,7 @@ en:
     contact: "Contact:"
     phone: "Phone:"
     description: "Description:"
+    websites: "Websites"
   buttons_t:
     back: Back
     edit: Edit

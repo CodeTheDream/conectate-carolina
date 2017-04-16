@@ -69,7 +69,9 @@
                   <% end %>
                 <% end %>
               <% end %>
-            <% end %>
+            <% end %><br/>
+            <br/>
+            <p><%= (t'show_page.websites')%></p>
           <% @agency.websites.each do |website| %>
             <a href="http://<%= website.url %>" class="btn btn-default btn-sm btn-link">
                 <span class="agency-facebook">
