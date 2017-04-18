@@ -540,16 +540,17 @@ footer ul li {
 ////////// CSS for the styling of the FAQ page.////////////////
 
 #faq_question {
-    font-family: "Times New Roman", Times, sans-serif;
+    font-family: MuseoSlab-500;
     font-size: 2em;
-    color: black;
+    // color: #black;
     font-weight: bold;
     text-indent: 50px;
     text-align: justify;
   }
 
-#faq_answer {
-  font-family: "Times New Roman", Times, serif;
+ol.faq_answer {
+  list-style-type: square;
+  font-family: Helvetica Neue Light;
   font-size: 1.5em;
-  color: blue;
+  color: #008752;
 }
