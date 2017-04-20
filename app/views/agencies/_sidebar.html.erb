@@ -41,11 +41,11 @@
             <!-- If using the block form of link_to you can't have text
             content (the block is your text content). -->
             <%= link_to category_path(category) do %>
-              <%= fa_icon category.fa_name %>
+
               <% if params[:locale] == "en" %>
-                <%= fa_icon "chevron-right", text: category.name, right: true %>
+                <%= fa_icon category.fa_name, text: category.name %>
               <% else %>
-                <%= fa_icon "chevron-right", text: category.categoria, right: true %>
+                <%= fa_icon category.fa_name, text: category.categoria %>
               <% end %>
               <%= content_tag :span, category.agencies.count, :class => "badge" %>
             <% end %>

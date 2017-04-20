@@ -20,9 +20,7 @@
 @import "font-awesome"; // main background color
 
 main {
-    background: #76b852; /* fallback for old browsers */
-    background: -webkit-linear-gradient(to left, #76b852 , #8DC26F); /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to left, #76b852 , #8DC26F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: rgb(255,255,255);
 }
 // Flex
 
@@ -210,10 +208,10 @@ address {
   outline: none;
   margin: 0;
   padding: 0;
-  background: rgba(#f4f4f4, 0.71);
-  color: #3e3b3b;
+  background: rgba(#f4f4f4, 0.95);
+  color: #222121;
   font-family: "lato-regular",Helvetica,Arial,sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   text-transform: uppercase;
   letter-spacing: 1px;
   line-height: 22px;

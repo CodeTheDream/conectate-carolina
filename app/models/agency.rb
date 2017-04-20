@@ -33,7 +33,16 @@ class Agency < ApplicationRecord
       agencies = agencies.where(category_id: params[:category].to_i)
     end
     if params[:search].present?
+      # postgress better way to write this query, active record search methods. case sensitive
+      # The LIKE syntax is used for MySQL, but if you are deploying to Heroku or
+      # another platform that uses PostgreSQL use the ILIKE syntax instead.
       agencies = agencies.where("name LIKE ? OR address LIKE ? OR city LIKE ? OR state LIKE ? OR zipcode LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
+      # query_string = "%#{params[name]}%"
+      # param_matches_string =  ->(param){
+      #   agencies[param].matches(query_string)
+      # }
+      # agencies = agencies.where(param_matches_string.(:name)\
+      #                        .or(param_matches_string.(:address)))
     end
     agencies
   end

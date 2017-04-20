@@ -13,76 +13,23 @@
 
 
 # Environment variables (ENV['...']) can be set in the file .env file.
-
-# Agency.create!([{
-#   name: "North Carolina Community College System",
-#   address: "200 West Jones Street",
-#   city: "Raleigh",
-#   state: "NC",
-#   zipcode: "27603",
-#   phone: "(919) 807-7140",
-#   description: "Education services provided to English language
-#     learners who are adults, that enables them to achieve
-#     competency in the English language and acquire the basic and
-#     more advanced skills. ",
-#   contact: "Karen Brown"
-# },
-# {
-#   name: "Farmworker Advocacy Network (FAN)",
-#   address: "1317 W. Pettigrew Street",
-#   city: "durham",
-#   state: "nc",
-#   zipcode: "27705",
-#   phone: "(919) 660-3616",
-#   description: "Farmworker Advocacy Network is a statewide
-#     network of organizations that work to improve living and
-#     working conditions of farmworkers and poultry workers in
-#     North Carolina. ",
-#   contact: "Melinda Wiggins"
-# },
-# {
-#   name: "Legal Aid of NC Battered Immigrant Project",
-#   address: "224 S. Dawson Street",
-#   city: "Raleigh",
-#   state: "nc",
-#   zipcode: "27601",
-#   phone: "(919) 856-2564",
-#   description: "The Battered Immigrant Project (BIP), part of our
-#     Domestic Violence Prevention Initiative​, provides
-#     comprehensive and culturally appropriate legal services to
-#     immigrant survivors of violence needing assistance with
-#     immigration. ",
-#   contact: "Teandra Miller"
-# },
-# {
-#   name: "Adelante Education Coalition",
-#   address: "301 Pittsboro Street",
-#   city: "Chapel Hill",
-#   state: "nc",
-#   zipcode: "27599",
-#   phone: "",
-#   description: "Adelante focuses on education issues affecting
-#     Latino and migrant students and their families in the state.
-#     The coalition is a collaboration among nonprofit
-#     organizations that focus on advocacy and public policy,
-#     community organizing, and grassroots support.",
-#   contact: "Ricky Hurtado"
-# },
-# {
-#   name: "Employment Security Commission/Agricultural Services",
-#   address: "313 Chapanoke Rd. Ste. 210",
-#   city: "raleigh",
-#   state: "nc",
-#   zipcode: "27611",
-#   phone: "(919) 814-0464, (919) 814-0448",
-#   description: "NC Works Career Centers’ employment consultants
-#     help place farm workers on jobs and ensure that migrant and
-#     seasonal farmworkers have access to the same services as the
-#     general public. ",
-#   contact: "Francisca Rios, Billy Green"
-# }])
-#
-# p "Created #{Agency.count} organizations"
+website_types = [
+  {
+  name: 'Facebook',
+  icon: 'facebook'
+  },
+  {
+  name: 'Website',
+  icon: 'globe'
+  }
+  ]
+  website_types.each do |website_type|
+    type = WebsiteType.find_by(name: website_type[:name])
+    if type.nil?
+      WebsiteType.create(website_type)
+    end
+  end
+  p "Created #{WebsiteType.count} WebsiteType"
 
 # # using chunks:
 # filename = 'DirectorySpreadsheet.csv'
@@ -105,6 +52,16 @@ csv = CSV.parse(csv_text, headers: true, encoding: 'UTF-8')
 # Loop through the entire CSV file and convert each row of thr document
 # into a hash. The headers of the CVS file are used as keys for the hash
 csv.each do |row|
+
+  c = Category.find_by(name: row['Category'])
+  if c.nil?
+    c = Category.new
+    c.name = row['Category']
+    c.categoria = row['Categoria']
+    c.save
+  end
+
+
   t = Agency.new
   t.name = row['Organization Name']
   t.address = row['Street Address']
@@ -116,8 +73,23 @@ csv.each do |row|
   t.description = row['Descriptions']
   t.email = row['Email']
   t.descripcion = row['Descripciones']
-  t.save
+  # t.save
+  if t.save
+    t.agency_categories.create(category_id: c.id)
+  else
+    t.errors
+  end
+
+  if row['Website'] and not row['Website'].empty?
+    website_type = WebsiteType.find_by(name: 'Website')
+    t.websites.create(url: row['Website'], website_type_id: website_type.id)
+  end
+  if row['Facebook'] and not row['Facebook'].empty?
+    website_type = WebsiteType.find_by(name: 'Facebook')
+    t.websites.create(url: row['Facebook'], website_type_id: website_type.id)
+  end
   puts "Organization #{t.name} saved!"
+  puts "Category #{c.name} saved!"
   # puts row.to_hash
 end
 
