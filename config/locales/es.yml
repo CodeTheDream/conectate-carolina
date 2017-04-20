@@ -32,7 +32,7 @@ es:
     cat_view: Organizaciones con
     cat_view1: categoria
   home_page:
-    title: Accion estudiantil con campesinos.
+    title: CONECTATECAROLINA ES UN DIRECTORIO DE RECURSOS DISEÑADO PARA AYUDAR A LOS AGRICULTORES A LOCALIZAR SERVICIOS EN TODO EL ESTADO DE CAROLINA DEL NORTE.
     browse: Navega a traves de una lista de organizaciones aqui
     listing: Demonstrando todas las organizaciones
   flash_notice:
@@ -44,9 +44,7 @@ es:
     plchldr_search: Busca por nombre de la organización
     bttn_search: Buscar
   about_page:
-    h1: Directorio de recursos para los defensores de los trabajadores agrícolas.
-    h2: Lista de servicios para migrantes y trabajadores agricolas temporarios en Carolina del Norte.
-    p1: "El instituto de trabajadores agricolas es un projecto del comite de ministro consejo de iglesias de Norte Carolina, un grupo que crea materiales educativos, presenta foros públicos, y que reune el trabajo agricola en defensores para compartir estrategias para mejorar las condiciones de los trabajadores agricolas en Carolina del Norte."
+    text: LA APLICAIÓN FUE CREADA POR
   views_index:
     h1: Organizaciones
   new_page:
@@ -64,6 +62,7 @@ es:
     contact: "Contacto:"
     phone: "Numero De telefono:"
     description: "Descripcion:"
+    websites: "Sitios web"
   buttons_t:
     back: Atras
     edit: Actualizar

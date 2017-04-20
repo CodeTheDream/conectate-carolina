@@ -1,16 +1,23 @@
 <div class="container">
   <footer class="footer">
     <small>
-      Copyright &copy; 
+      Copyright &copy;
       <a href="http://www.codethedream.org/">
-      App made by Fernando and Jorge from Code the Dream  
+      App made by Fernando and Jorge from Code the Dream
       </a>
     </small>
     <nav>
       <ul>
-        <li><%= link_to (t'footer.about'), page_path('about') %></li>
+        <!-- <li><%# link_to (t'footer.about'), page_path('about') %></li> -->
         <!-- <li><%# link_to 'Search', search_path('search') %></li>-->
         <li><%= link_to (t'footer.organizations'), agencies_path %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to (t'nav_links.edit_accnt'), edit_user_registration_path %></li>
+          <li><%= link_to (t'nav_links.sign_out'), destroy_user_session_path, :method=>'delete' %></li>
+        <% else %>
+          <li><%= link_to (t'nav_links.sign_in'), new_user_session_path %></li>
+          <li><%= link_to (t'nav_links.sign_up'), new_user_registration_path %></li>
+        <% end %>
       </ul>
     </nav>
   </footer>

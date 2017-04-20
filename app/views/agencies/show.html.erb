@@ -32,7 +32,7 @@
           </address>
             <p><%= (t'show_page.contact') %>
               <%= @agency.contact %>
-              <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
+              <a href="mailto:<%=@agency.email %>" class="btn btn-default btn-sm btn-link">
                 <span class="agency-phone">
                 <i class="fa fa-envelope fa-2x"></i>
                 </span>
@@ -40,7 +40,7 @@
             </p>
             <p><%= (t'show_page.phone') %>
               <%= @agency.phone %>
-              <a href="tel:555-555-5555" class="btn btn-default btn-sm btn-link">
+              <a href="tel:<%= @agency.phone %>" class="btn btn-default btn-sm btn-link">
                 <span class="agency-phone">
                   <i class="fa fa-phone fa-2x"></i>
                 </span>
@@ -69,7 +69,9 @@
                   <% end %>
                 <% end %>
               <% end %>
-            <% end %>
+            <% end %><br/>
+            <br/>
+            <p><%= (t'show_page.websites')%></p>
           <% @agency.websites.each do |website| %>
             <a href="http://<%= website.url %>" class="btn btn-default btn-sm btn-link">
                 <span class="agency-facebook">

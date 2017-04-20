@@ -1,21 +1,21 @@
-<% content_for :title do %>FAQ<% end %>
-<div class="jumbotron col-lg-10 center">
+<% content_for :title do %><%=(t'faq.nav') %> | Conectate Carolina<% end %>
+<div class="jumbotron col-lg-12 center">
   <h1><%= (t'faq.h1') %></h1>
   <% @faqs.each do |question| %>
     <% if params[:locale] == "en" %>
     <div id="faq_question">
       <%= question.question%><br>
     </div>
-    <div id="faq_answer">
-      <%= question.answer %>
-    </div>
+    <ol class="faq_answer">
+      <li><%= question.answer %></li>
+    </ol>
     <% else %>
     <div id="faq_question">
       <%= question.pregunta %>
     </div>
-    <div id="faq_answer">
-      <%= question.respuesta %>
-    </div>
+    <ol class="faq_answer">
+      <li><%= question.respuesta %></li>
+    </ol>
     <% end %>
   <% end %>
   <% if policy(Faq).new? %>
