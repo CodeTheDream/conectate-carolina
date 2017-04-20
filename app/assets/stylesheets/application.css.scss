@@ -124,6 +124,7 @@ address {
 .top-background {
   background: image-url('farm_landscape.jpg');
   top: 90%;
+  opacity: 0.9;
   background-position: 50% 70%;
   height: 500px;
   position: relative;
@@ -132,7 +133,7 @@ address {
   margin-top: 0px;
 }
 .top-background h1 {
-  color: #e8f3ed;
+  color: #122112;
   font-size: 44px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -144,7 +145,7 @@ address {
   position: relative;
 }
 .top-background h2 {
-  color: #e8f3ed;
+  color: #d7d7d7;
   font-size: 32px;
   font-weight: 500;
   letter-spacing: 2px;
@@ -156,7 +157,7 @@ address {
   position: relative;
 }
 #farm-background {
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .header {
   padding: 100px 10px 10px 10px;
@@ -181,7 +182,7 @@ address {
 @media screen and (max-width: 480px) {
   .top-background h1 {
     font-size: 36px;
-    color: #f1f5f1;
+    color: #e6e6e6;
     // margin-top: 100px;
   }
   .top-background h2 {
