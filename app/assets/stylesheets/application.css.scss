@@ -92,9 +92,9 @@ p {
 }
 
 a {
-    color: #E0792B;
+    color: #FF6103;
     font-size: 18px;
-    font-style: italic;
+    // font-style: italic;
     text-align: center;
 }
 
@@ -122,7 +122,8 @@ address {
 }
 // top image index page
 .top-background {
-  background: image-url('farm_landscape.jpg');
+  // background: image-url('farm_landscape.jpg');
+  background-color: #cdb521;
   top: 90%;
   opacity: 0.9;
   background-position: 50% 70%;
@@ -211,7 +212,8 @@ address {
   padding: 0;
   background: rgba(#f4f4f4, 0.95);
   color: #222121;
-  font-family: "lato-regular",Helvetica,Arial,sans-serif;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+   font-weight: 300;;
   font-size: 22px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -313,30 +315,29 @@ input, select {
 // navbar overide settings
 
 .navbar-default {
-    background-color: rgba(35, 122, 162, 0.9);
-    border-color: #5e6f70;
+    background-color: rgba(#cdb521, 0.9);
 }
 
 .navbar-default .navbar-brand {
-    color: #eef4f6;
+    color: #008752;
 }
 
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:hover {
-    color: #88391e;
+    color: #e9e9e9;
 }
 
 .navbar-default .navbar-text {
-    color: #eef4f6;
+    color: #88391e;
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: #eef4f6;
+    color: #88391e;
 }
 
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li > a:hover {
-    color: #88391e;
+    color: #e9e9e9;
 }
 
 .navbar-default .navbar-nav > .active > a,
@@ -359,7 +360,7 @@ input, select {
 
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover {
-    background-color: rgba(#267daf, 0.99);
+    background-color: #008752;
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -398,7 +399,7 @@ input, select {
 //navbar home button
 
 #logo {
-    font-size: 1.4em;
+    font-size: 1.6em;
 }
 // search
 
