@@ -24,35 +24,43 @@ function showPosition(position) {
 }
 getLocation();
 </script>
-<section class="top-background" id="farm-background">
+<section class="top-background">
   <div class="header">
 
   <h1><%= (t'home_page.title') %></h1>
   <h2><%= (t'home_page.browse') %></h2>
-  <section class="index-search">
     <div class="wrapper">
-      <%= form_tag agencies_path(anchor: "organizations"), method: :get, class: 'search-form', id: 'agency-lookup-form', data: { behaviors: 'turboform' } do %>
+      <%= form_tag agencies_path(anchor: "organizations"), method: :get, class: 'form-group row', id: 'agency-lookup-form', data: { behaviors: 'turboform' } do %>
+        <div class="col-md-5">
 
-        <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control search-input', autofocus: params[:search].present? %>
+          <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control', autofocus: params[:search].present? %>
 
-        <!-- <%= text_field_tag :location, params[:location], placeholder: "search by location", :class => 'form-control search-input', autofocus: params[:location].present? %> -->
-        <% search_spinner = "<i class='fa fa-spinner fa-pulse fa-lg fa-fw'></i> Searching..." %>
+        </div>
+
+        <div class="col-md-5">
+          <%= text_field_tag :location, params[:location], placeholder: "Current Location", :class => 'form-control', autofocus: params[:location].present? %>
+          <%= hidden_field_tag :coordinates, params[:coordinates]%>
+
+          <!-- <%= text_field_tag :location, params[:location], placeholder: "search by location", :class => 'form-control search-input', autofocus: params[:location].present? %> -->
+
+        </div>
+        <div class="container">
+        <% search_spinner = "<i class='fa fa-spinner fa-spin'></i> Searching..." %>
         <span class="input-group-btn">
           <%= button_tag( type: "submit", class: "btn btn-success", :name => nil,
-                          data: {disable_with: search_spinner }) do %>
-            <span class="glyphicon glyphicon-search"></span>
-            <%= (t'search_page.bttn_search') %>
+          data: {disable_with: search_spinner }) do %>
+          <span class="glyphicon glyphicon-search"></span>
+          <%= (t'search_page.bttn_search') %>
           <% end %>
-        </span>
+          </span>
+
+      </div>
       <% end %>
     </div>
-  </section>
+  </div>
 </section>
-</div>
 
-<hr>
-
-<div class="row row-centered">
+<div class="row row-centered agencies-body">
   <%= render 'sidebar' %>
   <!-- end col-md-3 sidebar-->
   <%= render 'agencies' %>

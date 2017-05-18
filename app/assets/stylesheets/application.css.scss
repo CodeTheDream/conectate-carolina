@@ -20,18 +20,38 @@
 @import "font-awesome"; // main background color
 
 main {
-  background: rgb(255,255,255);
+  background: rgb(226, 226, 226);
+}
+
+.sidebar .panel {
+  margin-top: 30px;
+}
+
+.agencies-body {
+  /* fallback */
+  background-color: rgba(#1a82f7, 0.69);
+
 }
 // Flex
 
 .flex-row {
-    display: flex;
-    flex-wrap: wrap;
+  display: -ms-flex;
+	display: -webkit-flex;
+  display: flex;
+  // flex-wrap: wrap;
+  // justify-content: center;
+  // align-content: stretch;
+  flex-flow: row wrap;
+
 }
 
 .flex-row > [class*='col-'] {
-    display: flex;
-    flex-direction: column;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  // flex:1 1 auto;
 }
 
 .flex-row .caption,
@@ -39,7 +59,7 @@ main {
     flex-direction: column;
     display: flex;
     flex: 1 0 auto;
-    height: auto;
+    height: 100%;
     position: relative;
 }
 
@@ -71,7 +91,7 @@ h1 {
 
  .row h2 {
   color: #1f201f;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
   letter-spacing: 2px;
   line-height: 32px;
@@ -122,8 +142,12 @@ address {
 }
 // top image index page
 .top-background {
-  // background: image-url('farm_landscape.jpg');
-  background-color: #cdb521;
+  background:
+    linear-gradient(
+      rgba(59, 172, 184, 0.45),
+      rgba(84, 184, 59, 0.45)
+    ),
+    image-url('tobacco.jpg');
   top: 90%;
   opacity: 0.9;
   background-position: 50% 70%;
@@ -132,6 +156,7 @@ address {
   background-repeat: no-repeat;
   background-attachment: fixed;
   margin-top: 0px;
+  overflow: auto;
 }
 .top-background h1 {
   color: #122112;
@@ -157,41 +182,44 @@ address {
   margin-top: 50px;
   position: relative;
 }
-#farm-background {
-  opacity: 0.9;
-}
+// #farm-background {
+//   opacity: 0.9;
+// }
+
 .header {
   padding: 100px 10px 10px 10px;
   margin: auto;
-  width: 99%;
+  width: 80%;
 }
 
-.search {
-  width: 90%;
-  height: 50px;
-  background: #ececec;
-  position: absolute;
-}
+// .search {
+//   width: 90%;
+//   height: 50px;
+//   background: #ececec;
+//   position: absolute;
+// }
 
-.search-form {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  width: 95%;
-  height: 80px;
-}
+// .search-form {
+//   display: flex;
+//   align-content: center;
+//   justify-content: center;
+//   width: 95%;
+//   height: 80px;
+//   width: 81%
+// }
+
+// Manual Changes when using a phone
 @media screen and (max-width: 480px) {
   .top-background h1 {
-    font-size: 36px;
-    color: #e6e6e6;
+    font-size: 24px;
+    color: white;
     // margin-top: 100px;
   }
   .top-background h2 {
-    font-size: 28px;
-    color: #f1f5f1;
-  }
-  .search-form {
-    width: 81%
+    font-size: 20px;
+    color: #1d1d1d;
+    font-weight: bold;
+    letter-spacing: 1px;
   }
   .header {
     padding: 10px 0;
@@ -199,29 +227,34 @@ address {
     width: 99%;
     padding: 5px;
   }
+  .padding-resize {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
 }
 
-.index-search #search {
+// search
+
+input#search, input#location {
   display: block;
-  width: 70%;
-  height: 48px;
+  // width: 70%;
+  height: 40px;
   float: left;
   border: 0;
   outline: none;
   margin: 0;
-  padding: 0;
-  background: rgba(#f4f4f4, 0.95);
+  margin-bottom: 10px;
   color: #222121;
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-   font-weight: 300;;
-  font-size: 22px;
+  font-weight: 400;
+  font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  line-height: 22px;
+  line-height: 20px;
 }
 
 .index-search button:hover {
   background: none;
+  line-height: 20px;
 }
 
 input, select {
@@ -240,7 +273,7 @@ input, select {
     text-align: center;
 }
 
-#padding-resize {
+.padding-resize {
     // left padding: justify;
     padding-left: 5px;
     padding-right: 5px;
@@ -255,14 +288,15 @@ input, select {
   text-align: center;
 }
 .agency-name strong a {
-  font-size: 22px;
+  font-size: 20px;
 }
 .agency-category {
 
 }
 .well-agency {
     padding: 10px;
-    margin: 10px;
+    margin-right: 3px;
+    margin-left: 3px;
 }
 
 .well-sm {
@@ -305,8 +339,7 @@ input, select {
 
 .well {
     min-height: 250px !important;
-    padding: 19px;
-    margin-bottom: 20px;
+    padding: 15px;
     background-color: whitesmoke;
     border: 1px solid #e3e3e3;
     border-radius: 4px;
@@ -400,11 +433,6 @@ input, select {
 
 #logo {
     font-size: 1.6em;
-}
-// search
-
-.search-input {
-    margin-bottom: 10px;
 }
 //badge categories show
 
@@ -537,6 +565,22 @@ footer ul li {
 .panel-body {
 
 }
+// Sidebar CSS
+
+.panel-heading .panel-title:after{
+  /* symbol for "opening" panels */
+  font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
+  content: "Click to hide \e082";
+  float: right;
+  opacity:0.7;
+}
+.panel-heading.collapsed .panel-title:after  {
+  /* symbol for "collapsed" panels */
+  content: "Click to show \e081";
+}
+
+
+
 ////////// CSS for the styling of the FAQ page.////////////////
 
 #faq_question {

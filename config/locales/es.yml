@@ -32,7 +32,7 @@ es:
     cat_view: Organizaciones con
     cat_view1: categoria
   home_page:
-    title: CONECTATECAROLINA ES UN DIRECTORIO DE RECURSOS DISEÑADO PARA AYUDAR A LOS AGRICULTORES A LOCALIZAR SERVICIOS EN TODO EL ESTADO DE CAROLINA DEL NORTE.
+    title: DIRECTORIO DE RECURSOS PARA AYUDARTE A LOCALIZAR SERVICIOS A TU ALREDEDOR.
     browse: Navega a traves de una lista de organizaciones aqui
     listing: Demonstrando todas las organizaciones
   flash_notice:
@@ -41,7 +41,7 @@ es:
     update: Organización actualizada!
   search_page:
     search: Buscar a través de organizaciones
-    plchldr_search: Busca por nombre de la organización
+    plchldr_search: "Buscar: Educacion, Servicios, Salud... "
     bttn_search: Buscar
   about_page:
     text: LA APLICAIÓN FUE CREADA POR

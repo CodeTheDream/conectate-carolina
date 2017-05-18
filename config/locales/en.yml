@@ -53,7 +53,7 @@ en:
     cat_view: Organizations with the
     cat_view1: category
   home_page:
-    title: CONECTATECAROLINA IS A RESOURCE DIRECTORY DESIGNED TO HELP FARM WORKERS LOCATE SERVICES  THROUGHOUT THE STATE OF NORTH CAROLINA.
+    title: RESOURCE DIRECTORY DESIGNED TO HELP YOU LOCATE SERVICES IN NC.
     browse: Browse through a list of organizations here
     listing: Listing all organizations
   flash_notice:
@@ -62,7 +62,7 @@ en:
     update: Organization Succesfully updated!
   search_page:
     search: Search through organizations
-    plchldr_search: Search...
+    plchldr_search: "Find: Education, Health, Job..."
     bttn_search: Search
   about_page:
     text: THE APP WAS CREATED BY
