@@ -1,21 +1,21 @@
 <% content_for :title do %><%=(t'faq.nav') %> | Conectate Carolina<% end %>
-<div class="jumbotron col-lg-12 center">
+<div class="form-horizontal">
   <h1><%= (t'faq.h1') %></h1>
   <% @faqs.each do |question| %>
     <% if params[:locale] == "en" %>
-    <div id="faq_question">
-      <%= question.question%><br>
-    </div>
-    <ol class="faq_answer">
-      <li><%= question.answer %></li>
-    </ol>
+      <div class="faq_question">
+        <%= (question.question) %><br>
+      </div>
+      <ul id="faq_answer">
+        <li><%= markdown(question.answer)%></li>
+      </ul>
     <% else %>
-    <div id="faq_question">
+    <div class="faq_question">
       <%= question.pregunta %>
     </div>
-    <ol class="faq_answer">
-      <li><%= question.respuesta %></li>
-    </ol>
+    <ul id="faq_answer">
+      <li><%= markdown(question.respuesta) %></li>
+    </ul>
     <% end %>
   <% end %>
   <% if policy(Faq).new? %>

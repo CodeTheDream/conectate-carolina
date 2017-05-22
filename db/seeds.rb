@@ -51,6 +51,7 @@ csv_text = File.read(Rails.root.join('lib', 'seeds', 'safwDirectory.csv'))
 csv = CSV.parse(csv_text, headers: true, encoding: 'UTF-8')
 # Loop through the entire CSV file and convert each row of thr document
 # into a hash. The headers of the CVS file are used as keys for the hash
+
 csv.each do |row|
 
   c = Category.find_by(name: row['Category'])
@@ -93,6 +94,22 @@ csv.each do |row|
   # puts row.to_hash
 end
 
+# HERE I am seeding the FAQs. - Fernando
+require 'csv'
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'FAQ.csv'))
+csv = CSV.parse(csv_text, headers: true, encoding: 'UTF-8')
+
+csv.each do |column|
+  faq = Faq.new
+  faq.question = column['question']
+  faq.answer = column['answer']
+  faq.pregunta = column['pregunta']
+  faq.respuesta = column['respuesta']
+  faq.save
+end
+
+
+puts "there are #{Faq.count} faqs in the Faq table"
 puts "There are now #{Agency.count} rows in the Agency table"
 # Print contents of the variable
 # puts csv

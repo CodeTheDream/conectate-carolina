@@ -81,15 +81,15 @@ h1 {
   border-bottom: 3px solid rgba(#515152, 0.8);
 }
 
-p {
-    color: #292929;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 17px;
-    margin: 0 auto 15px;
-    max-width: 500px;
-    text-align: left;
-}
+// p {
+//     color: #292929;
+//     font-size: 16px;
+//     font-weight: 400;
+//     line-height: 17px;
+//     margin: 0 auto 15px;
+//     max-width: 500px;
+//     text-align: left;
+// }
 
 a {
     color: #E0792B;
@@ -538,17 +538,24 @@ footer ul li {
 }
 ////////// CSS for the styling of the FAQ page.////////////////
 
-#faq_question {
+.logos1 {
+  margin: 5px;
+  border: 1px solid #ccc;
+  width: 180px;
+}
+
+.faq_question {
+    padding: 10px;
     font-family: MuseoSlab-500;
     font-size: 2em;
-    // color: #black;
     font-weight: bold;
-    text-indent: 50px;
     text-align: justify;
-  }
+}
 
-ol.faq_answer {
-  list-style-type: square;
+ul#faq_answer {
+  padding-left: 50px;
+  padding-right: 30px;
+  list-style-type: disc;
   font-family: Helvetica Neue Light;
   font-size: 1.5em;
   color: #008752;
