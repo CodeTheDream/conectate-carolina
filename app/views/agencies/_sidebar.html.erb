@@ -1,25 +1,4 @@
-<div class="col-md-3 col-centered">
-  <div class="panel">
-    <div class="panel-body">
-      <%= form_tag agencies_path, method: :get, class: 'search-form', id: 'agency-lookup-form', data: { behaviors: 'turboform' } do %>
-      <div class="input-group">
-
-        <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control search-input', autofocus: params[:search].present? %>
-
-        <%= text_field_tag :location, params[:location], placeholder: "Current Location", :class => 'form-control search-input', autofocus: params[:location].present? %>
-        <%= hidden_field_tag :coordinates, params[:coordinates]%>
-
-        <%# select_tag :category, options_from_collection_for_select(Category.all, :id, :name), class: "form-control input-lg"%>
-        <div class="input-group-btn">
-          <%= button_tag(type: "submit", class: "btn btn-default", :name => nil) do %>
-          <span class="glyphicon glyphicon-search"></span>
-          <%= (t'search_page.bttn_search') %>
-          <% end %>
-        </div>
-      </div>
-      <% end %>
-    </div>
-  </div>
+<div class="col-md-3 col-centered sidebar">
   <% if policy(Agency).new? %>
   <div class="panel">
     <div class="panel-body">
@@ -30,30 +9,35 @@
   </div>
   <% end %>
 
-  <div class="panel">
-    <div class="panel-body">
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active">
-          <%= link_to (t'category.all_cat'), categories_path %>
-        </li>
-        <% @categories.each do |category| %>
-          <li class="agency-title">
-            <!-- If using the block form of link_to you can't have text
-            content (the block is your text content). -->
-            <%= link_to category_path(category) do %>
-
-              <% if params[:locale] == "en" %>
-                <%= fa_icon category.fa_name, text: category.name %>
-              <% else %>
-                <%= fa_icon category.fa_name, text: category.categoria %>
-              <% end %>
-              <%= content_tag :span, category.agencies.count, :class => "badge" %>
-            <% end %>
-          </li>
-        <% end %>
-      </ul>
+  <!--panel-info-->
+  <div class="panel panel-info">
+    <div class="panel-heading collapsed" data-toggle="collapse" data-target="#collapseList">
+      <h3 class="panel-title">
+        <%= t'category.all_cat' %>
+      </h3>
     </div>
-  </div>
+    <ul id="collapseList" class="list-group collapse">
+      <% @categories.each do |category| %>
+        <li class="agency-title list-group-item">
+          <!-- If using the block form of link_to you can't have text
+          content (the block is your text content). -->
+          <%= link_to category_path(category) do %>
+
+            <% if params[:locale] == "en" %>
+              <%= fa_icon category.fa_name, text: category.name %>
+            <% else %>
+              <%= fa_icon category.fa_name, text: category.categoria %>
+            <% end %>
+            <%= content_tag :span, category.agencies.count, :class => "badge" %>
+          <% end %>
+        </li>
+      <% end %>
+      <li class="list-group-item-info">
+        <%= link_to 'See All Categories', categories_path %>
+      </li>
+    </ul>
+  </div><!--/panel-->
+
   <% if policy(Category).new? %>
   <div class="panel">
     <div class="panel-body">

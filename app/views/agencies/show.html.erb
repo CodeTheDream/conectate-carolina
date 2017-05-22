@@ -6,14 +6,14 @@
  since it has been copied in index and show view-->
 
 <h1><%= @agency.name %></h1>
-<div class="row row-centered" id="padding-resize">
+<div class="row row-centered padding-resize">
 <div class="col-centered">
   <div class="panel panel-success">
     <div class="panel-heading">
       <h3 class="panel-title"><%= @agency.name %></h3>
     </div>
-    <div class="panel-body" id="padding-resize">
-      <div class="col-md-6 col-sm-6" id="padding-resize">
+    <div class="panel-body padding-resize">
+      <div class="col-md-6 col-sm-6 padding-resize">
         <div class="well well-sm well-agency">
           <p class="lead agency-name">
             <strong><%= link_to @agency.name, @agency %></strong>
@@ -73,7 +73,7 @@
             <br/>
             <p><%= (t'show_page.websites')%></p>
           <% @agency.websites.each do |website| %>
-            <a href="http://<%= website.url %>" class="btn btn-default btn-sm btn-link">
+            <a href="<%= website.url %>" class="btn btn-default btn-sm btn-link">
                 <span class="agency-facebook">
                     <i class="fa fa-<%= website.website_type.icon %> fa-lg"></i>
                 </span>
@@ -84,7 +84,7 @@
       </div>
 
       <!-- Code here is used to build the map by google-maps-for-rails-->
-      <div class="col-md-6 col-sm-6" id="padding-resize">
+      <div class="col-md-6 col-sm-6 padding-resize">
         <div class="well-sm">
           <div class="map-responsive" id="show-map" style='width: 100%; height: 400px;'></div>
         </div>

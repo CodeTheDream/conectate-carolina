@@ -36,13 +36,26 @@ class Agency < ApplicationRecord
       # postgress better way to write this query, active record search methods. case sensitive
       # The LIKE syntax is used for MySQL, but if you are deploying to Heroku or
       # another platform that uses PostgreSQL use the ILIKE syntax instead.
-      agencies = agencies.where("name LIKE ? OR address LIKE ? OR city LIKE ? OR state LIKE ? OR zipcode LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
-      # query_string = "%#{params[name]}%"
-      # param_matches_string =  ->(param){
-      #   agencies[param].matches(query_string)
-      # }
-      # agencies = agencies.where(param_matches_string.(:name)\
-      #                        .or(param_matches_string.(:address)))
+      # agencies = agencies.where("name LIKE ? OR address LIKE ? OR city LIKE ? OR state LIKE ? OR zipcode LIKE ?", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%", "%#{params[:search]}%") if params[:search].present?
+      agency_arel = Agency.arel_table
+      category_arel = Category.arel_table
+
+      query_string = "%#{params[:search]}%"
+      agency_param_matches_string =  ->(param){
+        agency_arel[param].matches(query_string)
+      }
+      category_param_matches_string =  ->(param){
+        category_arel[param].matches(query_string)
+      }
+      agencies = agencies.where(agency_param_matches_string.(:name).
+                                or(agency_param_matches_string.(:address)).
+                                or(agency_param_matches_string.(:state)).
+                                or(agency_param_matches_string.(:city)).
+                                or(agency_param_matches_string.(:zipcode)).
+                                or(category_param_matches_string.(:name)).
+                                or(category_param_matches_string.(:categoria)))
+
+      agencies = agencies.joins(:categories)
     end
     agencies
   end
