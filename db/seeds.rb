@@ -101,7 +101,7 @@ csv = CSV.parse(csv_text, headers: true, encoding: 'UTF-8')
 
 csv.each do |column|
   faq = Faq.new
-  faq.question = column['question']
+  faq.question = column[0]
   faq.answer = column['answer']
   faq.pregunta = column['pregunta']
   faq.respuesta = column['respuesta']
