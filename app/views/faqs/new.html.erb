@@ -21,3 +21,10 @@
       <%= f.text_field :pregunta, class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
+
+  <div class="panel-inline-body">
+    <%= f.button (t'edit_page.submit'), class: "btn btn-primary btn-info",
+    data: {disable_with:
+      "<i class='fa fa-spinner fa-pulse fa-lg fa-fw'></i> Saving..."} %>
+  </div>
+<% end %>

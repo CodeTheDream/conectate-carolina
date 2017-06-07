@@ -1,24 +1,34 @@
-<% content_for :title do %><%=(t'faq.nav') %> | Conectate Carolina<% end %>
-<div class="form-horizontal">
-  <h1><%= (t'faq.h1') %></h1>
-  <% @faqs.each do |question| %>
-    <% if params[:locale] == "en" %>
-      <div class="faq_question">
-        <%= (question.question) %><br>
+<div class="container">
+  <% content_for :title do %><%=(t'faq.nav') %> | Conectate Carolina<% end %>
+  <div class="row">
+    <h1><%= (t'faq.h1') %></h1>
+    <% @faqs.each do |question| %>
+      <% if params[:locale] == "en" %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= (question.question) %><br>
+        </div>
+        <div class="panel-body">
+          <ul>
+            <li class="break-links"><%= markdown(question.answer)%></li>
+          </ul>
+        </div>
       </div>
-      <ul id="faq_answer">
-        <li><%= markdown(question.answer)%></li>
-      </ul>
-    <% else %>
-    <div class="faq_question">
-      <%= question.pregunta %>
-    </div>
-    <ul id="faq_answer">
-      <li><%= markdown(question.respuesta) %></li>
-    </ul>
+      <% else %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= (question.pregunta) %><br>
+        </div>
+        <div class="panel-body">
+          <ul>
+            <li class="break-links"><%= markdown(question.respuesta)%></li>
+          </ul>
+        </div>
+      </div>
+        <% end %>
     <% end %>
-  <% end %>
-  <% if policy(Faq).new? %>
-    <%= link_to "New Question", new_faq_path %>
-  <% end %>
+    </div>
+    <% if policy(Faq).new? %>
+      <%= link_to "New Question", new_faq_path %>
+    <% end %>
 </div>
