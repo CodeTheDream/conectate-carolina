@@ -32,9 +32,10 @@ es:
     cat_view: Organizaciones con
     cat_view1: categoria
   home_page:
-    title: DIRECTORIO DE RECURSOS PARA AYUDARTE A LOCALIZAR SERVICIOS A TU ALREDEDOR.
-    browse: Navega a traves de una lista de organizaciones aqui
+    title: CONECTATE CAROLINA
+    browse: Directorio de organizaciones y servicios en Carolina del Norte
     listing: Demonstrando todas las organizaciones
+    location: ubicación actual
   flash_notice:
     success: Organización creada!
     delete: Organización eliminada!
@@ -44,7 +45,7 @@ es:
     plchldr_search: "Buscar: Educacion, Servicios, Salud... "
     bttn_search: Buscar
   about_page:
-    text: LA APLICAIÓN FUE CREADA POR
+    text: Aplicación creada por
   views_index:
     h1: Organizaciones
   new_page:

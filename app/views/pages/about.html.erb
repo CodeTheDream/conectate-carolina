@@ -1,10 +1,14 @@
 <% content_for :title do %><%= (t'nav_links.about')%> | Conectate Carolina <% end %>
 <div class="form-horizontal">
   <h1> ConectateCarolina</h1>
-  <p id="about-page"><%= (t'home_page.title') + " " + (t'about_page.text')%> <a href="http://www.saf-unite.org/">Student Action
-      with Farmworkers</a> & <a href="https://www.codethedream.org/">Code the Dream.</a></p>
+    <p id="about-page"><%= (t'about_page.text')%> <a href="https://www.codethedream.org/">Code the Dream</a> &
+      <a href="http://www.saf-unite.org/">Student Action
+        with Farmworkers</a></p>
+
+  <div class="logos">
+    <%= link_to image_tag("CTDLogotrans.png"), "https://www.codethedream.org/" %>
+  </div>
   <div class="logos">
     <%= link_to image_tag("SAFLogo1.png"), "http://www.saf-unite.org/" %>
-    <%= link_to image_tag("CTDLogotrans.png"), "https://www.codethedream.org/" %>
   </div>
 </div>

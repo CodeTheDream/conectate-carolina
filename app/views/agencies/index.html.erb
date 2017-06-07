@@ -38,7 +38,7 @@ getLocation();
         </div>
 
         <div class="col-md-5">
-          <%= text_field_tag :location, params[:location], placeholder: "Current Location", :class => 'form-control', autofocus: params[:location].present? %>
+          <%= text_field_tag :location, params[:location], placeholder: (t'home_page.location'), :class => 'form-control', autofocus: params[:location].present? %>
           <%= hidden_field_tag :coordinates, params[:coordinates]%>
 
           <!-- <%= text_field_tag :location, params[:location], placeholder: "search by location", :class => 'form-control search-input', autofocus: params[:location].present? %> -->
