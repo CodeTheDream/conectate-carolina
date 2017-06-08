@@ -31,6 +31,7 @@ es:
     edit_cat: Actualizar Categoría
     cat_view: Organizaciones con
     cat_view1: categoria
+    sidebar: Ver todas las categorías
   home_page:
     title: CONECTATE CAROLINA
     browse: Directorio de organizaciones y servicios en Carolina del Norte
@@ -79,6 +80,7 @@ es:
   footer:
     about: Acerca
     organizations: Organizaciones
+    brand: Aplicación hecha por Fernando y Jorge de Code the Dream
   faq:
     new: Añadir pregunta
     h1: Preguntas Frequentes

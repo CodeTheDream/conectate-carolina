@@ -52,6 +52,7 @@ en:
     edit_cat: Edit Category
     cat_view: Organizations with the
     cat_view1: category
+    sidebar: See all categories
   home_page:
     title: CONECTATE CAROLINA
     browse: Directory of organizations and services in North Carolina
@@ -66,7 +67,7 @@ en:
     plchldr_search: "Find: Education, Health, Job..."
     bttn_search: Search
   about_page:
-    text: App created by 
+    text: App created by
   views_index:
     h1: Organizations
   new_page:
@@ -100,6 +101,7 @@ en:
   footer:
     about: About
     organizations: Organizations
+    brand: App made by Fernando and Jorge from Code the Dream
   faq:
     new: Add a Question
     h1: Frequently Asked Questions
