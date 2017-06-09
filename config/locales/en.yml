@@ -48,7 +48,7 @@ en:
   category:
     categories: Categories
     all_cat: List of Categories
-    new_cat: Create new category
+    new_cat: Category
     edit_cat: Edit Category
     cat_view: Organizations with the
     cat_view1: category
@@ -71,7 +71,7 @@ en:
   views_index:
     h1: Organizations
   new_page:
-    h1: Add New Organization
+    h1: Organization
     submit: Create Organization
     fill_fields: "Fill the following fields"
   edit_page:
