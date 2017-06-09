@@ -284,6 +284,10 @@ input, select {
     padding-right: 0;
 }
 /* Agency cards css */
+
+.row > col-xs-12 {
+  padding: 0px;
+}
 .agency-name {
   text-align: center;
 }
@@ -567,18 +571,14 @@ footer ul li {
 }
 // Sidebar CSS
 
-.panel-heading .panel-title:after{
-  /* symbol for "opening" panels */
-  font-family: 'Glyphicons Halflings';  /* essential for enabling glyphicon */
-  content: "Click to hide \e082";
-  float: right;
-  opacity:0.7;
-}
-.panel-heading.collapsed .panel-title:after  {
-  /* symbol for "collapsed" panels */
-  content: "Click to show \e081";
+.close {
+  font-size: 27px;
 }
 
+.sidebar-btn {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
 
 
 ////////// CSS for the styling of the FAQ page.////////////////

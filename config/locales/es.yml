@@ -27,7 +27,7 @@ es:
   category:
     categories: Categorías
     all_cat: Lista de Categorias
-    new_cat: Crear nueva categoría
+    new_cat: Categoría
     edit_cat: Actualizar Categoría
     cat_view: Organizaciones con
     cat_view1: categoria
@@ -48,7 +48,7 @@ es:
   views_index:
     h1: Organizaciones
   new_page:
-    h1: Añadir Nueva Organización
+    h1: Organización
     submit: Crear Organización
     fill_fields: "Llena las siguientes columnas"
   edit_page:

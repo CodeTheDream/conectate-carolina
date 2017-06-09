@@ -18,8 +18,9 @@
       <% end %>
     <% end %>
       <%# if logged_in? and current_user.admin? %>
+      <% if policy(Category).new? %>
         <li role="separator" class="divider"></li>
         <li><%= link_to (t'category.new_cat'), new_category_path %></li>
-      <%# end %>
+      <% end %>
   </ul>
 </li>

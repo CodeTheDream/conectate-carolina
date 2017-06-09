@@ -1,23 +1,13 @@
 <!-- Code here is used to build the map by google-maps-for-rails-->
 <div class="container" id="gmap">
-  <div class="col-md-9 padding-resize" id="agency-lookup">
+  <div class="col-md-10 padding-resize" id="agency-lookup">
     <h1 id="organizations"><%= (t'footer.organizations')%></h1>
     <div class="">
       <!-- button -->
       <div class="col-md-pull-4">
-        <div class="" data-toggle="buttons">
-          <label class="btn btn-lg btn-default active show-map">
-            <input type="radio" name="options" id="option1" autocomplete="off" checked>
-            <i class="fa fa-map"></i> Hide map
-          </label>
-          <label class="btn btn-lg btn-info show-map">
-            <input type="radio" name="options" id="option2" autocomplete="off">
-            <i class="fa fa-map-marker"></i> Show map
-          </label>
-        </div>
           <div class="map-responsive" id="index-map" style='width: 100%; height: 350%;'></div>
       </div>
-      <div class="panel-body padding-resize">
+      <div class="padding-resize">
 
       </br>
       <div class="flex-row row">
