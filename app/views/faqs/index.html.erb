@@ -1,24 +1,40 @@
-<% content_for :title do %><%=(t'faq.nav') %> | Conectate Carolina<% end %>
-<div class="jumbotron col-lg-12 center">
-  <h1><%= (t'faq.h1') %></h1>
-  <% @faqs.each do |question| %>
-    <% if params[:locale] == "en" %>
-    <div id="faq_question">
-      <%= question.question%><br>
-    </div>
-    <ol class="faq_answer">
-      <li><%= question.answer %></li>
-    </ol>
-    <% else %>
-    <div id="faq_question">
-      <%= question.pregunta %>
-    </div>
-    <ol class="faq_answer">
-      <li><%= question.respuesta %></li>
-    </ol>
+<div class="container">
+  <% content_for :title do %><%=(t'faq.nav') %> | Conectate Carolina<% end %>
+  <div class="row">
+    <h1><%= (t'faq.h1') %></h1>
+    <% @faqs.each do |question| %>
+      <% if params[:locale] == "en" %>
+      <div class="panel panel-default">
+        <div class="panel-heading"><span class="faq_edit">
+          <% if policy(Faq).new? %>
+            <%= link_to (t'buttons_t.edit'), edit_faq_path(question) %></span>
+          <% end %>
+          <h4><%= (question.question) %></h4>
+        </div>
+        <div class="panel-body">
+          <ul>
+            <li class="break-links"><%= markdown(question.answer)%></li>
+          </ul>
+        </div>
+      </div>
+      <% else %>
+      <div class="panel panel-default">
+        <div class="panel-heading"><span class="faq_edit">
+          <% if policy(Faq).new? %>
+            <%= link_to (t'buttons_t.edit'), edit_faq_path(question) %></span>
+          <% end %>
+          <h4><%= (question.pregunta) %></h4>
+        </div>
+        <div class="panel-body">
+          <ul>
+            <li class="break-links"><%= markdown(question.respuesta)%></li>
+          </ul>
+        </div>
+      </div>
+        <% end %>
     <% end %>
-  <% end %>
-  <% if policy(Faq).new? %>
-    <%= link_to "New Question", new_faq_path %>
-  <% end %>
+    </div>
+    <% if policy(Faq).new? %>
+      <%= link_to "New Question", new_faq_path %>
+    <% end %>
 </div>

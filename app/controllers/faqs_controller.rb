@@ -38,7 +38,7 @@ class FaqsController < ApplicationController
     authorize @faq
     if @faq.update_attributes(faq_params)
         flash[:success] = "Question Succesfully updated"
-        redirect_to '#'
+        redirect_to(faqs_path)
     else
         flash[:error] = "Question not saved"
     end

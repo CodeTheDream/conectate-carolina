@@ -35,13 +35,15 @@
               <% end %>
             </li>
             <% end %>
+
             <li class="list-group-item">
-              <%= link_to 'See All Categories', categories_path %>
+              <%= link_to (t'category.sidebar'), categories_path %>
             </li>
           </ul>
         </div>
       </div>
     </div>
+
 
   <div class="col-*-12 sidebar-btn">
     <% if policy(Category).new? %>

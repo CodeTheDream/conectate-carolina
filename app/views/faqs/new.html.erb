@@ -1,38 +1,30 @@
-<h1><%=  (t'faq.new') %></h1>
-<div class="container">
-  <div id="signupbox" style=" margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-    <div class="panel panel-info">
-      <div class="panel-heading">
-          <div class="panel-title"><%= (t'new_page.fill_fields') %></div>
-          <div style="float:right; font-size: 85%; position: relative; top:-10px"></div>
-      </div>
-      <div class="panel-body">
-        <%= form_for(@faq) do |f| %>
-          <div class="form-group required">
-            <%= f.label :question %>
-            <%= f.text_field :question, class: 'input-md  textinput textInput form-control' %>
-          </div>
+<%= form_for @faq, :html => { :class => "form-horizontal" } do |f| %>
+  <h1><%= (t'faq.new') %></h1>
 
-          <div class="form-group required">
-            <%= f.label :answer %>
-            <%= f.text_area :answer, class: 'input-md  textinput textInput form-control' %>
-          </div>
+  <div class="form-group required">
+    <%= f.label :question, class: 'control-label col-md-2' %>
+    <div class="controls col-md-8">
+      <%= f.text_field :question, class: 'input-md  textinput textInput form-control' %>
+    </div>
+  </div>
 
-          <div class="form-group required">
-            <%= f.label :pregunta %>
-            <%= f.text_field :pregunta, class: 'input-md  textinput textInput form-control' %>
-          </div>
+  <div class="form-group">
+    <%= f.label :answer, class: 'control-label col-md-2' %>
+    <div class="controls col-md-8">
+      <%= f.text_area :answer, class: 'input-md  textinput textInput form-control'%>
+    </div>
+  </div>
 
-          <div class="form-group required">
-            <%= f.label :respuesta %>
-            <%= f.text_area :respuesta, class: 'input-md  textinput textInput form-control' %>
-          </div>
-          <%= f.submit (t'faq.add'), class: "btn btn-primary btn-info",
-            data: {disable_with:
-            "<i class='fa fa-spinner fa-pulse fa-lg fa-fw'></i> Saving..."} %>
-        <% end %>
-      </div> <%#end panel-body%>
-    </div> <%# end of panel-info div%>
-  </div> <%# end of titlebox %>
-</div>
-</div>
+  <div class="form-group required">
+    <%= f.label :pregunta, class: 'control-label col-md-2' %>
+    <div class="controls col-md-8">
+      <%= f.text_field :pregunta, class: 'input-md  textinput textInput form-control' %>
+    </div>
+  </div>
+
+  <div class="panel-inline-body">
+    <%= f.button (t'edit_page.submit'), class: "btn btn-primary btn-info",
+    data: {disable_with:
+      "<i class='fa fa-spinner fa-pulse fa-lg fa-fw'></i> Saving..."} %>
+  </div>
+<% end %>

@@ -52,10 +52,12 @@ en:
     edit_cat: Edit Category
     cat_view: Organizations with the
     cat_view1: category
+    sidebar: See all categories
   home_page:
-    title: RESOURCE DIRECTORY DESIGNED TO HELP YOU LOCATE SERVICES IN NC.
-    browse: Browse through a list of organizations here
+    title: CONECTATE CAROLINA
+    browse: Directory of organizations and services in North Carolina
     listing: Listing all organizations
+    location: current location
   flash_notice:
     success: Organization Succesfully created!
     delete: Organization Succesfully deleted!
@@ -65,7 +67,7 @@ en:
     plchldr_search: "Find: Education, Health, Job..."
     bttn_search: Search
   about_page:
-    text: THE APP WAS CREATED BY
+    text: App created by
   views_index:
     h1: Organizations
   new_page:
@@ -99,6 +101,7 @@ en:
   footer:
     about: About
     organizations: Organizations
+    brand: App made by Fernando and Jorge from Code the Dream
   faq:
     new: Add a Question
     h1: Frequently Asked Questions
