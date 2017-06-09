@@ -5,7 +5,10 @@
     <% @faqs.each do |question| %>
       <% if params[:locale] == "en" %>
       <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel-heading"><span class="faq_edit">
+          <% if policy(Faq).new? %>
+            <%= link_to (t'buttons_t.edit'), edit_faq_path(question) %></span>
+          <% end %>
           <h4><%= (question.question) %></h4>
         </div>
         <div class="panel-body">
@@ -16,7 +19,10 @@
       </div>
       <% else %>
       <div class="panel panel-default">
-        <div class="panel-heading">
+        <div class="panel-heading"><span class="faq_edit">
+          <% if policy(Faq).new? %>
+            <%= link_to (t'buttons_t.edit'), edit_faq_path(question) %></span>
+          <% end %>
           <h4><%= (question.pregunta) %></h4>
         </div>
         <div class="panel-body">
