@@ -54,31 +54,33 @@
               <% end %>
             </p>
             <hr>
-            <% if @agency.categories.any? %>
-            <!-- Same effect @agency.categories.each do etc...(using partial instead) -->
-            <p><%= (t'category.categories') %></p>
+            <% if @agency.websites.present? %>
+            <p><%= (t'show_page.websites')%></p>
+              <% @agency.websites.each do |website| %>
+                <a href="<%= website.url %>" class="btn btn-default btn-sm btn-link">
+                    <span class="agency-facebook">
+                        <i class="fa fa-<%= website.website_type.icon %> fa-2x"></i>
+                    </span>
+                </a>
+              <% end %>
+            <% end %>
+          <% if @agency.categories.any? %>
+              <!-- Same effect @agency.categories.each do etc...(using partial instead) -->
+              <p><%= (t'category.categories') %></p>
               <% @agency.categories.each do |category|%>
 
-                <% if params[:locale] == "en" %>
-                  <%= link_to category do %>
-                    <%= fa_icon category.fa_name, text: category.name, left: true %>
+                  <% if params[:locale] == "en" %>
+                      <%= link_to category do %>
+                          <%= fa_icon category.fa_name, text: category.name, left: true %>
+                      <% end %>
+                  <% else %>
+                      <%= link_to category do %>
+                          <%= fa_icon category.fa_name, text: category.categoria, left: true %>
+                      <% end %>
                   <% end %>
-                <% else %>
-                  <%= link_to category do %>
-                    <%= fa_icon category.fa_name, text: category.categoria, left: true %>
-                  <% end %>
-                <% end %>
               <% end %>
-            <% end %><br/>
-            <br/>
-              <p><%= (t'show_page.websites')%></p>
-            <% @agency.websites.each do |website| %>
-              <a href="<%= website.url %>" class="btn btn-default btn-sm btn-link">
-                  <span class="agency-facebook">
-                      <i class="fa fa-<%= website.website_type.icon %> fa-lg"></i>
-                  </span>
-              </a>
-            <% end %>
+          <% end %>
+
 
         </div>
       </div>
