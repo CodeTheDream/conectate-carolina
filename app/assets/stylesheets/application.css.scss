@@ -19,6 +19,9 @@
 @import "bootstrap";
 @import "font-awesome"; // main background color
 
+$links_color: #d65000;
+$links_color_hover: #2875b6;
+
 main {
   background: rgb(226, 226, 226);
 }
@@ -112,14 +115,14 @@ h1 {
 // }
 
 a {
-    color: #FF6103;
+    color: $links_color;
     font-size: 18px;
     // font-style: italic;
     text-align: center;
 }
 
 a:hover {
-    color: #42393B;
+    color: $links_color_hover;
 }
 
 // Makes button in About page to center
@@ -283,6 +286,15 @@ input, select {
 }
 /* Agency cards css */
 
+.card address {
+  font-size: 1.1em;
+  font-style: italic;
+}
+
+.card p {
+  font-size: 1.4em;
+}
+
 .row > col-xs-12 {
   padding: 0px;
 }
@@ -308,6 +320,8 @@ input, select {
 
 .well-agency:hover {
     background: #fff;
+    border: 1.5px solid #c1c1c1;
+    box-shadow: 1px 5px 5px 0 rgba(0, 0, 0, 0.16), 0 7px 7px 0 rgba(0, 0, 0, 0.12)
 }
 
 .well-agency a {
@@ -319,6 +333,7 @@ input, select {
     margin-bottom: 5px;
     font-size: 18px;
     line-height: 22px;
+    margin-top: 5px;
 }
 
 .well-agency img {
@@ -326,10 +341,6 @@ input, select {
     max-width: 100px;
     float: left;
     margin: 0 10px 10px 0;
-}
-
-.well-agency .lead {
-    margin-top: 10px;
 }
 
 .well-agency hr {
@@ -359,34 +370,34 @@ input, select {
 
 .navbar-default .navbar-brand:focus,
 .navbar-default .navbar-brand:hover {
-    color: #e9e9e9;
+    color: $links_color_hover;;
 }
 
 .navbar-default .navbar-text {
-    color: #88391e;
+    color: $links_color;
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: #88391e;
+    color: $links_color;
 }
 
 .navbar-default .navbar-nav > li > a:focus,
 .navbar-default .navbar-nav > li > a:hover {
-    color: #e9e9e9;
+    color: $links_color_hover;;
 }
 
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:focus,
 .navbar-default .navbar-nav > .active > a:hover {
-    color: #88391e;
+    color: $links_color_hover;
     background-color: #25ab76;
 }
 
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:focus,
 .navbar-default .navbar-nav > .open > a:hover {
-    color: #88391e;
-    background-color: #e9e9e9;
+    color: $links_color_hover;
+    background-color: #d0dbd7;
 }
 
 .navbar-default .navbar-toggle {
@@ -399,35 +410,35 @@ input, select {
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: #eef4f6;
+    background-color: $links_color_hover;
 }
 
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-    border-color: #eef4f6;
+    border-color: $links_color_hover;
 }
 
 .navbar-default .navbar-link {
-    color: #eef4f6;
+    color: $links_color_hover;
 }
 
 .navbar-default .navbar-link:hover {
-    color: #88391e;
+    color: $links_color;
 }
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-        color: #eef4f6;
+        color: $links_color
     }
 
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus,
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
-        color: #88391e;
+        color: $links_color_hover;
     }
 
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus,
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover {
-        color: #88391e;
+        color: $links_color_hover;
         background-color: #25ab76;
     }
 }
@@ -435,6 +446,7 @@ input, select {
 
 #logo {
     font-size: 1.6em;
+    font-weight: 500;
 }
 //badge categories show
 
