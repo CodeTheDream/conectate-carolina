@@ -1,51 +1,67 @@
-<div class="col-md-3 col-centered">
-  <div class="panel">
-    <div class="panel-body">
-      <%= form_tag agencies_path, method: :get, class: 'search-form', id: 'agency-lookup-form', data: { behaviors: 'turboform' } do %>
-      <div class="input-group">
+<div class="col-md-2">
+  <div class="col-*-12 sidebar-btn">
+    <% if policy(Agency).new? %>
 
-        <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control search-input', autofocus: params[:search].present? %>
+        <%= link_to new_agency_path, class: "btn btn-success btn-block" do %>
+          <%= fa_icon "plus", text: (t'new_page.h1')%>
+        <% end %>
+    <% end %> <!-- Button to add new agency -->
+  </div>
 
-        <%= text_field_tag :location, params[:location], placeholder: "search by location", :class => 'form-control search-input', autofocus: params[:location].present? %>
+  <!-- Small modal -->
+  <div class="col-*-12 sidebar-btn">
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target=".bs-example-modal-sm"><%= fa_icon("tags") %> <%= t'category.all_cat' %></button>
+  </div>
 
-        <%# select_tag :category, options_from_collection_for_select(Category.all, :id, :name), class: "form-control input-lg"%>
-        <div class="input-group-btn">
-          <%= button_tag(type: "submit", class: "btn btn-default", :name => nil) do %>
-          <span class="glyphicon glyphicon-search"></span>
-          <%= (t'search_page.bttn_search') %>
-          <% end %>
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+      <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close"data-dismiss="modal">&times;</button>
+            <h4 class="modal-title"><%= t'category.all_cat' %></h4>
+          </div>
+          <ul class="list-group">
+            <% @categories.each do |category| %>
+            <li class="list-group-item">
+              <!-- If using the block form of link_to you can't have text
+              content (the block is your text content). -->
+              <%= link_to category_path(category) do %>
+              <% if params[:locale] == "en" %>
+              <%= fa_icon category.fa_name, text: category.name %>
+            <% else %>
+              <%= fa_icon category.fa_name, text: category.categoria %>
+              <% end %>
+              <%= content_tag :span, category.agencies.count, class: "badge pull-right" %>
+              <% end %>
+            </li>
+            <% end %>
+
+            <li class="list-group-item">
+              <%= link_to (t'category.sidebar'), categories_path %>
+            </li>
+          </ul>
         </div>
       </div>
-      <% end %>
     </div>
-  </div>
-  <% if policy(Agency).new? %>
-  <div class="panel">
-    <div class="panel-body">
-      <%= link_to (t'new_page.h1'), new_agency_path, class: "btn btn-success btn-block" %>
-    </div>
-  </div>
-  <% end %>
 
-  <div class="panel">
-    <div class="panel-body">
-      <ul class="nav nav-pills nav-stacked">
-        <li class="active">
-          <%= link_to (t'category.all_cat'), categories_path %>
-        </li>
-        <% @categories.each do |category| %>
-          <li class="agency-title">
-            <%= link_to "#{category.name}", category_path(category) %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+
+  <div class="col-*-12 sidebar-btn">
+    <% if policy(Category).new? %>
+      <%= link_to new_category_path, class: "btn btn-success btn-block" do %>
+        <%= fa_icon "plus", text: (t'category.new_cat') %>
+      <% end %>
+    <% end %>
   </div>
-  <% if policy(Category).new? %>
-  <div class="panel">
-    <div class="panel-body">
-      <%= link_to (t'category.new_cat'), new_category_path, class: "btn btn-success btn-block" %>
+
+  <!-- button -->
+    <div class="col-*-12 sidebar-btn" data-toggle="buttons">
+      <label class="btn btn-lg btn-info active show-map">
+        <input type="radio" name="options" id="option1" autocomplete="off" checked>
+        <i class="fa fa-map"></i> Hide map
+      </label>
+      <label class="btn btn-lg btn-primary show-map">
+        <input type="radio" name="options" id="option2" autocomplete="off">
+        <i class="fa fa-map-marker"></i> Show map
+      </label>
     </div>
-  </div>
-  <% end %>
 </div><!-- end col-md-3 sidebar-->

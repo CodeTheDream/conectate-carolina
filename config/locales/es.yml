@@ -5,14 +5,16 @@ es:
   activerecord:
     attributes:
       agency:
-        name: "Nombre:"
+        name: "Nombre de la organizacion:"
         address: "Direccion:"
         city: "Ciudad:"
         state: "Estado:"
         zipcode: "Codigo Postal"
-        contact: "Contacto:"
+        contact: "Persona de contacto:"
+        email: "Correo Electronico:"
         phone: "Numero de telefono:"
-        description: "Descripción:"
+        description: "Description(eng):"
+        descripcion: "Descripción:"
       category:
         categories: Categorias
   nav_links:
@@ -25,30 +27,30 @@ es:
   category:
     categories: Categorías
     all_cat: Lista de Categorias
-    new_cat: Crear nueva categoría
+    new_cat: Categoría
     edit_cat: Actualizar Categoría
-    cat_view: Organizaciones con  
+    cat_view: Organizaciones con
     cat_view1: categoria
+    sidebar: Ver todas las categorías
   home_page:
-    title: Accion estudiantil con campesinos.
-    browse: Navega a traves de una lista de organizaciones aqui
+    title: CONECTATE CAROLINA
+    browse: Directorio de organizaciones y servicios en Carolina del Norte
     listing: Demonstrando todas las organizaciones
-  flash_notice: 
+    location: ubicación actual
+  flash_notice:
     success: Organización creada!
     delete: Organización eliminada!
     update: Organización actualizada!
   search_page:
     search: Buscar a través de organizaciones
-    plchldr_search: ingresa ciudad estado oh organización
+    plchldr_search: "Buscar: Educacion, Servicios, Salud... "
     bttn_search: Buscar
   about_page:
-    h1: Directorio de recursos para los defensores de los trabajadores agrícolas.
-    h2: Lista de servicios para migrantes y trabajadores agricolas temporarios en Carolina del Norte.
-    p1: "El instituto de trabajadores agricolas es un projecto del comite de ministro consejo de iglesias de Norte Carolina, un grupo que crea materiales educativos, presenta foros públicos, y que reune el trabajo agricola en defensores para compartir estrategias para mejorar las condiciones de los trabajadores agricolas en Carolina del Norte."
+    text: Aplicación creada por
   views_index:
     h1: Organizaciones
   new_page:
-    h1: Nueva Organización
+    h1: Organización
     submit: Crear Organización
     fill_fields: "Llena las siguientes columnas"
   edit_page:
@@ -62,6 +64,7 @@ es:
     contact: "Contacto:"
     phone: "Numero De telefono:"
     description: "Descripcion:"
+    websites: "Sitios web"
   buttons_t:
     back: Atras
     edit: Actualizar
@@ -77,3 +80,10 @@ es:
   footer:
     about: Acerca
     organizations: Organizaciones
+    brand: Aplicación hecha por Fernando y Jorge de Code the Dream
+  faq:
+    new: Añadir pregunta
+    h1: Preguntas Frequentes
+    nav: Preguntas Frequentes
+    add: Crear Pregunta
+    edit: Actualizar pregunta

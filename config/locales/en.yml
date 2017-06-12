@@ -26,16 +26,18 @@ en:
   activerecord:
     attributes:
       agency:
-        name: "Name:"
+        name: "Name of Organization:"
         address: "Address:"
         city: "City:"
         state: "State:"
         zipcode: "Zip Code:"
-        contact: "Contact:"
+        contact: "Contact Person:"
+        email: "Email:"
         phone: "Phone Number:"
-        description: "Description:"
+        description: "Description(eng):"
+        descripcion: "Descripción:"
       category:
-        categories: Categories
+        categories: Categories this organization can help you with
   nav_links:
     home: Home
     about: About
@@ -45,33 +47,33 @@ en:
     sign_out: Sign out
   category:
     categories: Categories
-    all_cat: All Categories
-    new_cat: Create new category
+    all_cat: List of Categories
+    new_cat: Category
     edit_cat: Edit Category
-    cat_view: Organizations with the 
+    cat_view: Organizations with the
     cat_view1: category
+    sidebar: See all categories
   home_page:
-    title: Student Action with Farm Workers
-    browse: Browse through a list of organizations here
+    title: CONECTATE CAROLINA
+    browse: Directory of organizations and services in North Carolina
     listing: Listing all organizations
+    location: current location
   flash_notice:
     success: Organization Succesfully created!
     delete: Organization Succesfully deleted!
     update: Organization Succesfully updated!
   search_page:
     search: Search through organizations
-    plchldr_search: Search...
+    plchldr_search: "Find: Education, Health, Job..."
     bttn_search: Search
-  about_page: 
-    h1: Resource Directory for Farmworker Advocates
-    h2: Listing of Services for Migrant and Seasonal Farmworkers in North Carolina
-    p1: "The Farmworker Institute is a project of the Farmworker Ministry Committee of the North Carolina Council of Churches, a group that creates educational materials, presents public forums, and brings together farmworker advocates to share strategies to improve farmworker conditions in North Carolina."
+  about_page:
+    text: App created by
   views_index:
     h1: Organizations
   new_page:
-    h1: New Organization
+    h1: Organization
     submit: Create Organization
-    fill_fields: "Fill the following fields" 
+    fill_fields: "Fill the following fields"
   edit_page:
    h1: Edit Organization
    submit: Save changes
@@ -83,6 +85,7 @@ en:
     contact: "Contact:"
     phone: "Phone:"
     description: "Description:"
+    websites: "Websites"
   buttons_t:
     back: Back
     edit: Edit
@@ -98,3 +101,10 @@ en:
   footer:
     about: About
     organizations: Organizations
+    brand: App made by Fernando and Jorge from Code the Dream
+  faq:
+    new: Add a Question
+    h1: Frequently Asked Questions
+    nav: FAQ
+    add: Create question
+    edit: Edit Question

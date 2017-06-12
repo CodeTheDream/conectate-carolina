@@ -1,74 +1,68 @@
-<ul id="padding-resize">
 <% obj.each do |agency| %>
-    <div class="col-md-6 col-sm-6" id="padding-resize">
-        <div class="well well-sm well-agency">
-            <%= image_tag 'icon' %>
-            <p class="lead agency-name">
-            <strong>
-                <%= link_to agency.name, controller: 'agencies',
-                                         action: 'show', id: agency.id%>
-            </strong>
-            </p>
-
-            <address class="agency-address">
-            <p><%=(t'show_page.address') %><br></p>
-            <p><%= agency.full_address %></p>
-            <hr>
-            <p><%= Agency.human_attribute_name("contact") %> <%= agency.contact %></p>
-            <p><%= Agency.human_attribute_name("phone") %> <%= agency.phone %></p>
-            <p><%= Agency.human_attribute_name("description") %> <%= agency.description %></p>
-            </address>
-
-            <% if agency.categories.any? %>
-            <!-- Same effect agency.categories.each do etc...(using partial instead) -->
-            <p><%= (t'category.categories') %>
-              <% agency.categories.each do |category| %>
-                <% if params[:locale] == "en" %>
-                  <%= link_to category.name, category %>
-                <% else %>
-                  <%= link_to category.categoria, category %>
-                <% end %>
-              <% end %>
-            </p>
-            <% end %>
-
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-phone">
-                    <i class="fa fa-phone fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link ">
-                <span class="agency-phone">
-                    <i class="fa fa-envelope fa-lg"></i>
-                </span>
-            </a>
-            <a href= "https://www.google.com/maps/dir/Current+Location/<%= agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank">
-                <span class="agency-phone">
-                    <i class="fa fa-map-marker fa-lg"></i>
-                </span>
-            </a>
-
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-facebook">
-                    <i class="fa fa-facebook fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-twitter">
-                    <i class="fa fa-twitter fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-instagram">
-                    <i class="fa fa-instagram fa-lg"></i>
-                </span>
-            </a>
-            <a href="#" class="btn btn-default btn-sm btn-link">
-                <span class="agency-globe">
-                    <i class="fa fa-globe fa-lg"></i>
-                </span>
-            </a>
-        </div>
+<div class="col-xs-12 col-sm-6 col-lg-4 col-md-6 card">
+  <div class="col-xs-12 well well-sm well-agency flex-col">
+    <p class="lead agency-name">
+      <strong>
+        <%= link_to agency.name, controller: 'agencies',
+                                     action: 'show', id: agency.id%>
+      </strong>
+    <hr>
+    </p>
+    <div>
+    <p><%=(t'show_page.address') %><br></p>
+    <address>
+      <%= agency.address %><br>
+      <%= agency.city %>, <%= agency.state %>, <%= agency.zipcode %>
+      <a href="https://www.google.com/maps/dir/Current+Location/<%= agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank">
+        <span class="agency-phone">
+          <i class="fa fa-map-marker fa-2x"></i>
+        </span>
+      </a>
+    </address>
+      <!-- check HTML in this agency card   -->
+      <p><%= Agency.human_attribute_name("contact") %> <br>
+        <%= agency.contact %>
+        <a href="mailto:<%= agency.email %>" class="btn btn-default btn-sm btn-link">
+          <span class="agency-phone">
+          <i class="fa fa-envelope fa-2x"></i>
+          </span>
+        </a>
+      </p>
+      <p><%= Agency.human_attribute_name("phone") %> <br>
+        <%= agency.phone %>
+        <a href="tel:<%= agency.phone %>" class="btn btn-default btn-sm btn-link">
+          <span class="agency-phone">
+            <i class="fa fa-phone fa-2x"></i>
+          </span>
+        </a>
+      </p>
     </div>
+      <hr>
+      <% if agency.websites.present?%>
+      <p><%= (t'show_page.websites')%></p>
+        <% agency.websites.each do |website| %>
+          <a href="<%= website.url %>" class="btn btn-default btn-sm btn-link">
+            <span class="agency-facebook">
+              <i class="fa fa-<%= website.website_type.icon %> fa-2x"></i>
+            </span>
+          </a>
+        <% end %>
+      <% end %>
+      <% if agency.categories.any? %>
+          <!-- Same effect agency.categories.each do etc...(using partial instead) -->
+          <p><%= (t'category.categories') %></p>
+          <% agency.categories.each do |category| %>
+              <% if params[:locale] == "en" %>
+                  <%= link_to category_path(category) do %>
+                      <%= fa_icon category.fa_name, text: category.name, left: true %>
+                  <% end %>
+              <% else %>
+                  <%= link_to category_path(category) do %>
+                      <%= fa_icon category.fa_name, text: category.categoria, left: true %>
+                  <% end %>
+              <% end %>
+          <% end %>
+      <% end %>
+  </div>
+</div>
 <% end %>
-</ul>

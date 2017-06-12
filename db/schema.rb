@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117051151) do
+ActiveRecord::Schema.define(version: 20170314021801) do
 
   create_table "agencies", force: :cascade do |t|
     t.string   "name"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20170117051151) do
     t.string   "contact"
     t.string   "phone"
     t.string   "description"
+    t.string   "email"
+    t.string   "descripcion"
   end
 
   create_table "agency_categories", force: :cascade do |t|
@@ -37,6 +39,16 @@ ActiveRecord::Schema.define(version: 20170117051151) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "categoria"
+    t.string   "fa_name"
+  end
+
+  create_table "faqs", force: :cascade do |t|
+    t.string   "question"
+    t.text     "answer"
+    t.string   "pregunta"
+    t.text     "respuesta"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,14 +74,17 @@ ActiveRecord::Schema.define(version: 20170117051151) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "icon"
   end
 
   create_table "websites", force: :cascade do |t|
     t.integer  "agency_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.string   "socialmedia"
+    t.integer  "website_type_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "url"
     t.index ["agency_id"], name: "index_websites_on_agency_id"
+    t.index ["website_type_id"], name: "index_websites_on_website_type_id"
   end
 
 end

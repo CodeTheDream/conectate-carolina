@@ -1,17 +1,26 @@
+<% content_for :title do %><%= (t'category.all_cat') %> | Conectate Carolina<% end %>
+
 <h1 class="center"><%= (t'category.all_cat')%></h1>
 
 <div class="container">
   <!-- uncomment when pagination gem is added -->
   <%#= will_paginate %>
 <% @categories.each do |category| %>
-  <ul class="listing">
     <div class="row">
-      <div class="well col-md-4 col-md-offset-4">
+      <div class="well col-md-4 center-block">
       <ul class="list-group">
-        <li class="agency-title list-group-item">
-          <%= link_to "#{category.name}", category_path(category) %>
+        <li class="list-group-item">
+          <% if params[:locale] == "en" %>
+            <%= link_to category do %>
+              <%= fa_icon category.fa_name, text: category.name, left: true %>
+            <% end %>
+          <% else %>
+            <%= link_to category do %>
+              <%= fa_icon category.fa_name, text: category.categoria, left: true %>
+            <% end %>
+          <% end %>
         </li>
-        <li class="list-group-item"><small><%= pluralize(category.agencies.count, "agency") %></small></li>
+        <li class="list-group-item"><small><%= pluralize(category.agencies.count, "organization") %></small></li>
       </ul>
       <div class="btn-group btn-group-sm">
       <tr>
@@ -26,7 +35,6 @@
       </div>
       </div>
     </div>
-  </ul>
 <% end %>
 <%#= will_paginate %>
 </div>
