@@ -31,32 +31,36 @@ getLocation();
   <h2><%= (t'home_page.browse') %></h2>
     <div class="wrapper">
       <%= form_tag agencies_path(anchor: "organizations"), method: :get, class: 'form-group row', id: 'agency-lookup-form', data: { behaviors: 'turboform' } do %>
-        <div class="col-md-5">
+        <div class="col-md-4">
 
           <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control', autofocus: params[:search].present? %>
 
         </div>
 
-        <div class="col-md-5">
+        <div class="col-md-4">
           <%= text_field_tag :location, params[:location], placeholder: (t'home_page.location'), :class => 'form-control', autofocus: params[:location].present? %>
           <%= hidden_field_tag :coordinates, params[:coordinates]%>
 
           <!-- <%= text_field_tag :location, params[:location], placeholder: "search by location", :class => 'form-control search-input', autofocus: params[:location].present? %> -->
 
         </div>
-        <div class="container">
-        <% search_spinner = "<i class='fa fa-spinner fa-spin'></i> Searching..." %>
-        <span class="input-group-btn">
-          <%= button_tag( type: "submit", class: "btn btn-primary", :name => nil,
-          data: {disable_with: search_spinner }) do %>
-          <span class="glyphicon glyphicon-search"></span>
-          <%= (t'search_page.bttn_search') %>
-          <% end %>
-          </span>
-
-      </div>
+        <div class="col-md-2">
+          <%= label :distance, "Choose a distance : " %>
+          <%= select_tag(:distance, options_for_select([['10 Miles', 10], ['30 Miles', 30]]), class: "form-control") %>
+        </div>
+        <div class="container col-md-2">
+          <% search_spinner = "<i class='fa fa-spinner fa-spin'></i> Searching..." %>
+          <span class="input-group-btn">
+            <%= button_tag( type: "submit", class: "btn btn-primary", :name => nil,
+            data: {disable_with: search_spinner }) do %>
+            <span class="glyphicon glyphicon-search"></span>
+            <%= (t'search_page.bttn_search') %>
+            <% end %>
+            </span>
+        </div>
       <% end %>
     </div>
+
   </div>
 </section>
 

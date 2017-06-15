@@ -15,6 +15,21 @@
           </div>
         </div>
         <% end %>
+        <div class="search">
+          <%= form_tag agencies_path, method: :get, class: "navbar-form navbar-left search-form" do %>
+          <p>
+
+            <%= text_field_tag(
+                :search,
+                params[:search],
+                placeholder: "Search...",
+                class: "form-control",
+                autofocus: params[:search].present?
+            ) %>
+          </p>
+          <%= submit_tag "Search", name: nil %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
