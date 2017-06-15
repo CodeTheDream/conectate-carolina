@@ -47,7 +47,7 @@
 
   <div class="col-*-12 sidebar-btn">
     <% if policy(Category).new? %>
-      <%= link_to new_category_path, class: "btn btn-success btn-block" do %>
+      <%= link_to new_category_path, class: "btn btn-success" do %>
         <%= fa_icon "plus", text: (t'category.new_cat') %>
       <% end %>
     <% end %>

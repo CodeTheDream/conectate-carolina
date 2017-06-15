@@ -240,15 +240,13 @@ input#search, input#location {
   display: block;
   // width: 70%;
   height: 40px;
-  float: left;
-  border: 0;
   outline: none;
   margin: 0;
   margin-bottom: 10px;
   color: #222121;
   font-weight: 400;
   font-size: 16px;
-  text-transform: uppercase;
+  text-transform: capitalize;
   letter-spacing: 1px;
   line-height: 20px;
 }
