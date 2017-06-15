@@ -1,23 +1,20 @@
 <div class="center">
   <%#= will_paginate @category_articles %>
 </div>
-<div class="page-header">
-  <h1 class="center">
-    <%= @category.name + " Category"%>
-  </h1>
-</div>
-<div class = "panel panel-primary">
-   <div class = "panel-heading">
-      <h3 class = "panel-title"><%= (t'category.cat_view') %>
-        <%= fa_icon @category.fa_name, text: @category.name, left: true %>
-        <%=(t'category.cat_view1')%></h3>
-   </div>
+<div class="category_spacer">
+  <div class = "panel panel-primary">
+     <div class = "panel-heading">
+        <h3 class = "panel-title"><%= (t'category.cat_view') %>
+          <%= fa_icon @category.fa_name, text: params[:locale] == "en" ? @category.name : @category.categoria, left: true %>
+        </h3>
+     </div>
 
-   <div class = "panel-body">
-      <div class="list-group row">
-        <%= render 'agencies/agency', obj: @category_agencies %>
-      </div>
-   </div>
+     <div class = "panel-body">
+        <div class="list-group row">
+          <%= render 'agencies/agency', obj: @category_agencies %>
+        </div>
+     </div>
+  </div>
 </div>
 
 <div class="center">
