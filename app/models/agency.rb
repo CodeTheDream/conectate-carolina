@@ -9,7 +9,7 @@ class Agency < ApplicationRecord
   after_validation :geocode, if: ->(obj){ obj.full_address.present? and obj.address_changed? }
   include PgSearch
 
-  pg_search_scope :search_name, against: [:name, :address],
+  pg_search_scope :search_name, against: [:name, :address, :state, :city, :zipcode, :description, :descripcion ],
   associated_against: {categories: [:name, :categoria] },
   ignoring: :accents
 
