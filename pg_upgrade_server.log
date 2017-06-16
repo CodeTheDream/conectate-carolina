@@ -1,0 +1,71 @@
+
+-----------------------------------------------------------------
+  pg_upgrade run on Tue Jun 13 09:24:07 2017
+-----------------------------------------------------------------
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Tue Jun 13 09:26:19 2017
+-----------------------------------------------------------------
+
+command: "/usr/local/Cellar/postgresql/9.6.1/bin/pg_ctl" -w -l "pg_upgrade_server.log" -D "/usr/local/var/postgres" -o "-p 50432 -c autovacuum=off -c autovacuum_freeze_max_age=2000000000  -c listen_addresses='' -c unix_socket_permissions=0700" start >> "pg_upgrade_server.log" 2>&1
+pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start....FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 47854) running in data directory "/usr/local/var/postgres"?
+ stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Tue Jun 13 09:30:19 2017
+-----------------------------------------------------------------
+
+command: "/usr/local/Cellar/postgresql/9.6.1/bin/pg_ctl" -w -l "pg_upgrade_server.log" -D "/usr/local/var/postgres" -o "-p 50432 -c autovacuum=off -c autovacuum_freeze_max_age=2000000000  -c listen_addresses='' -c unix_socket_permissions=0700" start >> "pg_upgrade_server.log" 2>&1
+pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start....FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 47854) running in data directory "/usr/local/var/postgres"?
+ stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Tue Jun 13 09:30:46 2017
+-----------------------------------------------------------------
+
+command: "/usr/local/Cellar/postgresql/9.6.1/bin/pg_ctl" -w -l "pg_upgrade_server.log" -D "/usr/local/var/postgres" -o "-p 50432 -c autovacuum=off -c autovacuum_freeze_max_age=2000000000  -c listen_addresses='' -c unix_socket_permissions=0700" start >> "pg_upgrade_server.log" 2>&1
+pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start....FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 47854) running in data directory "/usr/local/var/postgres"?
+ stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Tue Jun 13 09:39:56 2017
+-----------------------------------------------------------------
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Tue Jun 13 09:41:45 2017
+-----------------------------------------------------------------
+
+
+-----------------------------------------------------------------
+  pg_upgrade run on Tue Jun 13 09:42:50 2017
+-----------------------------------------------------------------
+
+command: "/usr/local/Cellar/postgresql/9.6.1/bin/pg_ctl" -w -l "pg_upgrade_server.log" -D "/usr/local/var/postgres.9.6.1.backup" -o "-p 50432 -c autovacuum=off -c autovacuum_freeze_max_age=2000000000  -c listen_addresses='' -c unix_socket_permissions=0700" start >> "pg_upgrade_server.log" 2>&1
+pg_ctl: another server might be running; trying to start server anyway
+waiting for server to start....FATAL:  lock file "postmaster.pid" already exists
+HINT:  Is another postmaster (PID 47854) running in data directory "/usr/local/var/postgres.9.6.1.backup"?
+ stopped waiting
+pg_ctl: could not start server
+Examine the log output.
+
+

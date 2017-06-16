@@ -4,7 +4,34 @@ class AgenciesController < ApplicationController
   after_action  :verify_authorized, except: [:show, :index]
 
 	def index
-		@agencies = Agency.search(params)
+		# @agencies = Agency.search_name(params[:search])
+		if params[:location].present?
+      location = params[:location]
+    else
+      location = params[:coordinates]
+    end
+    location = "Carrboro, NC" if not location.present?
+    @agencies = Agency.near(location, 15)
+    # if params[:category].present?
+    #   agencies = agencies.where(category_id: params[:category].to_i)
+    # end
+		if params[:search].present?
+			if params[:location].present?
+				location = params[:location]
+			else
+				location = params[:coordinates]
+			end
+			if params[:distance].present?
+				distance = params[:distance]
+			end
+			distance = 20 if not distance.present?
+			@distance = distance
+			location = "Carrboro, NC" if not location.present?
+			@ag = Agency.search_name(params[:search])
+      @agencies = @ag.near(location, distance)
+   	else
+    	@agencies = @agencies.near(location, 15)
+   	end
 		#Code hash send info of all agencies to the view to get converted to JSON
 		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
 	  	marker.lat agency.latitude

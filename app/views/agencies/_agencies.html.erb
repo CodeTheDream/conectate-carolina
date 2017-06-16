@@ -1,7 +1,13 @@
 <!-- Code here is used to build the map by google-maps-for-rails-->
 <div class="container" id="gmap">
   <div class="col-md-10 padding-resize" id="agency-lookup">
+    <% if @distance.nil? %>
     <h1 id="organizations"><%= (t'footer.organizations')%></h1>
+    <% else %>
+    <h2><%= @agencies.size %> organizations within <%= @distance %> miles from you</h2>
+
+    <% end %>
+
     <div class="">
       <!-- button -->
       <div class="col-md-pull-4">

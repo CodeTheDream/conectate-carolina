@@ -37,6 +37,8 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'high_voltage'
 gem 'pundit'
+gem 'pg'
+gem 'pg_search'
 
 group :development do
   gem 'better_errors'
@@ -51,11 +53,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'rubocop'
-  gem 'sqlite3'
+  # gem 'sqlite3'
 end
 
 group :production do
-  gem 'pg'
   gem 'rails_12factor'
 end
 group :test do

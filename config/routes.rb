@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     get 'websites/new'
 		# match '/send_mail', to: 'contact#send_mail', via: 'post'
 		resources :feedback_forms
+		#code added to serach with pg
+		resources :search, only: [:index]
 	end
 #get '*path', to: redirect("/#{I18n.default_locale}/%{path}")
 get '', to: redirect("/#{I18n.default_locale}/")
