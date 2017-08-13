@@ -1,8 +1,21 @@
 <%# add navigation links to this file %>
-<li><%= link_to (t'nav_links.about'), page_path('about') %></li>
-<li><%= link_to (t'faq.nav'), faqs_path %></li>
+<li>
+<%= link_to page_path('about') do %>
+  <%= fa_icon 'list-alt', text: (t'nav_links.about') %>
+<% end %>
+</li>
+<li>
+<%= link_to faqs_path do %>
+  <%= fa_icon 'question-circle', text: 'FAQ' %>
+<% end %>
+</li>
+
 <% if params[:locale] == "en" %>
-  <li><%= link_to "Español", locale: "es" %></li>
+  <li>
+  <%= link_to locale: "es" do %>
+    <%= fa_icon 'language', text: 'Español' %>
+  <% end %>
+  <%# link_to "Español", locale: "es" %></li>
 <% else %>
   <li><%= link_to "English", locale: "en" %></li>
 <% end %>
