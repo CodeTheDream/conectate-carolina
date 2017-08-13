@@ -26,6 +26,7 @@
       <tr>
           <% if policy(Category).new? %>
             <td>
+              <%= link_to "Delete", category_path(category), method: :delete %>
               <%= link_to edit_category_path(category), class: 'btn btn-info' do %>
               <i class="fa fa-pencil-square-o"></i><%= (t'buttons_t.edit')%>
               <% end %>

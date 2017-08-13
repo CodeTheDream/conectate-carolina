@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 		resources :faqs
 		get 'pages/about'
 	  get 'search', to: 'search#search'
-    resources :categories, except: [:destroy]
+    resources :categories
     resources :websites, only: [:create, :destroy]
     resources :website_types, only: [:create, :destroy]
     get 'websites/new'
