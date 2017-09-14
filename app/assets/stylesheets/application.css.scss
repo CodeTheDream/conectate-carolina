@@ -22,8 +22,29 @@
 $links_color: #d65000;
 $links_color_hover: #2875b6;
 
-main {
-  background: rgb(226, 226, 226);
+
+html,body {
+    height:100%;
+    background: linear-gradient(
+        rgba(194, 229, 182, 0.25), 
+        rgba(193, 226, 185, 0.29)), 
+        center no-repeat fixed image-url('tobacco.jpg');
+	// background: center no-repeat fixed image-url('tobacco.jpg');
+	background-size: cover;
+}
+section {
+	padding-top: 50px;  
+	padding-bottom: 40px; 
+	min-height: 20vh;
+}
+#section2 {
+    margin-top: 0px;
+	background-color: rgb(229, 229, 239);
+	color:#686868;
+	background-size: cover;
+}
+.top-buffer {
+    padding-top: 15px;
 }
 
 a {
@@ -32,6 +53,7 @@ a {
     // font-style: italic;
     text-align: center;
     text-decoration: none;
+    // all: none;
 }
 
 a:hover {
@@ -153,21 +175,10 @@ address {
 }
 // top image index page
 .top-background {
-  background:
-    linear-gradient(
-      rgba(59, 172, 184, 0.45),
-      rgba(84, 184, 59, 0.45)
-    ),
-    image-url('tobacco.jpg');
-  top: 90%;
-  opacity: 0.9;
-  background-position: 50% 70%;
-  height: 500px;
+  background-color: rgba(37, 171, 118, 0.94);
   position: relative;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   margin-top: 0px;
-  overflow: auto;
+  // overflow: auto;
 }
 .top-background h1 {
   color: #122112;
@@ -196,9 +207,13 @@ address {
 // }
 
 .header {
-  padding: 100px 10px 10px 10px;
+  padding: 40px 10px 10px 10px;
   margin: auto;
-  width: 80%;
+  width: 100%;
+}
+
+.min-height {
+    min-height: 600px;
 }
 
 // .search {
@@ -228,6 +243,7 @@ address {
     font-size: 28px;
     color: #1d1d1d;
     letter-spacing: 1px;
+		margin-top: 35px;
   }
   .header {
     padding: 10px 0;
@@ -235,10 +251,12 @@ address {
     width: 99%;
     padding: 5px;
   }
-  .padding-resize {
-    padding-left: 8px;
-    padding-right: 8px;
-  }
+	.card address {
+		text-align: center
+	}
+	.well {
+		text-align: center;
+	}
 }
 
 // search
@@ -278,17 +296,6 @@ input, select {
     max-width: 600px;
     text-align: center;
 }
-
-.padding-resize {
-    // left padding: justify;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-#gmap {
-    padding-left: 0;
-    padding-right: 0;
-}
 /* Agency cards css */
 
 .card address {
@@ -309,8 +316,22 @@ input, select {
 .agency-name strong a {
   font-size: 20px;
 }
-.agency-category {
 
+.category {
+    margin-bottom: 12px;
+}
+
+.category a {
+    background: #E36419;
+    padding: 7px 10px;
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
+.category a:hover {
+    background: #E5712D;
 }
 .well-agency {
     padding: 10px;
@@ -328,13 +349,13 @@ input, select {
     box-shadow: 1px 5px 5px 0 rgba(0, 0, 0, 0.16), 0 7px 7px 0 rgba(0, 0, 0, 0.12)
 }
 
-.well-agency a {
-    text-decoration: none;
-    color: $links_color;
-    font-size: 14px;
-    // font-style: italic;
-    text-align: center;
-}
+// .well-agency a {
+//     text-decoration: none;
+//     color: $links_color;
+//     font-size: 14px;
+//     // font-style: italic;
+//     text-align: center;
+// }
 
 .well-agency a:hover {
     color: $links_color_hover;
@@ -418,7 +439,7 @@ input, select {
 
 .navbar-default .navbar-toggle:focus,
 .navbar-default .navbar-toggle:hover {
-    background-color: #008752;
+    background-color: hsl(158, 47%, 79%);
 }
 
 .navbar-default .navbar-toggle .icon-bar {
@@ -583,10 +604,6 @@ input, select {
   font-size: 27px;
 }
 
-.sidebar-btn {
-  margin-top: 40px;
-  margin-bottom: 20px;
-}
 
 
 ////////// CSS for the styling of the FAQ page.////////////////
