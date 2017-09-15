@@ -15,9 +15,13 @@
   <%= link_to locale: "es" do %>
     <%= fa_icon 'language', text: 'Español' %>
   <% end %>
-  <%# link_to "Español", locale: "es" %></li>
+  </li>
 <% else %>
-  <li><%= link_to "English", locale: "en" %></li>
+  <li>
+  <%= link_to locale: "en" do %>
+    <%= fa_icon 'language', text: 'English' %>
+  <% end %>
+  </li>
 <% end %>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= (t'category.categories') %> <span class="caret"></span></a>

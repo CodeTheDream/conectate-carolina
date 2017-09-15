@@ -10,8 +10,8 @@ class AgenciesController < ApplicationController
     else
       location = params[:coordinates]
     end
-    location = "Carrboro, NC" if not location.present?
-    @agencies = Agency.near(location, 15)
+    location = "Raleigh, NC" if not location.present?
+    @agencies = Agency.near(location, 20)
     # if params[:category].present?
     #   agencies = agencies.where(category_id: params[:category].to_i)
     # end
@@ -35,7 +35,8 @@ class AgenciesController < ApplicationController
 		#Code hash send info of all agencies to the view to get converted to JSON
 		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
 	  	marker.lat agency.latitude
-	  	marker.lng agency.longitude
+			marker.lng agency.longitude
+			marker.infowindow agency.name
 		end
 		@categories = Category.all
 	end

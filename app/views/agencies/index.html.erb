@@ -11,11 +11,11 @@
 
 var x = document.getElementById("location");
 function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
 }
 function showPosition(position) {
 	var x = document.getElementById("coordinates");
@@ -47,7 +47,7 @@ getLocation();
           </div>
           <div class="col-md-2">
             <!-- <%= label :distance, "Choose a distance : " %> -->
-            <%= select_tag :distance, options_for_select([['10 Miles', 10], ['30 Miles', 30]]), class: "form-control" %>
+            <%= select_tag :distance, options_for_select([['10 Miles', 10], ['30 Miles', 30], ['50 Miles', 50]]), class: "form-control" %>
           </div>
 
           <div class="col-md-2 text-center">
@@ -64,9 +64,28 @@ getLocation();
   </div>
 </section>
 
-<div class="row row-centered agencies-body">
-  <%= render 'sidebar' %>
-  <!-- end col-md-3 sidebar-->
-  <%= render 'agencies' %>
-</div>
-<%#end row %>
+<%= render 'section2' %>
+
+<%= render 'section3' %>
+
+
+<script type="text/javascript">
+$(function() {
+  $('#myModal').on('shown.bs.modal', function(event){
+    handler = Gmaps.build('Google');
+    handler.buildMap({
+      provider: {},
+      internal: {
+        id: 'map'
+      }
+    }, function () {
+      google.maps.event.trigger(handler, 'resize');
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      handler.fitMapToBounds();
+    });
+  });
+});
+</script>
+
+
