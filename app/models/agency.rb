@@ -1,17 +1,17 @@
 class Agency < ApplicationRecord
   has_many :websites, dependent: :destroy
   accepts_nested_attributes_for :websites
-	has_many :agency_categories
-	has_many :categories, through: :agency_categories
-	validates :name, presence: true
-  #attr_accessor :full_address, :latitude, :longitude
+  has_many :agency_categories
+  has_many :categories, through: :agency_categories
+  validates :name, presence: true
+  # attr_accessor :full_address, :latitude, :longitude
   geocoded_by :full_address
-  after_validation :geocode, if: ->(obj){ obj.full_address.present? and obj.address_changed? }
+  after_validation :geocode, if: ->(obj) { obj.full_address.present? && obj.address_changed? }
   include PgSearch
 
-  pg_search_scope :search_name, against: [:name, :address, :state, :city, :zipcode, :description, :descripcion ],
-  associated_against: {categories: [:name, :categoria] },
-  ignoring: :accents
+  pg_search_scope :search_name, against: %i[name address state city zipcode description descripcion],
+                                associated_against: { categories: %i[name categoria] },
+                                ignoring: :accents
 
   # pg_search_scope :text_search, against: [:name, :address, :state, :city, :zipcode],
   # using: {
@@ -20,20 +20,18 @@ class Agency < ApplicationRecord
   # associated_against: {categories: [:name, :categoria] },
   # ignoring: :accents
 
-
   # Ask ramiro, this upcase_fields method raises an error when seeding saf info
   # before_save :upcase_fields
   # method to convert state to all uppercase and save in database -JR
   def upcase_fields
-    self.state.upcase!
+    state.upcase!
   end
 
   def full_address
     [address, city, state, zipcode].compact.join(', ')
   end
 
-
-  #Method not finished
+  # Method not finished
   # def self.search(params)
   #   if params[:location].present?
   #     location = params[:location]
