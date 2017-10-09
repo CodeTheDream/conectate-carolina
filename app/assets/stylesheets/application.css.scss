@@ -26,20 +26,20 @@ $links_color_hover: #2875b6;
 html,body {
     height:100%;
     background: linear-gradient(
-        rgba(194, 229, 182, 0.25), 
-        rgba(193, 226, 185, 0.29)), 
+        rgba(194, 229, 182, 0.25),
+        rgba(193, 226, 185, 0.29)),
         center no-repeat fixed image-url('tobacco.jpg');
 	// background: center no-repeat fixed image-url('tobacco.jpg');
 	background-size: cover;
 }
 section {
-	padding-top: 50px;  
-	padding-bottom: 40px; 
+	padding-top: 50px;
+	padding-bottom: 40px;
 	min-height: 20vh;
 }
 #section2 {
-    margin-top: 0px;
-	background-color: rgb(229, 229, 239);
+  margin-top: 0px;
+  background-color: rgba(37, 171, 118, 0.94);
 	color:#686868;
 	background-size: cover;
 }
