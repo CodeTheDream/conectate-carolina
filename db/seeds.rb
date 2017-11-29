@@ -31,16 +31,6 @@ website_types = [
   end
   p "Created #{WebsiteType.count} WebsiteType"
 
-# # using chunks:
-# filename = 'DirectorySpreadsheet.csv'
-# options = {:chunk_size => 1000, :key_mapping => {:unwanted_row => nil, :old_row_name => :new_name}}
-# n = SmarterCSV.process(filename, options) do |chunk|
-#       # we're passing a block in, to process each resulting hash / row (block takes array of hashes)
-#       # when chunking is enabled, there are up to :chunk_size hashes in each chunk
-#       MyModel.collection.insert( chunk )   # insert up to 100 records at a time
-# end
-#
-#  => returns number of chunks we processed
 
 # Require Ruby CSV library to properly parse the CSV data.
 require 'csv'
@@ -59,6 +49,7 @@ csv.each do |row|
     c = Category.new
     c.name = row['Category']
     c.categoria = row['Categoria']
+    c.fa_name = row['fa_name']
     c.save
   end
 

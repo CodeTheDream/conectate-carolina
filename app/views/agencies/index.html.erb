@@ -24,33 +24,33 @@ function showPosition(position) {
 }
 getLocation();
 </script>
-<section class="top-background">
-  <div class="header">
+<section class="top-background" id="top-background">
+  <div class="header" id="section2">
 
   <h1><%= (t'home_page.title') %></h1>
   <h2><%= (t'home_page.browse') %></h2>
     <div class="wrapper">
       <%= form_tag agencies_path(anchor: "organizations"), method: :get, class: 'form-group', id: 'agency-lookup-form', data: { behaviors: 'turboform' } do %>
-        <div class="row">
-          <div class="col-md-4">
+        <div class="row" id="search-row">
+          <div class="col-md-3 col-md-offset-2">
 
             <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control', autofocus: params[:search].present? %>
 
           </div>
 
-          <div class="col-md-4">
+          <div class="col-md-2">
             <%= text_field_tag :location, params[:location], placeholder: (t'home_page.location'), :class => 'form-control', autofocus: params[:location].present? %>
             <%= hidden_field_tag :coordinates, params[:coordinates]%>
 
             <!-- <%= text_field_tag :location, params[:location], placeholder: "search by location", :class => 'form-control search-input', autofocus: params[:location].present? %> -->
 
           </div>
-          <div class="col-md-2">
+          <div class="col-md-1">
             <!-- <%= label :distance, "Choose a distance : " %> -->
             <%= select_tag :distance, options_for_select([['10 Miles', 10], ['30 Miles', 30], ['50 Miles', 50]]), class: "form-control" %>
           </div>
 
-          <div class="col-md-2 text-center">
+          <div class="col-md-2">
             <% search_spinner = "<i class='fa fa-spinner fa-spin'></i> Searching..." %>
             <%= button_tag(type: "submit", class: "btn btn-primary btn-lg", :name => nil,
             data: {disable_with: search_spinner }) do %>
@@ -62,9 +62,9 @@ getLocation();
     </div>
 
   </div>
+  <%= render 'section2' %>
 </section>
 
-<%= render 'section2' %>
 
 <%= render 'section3' %>
 
@@ -87,5 +87,3 @@ $(function() {
   });
 });
 </script>
-
-

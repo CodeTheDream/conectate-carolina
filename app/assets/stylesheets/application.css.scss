@@ -24,13 +24,10 @@ $links_color_hover: #2875b6;
 
 
 html,body {
-    height:100%;
-    background: linear-gradient(
-        rgba(194, 229, 182, 0.25),
-        rgba(193, 226, 185, 0.29)),
-        center no-repeat fixed image-url('tobacco.jpg');
+  // height:100%;
+  background-color: rgba(37, 171, 118, 0.94);
 	// background: center no-repeat fixed image-url('tobacco.jpg');
-	background-size: cover;
+	background-size: contain;
 }
 section {
 	padding-top: 50px;
@@ -39,9 +36,11 @@ section {
 }
 #section2 {
   margin-top: 0px;
-  background-color: rgba(37, 171, 118, 0.94);
 	color:#686868;
 	background-size: cover;
+}
+#section3 {
+  padding-top: 20px;
 }
 .top-buffer {
     padding-top: 15px;
@@ -174,11 +173,15 @@ address {
   font-size: 16px;
 }
 // top image index page
-.top-background {
-  background-color: rgba(37, 171, 118, 0.94);
-  position: relative;
+#top-background {
+  background: linear-gradient(
+      rgba(194, 229, 182, 0.35),
+      rgba(193, 226, 185, 0.39)),
+      no-repeat image-url('tobacco.jpg');
+  background-position: center;
+  background-size: cover;
   margin-top: 0px;
-  // overflow: auto;
+  overflow: hidden;
 }
 .top-background h1 {
   color: #122112;
@@ -283,6 +286,22 @@ input#search, input#location {
 
 input, select {
     vertical-align: middle;
+}
+
+#search-row {
+  text-align: center;
+}
+
+#organizations {
+  color: #1f201f;
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 38px;
+  margin-bottom: 24px;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 rgba(#636363, 0.61)
 }
 
 
