@@ -21,4 +21,9 @@ class AgencyPolicy < ApplicationPolicy
    return false if @current_user == @user
    @user.admin?
  end
+
+ def import?
+   return false if @current_user == @user
+   @user.admin?
+ end
 end

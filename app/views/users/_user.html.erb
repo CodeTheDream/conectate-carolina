@@ -9,6 +9,7 @@
       <%= form_for user do |f| %>
       <%# render "shared/errors", object: user %>
       <%= f.select(:role, User.roles.keys.map {|role| [role.titleize, role]}) %>
+      <%# f.select(:role, ["Other User", "Other User"]) %>
       <td>
         <button><%= f.submit 'Change role' %></button>
       </td>

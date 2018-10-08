@@ -23,11 +23,16 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     authorize @user
-    if @user.update_attributes(secure_params)
-      redirect_to users_path, notice: "User updated"
+    if User.roles.keys.include?(params[:user][:role])
+      if @user.update_attributes(secure_params)
+        flash[:notice] = "User updated"
+      else
+        flash[:alert] = "Unable to update user"
+      end
     else
-      redirect_to users_path, alert: "Unable to update user"
+      flash[:alert] = "Invalid user role selection"
     end
+    redirect_to users_path
   end
 
   private
