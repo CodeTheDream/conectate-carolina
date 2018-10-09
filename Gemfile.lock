@@ -92,10 +92,10 @@ GEM
       actionmailer (>= 4.0, < 6)
       activesupport (>= 4.0, < 6)
     execjs (2.7.0)
-    factory_girl (4.8.1)
+    factory_bot (4.11.1)
       activesupport (>= 3.0.0)
-    factory_girl_rails (4.8.0)
-      factory_girl (~> 4.8.0)
+    factory_bot_rails (4.11.1)
+      factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
     faker (1.8.4)
       i18n (~> 0.5)
@@ -303,7 +303,7 @@ DEPENDENCIES
   devise
   devise-i18n
   exception_notification
-  factory_girl_rails
+  factory_bot_rails
   faker
   figaro
   font-awesome-rails
@@ -344,4 +344,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.14.6
+   1.16.6
