@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :website do
-    agency nil
+    agency { nil }
   end
 end
