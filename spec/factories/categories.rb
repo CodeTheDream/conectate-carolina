@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :category do
-    name { "health" }
+    name { "Software" }
   end
 end

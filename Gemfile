@@ -18,6 +18,7 @@ gem 'figaro'
 gem "autoprefixer-rails"
 gem 'exception_notification'
 gem 'redcarpet'
+gem "unicode-display_width"
 
 group :development, :test do
   gem 'byebug', platform: :mri
