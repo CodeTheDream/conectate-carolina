@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :faq do
     question "MyString"
     answer "MyText"
