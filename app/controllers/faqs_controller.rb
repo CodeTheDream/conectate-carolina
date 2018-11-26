@@ -49,6 +49,7 @@ class FaqsController < ApplicationController
     authorize @faq
     if @faq.destroy
         flash[:success] = "Question Deleted"
+        redirect_to faqs_path
     else
         flash[:error] = "Error deleting the quesion"
     end

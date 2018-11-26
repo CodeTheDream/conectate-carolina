@@ -4,7 +4,6 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'spec_helper'
 require 'rspec/rails'
 require 'support/factory_bot'
-
 require 'simplecov'
 
 SimpleCov.start
@@ -26,7 +25,6 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-
 end
 
 Shoulda::Matchers.configure do |config|

@@ -1,0 +1,17 @@
+<div class="jumbotron col-lg-10 center">
+  <h1>Website Details</h1>
+    <% if params[:locale] == "en" %>
+      <div id="faq_question">
+        <strong>Website URL:</strong>
+        <%= @website.url %><br>
+      </div>
+      <div id="faq_answer">
+        <strong>Agency:</strong>
+        <%= @website.agency.name %><br>
+      </div>
+      <div id="faq_answer">
+        <strong>Website Type:</strong>
+        <%= @website.website_type.name %><br>
+      </div>
+    <% end %>
+</div>

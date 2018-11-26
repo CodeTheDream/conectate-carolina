@@ -4,7 +4,6 @@ class Agency < ApplicationRecord
   has_many :agency_categories
   has_many :categories, through: :agency_categories
   validates :name, presence: true
-  # attr_accessor :full_address, :latitude, :longitude
   geocoded_by :full_address
   after_validation :geocode, if: ->(obj) { obj.full_address.present? && obj.address_changed? }
   include PgSearch

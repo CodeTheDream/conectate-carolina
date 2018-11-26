@@ -11,6 +11,8 @@
     </ul>
   </div>
   <% end %>
-  <%= f.text_field :socialmedia, placeholder: "URL here" %>
+  <%= f.text_field :url, placeholder: "URL..." %>
+  <%= f.text_field :agency_id, placeholder: "Agency ID..." %>
+  <%= f.text_field :website_type_id, placeholder: "Website Type..." %>
   <%= f.submit (t'buttons_t.save'),class: 'btn btn-primary' %>
 <% end %>

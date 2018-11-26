@@ -1,10 +1,8 @@
 class AgenciesController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   after_action :verify_authorized, except: %i[show index]
 
   def index
-    # @agencies = Agency.search_name(params[:search])
     location = if params[:location].present?
                  params[:location]
                else
@@ -12,9 +10,7 @@ class AgenciesController < ApplicationController
                end
     location = 'Raleigh, NC' unless location.present?
     @agencies = Agency.near(location, 20)
-    # if params[:category].present?
-    #   agencies = agencies.where(category_id: params[:category].to_i)
-    # end
+
     if params[:search].present?
       location = if params[:location].present?
                    params[:location]
@@ -30,7 +26,7 @@ class AgenciesController < ApplicationController
    	else
     	@agencies = @agencies.near(location, 15)
    	end
-		#Code hash send info of all agencies to the view to get converted to JSON
+
 		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
 	  	marker.lat agency.latitude
 			marker.lng agency.longitude
@@ -64,7 +60,6 @@ class AgenciesController < ApplicationController
 
   def show
     @agency = Agency.find(params[:id])
-    # single agency info, adds the name marker to the map when creating the agency
     @hash = Gmaps4rails.build_markers(@agency) do |agency, marker|
       marker.lat agency.latitude
       marker.lng agency.longitude
