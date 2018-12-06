@@ -48,4 +48,36 @@ RSpec.describe Agency, type: :model do
       end
     end
   end
+
+  describe "Geocoder module" do
+    it 'geocodes addresses' do
+      mock_geocoding!
+      agency = Agency.new(address: '201 W. Main St', city: 'Durham', state: 'NC', zipcode: '27701')
+      agency.save
+      expect(agency.latitude).to eq 35.99558
+      expect(agency.longitude).to eq(-78.90216910000001)
+    end
+
+    def mock_geocoding!(options = {})
+      options.reverse_merge!(
+        address: '201 W. Main St, Durham, 27701',
+        coordinates: [35.99558, -78.90216910000001],
+        state: 'NC',
+        country: 'US'
+      )
+
+      MockResult.new.tap do |result|
+        options.each do |prop, val|
+          allow(result).to receive(prop).and_return(val)
+        end
+        allow(Geocoder).to receive(:search).and_return([result])
+      end
+    end
+
+    class MockResult < ::Geocoder::Result::Base
+      def initialize(data = [])
+        super(data)
+      end
+    end
+  end
 end
