@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 	scope ":locale", locale:  /en|es/ do
 		devise_for :users
 		root to: 'agencies#index'
-	  resources :agencies
+	  resources :agencies do
+	  	collection { post :import }
+	  end
 		resources :users
 		resources :faqs
 		get 'pages/about'
