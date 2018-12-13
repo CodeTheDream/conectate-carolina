@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 		get 'pages/about'
 	  get 'search', to: 'search#search'
     resources :categories
-    resources :websites, only: [:create, :destroy]
-    resources :website_types, only: [:create, :destroy]
+    resources :websites, only: [:new, :create, :show, :destroy]
+    resources :website_types, only: [:new, :create, :show, :destroy]
     get 'websites/new'
 		# match '/send_mail', to: 'contact#send_mail', via: 'post'
 		resources :feedback_forms

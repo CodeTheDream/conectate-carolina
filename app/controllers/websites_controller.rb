@@ -1,23 +1,21 @@
 class WebsitesController < ApplicationController
-  
+
   def new
   	@website = Website.new
-    @website = agencies.new
   end
 
   def create
-  	@website = agency_url.websites.build(website_params)
+  	@website = Website.new(website_params)
   	if @website.save
-  		flash[:success] = "website added to the organization!"
-  		redirect_to @agency
+  		flash[:success] = "Website added to the organization!"
+  		redirect_to(websites_path)
   	else
   		render 'new'
     end
   end
-  
+
   def show
   	@website = Website.find(params[:id])
-    @website_agencies = @website.agencies.all
   end
 
   def edit
@@ -29,12 +27,11 @@ class WebsitesController < ApplicationController
     @website = Website.find(params[:id])
     @website.destroy
     flash[:notice] = t 'flash_notice.delete'
-    redirect_to new_category_url
+    redirect_to(websites_path)
   end
 
   private
-  # We will need to add the facebook, twitter, and insta as params once we have full implementation of this.
   	def website_params
-  		params.require(:website).permit(:socialmedia)
+  		params.require(:website).permit(:url, :agency_id, :website_type_id)
   	end
 end
