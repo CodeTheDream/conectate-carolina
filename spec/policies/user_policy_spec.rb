@@ -6,13 +6,11 @@ RSpec.describe UserPolicy do
   let(:current_user) { create :user }
   let(:admin) { create :user, :admin, email: "conectateadmin@example.com" }
 
-  # We want all users to be able to access the index and show pages
-  # Applies to both admins and regular users
+  # Only admins are permitted to access index and show
   permissions :index?, :show? do
-    # Test is failing, not sure why
-    # it 'allows access if not an admin' do
-    #   expect(subject).to permit(current_user)
-    # end
+    it 'does not allow access if not an admin' do
+      expect(subject).not_to permit(current_user)
+    end
 
     it 'allows access if an admin' do
       expect(subject).to permit(admin)
