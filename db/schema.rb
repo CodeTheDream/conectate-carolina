@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2017_06_12_210115) do
+ActiveRecord::Schema.define(version: 20190305184627) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2017_06_12_210115) do
     t.string "description"
     t.string "email"
     t.string "descripcion"
+    t.index ["name", "address", "city", "state", "zipcode"], name: "unique_index_on_agencies", unique: true
   end
 
   create_table "agency_categories", id: :serial, force: :cascade do |t|
@@ -96,6 +97,7 @@ ActiveRecord::Schema.define(version: 2017_06_12_210115) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "url"
+    t.index ["agency_id", "website_type_id", "url"], name: "index_websites_on_agencyId_websiteTypeId_and_url", unique: true
     t.index ["agency_id"], name: "index_websites_on_agency_id"
     t.index ["website_type_id"], name: "index_websites_on_website_type_id"
   end

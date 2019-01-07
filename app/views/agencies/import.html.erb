@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <style>
+      table {
+        border: 3px solid gray;
+      }
+      table, tr, th, td {
+        border: solid 1px gray;
+        padding: 3px;
+      }
+      .thead tr:nth-child(2n+1) { /*(odd) or (2n+1)*/
+      	background: #D2691E;
+      }
+      .tbody tr:nth-child(2n+0) { /*(even) or (2n+0)*/
+      	background: #A4D1FF;
+      }
+
+      .tbody tr:nth-child(2n+1) { /*(odd) or (2n+1)*/
+      	background: #EAF4FF;
+      }
+
+    </style>
+  </head>
+  <body>
+    <% if @added_count != 0 %>
+      <table>
+        <thead class="thead">
+          <tr>
+            <th>Agency Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+          <% @added_agencies.each do |agency| %>
+          <tr>
+            <td><%= agency.name %></td>
+            <td><%= agency.full_address %></td>
+            <td><%= agency.phone %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </body>
+
+</html>

@@ -12,10 +12,10 @@ RSpec.describe AgenciesController, type: :controller do
     before do
       @category = create :category
       @agency1 = create :agency, address: "7751 Brier Creek Pkwy", city: "Raleigh", state: "NC", categories: [@category] #Infosys
-      @agency2 = create :agency, address: "213 Fayetteville St", city: "Raleigh", state: "NC", categories: [@category]#Thoughtbot
-      @agency3 = create :agency, address: "4000 Arrowhead Blvd", city: "Mebane", state: "NC", categories: [@category]# Tanger outlets
-      @agency4 = create :agency
-      @agency5 = create :agency, address: "1447 York Ct", city: "Burlington", state: "NC", categories: [@category] # LabCorp
+      @agency2 = create :agency, name: "Thoughtbot", address: "213 Fayetteville St", city: "Raleigh", state: "NC", categories: [@category]#Thoughtbot
+      @agency3 = create :agency, name: "T. Outlets", address: "4000 Arrowhead Blvd", city: "Mebane", state: "NC", categories: [@category]# Tanger outlets
+      @agency4 = create :agency, name: "Agency 4"
+      @agency5 = create :agency, name: "LabCorp", address: "1447 York Ct", city: "Burlington", state: "NC", categories: [@category] # LabCorp
     end
     context 'when searched without category and location provided' do
       it 'should retrun list of agencies in 20mi from default location' do
@@ -160,5 +160,18 @@ RSpec.describe AgenciesController, type: :controller do
       expect(response).to redirect_to(new_agency_url)
     end
 
+  end
+
+
+# # IMPORT SPECS
+  describe 'POST agencies#import' do
+    before { sign_in admin }
+    let(:csv) { fixture_file_upload('import/agencies.csv', 'text/csv')}
+
+    it "changes agency count on successful file upload" do
+      expect do
+        post :import, params: { file: csv, locale: 'en' }
+      end.to change(Agency, :count).by(3)
+    end
   end
 end

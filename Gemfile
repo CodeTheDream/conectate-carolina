@@ -22,6 +22,9 @@ gem "unicode-display_width"
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :development do
