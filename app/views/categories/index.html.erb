@@ -20,7 +20,16 @@
             <% end %>
           <% end %>
         </li>
-        <li class="list-group-item"><small><%= pluralize(category.agencies.count, "organization") %></small></li>
+        <li class="list-group-item"><small>
+        <% if params[:locale] == "en" %>
+            <%= pluralize(category.agencies.count, "organization") %>
+        <% end %>
+        <% if params[:locale] == "es" && category.agencies.count > 1 %>
+          <%= category.agencies, "organizaciones"%>
+        <% else %>
+          <%= category.agencies, "organización" %>
+        <% end %>
+        </small></li>
       </ul>
       <div class="btn-group btn-group-sm">
       <tr>
