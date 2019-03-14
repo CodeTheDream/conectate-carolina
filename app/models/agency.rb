@@ -42,22 +42,37 @@ class Agency < ApplicationRecord
                                 )
 
       next unless agency.save
+      # Agency URL
+      @agency_site = agency.websites.find_by(url:          'http://' + hash["agency_url"],
+                                             website_type: WebsiteType.find_by(name: "Agency URL")
+                                            )
+      if @agency_site.present?
 
-      @agency_website = agency.websites.find_or_create_by(
-                          url:          hash["agency_url"],
-                          website_type: WebsiteType.find_by(name: "Agency URL")
-                        )
+      else
+        agency.websites.create(url:          hash["agency_url"],
+                               website_type: WebsiteType.find_by(name: "Agency URL")
+                              )
+      end
 
-      @facebook_website = agency.websites.find_or_create_by(
-                            url:          hash["facebook_url"],
-                            website_type: WebsiteType.find_by(name: "Facebook URL")
-                          )
+      # Facebook URL
+      @facebook_site = agency.websites.find_by(url:         'http://' + hash["facebook_url"],
+                                               website_type: WebsiteType.find_by(name: "Facebook URL")
+                                              )
+      if @facebook_site.present?
 
-      @category = agency.categories.find_or_create_by(
-                    name:      hash["category"],
-                    categoria: hash["categoria"],
-                    fa_name:   hash["fa_name"]
-                  )
+      else
+        agency.websites.create(url:          hash["facebook_url"],
+                               website_type: WebsiteType.find_by(name: "Facebook URL")
+                              )
+      end
+
+      # Category
+      @category = Category.find_or_create_by(name: hash["cat_name"],
+                                             categoria: hash["categoria"],
+                                             fa_name: hash["fa_name"]
+                                            )
+      agency_category = agency.agency_categories.find_or_create_by(category_id: @category.id)
+
     end
   end
 end
