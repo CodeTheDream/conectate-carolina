@@ -45,7 +45,9 @@ class Agency < ApplicationRecord
       # Agency URL
       @agency_site = agency.websites.find_by(url:          'http://' + hash["agency_url"],
                                              website_type: WebsiteType.find_by(name: "Agency URL")
-                                            )
+
+                                       )
+      Rails.logger.warn "Agency Created: #{agency.id}"
       if @agency_site.present?
 
       else
