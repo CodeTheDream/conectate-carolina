@@ -42,31 +42,27 @@ class Agency < ApplicationRecord
                                 )
 
       next unless agency.save
-      # Agency URL
+      # Agency site
       @agency_site = agency.websites.find_by(url:          'http://' + hash["agency_url"],
-                                             website_type: WebsiteType.find_by(name: "Agency URL")
-
-                                       )
-      Rails.logger.warn "Agency Created: #{agency.id}"
+                                             website_type: WebsiteType.find_by(name: "Website")
+                                            )
       if @agency_site.present?
 
       else
-        website = agency.websites.create(url:          hash["agency_url"],
-                               website_type: WebsiteType.find_by(name: "Agency URL")
+        agency.websites.create(url:          hash["agency_url"],
+                               website_type: WebsiteType.find_by(name: "Website")
                               )
-        Rails.logger.debug "Trying to add agency website"
-        Rails.logger.debug website.errors.to_a.inspect
       end
 
-      # Facebook URL
+      # Facebook site
       @facebook_site = agency.websites.find_by(url:         'http://' + hash["facebook_url"],
-                                               website_type: WebsiteType.find_by(name: "Facebook URL")
+                                               website_type: WebsiteType.find_by(name: "Facebook")
                                               )
       if @facebook_site.present?
 
       else
         agency.websites.create(url:          hash["facebook_url"],
-                               website_type: WebsiteType.find_by(name: "Facebook URL")
+                               website_type: WebsiteType.find_by(name: "Facebook")
                               )
       end
 
