@@ -52,6 +52,8 @@ class Agency < ApplicationRecord
         agency.websites.create(url:          hash["agency_url"],
                                website_type: WebsiteType.find_by(name: "Agency URL")
                               )
+        Rails.logger.debug "Trying to add agency website"
+        Rails.logger.debug website.errors.to_a.inspect
       end
 
       # Facebook URL
