@@ -9,8 +9,8 @@ feature 'Home page' do
   #   When I visit the home page
   #   Then I see "Welcome"
   scenario 'visit the home page' do
-    visit root_path
-    expect(page).to have_content 'Welcome'
+    visit root_path(locale: 'en')
+    expect(page).to have_content 'CONECTATE'
   end
 
 end

@@ -2,7 +2,7 @@
 #   As a user
 #   I want to sign out
 #   So I can protect my account from unauthorized access
-feature 'Sign out', :devise do
+feature 'Sign out', :devise, js: true do
 
   # Scenario: User signs out successfully
   #   Given I am signed in
@@ -12,6 +12,7 @@ feature 'Sign out', :devise do
     user = create(:user)
     signin(user.email, user.password)
     expect(page).to have_content I18n.t 'devise.sessions.signed_in'
+    # page.save_screenshot('foobar2.png')
     click_link 'Sign out'
     expect(page).to have_content I18n.t 'devise.sessions.signed_out'
   end
