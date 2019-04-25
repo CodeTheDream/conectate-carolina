@@ -18,7 +18,7 @@ feature 'User edit', :devise do
   scenario 'user changes email address' do
     user = create(:user)
     login_as(user, :scope => :user)
-    visit edit_user_registration_path(user)
+    visit edit_user_registration_path(user, locale: 'en')
     fill_in 'Email', :with => 'newemail@example.com'
     fill_in 'Current password', :with => user.password
     click_button 'Update'
@@ -34,7 +34,7 @@ feature 'User edit', :devise do
     me = create(:user)
     other = create(:user, email: 'other@example.com')
     login_as(me, :scope => :user)
-    visit edit_user_registration_path(other)
+    visit edit_user_registration_path(other, locale: 'en')
     expect(page).to have_content 'Edit User'
     expect(page).to have_field('Email', with: me.email)
   end

@@ -15,6 +15,15 @@
 # The `.rspec` file also contains a few flags that are not defaults but that
 # users commonly want.
 require "pundit/rspec"
+
+require 'capybara/rspec'
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist
+
+options = { js_errors: false }
+Capybara.register_driver :poltergeist do |app|
+ Capybara::Poltergeist::Driver.new(app, options)
+end
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

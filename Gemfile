@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 ruby '2.4.1'
-gem 'rails', '~> 5.0', '>= 5.0.6'
+gem 'rails', '~> 5.2.2'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -53,7 +53,7 @@ group :development do
 end
 group :development, :test do
   gem 'factory_bot_rails'
-  gem 'faker'
+  gem 'ffaker'
   gem 'rspec-rails'
   gem 'simplecov'
   gem 'rubocop'
@@ -65,9 +65,11 @@ group :production do
 end
 group :test do
   gem 'capybara'
+  gem 'poltergeist'
   gem 'database_cleaner'
   gem 'launchy'
   gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
   gem 'shoulda-matchers', '4.0.0.rc1'
   gem 'rails-controller-testing'
 end
