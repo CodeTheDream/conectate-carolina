@@ -2,7 +2,7 @@
 #   As a visitor
 #   I want to sign up
 #   So I can visit protected areas of the site
-feature 'Sign Up', :devise do
+feature 'Sign Up', :devise, js: true do
 
   # Scenario: Visitor can sign up with valid email address and password
   #   Given I am not signed in
@@ -37,7 +37,7 @@ feature 'Sign Up', :devise do
   #   When I sign up with a short password
   #   Then I see a 'too short password' message
   scenario 'visitor cannot sign up with a short password' do
-    sign_up_with('test@example.com', 'please', 'please')
+    sign_up_with('test21@example.com', 'pleas', 'pleas')
     expect(page).to have_content "Password is too short"
   end
 

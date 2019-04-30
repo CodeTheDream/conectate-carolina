@@ -6,9 +6,12 @@ require 'rspec/rails'
 require 'pundit/rspec'
 require 'support/factory_bot'
 require 'simplecov'
+require 'capybara/rails'
 
 SimpleCov.start
 ActiveRecord::Migration.maintain_test_schema!
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+# Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -16,6 +19,10 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.filter_rails_from_backtrace!
   config.include Devise::Test::ControllerHelpers, :type => :controller
+  # config.include SessionHelpers
+
+  # config.include Devise::Test::IntegrationHelpers, type: :request
+
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
   end
@@ -25,13 +32,6 @@ RSpec.configure do |config|
   end
   config.after(:each) do
     DatabaseCleaner.clean
-  end
-end
-
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
   end
 end
 
