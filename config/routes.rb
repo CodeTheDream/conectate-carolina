@@ -3,6 +3,10 @@ Rails.application.routes.draw do
         namespace :v1 do
             resources :faqs
         end
+        
+		namespace :v1 do
+	    	resources :categories, only: [:index]
+    	end
     end
 
 	scope ":locale", locale:  /en|es/ do
