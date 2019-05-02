@@ -75,4 +75,31 @@ class Agency < ApplicationRecord
 
     end
   end
+
+  def new_agency_hash
+    category_array = []
+    website_array = []
+
+    self.categories.each do |cat|
+      category_array << { name: cat.name, categoria: cat.categoria, fa_name: cat.fa_name }
+    end
+
+    self.websites.each do |web|
+      website_array << { name: web.website_type.name, url: web.url }
+    end
+
+    { name: self.name,
+      address: self.address,
+      city: self.city,
+      state: self.state,
+      zipcode: self.zipcode,
+      contact: self.contact,
+      email: self.email,
+      phone: self.phone,
+      description: self.description,
+      descripcion: self.descripcion,
+      categories: category_array,
+      websites: website_array
+    }
+  end
 end
