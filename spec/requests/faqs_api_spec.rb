@@ -1,7 +1,7 @@
 require "rails_helper"
 
  RSpec.describe "Faqs API", type: :request do
-    let!(:category) { create_list(:categories_api, 10) }
+    let!(:faq) { create_list(:faqs_api, 10) }
 
   describe 'GET /faqs' do
     before { get '/api/v1/faqs' }
