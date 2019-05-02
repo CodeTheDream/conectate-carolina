@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
 	namespace :api do
 		namespace :v1 do
-			resources :agencies
-		end
-	end
+	    	resources :categories, only: [:index]
+				resources :agencies,   only: [:index]
+    	end
+    end
 
 	scope ":locale", locale:  /en|es/ do
 		devise_for :users
