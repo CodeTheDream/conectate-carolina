@@ -6,12 +6,14 @@ RSpec.describe 'Agencies API', type: :request do
   let!(:agency2) { create :agency_with_categories_and_websites, website_type: website_type, updated_at: '2019-01-02' }
 
   describe 'GET /agencies' do
-    before {get '/api/v1/agencies'}
+    before {get '/api/v1/agencies' }
 
     it 'returns agencies along with categories and websites' do
       # Note `json` is custom helper to parse JSON responses
       expect(json).not_to be_empty
       expect(json.size).to eq(11)
+      expect(json[0]['categories'].size).to eq(5)
+      expect(json[0]['websites'].size).to eq(1)
     end
 
     it 'returns status code 200' do
