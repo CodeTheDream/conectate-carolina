@@ -1,31 +1,31 @@
 FactoryBot.define do
-  # api_category factory with a `belongs_to` association for the api_agency
- factory :api_category, class: Category do
+  factory :category1, class: Category do
    name { FFaker::Lorem.phrase[1..40] }
-   api_agency
- end
+  end
 
- # api_agency factory without associated categories
- factory :api_agency, class: Agency do
+  factory :agency_category do
+  end
+
+  factory :website1, class: Website do
+   url    { "wwww.facebook.com" }
+  end
+
+  factory :agency1, class: Agency do
    name { FFaker::Lorem.phrase[1..40] }
 
-   # api_agency_with_categories will create api_category data after the api_agency has
-   # been created
-   factory :api_agency_with_categories do
-     # categories_count is declared as an ignored attribute and available in
-     # attributes on the factory, as well as the callback via the evaluator
+   factory :agency_with_categories_and_websites do
      transient do
        categories_count { 5 }
+       website_type { FactoryBot.create(:website_type) }
      end
 
-     # the after(:create) yields two values; the api_agency instance itself and
-     # the evaluator, which stores all values from the factory, including
-     # ignored attributes; `create_list`'s second argument is the number of
-     # records to create and we make sure the api_agency is associated properly
-     # to the api_category
-     after(:create) do |api_agency, evaluator|
-       create_list(:api_category, evaluator.categories_count, agencies: [api_agency])
+     after(:create) do |agency1, evaluator|
+       (1..evaluator.categories_count).each do
+         category1 = create(:category1)
+         create(:agency_category, agency_id: agency1.id, category_id: category1.id)
+       end
+       create(:website1, agency_id: agency1.id, website_type_id: evaluator.website_type.id)
      end
-   end
- end
+   end # end of `factory :agency_with_categories_and_websites`
+ end # end of `factory: agency1`
 end
