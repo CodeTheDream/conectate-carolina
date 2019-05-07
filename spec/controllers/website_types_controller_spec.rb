@@ -40,7 +40,7 @@ RSpec.describe WebsiteTypesController, type: :controller do
 
     it 'should render show template' do
       get :show, params: { id: website_type, locale: 'en' }
-      expect(response).to be_success
+      expect(response).to be_successful
       expect(response).to render_template("show")
     end
   end

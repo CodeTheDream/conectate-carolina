@@ -6,5 +6,9 @@ class Category < ApplicationRecord
   validates_uniqueness_of :name
 
   include PgSearch
+  
+  def  new_category_hash 
+  { name: self.name, categoria: self.categoria, fa_name: self.fa_name }
+  end
 
 end

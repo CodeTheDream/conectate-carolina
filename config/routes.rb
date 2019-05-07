@@ -3,8 +3,9 @@ Rails.application.routes.draw do
         namespace :v1 do
             resources :faqs, only: [:index]
 	    	resources :categories, only: [:index]
-    	end
-    end
+				resources :agencies,   only: [:index]
+  	end
+  end
 
 	scope ":locale", locale:  /en|es/ do
 		devise_for :users
