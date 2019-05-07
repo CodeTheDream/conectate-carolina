@@ -2,11 +2,14 @@ require 'rails_helper'
 
 RSpec.describe 'Agencies API', type: :request do
   let!(:website_type) {create(:website_type)}
-  let!(:agency10s) { create_list(:agency_with_categories_and_websites, 10, website_type: website_type, updated_at: '2019-01-10') }
-  let!(:agency2) { create :agency_with_categories_and_websites, website_type: website_type, updated_at: '2019-01-02' }
+  let!(:category) { create(:category1) }
+  let!(:agency10s) { create_list(:agency_with_categories_and_websites, 10, website_type: website_type,
+                      updated_at: '2019-01-10') }
+  let!(:agency2) { create :agency_with_categories_and_websites, website_type: website_type,
+                    updated_at: '2019-01-02', category_ids: category.id }
 
   describe 'GET /agencies' do
-    before {get '/api/v1/agencies' }
+    before {get '/api/v1/agencies'}
 
     it 'returns agencies along with categories and websites' do
       # Note `json` is custom helper to parse JSON responses
@@ -26,6 +29,18 @@ RSpec.describe 'Agencies API', type: :request do
 
     it 'returns agencies updated since a particular date and time' do
       expect(json.size).to eq(10)
+    end
+
+    it 'returns status code 200' do
+      expect(response).to have_http_status(200)
+    end
+  end
+
+  describe 'GET /agencies with `category_id`' do
+    before { get '/api/v1/agencies', params: { category_id: category.id } }
+
+    it 'returns agencies based on the `category_id` params passed' do
+      expect(json.size).to eq(1)
     end
 
     it 'returns status code 200' do
