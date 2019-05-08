@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 	namespace :api do
-		namespace :v1 do
+        namespace :v1 do
+            resources :faqs, only: [:index]
 	    	resources :categories, only: [:index]
 				resources :agencies,   only: [:index]
   	end
