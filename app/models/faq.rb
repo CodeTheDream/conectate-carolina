@@ -4,12 +4,7 @@ class Faq < ApplicationRecord
   validates :pregunta, presence: true
   validates :respuesta, presence: true
   
- # validates_uniqueness_of :question, scope: :answer
-
-  include PgSearch
-
   def new_faq_hash 
-  { question: self.question, answer: self.answer, pregunta: self.pregunta, respuesta: self.respuesta }
+    { question: self.question, answer: self.answer, pregunta: self.pregunta, respuesta: self.respuesta }
   end
-
 end
