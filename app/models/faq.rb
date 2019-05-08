@@ -4,7 +4,7 @@ class Faq < ApplicationRecord
   validates :pregunta, presence: true
   validates :respuesta, presence: true
   
-  validates_uniqueness_of :name
+ # validates_uniqueness_of :question, scope: :answer
 
   include PgSearch
 
