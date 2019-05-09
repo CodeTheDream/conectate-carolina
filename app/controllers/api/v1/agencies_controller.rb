@@ -33,7 +33,6 @@ class Api::V1::AgenciesController < ApplicationController
       end
     end
 
-
     agencies = agencies.map do |agency|
       agency.new_agency_hash
     end
