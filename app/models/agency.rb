@@ -85,7 +85,7 @@ class Agency < ApplicationRecord
     end
 
     self.websites.each do |web|
-      website_array << { name: web.website_type.name, url: web.url }
+      website_array << { name: web.website_type.name, url: web.url, icon: web.website_type.icon }
     end
 
     { name: self.name,
@@ -96,6 +96,8 @@ class Agency < ApplicationRecord
       contact: self.contact,
       email: self.email,
       phone: self.phone,
+      latitude: self.latitude,
+      longitude: self.longitude,
       description: self.description,
       descripcion: self.descripcion,
       categories: category_array,
