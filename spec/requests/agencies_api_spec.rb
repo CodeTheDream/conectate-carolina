@@ -6,7 +6,8 @@ RSpec.describe 'Agencies API', type: :request do
   let!(:agency10s) { create_list(:agency_with_categories_and_websites, 10, website_type: website_type,
                       updated_at: '2019-01-10') }
   let!(:agency2) { create :agency_with_categories_and_websites, website_type: website_type,
-                    updated_at: '2019-01-02', category_ids: category.id }
+                    updated_at: '2019-01-02', category_ids: category.id, name: "CtDurhamNC",
+                    address: "Durham, NC" }
 
   describe 'GET /agencies' do
     before {get '/api/v1/agencies'}
@@ -39,7 +40,19 @@ RSpec.describe 'Agencies API', type: :request do
   describe 'GET /agencies with `category_id`' do
     before { get '/api/v1/agencies', params: { category_id: category.id } }
 
-    it 'returns agencies based on the `category_id` params passed' do
+    it 'returns agencies based on the `category_id` params' do
+      expect(json.size).to eq(1)
+    end
+
+    it 'returns status code 200' do
+      expect(response).to have_http_status(200)
+    end
+  end
+
+  describe 'GET /agencies with `search`' do
+    before { get '/api/v1/agencies', params: { search: "CtDurhamNC", address: "Durham, NC", coordinates: "#{agency2.latitude}, #{agency2.longitude}" } }
+
+    it 'returns agencies based on the `search`, `address`, & `distance` params' do
       expect(json.size).to eq(1)
     end
 
