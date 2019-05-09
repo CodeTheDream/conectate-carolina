@@ -15,6 +15,25 @@ class Api::V1::AgenciesController < ApplicationController
       agencies = agencies.joins(:categories).where("categories.id" => category_id)
     end
 
+    # when passed `search` parameter
+    if params[:search].present?
+      agencies = agencies.search_name(params[:search])
+
+      # when `address` or `coordinates` are passed
+      if params[:address].present? || params[:coordinates].present?
+        if params[:address].present?
+          location = params[:address]
+        else
+          location = params[:coordinates] if params[:coordinates].present?
+        end
+
+        distance = params[:distance] if params[:distance].present?
+        distance = 20 unless distance.present?
+        agencies = agencies.near(location, distance)
+      end
+    end
+
+
     agencies = agencies.map do |agency|
       agency.new_agency_hash
     end
