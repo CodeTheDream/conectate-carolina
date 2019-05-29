@@ -1,0 +1,10 @@
+<h1>List of messages</h1>
+
+<% @messages.each do |message| %>
+  <div class="messages">
+    <p>
+      <b>Title:</b> <%= message.title %><br/>
+      <b>Message:</b> <%= message.body %>
+    </p>
+  </div>
+<% end %>

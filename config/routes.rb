@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 		get 'pages/about'
 	  get 'search', to: 'search#search'
     resources :categories
+    resources :messages
     resources :websites, only: [:new, :create, :show, :destroy]
     resources :website_types, only: [:new, :create, :show, :destroy]
     get 'websites/new'
