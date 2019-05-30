@@ -25,6 +25,11 @@ function showPosition(position) {
 getLocation();
 </script>
 <section class="top-background" id="top-background">
+  <div class="w3-panel w3-yellow w3-card-4">
+    <p><b><%= Message.posted.first.title %></b></p>
+    <p><%= Message.posted.first.body %></p>
+  </div>
+
   <div class="header" id="section2">
 
   <h1><%= (t'home_page.title') %></h1>

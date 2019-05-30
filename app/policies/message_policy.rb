@@ -22,4 +22,12 @@ class MessagePolicy < ApplicationPolicy
     @user.admin?
   end
 
+  def post?
+    true
+  end
+
+  def unpost?
+    true
+  end
+
 end

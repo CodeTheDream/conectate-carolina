@@ -2,9 +2,21 @@
 
 <% @messages.each do |message| %>
   <div class="messages">
-    <p>
-      <b>Title:</b> <%= message.title %><br/>
-      <b>Message:</b> <%= message.body %>
-    </p>
+    <div class="row">
+      <div class="controls col-md-10">
+        <b>Title:</b> <%= message.title %><br/>
+        <b>Message:</b> <%= message.body %>
+      </div>
+
+      <div class="controls col-md-2">
+        <%= link_to "edit", edit_message_path(message) %> |
+         <%= link_to "delete", message, method: :delete, data: { confirm: "You sure?" } %> |
+        <% if message.posted? %>
+          <%= link_to "Unpost", unpost_message_path(message) %>
+        <% else %>
+          <%= link_to "Post", post_message_path(message) %>
+        <% end %>
+      </div>
+    </div>
   </div>
 <% end %>
