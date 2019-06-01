@@ -2,14 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.messages {
-  margin: 0 50px 0 50px;
-  background-color: skyblue;
-  border-radius: 2px;
-  border-bottom: solid black 2px;
-  padding: 5px;
-}
-
-.messages p {
-  padding: 5px;
+.alert {
+  margin: -40px 10px 0 10px;
 }

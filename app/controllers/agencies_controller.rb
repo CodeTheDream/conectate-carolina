@@ -33,6 +33,7 @@ class AgenciesController < ApplicationController
 			marker.infowindow agency.name
 		end
 		@categories = Category.all
+    @message = Message.posted.first
 	end
 
   def new

@@ -61,13 +61,10 @@ class MessagesController < ApplicationController
   end
 
 
-
-
-
   private
 
     def message_params
-      params.require(:message).permit(:title, :body, :posted)
+      params.require(:message).permit(:title, :body, :posted, :message_type)
     end
 
     def set_message
