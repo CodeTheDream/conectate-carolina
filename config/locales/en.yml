@@ -99,6 +99,8 @@ en:
     edit: Edit
     delete: Delete
     save: Save
+    post: Post
+    unpost: Unpost
     all_org: All Organizations
   plchldr_forms:
     name: Name

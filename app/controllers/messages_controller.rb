@@ -40,6 +40,9 @@ class MessagesController < ApplicationController
 
   def destroy
     authorize @message
+    @message.destroy
+    flash[:success] = "Message deleted."
+    redirect_to request.referrer || root_url
   end
 
   def post
