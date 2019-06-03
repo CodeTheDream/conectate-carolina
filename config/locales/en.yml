@@ -56,7 +56,7 @@ en:
   message:
     messages: Messages
     all_msg: Messages
-    new_msg: Message
+    new_msg: Create Message
     edit_msg: Edit Message
   home_page:
     title: CONECTATE CAROLINA
