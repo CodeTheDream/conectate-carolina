@@ -32,6 +32,11 @@ es:
     cat_view: Organizaciones que pertenecen a la categoría
     cat_view1: categoria
     sidebar: Ver todas las categorías
+  message:
+    messages: Mensajes
+    all_msg: Mensajes
+    new_cat: Crear Mensaje
+    edit_cat: Actualizar Mensaje
   home_page:
     title: CONECTATE CAROLINA
     browse: Directorio de organizaciones y servicios en Carolina del Norte
