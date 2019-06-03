@@ -35,8 +35,8 @@ es:
   message:
     messages: Mensajes
     all_msg: Mensajes
-    new_cat: Crear Mensaje
-    edit_cat: Actualizar Mensaje
+    new_msg: Crear Mensaje
+    edit_msg: Actualizar Mensaje
   home_page:
     title: CONECTATE CAROLINA
     browse: Directorio de organizaciones y servicios en Carolina del Norte
