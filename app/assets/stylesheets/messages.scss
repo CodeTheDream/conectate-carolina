@@ -3,5 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .alert {
-  margin: -40px 10px 0 10px;
+  margin: 0 10px 0 10px;
+}
+
+.message {
+  background-color: white;
+  padding: 5px;
+  border-bottom: 1rem solid;
+  border-radius: 3px;
 }

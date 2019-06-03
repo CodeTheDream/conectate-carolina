@@ -24,10 +24,6 @@ class MessagesController < ApplicationController
     end
   end
 
-  def show
-    authorize @message
-  end
-
   def edit
     authorize @message
   end
@@ -64,7 +60,7 @@ class MessagesController < ApplicationController
   private
 
     def message_params
-      params.require(:message).permit(:title, :body, :posted, :message_type)
+      params.require(:message).permit(:title, :body, :posted, :message_type, :titulo, :cuerpo)
     end
 
     def set_message

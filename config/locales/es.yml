@@ -17,6 +17,8 @@ es:
         descripcion: "Descripción:"
       category:
         categories: Categorias
+      message:
+        messages: Mensajes
   nav_links:
     home: Inicio
     about: Acerca
@@ -70,6 +72,7 @@ es:
     phone: "Numero De telefono:"
     description: "Descripcion:"
     websites: "Sitios web"
+    title: "Titulo:"
   buttons_t:
     back: Atras
     edit: Actualizar

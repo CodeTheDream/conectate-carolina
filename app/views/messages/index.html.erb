@@ -1,25 +1,27 @@
 <h1>List of messages</h1>
 
-<% @messages.each do |message| %>
-  <div class="messages">
-    <div class="row">
-      <div class="controls col-md-10">
-        <b>Title:</b> <%= message.title %><br/>
-        <b>Message:</b> <%= message.body %>
+<div class="messages">
+  <% @messages.each do |message| %>
+    <div class="message">
+      <div class="row">
+        <div class="controls col-md-10">
+          <b><%= message.title %></b><br/>
+          <%= message.body %>
+        </div>
+        <div class="controls col-md-2">
+          <%= link_to "edit", edit_message_path(message) %> |
+           <%= link_to "delete", message, method: :delete, data: { confirm: "You sure?" } %> |
+          <% if message.posted? %>
+            <%= link_to "Unpost", unpost_message_path(message) %>
+          <% else %>
+            <%= link_to "Post", post_message_path(message) %>
+          <% end %>
+        </div>
       </div>
+    </div><br/>
+  <% end %>
+</div><br/>
 
-      <div class="controls col-md-2">
-        <%= link_to "edit", edit_message_path(message) %> |
-         <%= link_to "delete", message, method: :delete, data: { confirm: "You sure?" } %> |
-        <% if message.posted? %>
-          <%= link_to "Unpost", unpost_message_path(message) %>
-        <% else %>
-          <%= link_to "Post", post_message_path(message) %>
-        <% end %>
-      </div>
-    </div>
-  </div>
-<% end %>
 <div>
   <%= link_to "New Message", new_message_path %>
 </div>
