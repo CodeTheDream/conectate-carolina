@@ -7,10 +7,12 @@
 }
 
 .message {
-  background-color: white;
+  background-color: #fbf6ee;
   padding: 5px;
-  border-bottom: 1rem solid;
+  border: 1px solid black;
+  border-bottom: 5px solid gray;
   border-radius: 3px;
+  margin-bottom: .5px;
 }
 
 .button_to {

@@ -19,6 +19,7 @@ gem "autoprefixer-rails"
 gem 'exception_notification'
 gem 'redcarpet'
 gem "unicode-display_width"
+gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri

@@ -101,6 +101,7 @@ en:
     save: Save
     post: Post
     unpost: Unpost
+    new: Message
     all_org: All Organizations
   plchldr_forms:
     name: Name

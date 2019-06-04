@@ -1,10 +1,10 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy, :post, :unpost]
+  before_action :set_message, only: [:edit, :update, :destroy, :post, :unpost]
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   after_action  :verify_authorized
 
   def index
-    @messages = Message.all
+    @messages = Message.paginate(page: params[:page], per_page: 5)
     authorize @messages
   end
 
@@ -24,6 +24,10 @@ class MessagesController < ApplicationController
     end
   end
 
+  # def show
+  #   authorize @message
+  # end
+
   def edit
     authorize @message
   end
@@ -42,7 +46,7 @@ class MessagesController < ApplicationController
     authorize @message
     @message.destroy
     flash[:success] = "Message deleted."
-    redirect_to request.referrer || root_url
+    redirect_to messages_path
   end
 
   def post
