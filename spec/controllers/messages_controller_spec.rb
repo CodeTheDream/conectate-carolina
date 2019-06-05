@@ -1,9 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe MessagesController do
-  let(:user) { create :user }
-  let(:admin) { create :user, :admin }
-  let(:message) { create :message }
+  let!(:user) { create :user }
+  let!(:admin) { create :user, :admin }
+  let!(:message) { create :message }
 
   describe "GET #index" do
     subject { get :index, params: { locale: 'en'} }
@@ -59,6 +59,24 @@ RSpec.describe MessagesController do
       put :update, params: {id: message.id, locale: 'en', message: { title: " " } }
       message.reload
       expect(response).to render_template(:edit)
+    end
+  end
+
+  describe "DELETE #destroy" do
+    before { sign_in admin }
+
+    it "redirects to messages_path on successful destroy" do
+      delete :destroy, params: {id: message.id, locale: 'en'}
+      expect(response).to redirect_to(messages_path)
+    end
+
+    it "changes the message count on successful destroy" do
+      puts "MESSAGE COUNT1: #{Message.count}"
+      expect do
+        delete :destroy, params: {id: message.id, locale: 'en'}
+      end.to change(Message, :count)
+      puts "MESSAGE COUNT2: #{Message.count}"
+
     end
   end
 
