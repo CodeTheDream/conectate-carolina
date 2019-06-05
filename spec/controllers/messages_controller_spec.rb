@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe MessagesController do
   let(:user) { create :user }
   let(:admin) { create :user, :admin }
+  let(:message) { create :message }
 
   describe "GET #index" do
     subject { get :index, params: { locale: 'en'} }
@@ -43,7 +44,22 @@ RSpec.describe MessagesController do
                               }}
       expect(response).to render_template(:new)
     end
+  end
 
+  describe "PUT #update" do
+    before { sign_in admin }
+
+    it "redirects to messages_path on successful update" do #updating only `title`
+      put :update, params: {id: message.id, locale: 'en', message: { title: "Announcement!" } }
+      message.reload
+      expect(response).to redirect_to(messages_path)
+    end
+
+    it "renders to edit messages template on unsuccessful update" do # `title` update with blank
+      put :update, params: {id: message.id, locale: 'en', message: { title: " " } }
+      message.reload
+      expect(response).to render_template(:edit)
+    end
   end
 
 end
