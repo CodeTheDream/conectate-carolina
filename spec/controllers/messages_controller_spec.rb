@@ -23,4 +23,27 @@ RSpec.describe MessagesController do
     end
   end
 
+  describe "POST #create" do
+    before { sign_in admin }
+    it "redirects to messages_path on successful save" do
+      post :create, params: { locale: 'en',
+                              message: { title: "Weather alert", body: "There is severe weather alert in Raleigh area",
+                              message_type: "warning", titulo: "Alerta del clima",
+                              cuerpo: "Hay alerta de clima severo en el área de Raleigh"
+                              }}
+
+      expect(response).to redirect_to(messages_path)
+    end
+
+    it "renders new message template on unsuccessful save" do #missing params `Title` here
+      post :create, params: { locale: 'en',
+                              message: { body: "There is severe weather alert in Raleigh area",
+                              message_type: "warning", titulo: "Alerta del clima",
+                              cuerpo: "Hay alerta de clima severo en el área de Raleigh"
+                              }}
+      expect(response).to render_template(:new)
+    end
+
+  end
+
 end
