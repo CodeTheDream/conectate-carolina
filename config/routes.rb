@@ -20,8 +20,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :messages do
 			member do
-		    get 'post'
-		    get 'unpost'
+		    put 'post', 'unpost'
 		  end
     end
     resources :websites, only: [:new, :create, :show, :destroy]
