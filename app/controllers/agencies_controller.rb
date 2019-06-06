@@ -33,7 +33,7 @@ class AgenciesController < ApplicationController
 			marker.infowindow agency.name
 		end
 		@categories = Category.all
-    @message = Message.posted.order(:updated_at).last
+    @message = Message.posted.order(updated_at: :desc).first
 	end
 
   def new

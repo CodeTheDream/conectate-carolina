@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   after_action  :verify_authorized
 
   def index
-    @messages = Message.paginate(page: params[:page], per_page: 5)
+    @messages = Message.paginate(page: params[:page], per_page: 5).order(created_at: :desc)
     authorize @messages
   end
 
