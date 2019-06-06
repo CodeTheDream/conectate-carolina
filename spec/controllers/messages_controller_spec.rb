@@ -71,12 +71,27 @@ RSpec.describe MessagesController do
     end
 
     it "changes the message count on successful destroy" do
-      puts "MESSAGE COUNT1: #{Message.count}"
       expect do
         delete :destroy, params: {id: message.id, locale: 'en'}
       end.to change(Message, :count)
-      puts "MESSAGE COUNT2: #{Message.count}"
+    end
+  end
 
+  describe "PUT #post" do
+    before { sign_in admin }
+
+    it "displays flash message `Message posted.`" do
+      put :post, params: {id: message.id, locale: 'en', message: {posted: true}}
+      expect(flash.notice).to eq 'Message posted.'
+    end
+  end
+
+  describe "PUT #unpost" do
+    before { sign_in admin }
+
+    it "displays flash message `Message posted.`" do
+      put :unpost, params: {id: message.id, locale: 'en', message: {posted: false}}
+      expect(flash.notice).to eq 'Message unposted.'
     end
   end
 
