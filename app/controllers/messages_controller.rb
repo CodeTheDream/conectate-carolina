@@ -53,14 +53,14 @@ class MessagesController < ApplicationController
     authorize @message
     @message.update_attributes(posted: true)
     flash[:notice] = "Message posted."
-    redirect_to messages_path
+    redirect_to request.referrer || messages_path
   end
 
   def unpost
     authorize @message
     @message.update_attributes(posted: false)
     flash[:notice] = "Message unposted."
-    redirect_to messages_path
+    redirect_to request.referrer || messages_path
   end
 
 

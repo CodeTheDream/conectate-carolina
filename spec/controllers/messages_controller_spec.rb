@@ -89,7 +89,7 @@ RSpec.describe MessagesController do
   describe "PUT #unpost" do
     before { sign_in admin }
 
-    it "displays flash message `Message posted.`" do
+    it "displays flash message `Message unposted.`" do
       put :unpost, params: {id: message.id, locale: 'en', message: {posted: false}}
       expect(flash.notice).to eq 'Message unposted.'
     end
