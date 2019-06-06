@@ -25,6 +25,22 @@ function showPosition(position) {
 getLocation();
 </script>
 <section class="top-background" id="top-background">
+  <% if @message.present? %>
+    <p>
+      <% if params[:locale] == "en" %>
+        <div class="alert alert-<%=@message.message_type%>">
+          <p><b><%= @message.title %></b></p>
+          <p><%= @message.body %></p>
+        </div>
+      <% else %>
+        <div class="alert alert-<%=@message.message_type%>">
+          <p><b><%= @message.titulo %></b></p>
+          <p><%= @message.cuerpo %></p>
+        </div>
+      <% end %>
+    </p>
+  <% end %>
+
   <div class="header" id="section2">
 
   <h1><%= (t'home_page.title') %></h1>

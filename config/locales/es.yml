@@ -17,6 +17,8 @@ es:
         descripcion: "Descripción:"
       category:
         categories: Categorias
+      message:
+        messages: Mensajes
   nav_links:
     home: Inicio
     about: Acerca
@@ -32,6 +34,11 @@ es:
     cat_view: Organizaciones que pertenecen a la categoría
     cat_view1: categoria
     sidebar: Ver todas las categorías
+  message:
+    messages: Mensajes
+    all_msg: Mensajes
+    new_msg: Crear Mensaje
+    edit_msg: Actualizar Mensaje
   home_page:
     title: CONECTATE CAROLINA
     browse: Directorio de organizaciones y servicios en Carolina del Norte
@@ -65,6 +72,7 @@ es:
     phone: "Numero De telefono:"
     description: "Descripcion:"
     websites: "Sitios web"
+    title: "Titulo:"
   buttons_t:
     back: Atras
     edit: Actualizar

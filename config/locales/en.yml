@@ -38,6 +38,8 @@ en:
         descripcion: "Descripción:"
       category:
         categories: Categories this organization can help you with
+      message:
+        messages: Messages
   nav_links:
     home: Home
     about: About
@@ -53,6 +55,11 @@ en:
     cat_view: Organizations that belong to the category
     cat_view1: category
     sidebar: See all categories
+  message:
+    messages: Messages
+    all_msg: Messages
+    new_msg: Create Message
+    edit_msg: Edit Message
   home_page:
     title: CONECTATE CAROLINA
     browse: Directory of organizations and services in North Carolina
@@ -86,11 +93,15 @@ en:
     phone: "Phone:"
     description: "Description:"
     websites: "Websites"
+    title: "Title:"
   buttons_t:
     back: Back
     edit: Edit
     delete: Delete
     save: Save
+    post: Post
+    unpost: Unpost
+    new: Message
     all_org: All Organizations
   plchldr_forms:
     name: Name

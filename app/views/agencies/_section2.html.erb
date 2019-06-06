@@ -78,25 +78,35 @@
   <hr>
 
   <div class="row">
-    <div class="col-md-10 col-md-offset-3">
-      <div class="col-sm-4 col-sx-12">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="col-sm-4 col-xs-12">
         <!-- button -->
         <div class="col-*-12 sidebar-btn">
-        <% if policy(Agency).new? %>
-          <%= link_to new_agency_path, class: "btn btn-primary btn-block" do %>
-            <%= fa_icon "plus", text: (t'new_page.h1')%>
-          <% end %>
-        <% end %> <!-- Button to add new agency -->
+          <% if policy(Agency).new? %>
+            <%= link_to new_agency_path, class: "btn btn-primary btn-block" do %>
+              <%= fa_icon "plus", text: (t'new_page.h1')%>
+            <% end %>
+          <% end %> <!-- Button to add new agency -->
         </div>
       </div>
-      <div class="col-sm-4 col-sx-12">
+      <div class="col-sm-4 col-xs-12">
         <!-- button -->
         <div class="col-*-12 sidebar-btn">
-        <% if policy(Category).new? %>
-          <%= link_to new_category_path, class: "btn btn-success btn-block" do %>
-            <%= fa_icon "plus", text: (t'category.new_cat') %>
+          <% if policy(Category).new? %>
+            <%= link_to new_category_path, class: "btn btn-success btn-block" do %>
+              <%= fa_icon "plus", text: (t'category.new_cat') %>
+            <% end %>
           <% end %>
-        <% end %>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <!-- button -->
+        <div class="col-*-12 sidebar-btn">
+          <% if policy(Message).index? %>
+            <%= link_to messages_path, class: "btn btn-primary btn-block" do %>
+              <%= fa_icon "envelope", text: (t'message.all_msg') %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # user.admin! # sets the role to "admin"
   # user.admin? # => true
   # user.role  # => "admin"
+  # has_many :messages
 
   enum role: [:user, :vip, :admin]
   validates :role, inclusion: { in: roles.keys }
