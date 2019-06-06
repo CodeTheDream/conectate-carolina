@@ -23,6 +23,12 @@
       </div>
     </div>
   <% end %>
+</div><br/>
+<!-- New Message link -->
+<div>
+  <%= button_to new_message_path, class: "btn btn-primary btn-block", method: :get do %>
+    <i class="fa fa-plus"></i> <%= (t'buttons_t.new')%>
+  <% end %>
 </div>
 <!-- pagination -->
 <div class="pagination">
@@ -31,9 +37,3 @@
     </div>
     <%= will_paginate @posts, :container => false %>
   </div>
-<!-- New Message link -->
-<div>
-  <%= button_to new_message_path, class: "btn btn-primary", method: :get do %>
-    <i class="fa fa-plus"></i> <%= (t'buttons_t.new')%>
-  <% end %>
-</div>
