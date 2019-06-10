@@ -3,7 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .alert {
-  margin: 0 10px 0 10px;
+  margin: 5px 10px 0 10px;
+  display: flex;
+  // flex-direction: row;
+}
+
+.left {
+  // justify-content: flex-start;
+  flex: 1;
+}
+
+.remove button {
+  background-color: inherit;
+  border: none;
 }
 
 .message {

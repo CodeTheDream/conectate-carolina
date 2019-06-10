@@ -8,6 +8,11 @@
  since it has been copied in index and show view -JR -->
 
 <script>
+  $(document).ready(function(){
+  $("button").click(function(){
+      $("#div1").remove();
+    });
+  });
 
 var x = document.getElementById("location");
 function getLocation() {
@@ -26,19 +31,25 @@ getLocation();
 </script>
 <section class="top-background" id="top-background">
   <% if @message.present? %>
-    <p>
+    <div id="div1">
       <% if params[:locale] == "en" %>
         <div class="alert alert-<%=@message.message_type%>">
-          <p><b><%= @message.title %></b></p>
-          <p><%= @message.body %></p>
+          <div class="left">
+            <h4><b><%= @message.title %></b></h4>
+            <p><%= @message.body %></p>
+          </div>
+          <div class="remove"><button id="my_button"><%= fa_icon "times" %></button></div>
         </div>
       <% else %>
-        <div class="alert alert-<%=@message.message_type%>">
-          <p><b><%= @message.titulo %></b></p>
+      <div class="alert alert-<%=@message.message_type%>">
+        <div class="left">
+          <h4><b><%= @message.titulo %></b></h4>
           <p><%= @message.cuerpo %></p>
         </div>
+        <div class="remove"><button><%= fa_icon "times" %></button></div>
+      </div>
       <% end %>
-    </p>
+    </div>
   <% end %>
 
   <div class="header" id="section2">
