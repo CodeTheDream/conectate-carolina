@@ -103,7 +103,7 @@
         <!-- button -->
         <div class="col-*-12 sidebar-btn">
           <% if policy(Message).index? %>
-            <%= link_to messages_path, class: "btn btn-primary btn-block" do %>
+            <%= link_to messages_path, class: "btn btn-primary btn-block", id: "my_messages_link" do %>
               <%= fa_icon "envelope", text: (t'message.all_msg') %>
             <% end %>
           <% end %>
