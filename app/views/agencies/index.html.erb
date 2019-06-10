@@ -30,6 +30,7 @@ function showPosition(position) {
 getLocation();
 </script>
 <section class="top-background" id="top-background">
+  <!-- flash message starts here -->
   <% if @message.present? %>
     <div id="div1">
       <% if params[:locale] == "en" %>
@@ -38,7 +39,7 @@ getLocation();
             <h4><b><%= @message.title %></b></h4>
             <p><%= @message.body %></p>
           </div>
-          <div class="remove"><button id="my_button"><%= fa_icon "times" %></button></div>
+          <div class="remove"><button id="my_x_button"><%= fa_icon "times" %></button></div>
         </div>
       <% else %>
       <div class="alert alert-<%=@message.message_type%>">
@@ -51,7 +52,7 @@ getLocation();
       <% end %>
     </div>
   <% end %>
-
+<!-- flash message ends -->
   <div class="header" id="section2">
 
   <h1><%= (t'home_page.title') %></h1>
