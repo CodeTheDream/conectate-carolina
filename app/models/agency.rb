@@ -81,14 +81,15 @@ class Agency < ApplicationRecord
     website_array = []
 
     self.categories.each do |cat|
-      category_array << { name: cat.name, categoria: cat.categoria, fa_name: cat.fa_name }
+      category_array << { id: cat.id, name: cat.name, categoria: cat.categoria, fa_name: cat.fa_name }
     end
 
     self.websites.each do |web|
-      website_array << { name: web.website_type.name, url: web.url, icon: web.website_type.icon }
+      website_array << { id: web.id, name: web.website_type.name, url: web.url, icon: web.website_type.icon }
     end
 
-    { name: self.name,
+    { id: self.id,
+      name: self.name,
       address: self.address,
       city: self.city,
       state: self.state,
