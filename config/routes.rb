@@ -4,6 +4,7 @@ Rails.application.routes.draw do
             resources :faqs, only: [:index]
 	    	resources :categories, only: [:index]
 				resources :agencies,   only: [:index]
+				resources :messages,   only: [:index]
   	end
   end
 
