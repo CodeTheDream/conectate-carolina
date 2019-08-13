@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :device do
-    token { "MyString" }
+    token { "token strings" }
   end
 end
