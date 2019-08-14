@@ -5,6 +5,9 @@ class Faq < ApplicationRecord
   validates :respuesta, presence: true
 
   def new_faq_hash
-    { id: self.id, question: self.question, answer: self.answer, pregunta: self.pregunta, respuesta: self.respuesta }
+    { id: self.id,
+      question: { en: self.question, es: self.pregunta },
+      answer: { en: self.answer, es: self.respuesta }
+    }
   end
 end
