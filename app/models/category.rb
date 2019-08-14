@@ -8,7 +8,10 @@ class Category < ApplicationRecord
   include PgSearch
 
   def  new_category_hash
-  { id: self.id, name: self.name, categoria: self.categoria, fa_name: self.fa_name }
+    { id: self.id,
+      name: { en: self.name, es: self.categoria },
+      fa_name: self.fa_name
+    }
   end
 
 end
