@@ -24,10 +24,6 @@ class MessagesController < ApplicationController
     end
   end
 
-  # def show
-  #   authorize @message
-  # end
-
   def edit
     authorize @message
   end
@@ -52,6 +48,25 @@ class MessagesController < ApplicationController
   def post
     authorize @message
     @message.update_attributes(posted: true)
+
+    devices = Device.all
+    client = Exponent::Push::Client.new
+    messages = []
+    devices.each do |device|
+      message = {
+        to: device.token,
+        sound: "default",
+        body: @message.title
+      }
+      messages << message
+    end
+
+    begin
+      client.publish messages
+    rescue Exponent::Push::UnknownError => e
+      Rails.logger.info e.message
+    end
+
     flash[:notice] = "Message posted."
     redirect_to request.referrer || messages_path
   end
