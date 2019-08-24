@@ -8,7 +8,7 @@ class Agency < ApplicationRecord
     message: "should have different address" }
   geocoded_by :full_address
   after_validation :geocode, if: ->(obj) { obj.full_address.present? && obj.address_changed? }
-  include PgSearch
+  include PgSearch::Model
 
   pg_search_scope :search_name, against: %i[name address state city zipcode description descripcion],
                                 associated_against: { categories: %i[name categoria] },

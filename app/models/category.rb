@@ -5,7 +5,7 @@ class Category < ApplicationRecord
   validates :name, presence: true, length: { minimum: 3, maximum: 50 }
   validates_uniqueness_of :name
 
-  include PgSearch
+  include PgSearch::Model
 
   def  new_category_hash
     { id: self.id,
