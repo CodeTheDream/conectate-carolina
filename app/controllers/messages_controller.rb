@@ -52,7 +52,7 @@ class MessagesController < ApplicationController
     devices = Device.all
     client = Exponent::Push::Client.new
     messages = []
-    devices.each do |device|
+    messages = devices.map do |device|
       message = {
         to: device.token,
         sound: "default",
