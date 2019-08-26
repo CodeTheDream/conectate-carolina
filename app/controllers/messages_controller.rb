@@ -53,12 +53,11 @@ class MessagesController < ApplicationController
     client = Exponent::Push::Client.new
     messages = []
     messages = devices.map do |device|
-      message = {
+      {
         to: device.token,
         sound: "default",
         body: @message.title
       }
-      messages << message
     end
 
     begin
