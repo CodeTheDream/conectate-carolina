@@ -15,8 +15,10 @@
               <i class="fa fa-check-square"></i> <%= (t'buttons_t.unpost')%>
             <% end %>
           <% else %>
-            <%= button_to post_message_path(message), class: "btn btn-sm btn-primary", method: :put do %>
-              <i class="fa fa-square"></i> <%= (t'buttons_t.post')%>
+            <% if message.posted_at.nil? %>
+              <%= button_to post_message_path(message), class: "btn btn-sm btn-primary", method: :put do %>
+                <i class="fa fa-square"></i> <%= (t'buttons_t.post')%>
+              <% end %>
             <% end %>
           <% end %>
         </div>
