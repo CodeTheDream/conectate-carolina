@@ -20,6 +20,7 @@ gem 'exception_notification'
 gem 'redcarpet'
 gem "unicode-display_width"
 gem 'will_paginate', '~> 3.1.0'
+gem 'exponent-server-sdk'
 
 group :development, :test do
   gem 'byebug', platform: :mri
