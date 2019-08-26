@@ -51,16 +51,20 @@ class MessagesController < ApplicationController
 
   def post
     authorize @message
-    @message.update_attributes(posted: true)
-    flash[:notice] = "Message posted."
-    redirect_to request.referrer || messages_path
+    if !@message.posted? && @message.posted_at.nil?
+      @message.update_attributes(posted: true, posted_at: Time.zone.now)
+      flash[:notice] = "Message posted."
+      redirect_to request.referrer || messages_path
+    end
   end
 
   def unpost
     authorize @message
-    @message.update_attributes(posted: false)
-    flash[:notice] = "Message unposted."
-    redirect_to request.referrer || messages_path
+    if @message.posted? && !@message.posted_at.nil?
+      @message.update_attributes(posted: false)
+      flash[:notice] = "Message unposted."
+      redirect_to request.referrer || messages_path
+    end
   end
 
 
