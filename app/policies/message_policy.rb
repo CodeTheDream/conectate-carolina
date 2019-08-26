@@ -4,9 +4,10 @@ class MessagePolicy < ApplicationPolicy
     @user.admin?
   end
 
-  # def show?
-  #   true
-  # end
+  def inactive_messages?
+    return false if @current_user == @user
+    @user.admin?
+  end
 
   def create?
     return false if @current_user == @user
