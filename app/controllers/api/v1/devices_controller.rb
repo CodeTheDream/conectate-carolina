@@ -5,7 +5,7 @@ class Api::V1::DevicesController < ApplicationController
     @device = Device.where(token: params[:device][:token]).first
 
     if @device.blank?
-      @device = Device.create!(device_params)
+      @device = Device.create(device_params)
       json_response(@device, :created)
     end
   end
@@ -13,7 +13,6 @@ class Api::V1::DevicesController < ApplicationController
 
   private
     def device_params
-      # whitelist params
      params.permit(:token)
     end
 end
