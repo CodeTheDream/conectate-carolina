@@ -10,7 +10,8 @@ class Category < ApplicationRecord
   def  new_category_hash
     { id: self.id,
       name: { en: self.name, es: self.categoria },
-      fa_name: self.fa_name
+      fa_name: self.fa_name,
+      agency_count: self.agencies.count
     }
   end
 
