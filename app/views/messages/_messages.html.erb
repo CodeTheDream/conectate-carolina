@@ -1,4 +1,4 @@
-<div class="", style="text-align: center;">
+<div class="active-inactive">
   <%= link_to "Active", messages_path %> <b>|</b>
   <%= link_to "Inactive", inactive_messages_path %>
 </div>
@@ -6,9 +6,13 @@
   <% @messages.each do |message| %>
     <div class="message">
       <div class="row">
-        <div class="controls col-sm-7 col-md-9">
-          <h4><%= message.title %></h4>
-          <p><%= message.body %></p>
+        <div class="controls col-sm-7 col-md-9", id="fa-triangle">
+          <%= fa_icon 'fas exclamation-triangle 3x' %>
+          <!-- <i class="fas fa-bell fa-3x"></i> -->
+          <div class="msg-content">
+            <h4><%= message.title %></h4>
+            <p><%= message.body %></p>
+          </div>
         </div>
         <div class="controls col-sm-5 col-md-3">
           <%= link_to "edit", edit_message_path(message), class: "btn btn-sm btn-secondary" %>
