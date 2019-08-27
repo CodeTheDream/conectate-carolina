@@ -1,48 +1,71 @@
-<div class="active-inactive">
-  <%= link_to "Active", messages_path %> <b>|</b>
-  <%= link_to "Inactive", inactive_messages_path %>
-</div>
-<div class="messages">
-  <% @messages.each do |message| %>
-    <div class="message">
-      <div class="row">
-        <div class="controls col-sm-7 col-md-9", id="fa-triangle">
-          <%= fa_icon 'fas exclamation-triangle 3x' %>
-          <!-- <i class="fas fa-bell fa-3x"></i> -->
-          <div class="msg-content">
-            <h4><%= message.title %></h4>
-            <p><%= message.body %></p>
+<div class="separate-main">
+  <h2 style="color: #1E90FF;">Message Center</h2>
+  <div class="active-inactive">
+    <%= link_to "Active", messages_path, id: 'active-link' %>
+    <%= link_to "Inactive", inactive_messages_path, id: 'active-link' %>
+  </div>
+  <div class="messages">
+    <% @messages.each do |message| %>
+      <div class="message">
+        <div class="row1">
+          <div class="controls col-sm-7 col-md-9", id="fa-triangle">
+            <% if message.message_type == "success" %>
+              <div class="fa-icon-success", id="icons">
+                <%= fa_icon 'fas exclamation-triangle 3x' %>
+              </div>
+            <% elsif message.message_type == "info" %>
+              <div class="fa-icon-info", id="icons">
+                <%= fa_icon 'fas exclamation-triangle 3x' %>
+              </div>
+            <% elsif message.message_type == "warning" %>
+              <div class="fa-icon-warning", id="icons">
+                <%= fa_icon 'fas exclamation-triangle 3x' %>
+              </div>
+            <% elsif message.message_type = "danger" %>
+              <div class="fa-icon-danger", id="icons">
+                <%= fa_icon 'fas exclamation-triangle 3x' %>
+              </div>
+            <% end %>
+            <!-- <i class="fas fa-bell fa-3x"></i> -->
+            <div class="msg-content">
+              <p><b><%= message.title %></b><br/>
+              <%= message.body %></p>
+            </div>
+          </div>
+          <div class="controls col-sm-5 col-md-3", id="buttons">
+            <div class="edit-delete">
+              <%= link_to "edit", edit_message_path(message), class: "btn btn-sm btn-secondary" %>
+              <%= link_to "delete", message, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-sm btn-secondary" %>
+            </div>
+            <div>
+              <% if message.posted? %>
+                <%= button_to unpost_message_path(message), class: "btn btn-sm btn-success", method: :put do %>
+                  <i class="fa fa-check-square"></i> <%= (t'buttons_t.unpost')%>
+                <% end %>
+              <% else %>
+                <% if message.posted_at.nil? %>
+                  <%= button_to post_message_path(message), class: "btn btn-sm btn-primary", method: :put do %>
+                    <i class="fa fa-square"></i> <%= (t'buttons_t.post')%>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
-        <div class="controls col-sm-5 col-md-3">
-          <%= link_to "edit", edit_message_path(message), class: "btn btn-sm btn-secondary" %>
-          <%= link_to "delete", message, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-sm btn-secondary" %>
-          <% if message.posted? %>
-            <%= button_to unpost_message_path(message), class: "btn btn-sm btn-success", method: :put do %>
-              <i class="fa fa-check-square"></i> <%= (t'buttons_t.unpost')%>
-            <% end %>
-          <% else %>
-            <% if message.posted_at.nil? %>
-              <%= button_to post_message_path(message), class: "btn btn-sm btn-primary", method: :put do %>
-                <i class="fa fa-square"></i> <%= (t'buttons_t.post')%>
-              <% end %>
-            <% end %>
-          <% end %>
-        </div>
       </div>
-    </div>
-  <% end %>
-</div><br/>
-<!-- New Message link -->
-<div>
-  <%= button_to new_message_path, class: "btn btn-primary btn-block", method: :get do %>
-    <i class="fa fa-plus"></i> <%= (t'buttons_t.new')%>
-  <% end %>
-</div>
-<!-- pagination -->
-<div class="pagination">
-    <div class="page_info">
-      <%= page_entries_info @posts %>
-    </div>
-    <%= will_paginate @posts, :container => false %>
+    <% end %>
+  </div><br/>
+  <!-- New Message link -->
+  <div>
+    <%= button_to new_message_path, class: "btn btn-primary btn-block", method: :get do %>
+      <i class="fa fa-plus"></i> <%= (t'buttons_t.new')%>
+    <% end %>
   </div>
+  <!-- pagination -->
+  <div class="pagination">
+      <div class="page_info">
+        <%= page_entries_info @posts %>
+      </div>
+      <%= will_paginate @posts, :container => false %>
+    </div>
+</div>
