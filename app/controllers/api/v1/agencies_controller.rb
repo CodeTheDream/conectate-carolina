@@ -1,6 +1,6 @@
 class Api::V1::AgenciesController < ApplicationController
   def index
-    agencies = Agency.all
+    agencies = Agency.order(:name)
 
     # when passed 'updated_since' parameter
     if params[:updated_since].present?
