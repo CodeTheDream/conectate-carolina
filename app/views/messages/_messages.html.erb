@@ -9,33 +9,37 @@
       <div class="message">
         <div class="row1">
           <div class="controls col-sm-7 col-md-9", id="fa-triangle">
-            <% if message.message_type == "success" %>
+            <% case message.message_type %>
+            <% when "success" %>
               <div class="fa-icon-success", id="icons">
                 <%= fa_icon 'fas exclamation-triangle 3x' %>
               </div>
-            <% elsif message.message_type == "info" %>
+            <% when "info" %>
               <div class="fa-icon-info", id="icons">
                 <%= fa_icon 'fas exclamation-triangle 3x' %>
               </div>
-            <% elsif message.message_type == "warning" %>
+            <% when "warning" %>
               <div class="fa-icon-warning", id="icons">
                 <%= fa_icon 'fas exclamation-triangle 3x' %>
               </div>
-            <% elsif message.message_type = "danger" %>
+            <% when "danger" %>
               <div class="fa-icon-danger", id="icons">
                 <%= fa_icon 'fas exclamation-triangle 3x' %>
               </div>
             <% end %>
-            <!-- <i class="fas fa-bell fa-3x"></i> -->
             <div class="msg-content">
               <p><b><%= message.title %></b><br/>
               <%= message.body %></p>
             </div>
           </div>
           <div class="controls col-sm-5 col-md-3", id="buttons">
-            <div class="edit-delete">
-              <%= link_to "edit", edit_message_path(message), class: "btn btn-sm btn-secondary" %>
-              <%= link_to "delete", message, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-sm btn-secondary" %>
+            <div>
+              <%= link_to edit_message_path(message), class: "btn btn-sm btn-secondary" do %>
+                <i class="fa fa-pencil-square-o">Edit</i>
+              <% end %>
+              <%= link_to message_path(message), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-sm btn-secondary" do %>
+                <i class="fa fa-trash-o">Delete</i>
+              <% end %>
             </div>
             <div>
               <% if message.posted? %>
