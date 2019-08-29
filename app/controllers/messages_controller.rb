@@ -4,7 +4,16 @@ class MessagesController < ApplicationController
   after_action  :verify_authorized
 
   def index
-    @messages = Message.paginate(page: params[:page], per_page: 5).order(created_at: :desc)
+    posted_messages = Message.posted
+    postable_messages = Message.postable
+    messages = posted_messages.or(postable_messages)
+    @messages = messages.paginate(page: params[:page], per_page: 5).order(created_at: :desc)
+    authorize @messages
+  end
+
+  def inactive_messages
+    messages = Message.unposted
+    @messages = messages.paginate(page: params[:page], per_page: 5).order(created_at: :desc)
     authorize @messages
   end
 
@@ -47,27 +56,29 @@ class MessagesController < ApplicationController
 
   def post
     authorize @message
-    @message.update_attributes(posted: true)
+    if !@message.posted? && @message.posted_at.nil?
+      @message.update_attributes(posted: true, posted_at: Time.zone.now)
 
-    devices = Device.all
-    client = Exponent::Push::Client.new
-    messages = []
-    messages = devices.map do |device|
-      {
-        to: device.token,
-        sound: "default",
-        body: @message.title
-      }
+      devices = Device.all
+      client = Exponent::Push::Client.new
+      messages = []
+      messages = devices.map do |device|
+        {
+          to: device.token,
+          sound: "default",
+          body: @message.title
+        }
+      end
+
+      begin
+        client.publish messages
+      rescue Exponent::Push::UnknownError => e
+        Rails.logger.info e.message
+      end
+
+      flash[:notice] = "Message posted."
+      redirect_to request.referrer || messages_path
     end
-
-    begin
-      client.publish messages
-    rescue Exponent::Push::UnknownError => e
-      Rails.logger.info e.message
-    end
-
-    flash[:notice] = "Message posted."
-    redirect_to request.referrer || messages_path
   end
 
   def unpost
