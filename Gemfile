@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
-ruby '2.4.1'
-gem 'rails', '~> 5.2.2'
-gem 'puma', '~> 3.0'
-gem 'sass-rails', '~> 5.0'
+ruby '2.6.4'
+gem 'rails'
+gem 'puma'
+gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
-gem 'coffee-rails', '~> 4.2'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
@@ -31,7 +31,7 @@ end
 
 group :development do
   gem 'web-console'
-  gem 'listen', '~> 3.0.5'
+  gem 'listen'
   gem 'spring'
   gem 'rb-readline'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -72,6 +72,6 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'shoulda-matchers', '4.0.0.rc1'
+  gem 'shoulda-matchers'
   gem 'rails-controller-testing'
 end
