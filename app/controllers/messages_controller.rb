@@ -66,7 +66,15 @@ class MessagesController < ApplicationController
         {
           to: device.token,
           sound: "default",
-          body: @message.title
+          title: @message.title,
+          body: @message.body,
+          data: {
+                  id: @message.id,
+                  title: { en: @message.title, es: @message.titulo },
+                  body: { en: @message.body,  es: @message.cuerpo },
+                  message_type: @message.message_type,
+                  updated_at: @message.updated_at
+                }
         }
       end
 
