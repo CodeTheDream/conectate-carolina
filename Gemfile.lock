@@ -225,6 +225,8 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_autolink (1.1.6)
+      rails (> 3.1)
     rails_layout (1.0.42)
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
@@ -381,6 +383,7 @@ DEPENDENCIES
   rails
   rails-controller-testing
   rails_12factor
+  rails_autolink
   rails_layout
   rb-readline
   redcarpet
