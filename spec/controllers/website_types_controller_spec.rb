@@ -1,4 +1,6 @@
 RSpec.describe WebsiteTypesController, type: :controller do
+  render_views
+
   let(:website_type) { create :website_type }
 
   describe 'POST websites#create' do

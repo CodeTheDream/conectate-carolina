@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, type: :controller do
+  render_views
+
   let(:default_params) { { params: { locale: 'en' } } } #default_params is a method here
   let(:admin) { create :user, :admin }
   let(:user)  { create :user }
