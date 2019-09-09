@@ -225,8 +225,6 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
-    rails_autolink (1.1.6)
-      rails (> 3.1)
     rails_layout (1.0.42)
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
@@ -247,6 +245,7 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rinku (2.0.6)
     rspec-core (3.8.2)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.4)
@@ -383,10 +382,10 @@ DEPENDENCIES
   rails
   rails-controller-testing
   rails_12factor
-  rails_autolink
   rails_layout
   rb-readline
   redcarpet
+  rinku
   rspec-rails
   rubocop
   sass-rails
