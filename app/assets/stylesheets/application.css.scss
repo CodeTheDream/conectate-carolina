@@ -686,7 +686,9 @@ ul#faq_answer {
     background-color: #333333;
     padding-top: 3px;
     padding-bottom: 3px;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 #myFooter .row {
@@ -701,6 +703,10 @@ ul#faq_answer {
 #myFooter .footer-copyright p {
     margin: 10px;
     color: #ccc;
+}
+
+#myFooter .footer-copyright p .privacy {
+  font-size: 14px;
 }
 
 #myFooter ul {

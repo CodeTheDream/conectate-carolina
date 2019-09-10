@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 		resources :users
 		resources :faqs
 		get 'pages/about'
+    get 'pages/privacy_policy'
+    get 'pages/terms_and_conditions'
 	  get 'search', to: 'search#search'
     resources :categories
     resources :messages do
