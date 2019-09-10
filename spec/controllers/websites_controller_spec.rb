@@ -1,4 +1,6 @@
 RSpec.describe WebsitesController, type: :controller do
+  render_views
+
   let(:admin)        { create :user, :admin }
   let(:agency)       { create :agency }
   let(:website)      { create :website, :agency, :website_type }

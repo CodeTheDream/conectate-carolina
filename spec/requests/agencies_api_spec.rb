@@ -16,7 +16,7 @@ RSpec.describe 'Agencies API', type: :request do
       # Note `json` is custom helper to parse JSON responses
       expect(json).not_to be_empty
       expect(json.size).to eq(11)
-      expect(json[0]['categories'].size).to eq(5)
+      expect(json[0]['categories'].size).to eq(6)
       expect(json[0]['websites'].size).to eq(1)
     end
 

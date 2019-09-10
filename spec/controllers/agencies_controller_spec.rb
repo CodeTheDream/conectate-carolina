@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe AgenciesController, type: :controller do
+  render_views
+
   let(:location1)  { "201 W. Main St. Durham, NC 27701" } #Just a string, not a hash
   let(:location2)  { "Durham, NC" }     # Durham, NC
   let(:default_location) { "Raleigh, NC" } # Default location

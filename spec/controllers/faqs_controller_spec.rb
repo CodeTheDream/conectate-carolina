@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe FaqsController, type: :controller do
+  render_views
+
   before do
     @admin = create :user, :admin
     @faq = create :faq
@@ -21,7 +23,7 @@ RSpec.describe FaqsController, type: :controller do
   describe 'GET faqs#show' do
 
     it 'should render show template' do
-      get :show, params: { use_route: "/faqs", id: @faq}
+      get :show, params: { use_route: "/faqs", locale: 'en', id: @faq}
       expect(response).to have_http_status(:success)
       expect(response).to render_template("show")
     end

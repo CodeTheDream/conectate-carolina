@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe CategoriesController, type: :controller do
+  render_views
 
   before do
     @admin    = create :user, :admin, email: "new_email@example.com"
@@ -23,12 +24,12 @@ RSpec.describe CategoriesController, type: :controller do
   ## SHOW SPECS
   describe 'GET categories#show' do
     it 'should show list of agencies that belong to @category' do
-      get :show, params: { use_route: "/categories", id: @category.id }
+      get :show, params: { use_route: "/categories", locale: 'en', id: @category.id }
       expect(@category.agencies).to match_array([@agency, @agency2])
     end
 
     it "should render show template" do
-      get :show, params: { use_route: "/categories", id: @category }
+      get :show, params: { use_route: "/categories", locale: 'en', id: @category }
       expect(response).to render_template("show")
       expect(response).to have_http_status(:success)
     end

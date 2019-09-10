@@ -23,7 +23,7 @@ RSpec.feature "Messages", type: :feature, js: true do
     visit root_path(locale: 'en')
     expect(page).to have_text('Messages') #actually wanted to test as a link (`have_link`)
     click_link 'my_messages_link' #redirects to message index page
-    expect(page).to have_text "List of messages"
+    expect(page).to have_text "Message Center"
   end
 
 end
