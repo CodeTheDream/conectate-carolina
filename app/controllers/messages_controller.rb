@@ -57,7 +57,7 @@ class MessagesController < ApplicationController
   def post
     authorize @message
     if !@message.posted? && @message.posted_at.nil?
-      @message.update_attributes(posted: true, posted_at: Time.zone.now)
+      @message.update(posted: true, posted_at: Time.zone.now)
 
       devices = Device.all
       client = Exponent::Push::Client.new

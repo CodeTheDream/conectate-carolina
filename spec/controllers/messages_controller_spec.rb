@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe MessagesController do
+  render_views
+
   let!(:user) { create :user }
   let!(:admin) { create :user, :admin }
   let!(:message) { create :message }
@@ -78,10 +80,13 @@ RSpec.describe MessagesController do
   end
 
   describe "PUT #post" do
-    before { sign_in admin }
+    before do
+      sign_in admin
+      message.update(posted: false, posted_at: nil)
+    end
 
     it "displays flash message `Message posted.`" do
-      put :post, params: {id: message.id, locale: 'en', message: {posted: true}}
+      put :post, params: {id: message.id, locale: 'en', message: { posted: true, posted_at: Time.zone.now }}
       expect(flash.notice).to eq 'Message posted.'
     end
   end

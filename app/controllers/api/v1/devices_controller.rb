@@ -13,6 +13,6 @@ class Api::V1::DevicesController < ApplicationController
 
   private
     def device_params
-     params.permit(:token)
+     params.require(:device).permit(:token)
     end
 end

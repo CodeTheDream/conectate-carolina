@@ -6,5 +6,6 @@ FactoryBot.define do
     message_type { "warning" }
     titulo { "Amenazas de tormentas severas!" }
     cuerpo { "Las amenazas de fuertes tormentas y fuertes lluvias que podrían causar inundaciones repentinas pueden esperarse el martes desde las planicies del sur hasta el medio oeste superior. Las principales amenazas del clima severo son los vientos dañinos y el granizo grande. Las amenazas de clima severo cambian el miércoles al valle medio de Mississippi y al Atlántico medio." }
+    posted_at { Time.zone.now }
   end
 end
