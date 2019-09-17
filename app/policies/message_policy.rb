@@ -14,6 +14,11 @@ class MessagePolicy < ApplicationPolicy
     @user.admin?
   end
 
+  def show?
+    return false if @current_user == @user
+    @user.admin?
+  end
+
   def destroy?
     return false if @current_user == @user
     @user.admin?

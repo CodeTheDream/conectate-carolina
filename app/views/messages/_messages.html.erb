@@ -28,8 +28,8 @@
               </div>
             <% end %>
             <div class="msg-content">
-              <p><b><%= message.title %></b><br/>
-              <%= message.body %></p>
+              <h4><b><%= message.title %></b></h4>
+              <p class="auto-links"><%= auto_link(truncate(message.body, length: 90){ link_to "read more", message_path(message) }, html: {target: '_blank'}) %></p>
             </div>
           </div>
           <div class="controls col-sm-5 col-md-3", id="buttons">

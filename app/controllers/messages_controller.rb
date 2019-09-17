@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:edit, :update, :destroy, :post, :unpost]
+  before_action :set_message, only: [:show, :edit, :update, :destroy, :post, :unpost]
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   after_action  :verify_authorized
 
@@ -31,6 +31,10 @@ class MessagesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    authorize @message
   end
 
   def edit
