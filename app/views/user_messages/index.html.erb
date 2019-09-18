@@ -1,0 +1,42 @@
+<div class="separate-main">
+  <h2 style="color: #1E90FF;">Alert History</h2>
+
+  <div class="messages">
+    <% @user_messages.each do |user_message| %>
+      <div class="message">
+        <div class="row1">
+          <div class="controls col-sm-7 col-md-9", id="fa-triangle">
+            <% case user_message.message_type %>
+            <% when "success" %>
+              <div class="fa-icon-success", id="icons">
+                <%= fa_icon 'fas exclamation-triangle 3x' %>
+              </div>
+            <% when "info" %>
+              <div class="fa-icon-info", id="icons">
+                <%= fa_icon 'fas exclamation-triangle 3x' %>
+              </div>
+            <% when "warning" %>
+              <div class="fa-icon-warning", id="icons">
+                <%= fa_icon 'fas exclamation-triangle 3x' %>
+              </div>
+            <% when "danger" %>
+              <div class="fa-icon-danger", id="icons">
+                <%= fa_icon 'fas exclamation-triangle 3x' %>
+              </div>
+            <% end %>
+            <div class="msg-content">
+              <h4><b><%= user_message.title %></b></h4>
+              <p class="auto-links"><%= truncate(user_message.body, length: 90){ link_to " read more", user_message_path(user_message) } %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="pagination">
+    <div class="page_info">
+      <%= page_entries_info @user_messages %>
+    </div>
+    <%= will_paginate @user_messages, :container => false %>
+  </div>
+</div>
