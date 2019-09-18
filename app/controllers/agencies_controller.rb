@@ -1,3 +1,5 @@
+require 'rails_rinku'
+
 class AgenciesController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
   after_action :verify_authorized, except: %i[show index]

@@ -16,11 +16,13 @@
   border: none;
 }
 
+.messages {
+  border-bottom: 1px solid #8a6d3b;
+}
 .message {
   position: relative;
-  background-color: white;
-  border: 2px solid gray;
-  box-shadow: .5px .5px 1px 1px lightgray;
+  border: 1px solid #8a6d3b;
+  border-bottom: none;
 }
 
 .button_to {
@@ -50,22 +52,30 @@
 #buttons {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  justify-content: flex-end;
 }
 
 .row1 {
-  height: 60px;
+  height: auto;
   display: flex;
   align-items: center;
   border-bottom: none;
 }
 
 .row1:hover {
-  background-color: #D6DBDF;
+  background-color: LightYellow;
+}
+
+.edit-delete-buttons {
+  display: none;
+}
+
+.row1:hover .edit-delete-buttons {
+  display: block;
 }
 
 #active-link {
-  border: dotted 1px black;
+  border: dotted 1px #8a6d3b;
 }
 
 .fa-icon-success {

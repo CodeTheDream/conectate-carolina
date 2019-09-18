@@ -1,5 +1,3 @@
-<% require 'rails_rinku' %>
-
 <% content_for :title do %><%=  (t'nav_links.home') %> | Conectate Carolina<% end %>
 
 <script src="//maps.google.com/maps/api/js?key=AIzaSyCj5WxwF7qYcjlvsjtzabyVi0Se1WtuA6w"></script>
@@ -40,9 +38,7 @@ getLocation();
           <div class="left">
             <h4><b><%= @message.title %></b></h4>
             <p class="auto-links">
-              <%= auto_link(@message.body, html: { target: '_blank' }) do |url| %>
-                <% "link" %>
-              <% end %>
+              <%= auto_link(@message.body, html: { target: '_blank' }) %>
             </p>
           </div>
           <div class="remove"><button id="my_x_button"><%= fa_icon "times" %></button></div>
@@ -52,9 +48,7 @@ getLocation();
         <div class="left">
           <h4><b><%= @message.titulo %></b></h4>
           <p class="auto-links">
-            <%= auto_link(@message.cuerpo, html: { target: '_blank' }) do |url| %>
-              <% "link" %>
-            <% end %>
+            <%= auto_link(@message.cuerpo, html: { target: '_blank' }) %>
           </p>
         </div>
         <div class="remove"><button><%= fa_icon "times" %></button></div>
