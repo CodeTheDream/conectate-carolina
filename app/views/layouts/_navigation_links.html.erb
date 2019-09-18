@@ -40,9 +40,9 @@
       <% end %>
   </ul>
 </li>
-<% if Message.posted.any? %>
+<% if Message.unposted.any? %>
   <li>
-  <%= link_to root_path, id: "my_icon_link" do %>
+  <%= link_to user_messages_path, id: "my_icon_link" do %>
     <%= fa_icon 'bell' %>
   <% end %>
   </li>

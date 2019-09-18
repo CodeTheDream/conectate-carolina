@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 		    put 'post', 'unpost'
 		  end
     end
+    resources :user_messages, only: [:index, :show]
 
 		get 'inactive_messages', to: 'messages#inactive_messages', as: 'inactive_messages'
     resources :websites, only: [:new, :create, :show, :destroy]
