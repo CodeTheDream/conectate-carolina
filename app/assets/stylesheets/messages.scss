@@ -19,10 +19,15 @@
 .messages {
   border-bottom: 1px solid #8a6d3b;
 }
+
 .message {
   position: relative;
   border: 1px solid #8a6d3b;
   border-bottom: none;
+}
+
+.separate-main {
+  margin-top: 25px;
 }
 
 .button_to {

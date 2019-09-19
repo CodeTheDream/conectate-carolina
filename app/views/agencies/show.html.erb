@@ -35,18 +35,22 @@
           <div class="phones">
             <b><%= (t'show_page.phone') %></b>
             <div class="phone-numbers">
-              <%= @agency.phone %>
-              <a href="tel:<%= @agency.phone %>" class="btn btn-default btn-sm btn-link">
-                <span class="agency-phone">
-                  <i class="fa fa-phone fa-2x"></i>
-                </span>
-              </a><br>
-              <%= @agency.mobile_phone %>
-              <a href="tel:<%= @agency.mobile_phone %>" class="btn btn-default btn-sm btn-link">
-                <span class="agency-phone">
-                  <i class="fa fa-mobile fa-2x"></i>
-                </span>
-              </a>
+              <% if !@agency.phone.blank? %>
+                <%= @agency.phone %>
+                <a href="tel:<%= @agency.phone %>" class="btn btn-default btn-sm btn-link">
+                  <span class="agency-phone">
+                    <i class="fa fa-phone fa-2x"></i>
+                  </span>
+                </a>
+              <% end %>
+              <% if !@agency.mobile_phone.blank? %>
+                <%= @agency.mobile_phone %>
+                <a href="tel:<%= @agency.mobile_phone %>" class="btn btn-default btn-sm btn-link">
+                  <span class="agency-phone">
+                    <i class="fa fa-mobile fa-2x"></i>
+                  </span>
+                </a>
+              <% end %>
             </div>
           </div>
           <p><b><%= (t'show_page.description') %></b>
