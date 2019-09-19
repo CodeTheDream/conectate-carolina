@@ -34,6 +34,7 @@ en:
         contact: "Contact Person:"
         email: "Email:"
         phone: "Phone Numbers:"
+        mobile_phone: "Mobile phone:"
         description: "Description(eng):"
         descripcion: "Descripción:"
       category:

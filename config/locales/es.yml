@@ -13,6 +13,7 @@ es:
         contact: "Persona de contacto:"
         email: "Correo Electronico:"
         phone: "Numeros de telefono:"
+        mobile_phone: "Telefonos celular:"
         description: "Description(eng):"
         descripcion: "Descripción:"
       category:
