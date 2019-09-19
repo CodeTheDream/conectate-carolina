@@ -12,7 +12,8 @@ es:
         zipcode: "Codigo Postal"
         contact: "Persona de contacto:"
         email: "Correo Electronico:"
-        phone: "Numero de telefono:"
+        phone: "Numeros de telefono:"
+        mobile_phone: "Telefonos celular:"
         description: "Description(eng):"
         descripcion: "Descripción:"
       category:
@@ -69,7 +70,7 @@ es:
     city: "Ciudad:"
     zip: "Codigo postal:"
     contact: "Contacto:"
-    phone: "Numero De telefono:"
+    phone: "Numeros De telefono:"
     description: "Descripcion:"
     websites: "Sitios web"
     title: "Titulo:"

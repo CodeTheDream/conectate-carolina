@@ -33,7 +33,8 @@ en:
         zipcode: "Zip Code:"
         contact: "Contact Person:"
         email: "Email:"
-        phone: "Phone Number:"
+        phone: "Phone Numbers:"
+        mobile_phone: "Mobile phone:"
         description: "Description(eng):"
         descripcion: "Descripción:"
       category:
@@ -90,7 +91,7 @@ en:
     city: "City:"
     zip: "Zip code:"
     contact: "Contact:"
-    phone: "Phone:"
+    phone: "Phone Numbers:"
     description: "Description:"
     websites: "Websites"
     title: "Title:"
