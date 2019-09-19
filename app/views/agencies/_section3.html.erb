@@ -46,18 +46,22 @@
             </a>
           </p>
           <p><%= Agency.human_attribute_name("phone") %> <br>
-            <%= agency.phone %>
-            <a href="tel:<%= agency.phone %>" class="btn btn-default btn-sm btn-link">
-              <span class="agency-phone">
-                <i class="fa fa-phone fa-2x"></i>
-              </span>
-            </a><br>
-            <%= agency.mobile_phone %>
-            <a href="tel:<%= agency.mobile_phone %>" class="btn btn-default btn-sm btn-link">
-              <span class="agency-phone">
-                <i class="fa fa-mobile fa-2x"></i>
-              </span>
-            </a>
+            <% if !agency.phone.blank? %>
+              <%= agency.phone %>
+              <a href="tel:<%= agency.phone %>" class="btn btn-default btn-sm btn-link">
+                <span class="agency-phone">
+                  <i class="fa fa-phone fa-2x"></i>
+                </span>
+              </a>
+            <% end %>
+            <% if !agency.mobile_phone.blank? %>
+              <%= agency.mobile_phone %>
+              <a href="tel:<%= agency.mobile_phone %>" class="btn btn-default btn-sm btn-link">
+                <span class="agency-phone">
+                  <i class="fa fa-mobile fa-2x"></i>
+                </span>
+              </a>
+            <% end %>
           </p>
         </div>
           <hr>
