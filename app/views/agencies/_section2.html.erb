@@ -1,16 +1,19 @@
-<div class="container">
-  <div class="row">
+<div class="sub-menu-container">
+  <div class="organizations-title">
+      <h1 id="organizations"><%= (t'footer.organizations')%></h1>
+  </div>
+  <div class="sub-menu-modal-links">
     <div class="col-md-3 col-md-offset-3">
-        <div class="top-buffer">
+        <div class="x">
           <!-- Button trigger modal -->
-          <button class="btn btn-primary btn-block btn-lg" data-toggle="modal" data-target="#myModal">
+          <h5 data-toggle="modal" data-target="#myModal">
             <i class="fa fa-map-o"></i>
             <% if params[:locale] == "en" %>
               Show map
             <% else %>
               Mostrar mapa
             <% end %>
-          </button>
+          </h5>
 
           <!-- Modal -->
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -37,7 +40,7 @@
       <div class="col-md-3">
         <!-- Small modal -->
         <div class="top-buffer">
-          <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target=".bs-example-modal-sm"><%= fa_icon("tags") %> <%= t'category.all_cat' %></button>
+          <h5 type="button" data-toggle="modal" data-target=".bs-example-modal-sm"><%= fa_icon("tags") %> <%= t'category.all_cat' %></h5>
           <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
             <div class="modal-dialog modal-md" role="document">
               <div class="modal-content">

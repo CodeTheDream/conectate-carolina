@@ -19,16 +19,38 @@
 @import "bootstrap";
 @import "font-awesome"; // main background color
 
-$links_color: #d65000;
+$links_color: #ffffff;
 $links_color_hover: #2875b6;
-
+$color_gray_text: #656b75;
 
 html,body {
   // height:100%;
-  background-color: rgba(37, 171, 118, 0.94);
+  background-color: rgb(255, 255, 255);
 	// background: center no-repeat fixed image-url('tobacco.jpg');
 	background-size: contain;
 }
+  //icon header of home page
+  .logo-header{
+    display: flex;
+    flex-direction: row;
+  }
+  .farm-image img{
+    width: 650px;
+    height: 346px;
+  }
+  .logo img {
+    width: 900px;
+    height: 347px;
+  }
+  .header-text {
+    text-align: center;
+    position: absolute;
+    top: 200px;
+    left: 350px;
+    width: 500px;
+    height: 100px;
+    color: $color_gray_text;
+  }
 section {
 	padding-top: 0;
 	padding-bottom: 40px;
@@ -42,8 +64,25 @@ section {
 #section3 {
   padding-top: 20px;
 }
-.top-buffer {
-    padding-top: 15px;
+
+//styling for sub menu buttons container
+
+.sub-menu-container{
+  display: flex;
+  flex-direction: row;
+}
+#organizations {
+  flex:50%;
+  color: $color_gray_text;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  line-height: 38px;
+  margin-left: 40px;
+  text-align: left;
+}
+.sub-menu-modal-links {
+    text-align: center;
 }
 
 a {
@@ -138,18 +177,6 @@ h1 {
   border-bottom: 3px solid rgba(#515152, 0.8);
 }
 
-// p {
-//     color: #292929;
-//     font-size: 16px;
-//     font-weight: 400;
-//     line-height: 17px;
-//     margin: 0 auto 15px;
-//     max-width: 500px;
-//     text-align: left;
-// }
-
-
-
 // Makes button in About page to center
 .center-block {
   float: none;
@@ -173,16 +200,6 @@ address {
   font-size: 16px;
 }
 // top image index page
-#top-background {
-  background: linear-gradient(
-      rgba(194, 229, 182, 0.35),
-      rgba(193, 226, 185, 0.39)),
-      no-repeat image-url('tobacco.jpg');
-  background-position: center;
-  background-size: cover;
-  margin-top: 0px;
-  overflow: hidden;
-}
 .top-background h1 {
   color: #122112;
   font-size: 44px;
@@ -218,22 +235,6 @@ address {
 .min-height {
     min-height: 600px;
 }
-
-// .search {
-//   width: 90%;
-//   height: 50px;
-//   background: #ececec;
-//   position: absolute;
-// }
-
-// .search-form {
-//   display: flex;
-//   align-content: center;
-//   justify-content: center;
-//   width: 95%;
-//   height: 80px;
-//   width: 81%
-// }
 
 // Manual Changes when using a phone
 @media screen and (max-width: 480px) {
@@ -291,20 +292,6 @@ input, select {
 #search-row {
   text-align: center;
 }
-
-#organizations {
-  color: #1f201f;
-  font-size: 28px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  line-height: 38px;
-  margin-bottom: 24px;
-  text-align: center;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 0 rgba(#636363, 0.61)
-}
-
-
 
 #about-page {
     color: #333;
@@ -413,7 +400,7 @@ input, select {
 // navbar overide settings
 
 .navbar-default {
-    background-color: rgba(#cdb521, 0.9);
+    background-color: rgba(#2f4b26, 0.9);
 }
 
 .navbar-default .navbar-brand {
