@@ -1,3 +1,5 @@
+require 'rails_rinku'
+
 class AgenciesController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
   after_action :verify_authorized, except: %i[show index]
@@ -127,7 +129,7 @@ class AgenciesController < ApplicationController
 
   def agency_params
     params.require(:agency).permit(:name, :address, :city, :state, :zipcode,
-                                   :contact, :phone, :description, :descripcion, :email, :name, :website_type,
+                                   :contact, :phone, :mobile_phone, :description, :descripcion, :email, :name, :website, :website_type,
                                    category_ids: [])
   end
 end

@@ -39,7 +39,7 @@
   <div class="form-group required">
     <%= f.label  :message_type, class: 'control-label col-md-4' %>
     <div class="controls col-md-8">
-      <%= f.select(:message_type, options_for_select(['success', 'info', 'warning', 'danger'], 'success')) %>
+      <%= f.select(:message_type, options_for_select(['success', 'info', 'warning', 'danger'], "#{@message.message_type}")) %>
     </div>
   </div>
 

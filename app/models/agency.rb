@@ -19,7 +19,8 @@ class Agency < ApplicationRecord
   end
 
   def full_address
-    [address, city, state, zipcode].compact.join(', ')
+    sub_address = [address, city, state].compact.join(', ')
+    [sub_address, zipcode].compact.join(' ')
   end
 
   def self.import(file)
@@ -97,6 +98,7 @@ class Agency < ApplicationRecord
       contact: self.contact,
       email: self.email,
       phone: self.phone,
+      mobile_phone: self.phone,
       latitude: self.latitude,
       longitude: self.longitude,
       description: self.description,

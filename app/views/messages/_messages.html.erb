@@ -28,12 +28,12 @@
               </div>
             <% end %>
             <div class="msg-content">
-              <p><b><%= message.title %></b><br/>
-              <%= message.body %></p>
+              <h4><b><%= message.title %></b></h4>
+              <p class="auto-links"><%= truncate(message.body, length: 90){ link_to " read more", message_path(message) } %></p>
             </div>
           </div>
           <div class="controls col-sm-5 col-md-3", id="buttons">
-            <div>
+            <div class="edit-delete-buttons">
               <%= link_to edit_message_path(message), class: "btn btn-sm btn-secondary" do %>
                 <i class="fa fa-pencil-square-o">Edit</i>
               <% end %>

@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:edit, :update, :destroy, :post, :unpost]
+  before_action :set_message, only: [:show, :edit, :update, :destroy, :post, :unpost]
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   after_action  :verify_authorized
 
@@ -31,6 +31,10 @@ class MessagesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    authorize @message
   end
 
   def edit
@@ -66,14 +70,15 @@ class MessagesController < ApplicationController
         {
           to: device.token,
           sound: "default",
-          title: @message.title,
-          body: @message.body,
+          title: @message.titulo,
+          body: @message.cuerpo,
           data: {
                   id: @message.id,
                   title: { en: @message.title, es: @message.titulo },
                   body: { en: @message.body,  es: @message.cuerpo },
                   message_type: @message.message_type,
-                  updated_at: @message.updated_at
+                  updated_at: @message.updated_at,
+                  posted_at: @message.posted_at
                 }
         }
       end

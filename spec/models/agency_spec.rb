@@ -37,7 +37,7 @@ RSpec.describe Agency, type: :model do
     city = "Durham"
     state = "NC"
     zipcode = "27701"
-    complete_address = "123 Main St., Durham, NC, 27701"
+    complete_address = "123 Main St., Durham, NC 27701"
 
     context "Address is entered on separate lines" do
       it "should be joined into one address line" do

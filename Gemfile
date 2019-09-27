@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby '2.5.3'
+ruby '2.6.4'
 gem 'rails'
 gem 'puma'
 gem 'sass-rails'
@@ -21,6 +21,7 @@ gem 'redcarpet'
 gem "unicode-display_width"
 gem 'will_paginate', '~> 3.1.0'
 gem 'exponent-server-sdk'
+gem 'rinku'
 
 group :development, :test do
   gem 'byebug', platform: :mri
