@@ -1,3 +1,15 @@
 // Place all the styles related to the Pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+#pages {
+  background-color: white;
+  margin-top: 20px;
+  padding: 50px 100px 100px 100px;
+}
+
+h2.page-heading {
+  text-align: left;
+  padding-bottom: 15px;
+}
