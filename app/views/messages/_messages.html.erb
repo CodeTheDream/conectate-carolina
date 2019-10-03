@@ -5,58 +5,68 @@
     <%= link_to "Inactive", inactive_messages_path, id: 'active-link' %>
   </div>
   <div class="messages">
-    <% @messages.each do |message| %>
-      <div class="message">
-        <div class="row1">
-          <div class="controls col-sm-7 col-md-9", id="fa-triangle">
-            <% case message.message_type %>
-            <% when "success" %>
-              <div class="fa-icon-success", id="icons">
-                <%= fa_icon 'fas exclamation-triangle 3x' %>
-              </div>
-            <% when "info" %>
-              <div class="fa-icon-info", id="icons">
-                <%= fa_icon 'fas exclamation-triangle 3x' %>
-              </div>
-            <% when "warning" %>
-              <div class="fa-icon-warning", id="icons">
-                <%= fa_icon 'fas exclamation-triangle 3x' %>
-              </div>
-            <% when "danger" %>
-              <div class="fa-icon-danger", id="icons">
-                <%= fa_icon 'fas exclamation-triangle 3x' %>
-              </div>
-            <% end %>
-            <div class="msg-content">
-              <h4><b><%= message.title %></b></h4>
-              <p class="auto-links"><%= truncate(message.body, length: 90){ link_to " read more", message_path(message) } %></p>
-            </div>
-          </div>
-          <div class="controls col-sm-5 col-md-3", id="buttons">
-            <div class="edit-delete-buttons">
-              <%= link_to edit_message_path(message), class: "btn btn-sm btn-secondary" do %>
-                <i class="fa fa-pencil-square-o">Edit</i>
+    <% if @messages.blank? %>
+    <div class="message">
+      <div class="row1">
+        <div class="controls col-sm-7 col-md-9">
+            <p>There's no any message to post or unpost yet, would you like to create one?</p>
+        </div>
+      </div>
+    </div>
+    <% else %>
+      <% @messages.each do |message| %>
+        <div class="message">
+          <div class="row1">
+            <div class="controls col-sm-7 col-md-9", id="fa-triangle">
+              <% case message.message_type %>
+              <% when "success" %>
+                <div class="fa-icon-success", id="icons">
+                  <%= fa_icon 'fas exclamation-triangle 3x' %>
+                </div>
+              <% when "info" %>
+                <div class="fa-icon-info", id="icons">
+                  <%= fa_icon 'fas exclamation-triangle 3x' %>
+                </div>
+              <% when "warning" %>
+                <div class="fa-icon-warning", id="icons">
+                  <%= fa_icon 'fas exclamation-triangle 3x' %>
+                </div>
+              <% when "danger" %>
+                <div class="fa-icon-danger", id="icons">
+                  <%= fa_icon 'fas exclamation-triangle 3x' %>
+                </div>
               <% end %>
-              <%= link_to message_path(message), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-sm btn-secondary" do %>
-                <i class="fa fa-trash-o">Delete</i>
-              <% end %>
+              <div class="msg-content">
+                <h4><b><%= message.title %></b></h4>
+                <p class="auto-links"><%= truncate(message.body, length: 90){ link_to " read more", message_path(message) } %></p>
+              </div>
             </div>
-            <div>
-              <% if message.posted? %>
-                <%= button_to unpost_message_path(message), class: "btn btn-sm btn-success", method: :put do %>
-                  <i class="fa fa-check-square"></i> <%= (t'buttons_t.unpost')%>
+            <div class="controls col-sm-5 col-md-3", id="buttons">
+              <div class="edit-delete-buttons">
+                <%= link_to edit_message_path(message), class: "btn btn-sm btn-secondary" do %>
+                  <i class="fa fa-pencil-square-o">Edit</i>
                 <% end %>
-              <% else %>
-                <% if message.posted_at.nil? %>
-                  <%= button_to post_message_path(message), class: "btn btn-sm btn-primary", method: :put do %>
-                    <i class="fa fa-square"></i> <%= (t'buttons_t.post')%>
+                <%= link_to message_path(message), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-sm btn-secondary" do %>
+                  <i class="fa fa-trash-o">Delete</i>
+                <% end %>
+              </div>
+              <div>
+                <% if message.posted? %>
+                  <%= button_to unpost_message_path(message), class: "btn btn-sm btn-success", method: :put do %>
+                    <i class="fa fa-check-square"></i> <%= (t'buttons_t.unpost')%>
+                  <% end %>
+                <% else %>
+                  <% if message.posted_at.nil? %>
+                    <%= button_to post_message_path(message), class: "btn btn-sm btn-primary", method: :put do %>
+                      <i class="fa fa-square"></i> <%= (t'buttons_t.post')%>
+                    <% end %>
                   <% end %>
                 <% end %>
-              <% end %>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div><br/>
   <!-- New Message link -->
