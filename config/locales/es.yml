@@ -23,7 +23,8 @@ es:
   nav_links:
     home: Inicio
     about: Acerca
-    mobile_apps: Aplicaciones móviles
+    mobile_app: App móvil
+
     sign_in: Iniciar sesion
     sign_up: Inscribirse
     edit_accnt: Actualizar cuenta

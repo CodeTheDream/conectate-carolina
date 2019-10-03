@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-$yellow_color: hsla(50.8235294117647, 100.00%, 50.00%, 1.00);
 
 
 #pages {
@@ -14,34 +13,4 @@ $yellow_color: hsla(50.8235294117647, 100.00%, 50.00%, 1.00);
 h2.page-heading {
   text-align: left;
   padding-bottom: 15px;
-}
-
-.mobile-app-links {
-  background-color: $yellow_color;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.mobile-app-links p {
-  text-align: center;
-  font-size: 14px;
-  line-height: 24px;
-}
-
-.mobile-apps{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-content: space-around;
-}
-
-.mobile-app-links img{
-  background-color: black;
-  border-radius: 6px;
-  max-width: 100%;
-  vertical-align: middle;
-  margin: 5px;
-  height: 48px;
 }

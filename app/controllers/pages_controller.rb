@@ -9,6 +9,6 @@ class PagesController < ApplicationController
   def terms_and_conditions
   end
 
-  def mobile_apps
+  def mobile_page
   end
 end

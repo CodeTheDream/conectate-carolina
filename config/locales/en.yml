@@ -44,7 +44,7 @@ en:
   nav_links:
     home: Home
     about: About
-    mobile_apps: Mobile Apps
+    mobile_app: Mobile App
     sign_in: Sign In
     sign_up: Sign up
     edit_accnt: Edit Account
