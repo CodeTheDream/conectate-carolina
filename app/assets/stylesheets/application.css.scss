@@ -21,6 +21,8 @@
 
 $links_color: #d65000;
 $links_color_hover: #2875b6;
+$yellow_color: hsla(50.8235294117647, 100.00%, 50.00%, 1.00);
+
 
 
 html,body {
@@ -413,7 +415,7 @@ input, select {
 // navbar overide settings
 
 .navbar-default {
-    background-color: rgba(#cdb521, 0.9);
+    background-color: $yellow_color;
 }
 
 .navbar-default .navbar-brand {
@@ -430,7 +432,7 @@ input, select {
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: $links_color;
+    color: #008752;
 }
 
 .navbar-default .navbar-nav > li > a:focus,
@@ -796,4 +798,36 @@ ul#faq_answer {
 .logos#saf {
   margin: 0 34% 0 34%;
   background: white;
+}
+
+.mobile-app-links {
+  background-color: $yellow_color;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.mobile-app-links p {
+  text-align: center;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.mobile-apps{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-around;
+}
+
+.mobile-app-links img{
+  background-color: black;
+  border-radius: 6px;
+  max-width: 96%;
+  vertical-align: middle;
+  margin: 2px;
+  height: 48px;
 }

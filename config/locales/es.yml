@@ -23,6 +23,8 @@ es:
   nav_links:
     home: Inicio
     about: Acerca
+    mobile_app: App móvil
+
     sign_in: Iniciar sesion
     sign_up: Inscribirse
     edit_accnt: Actualizar cuenta
@@ -55,6 +57,9 @@ es:
     bttn_search: Buscar
   about_page:
     text: Aplicación creada por
+  mobile_page:
+    h2: Descargue la aplicación. ¡Es gratis!
+    p: Descubre los recursos en tu area. ¡Empieza ahora!
   views_index:
     h1: Organizaciones
   new_page:

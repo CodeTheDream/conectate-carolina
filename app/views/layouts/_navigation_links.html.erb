@@ -1,6 +1,11 @@
 <%# add navigation links to this file %>
 <li>
-<%= link_to page_path('about') do %>
+<%= link_to mobile_path do %>
+  <%= fa_icon 'tablet', text: (t'nav_links.mobile_app') %>
+<% end %>
+</li>
+<li>
+<%= link_to about_path do %>
   <%= fa_icon 'list-alt', text: (t'nav_links.about') %>
 <% end %>
 </li>

@@ -44,6 +44,7 @@ en:
   nav_links:
     home: Home
     about: About
+    mobile_app: Mobile App
     sign_in: Sign In
     sign_up: Sign up
     edit_accnt: Edit Account
@@ -76,6 +77,9 @@ en:
     bttn_search: Search
   about_page:
     text: App created by
+  mobile_page:
+    h2: Get the App. It's Free!
+    p: Resources in your area, right at your fingertips.
   views_index:
     h1: Organizations
   new_page:

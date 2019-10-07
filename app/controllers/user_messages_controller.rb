@@ -1,6 +1,8 @@
 class UserMessagesController < ApplicationController
   def index
-    user_messages = Message.unposted
+    posted_messages = Message.posted
+    unposted_messages = Message.unposted
+    user_messages = posted_messages.or(unposted_messages)
     @user_messages = user_messages.paginate(page: params[:page], per_page: 10).order(created_at: :desc)
   end
 
