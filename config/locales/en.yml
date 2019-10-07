@@ -77,6 +77,9 @@ en:
     bttn_search: Search
   about_page:
     text: App created by
+  mobile_page:
+    h2: Get the App. It's Free!
+    p: Resources in your area, right at your fingertips.
   views_index:
     h1: Organizations
   new_page:
