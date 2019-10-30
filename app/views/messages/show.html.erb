@@ -1,7 +1,10 @@
 <div class="jumbotron" style="margin-top: 20px">
   <h2><%= @message.title%></h2>
-  <p><%= auto_link(@message.body, html: {target: '_blank'}) %></p>
-  <%= link_to "Back", messages_path, class: "btn btn-primary" %>
-  <%= link_to "Edit", edit_message_path(@message), class: "btn btn-secondary" %>
-  <%= link_to "Delete", message_path(@message), method: :delete, data: { confirm: "You sure?" }, class: "btn btn-secondary" %>
+  <% if @message.posted_at? %>
+    <p class="time-stamp"><%= @message.posted_at.strftime("%b %d, %Y %I:%M %p")%></p>
+  <% else %>
+    <p class="time-stamp"><%= @message.created_at.strftime("%b %d, %Y %I:%M %p")%> (created)</p>
+  <% end %>
+  <p class="message-body"><%= auto_link(@message.body, html: {target: '_blank'}) %></p>
+  <%= link_to "Back", messages_path, class: "btn btn-info" %>
 </div>

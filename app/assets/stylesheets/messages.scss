@@ -83,6 +83,10 @@
   border-bottom: none;
 }
 
+.row1:hover {
+  background-color: LightYellow;
+}
+
 .row32:hover {
   background-color: LightYellow;
 }
@@ -114,10 +118,6 @@
 
 .fa-icon-danger a {
   color: #f44336;
-}
-
-p.auto-links a {
-  font-size: 14px;
 }
 
 p.time-stamp {
