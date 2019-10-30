@@ -1,4 +1,4 @@
-<div class="jumbotron" style="margin-top: 20px">
+<div class="jumbotron" id="jumbotron">
   <h2><%= @message.title%></h2>
   <% if @message.posted_at? %>
     <p class="time-stamp"><%= @message.posted_at.strftime("%b %d, %Y %I:%M %p")%></p>
