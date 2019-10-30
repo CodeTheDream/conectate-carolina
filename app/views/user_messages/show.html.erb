@@ -1,8 +1,6 @@
 <div class="jumbotron" style="margin-top: 20px">
   <h2><%= @user_message.title%></h2>
-  <p style="font-style: italic"><%= @user_message.posted_at.strftime("%b %d, %Y %I:%M %p")%></p>
-  <p><%= auto_link(@user_message.body, html: {target: '_blank'}) %></p>
-  <%= link_to user_messages_path do %>
-    <i class="fa fa-arrow-left"></i>
-  <% end %>
+  <p class="time-stamp"><%= @user_message.posted_at.strftime("%b %d, %Y %I:%M %p")%></p>
+  <p class="message-body"><%= auto_link @user_message.body, html: {target: '_blank'} %></p>
+  <%= link_to "Back", user_messages_path, class: "btn btn-info"  %>
 </div>
