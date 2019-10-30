@@ -8,7 +8,10 @@ class UserMessagesController < ApplicationController
 
   def show
     begin
-      @user_message = Message.unposted.find(params[:id])
+      posted_messages = Message.posted
+      unposted_messages = Message.unposted
+      user_messages = posted_messages.or(unposted_messages)
+      @user_message = user_messages.find(params[:id])
     rescue ActiveRecord::RecordNotFound
       flash.alert = "Message not found."
       redirect_to user_messages_path

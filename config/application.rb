@@ -4,7 +4,7 @@ require 'csv'
 
 Bundler.require(*Rails.groups)
 
-module SAFW
+module SAF
   class Application < Rails::Application
 
     config.generators do |g|

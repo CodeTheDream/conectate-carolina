@@ -57,7 +57,7 @@ Rails.application.configure do
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
-  # config.active_job.queue_name_prefix = "SAFW_#{Rails.env}"
+  # config.active_job.queue_name_prefix = "SAF_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
@@ -105,7 +105,7 @@ Rails.application.configure do
 
   Rails.application.config.middleware.use ExceptionNotification::Rack,
   :email => {
-    :email_prefix => "[SAFW APP Application Error - Production] ",
+    :email_prefix => "[SAF APP Application Error - Production] ",
     :sender_address => %{" Exception Notifier" <noreply@example.com>},
     :exception_recipients => %w{fosorto99@gmail.com, peeweenaldo7@gmail.com, ramiro.rodriguez@gmail.com, lgalarzapunter@gmail.com}
   }

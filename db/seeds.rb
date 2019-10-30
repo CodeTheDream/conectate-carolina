@@ -36,7 +36,7 @@ website_types = [
 require 'csv'
 
 # read CSV file into a variable
-csv_text = File.read(Rails.root.join('lib', 'seeds', 'safwDirectory.csv'))
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'safDirectory.csv'))
 # Converts the CSV into a structure that Ruby can read.
 csv = CSV.parse(csv_text, headers: true, encoding: 'UTF-8')
 # Loop through the entire CSV file and convert each row of thr document

@@ -2,11 +2,12 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "SAFW | Conectate Carolina" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "SAF | Conectate Carolina" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Student action with farmworkers" %>">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
+    <%= favicon_link_tag asset_path('SAFLogo1-cropped.png') %>
   </head>
   <body>
     <header>
@@ -25,7 +26,7 @@
       ga('send', 'pageview');
     </script>
   </body>
-  
+
   <footer id='myFooter'>
     <%= render 'layouts/footer' %>
   </footer>
