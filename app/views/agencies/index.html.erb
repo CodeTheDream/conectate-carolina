@@ -36,7 +36,8 @@ getLocation();
       <% if params[:locale] == "en" %>
         <div class="alert alert-<%=@message.message_type%>">
           <div class="left">
-            <h4><b><%= @message.title %></b></h4>
+            <p><strong><%= @message.title %></strong><br>
+            <span style="font-style: italic;"><%= distance_of_time_in_words(@message.posted_at, Time.now)%></span></p>
             <p class="auto-links">
               <%= auto_link(@message.body, html: { target: '_blank' }) %>
             </p>
@@ -46,7 +47,8 @@ getLocation();
       <% else %>
       <div class="alert alert-<%=@message.message_type%>">
         <div class="left">
-          <h4><b><%= @message.titulo %></b></h4>
+          <p><strong><%= @message.titulo %></strong><br>
+          <span style="font-style: italic;"><%= distance_of_time_in_words(@message.posted_at, Time.now)%></span></p>
           <p class="auto-links">
             <%= auto_link(@message.cuerpo, html: { target: '_blank' }) %>
           </p>
