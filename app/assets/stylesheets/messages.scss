@@ -37,10 +37,6 @@
   border-bottom: none;
 }
 
-.time-stamp {
-  font-style: italic;
-}
-
 .separate-main {
   margin-top: 25px;
 }
@@ -120,9 +116,15 @@
   color: #f44336;
 }
 
+span.time-stamp {
+  font-style: italic;
+}
+
 p.time-stamp {
   font-style: italic;
 }
+
 p.message-body a {
   color: #2875b6;
+  font-size: inherit;
 }
