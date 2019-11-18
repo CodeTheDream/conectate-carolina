@@ -49,6 +49,9 @@ en:
     sign_up: Sign up
     edit_accnt: Edit Account
     sign_out: Sign out
+  pages:
+    privacy: Privacy Policy
+    tac: Terms & Conditions
   category:
     categories: Categories
     all_cat: List of Categories
