@@ -92,5 +92,21 @@
     </div>
 </div>
 <div class="footer-copyright">
-    <p>© 2017 Copyright</p><p>.</p><p><%= link_to (t'pages.privacy'), pages_privacy_policy_path, class: "privacy" %></p><p>.</p><p><%= link_to (t'pages.tac'), pages_terms_and_conditions_path, class: "privacy"%></p>
+    <p>© 2017 Copyright</p>
+    <p>.</p>
+    <p>
+      <% if locale == :en %>
+        <%= link_to 'Privacy Policy', pages_en_privacy_policy_path, class: "privacy" %>
+      <% elsif locale == :es %>
+        <%= link_to 'Póliza de Privacidad', pages_privacy_policy_path, class: "privacy" %>
+      <% end %>
+    </p>
+    <p>.</p>
+    <p>
+      <% if locale == :en %>
+        <%= link_to 'Terms and Conditions', pages_en_terms_and_conditions_path, class: "privacy"%>
+      <% elsif locale == :es %>
+        <%= link_to 'Términos y Condiciones', pages_terms_and_conditions_path, class: "privacy"%>
+      <% end %>
+    </p>
 </div>
