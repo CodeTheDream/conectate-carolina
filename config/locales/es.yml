@@ -29,6 +29,9 @@ es:
     sign_up: Inscribirse
     edit_accnt: Actualizar cuenta
     sign_out: Terminar sesion
+  pages:
+    privacy: Póliza de Privacidad
+    tac: Términos y Condiciones
   category:
     categories: Categorías
     all_cat: Lista de Categorias

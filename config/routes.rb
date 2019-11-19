@@ -19,7 +19,9 @@ Rails.application.routes.draw do
 		resources :faqs
 		get 'about', to: 'pages#about'
     get 'pages/privacy_policy'
+    get 'pages/en_privacy_policy'
     get 'pages/terms_and_conditions'
+    get 'pages/en_terms_and_conditions'
     get 'mobile', to: 'pages#mobile_page'
 	  get 'search', to: 'search#search'
     resources :categories
