@@ -30,8 +30,51 @@ es:
     edit_accnt: Actualizar cuenta
     sign_out: Terminar sesion
   pages:
-    privacy: Póliza de Privacidad
-    tac: Términos y Condiciones
+    privacy:
+      h2: Póliza de Privacidad
+      p1: Estudiantes en Acción con Campesinos (SAF) desarrolló Conéctate Carolina, una aplicación móvil gratuita. Este SERVICIO es proporcionado por Estudiantes en Acción con Campesinos en forma gratuita con la intención de ser utilizado de ese modo.
+      p2: Está página se utiliza para informar a los visitantes sobre nuestra póliza de recopilación, uso, y divulgación de Información Personal para los que decidan utilizar nuestro Servicio.
+      p3: Si usted elige utilizar nuestro Servicio, usted está de acuerdo en que recopilemos y usemos la información según esta póliza. La Información Personal que recopilamos se utiliza para proporcionar y mejorar el Servicio. No utilizaremos o compartiremos su información con nadie, excepto por lo descrito en esta Póliza de Privacidad.
+      p4: Los términos en esta Póliza de Privacidad tienen el mismo significado que en nuestros Términos y Condiciones, los cuales se pueden encontrar en Conéctate Carolina, a menos que se definan de otro modo en esta Póliza de Privacidad.
+
+      p5: Recopilación y Uso de Información
+      p6: Para tener una buena experiencia, mientras utilice nuestro Servicio, puede que requiramos que usted proporcione cierta información personal identificable, lo cual incluye, pero no se limita a su ubicación como sea identificada por su proveedor de GPS (sistema de posicionamiento global), su conexión wifi, y/o sus torres celulares.
+      p7: La información que solicitemos será conservada por nosotros y utilizada como se describe en esta Póliza de Privacidad.
+      p8: La aplicación utiliza servicios de terceros que pueden recopilar información utilizada para identificarlo a usted.
+      p9: Enlace a la Póliza de Privacidad de empresas externas utilizadas por la aplicación
+      p10: Servicios de Google Play
+
+      p11: Datos de registro
+      p12: Queremos informarle que al usar nuestro Servicio, si hay un error en el funcionamiento de la aplicación, recopilamos datos e información (a través de terceros) en su teléfono, lo cual se le llama datos de registro. Estos datos de registro pueden incluir información como el Protocolo de Internet (IP), nombre de su móvil, versión de su sistema operativo, la configuración de la aplicación cuando utilice nuestro Servicio, la hora y fecha cuando usó el Servicio, y otras estadísticas.
+
+      p13: Los “cookies” son archivos con unos pocos datos que comúnmente se usan como identificador singular anónimo. Estos son enviados a su navegador por sitios web que usted visite y son guardados en la memoria interna de su móvil.
+      p14: Este Servicio no utiliza estas “cookies” deliberadamente. Sin embargo, es posible que la aplicación use código de terceros y colecciones que usan “cookies” para recopilar información y mejorar sus servicios. Usted tiene la opción de aceptar o rechazar estas “cookies” y saber cuándo una de estas es enviada a su móvil. Si elige rechazar nuestras “cookies,” es posible que usted no pueda usar algunas partes de este Servicio.
+
+      p15: Proveedores de servicios
+      p16: Es posible que utilicemos empresas e individuos externos debido a las siguientes razones
+      p17: Para facilitar nuestro Servicio
+      p18: Para ofrecer el Servicio de parte nuestra
+      p19: Para ofrecer actividades relacionadas con nuestro Servicio
+      p20: o
+      p21: Para ayudarnos a analizar cómo se utiliza nuestro Servicio.
+      p22: Queremos informar a los usuarios de este Servicio que estas empresas externas tienen acceso a su Información Personal, lo cual es para realizar las tareas que les son designadas por parte nuestra. Sin embargo, se les requiere que no revelen o usen la información para cualquier otra razón.
+
+      p23: Seguridad
+      p24: Valoramos su confianza en proporcionarnos su Información Personal, por lo tanto nos esforzamos por usar medios comerciales aceptables para protegerla. Pero recuerde que ningún método de transmisión a través de internet, o de almacenaje electrónico es 100% seguro y fiable, y no podemos garantizar su seguridad absoluta.
+
+      p25: Enlaces a otros sitios
+      p26: Este Servicio puede contener enlaces a otros sitios. Si usted oprime un enlace de una empresa externa, será dirigido a ese sitio. Tome en cuenta que nosotros no manejamos esos sitios externos. Por lo tanto, le recomendamos encarecidamente que lea las Pólizas de Privacidad de esos sitios web. No tenemos control y no asumimos la responsabilidad por el contenido, pólizas de privacidad, o prácticas de cualquier sitio web o servicios de terceros.
+
+      p27: Privacidad de menores
+      p28: Estos Servicios no son dirigidos a ninguna persona que tenga menos de trece años de edad. No recopilamos información personal identificable intencionalmente de niñas/os menores de 13 años. En caso de descubrir que un/a niño/a menor de 13 años haya proporcionado su información personal, la borramos inmediatamente de nuestros servidores. Si usted es un padre/madre o tutor y sabe que su hijo/a nos ha proporcionado su información personal, por favor comuníquese con nosotros para tomar las acciones necesarias.
+
+      p29: Cambios a esta Póliza de Privacidad
+      p30: De vez en cuando es posible que actualicemos nuestra Póliza de Privacidad. De ese modo, le recomendamos que revise esta página regularmente para enterarse de cualquier cambio. Le avisaremos de cualquier cambio al publicar la nueva Póliza de Privacidad en esta página. Estos cambios tienen efecto inmediatamente después de ser publicados en esta página.
+
+      p31: Comuníquese con nosotros
+      p32: Si tiene cualquier pregunta o sugerencia sobre nuestra Póliza de Privacidad, no dude en comunicarse con nosotros al escribir a admin@saf-unite.org.
+
+      # tac: Terms & Conditions
   category:
     categories: Categorías
     all_cat: Lista de Categorias
