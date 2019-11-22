@@ -34,8 +34,11 @@
             <% end %>
           </div>
           <div class="msg-content">
-            <p><b><%= user_message.title %></b><br>
-            <span class="time-stamp"><%= distance_of_time_in_words(user_message.posted_at, Time.now)%></span></p>
+            <p>
+              <b><%= user_message.title if locale == :en %></b>
+              <b><%= user_message.titulo if locale == :es %></b><br>
+              <span class="time-stamp"><%= distance_of_time_in_words(user_message.posted_at, Time.now)%></span>
+            </p>
           </div>
         </div>
       </div>

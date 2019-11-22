@@ -50,8 +50,11 @@
                 </div>
               <% end %>
               <div class="msg-content">
-                <p><b><%= message.title %></b><br>
-                <span class="time-stamp"><%= posted_or_created %></span></p>
+                <p>
+                  <b><%= message.title if locale == :en %></b>
+                  <b><%= message.titulo if locale == :es %></b><br>
+                  <span class="time-stamp"><%= posted_or_created %></span>
+                </p>
               </div>
             </div>
             <div class="controls col-sm-5 col-md-3", id="buttons">
