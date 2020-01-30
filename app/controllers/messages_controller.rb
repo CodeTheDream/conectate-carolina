@@ -70,8 +70,8 @@ class MessagesController < ApplicationController
         {
           to: device.token,
           sound: "default",
-          title: @message.titulo,
-          body: @message.cuerpo,
+          title: device.selected_lang == 'en' ? @message.title : @message.titulo,
+          body:  device.selected_lang == 'en' ? @message.body : @message.cuerpo,
           data: {
                   id: @message.id,
                   title: { en: @message.title, es: @message.titulo },
