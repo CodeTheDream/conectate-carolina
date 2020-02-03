@@ -5,11 +5,11 @@ class Api::V1::DevicesController < ApplicationController
     @device = Device.find_by(token: params[:device][:token])
 
     if @device
-      @device = Device.create(device_params)
-      json_response(@device, :created)
-    else
       @device.update(device_params)
       json_response(@device, :updated)
+    else
+      @device = Device.create(device_params)
+      json_response(@device, :created)
     end
   end
 
