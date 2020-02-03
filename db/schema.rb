@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_19_161255) do
+ActiveRecord::Schema.define(version: 2020_01_28_173356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_09_19_161255) do
     t.string "token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "selected_lang"
   end
 
   create_table "faqs", id: :serial, force: :cascade do |t|
@@ -82,6 +83,23 @@ ActiveRecord::Schema.define(version: 2019_09_19_161255) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+  end
+
+  create_table "phone_types", force: :cascade do |t|
+    t.string "name"
+    t.string "icon"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "phones", force: :cascade do |t|
+    t.bigint "agency_id", null: false
+    t.bigint "phone_type_id", null: false
+    t.string "number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["agency_id"], name: "index_phones_on_agency_id"
+    t.index ["phone_type_id"], name: "index_phones_on_phone_type_id"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
@@ -121,6 +139,8 @@ ActiveRecord::Schema.define(version: 2019_09_19_161255) do
     t.index ["website_type_id"], name: "index_websites_on_website_type_id"
   end
 
+  add_foreign_key "phones", "agencies"
+  add_foreign_key "phones", "phone_types"
   add_foreign_key "websites", "agencies"
   add_foreign_key "websites", "website_types"
 end
