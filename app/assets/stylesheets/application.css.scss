@@ -161,8 +161,20 @@ h1 {
     //text-transform: uppercase;
     text-shadow: 1px 1px 0 rgba(#636363, 0.61)
 }
+
+.jumbotron {
+  background-color: white;
+}
+
 .jumbotron h1 {
   font-size: 42px;
+}
+
+#jumbotron {
+  padding-top: 20px;
+  margin-top: 20px;
+  margin-left: 55px;
+  margin-right: 55px;
 }
 
  .row h2 {
@@ -417,7 +429,7 @@ input, select {
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: $links_color;
+    color: #008752;
 }
 
 .navbar-default .navbar-nav > li > a:focus,
@@ -673,7 +685,9 @@ ul#faq_answer {
     background-color: #333333;
     padding-top: 3px;
     padding-bottom: 3px;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 #myFooter .row {
@@ -688,6 +702,10 @@ ul#faq_answer {
 #myFooter .footer-copyright p {
     margin: 10px;
     color: #ccc;
+}
+
+#myFooter .footer-copyright p .privacy {
+  font-size: 14px;
 }
 
 #myFooter ul {
@@ -777,4 +795,36 @@ ul#faq_answer {
 .logos#saf {
   margin: 0 34% 0 34%;
   background: white;
+}
+
+.mobile-app-links {
+  background-color: $yellow_color;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.mobile-app-links p {
+  text-align: center;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.mobile-apps{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: space-around;
+}
+
+.mobile-app-links img{
+  background-color: black;
+  border-radius: 6px;
+  max-width: 96%;
+  vertical-align: middle;
+  margin: 2px;
+  height: 48px;
 }

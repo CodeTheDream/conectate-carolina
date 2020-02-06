@@ -20,6 +20,17 @@
   border-bottom: 1px solid #8a6d3b;
 }
 
+.borders {
+  display: flex;
+  flex-direction: row;
+  border-top: 1px solid #dee2e6 !important;
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+.left-icon {
+  padding-top: 10px;
+}
+
 .message {
   position: relative;
   border: 1px solid #8a6d3b;
@@ -48,6 +59,7 @@
 
 .msg-content {
   margin-left: 10px;
+  padding-top: 5px;
 }
 
 #icons {
@@ -71,6 +83,10 @@
   background-color: LightYellow;
 }
 
+.row32:hover {
+  background-color: LightYellow;
+}
+
 .edit-delete-buttons {
   display: none;
 }
@@ -83,22 +99,32 @@
   border: dotted 1px #8a6d3b;
 }
 
-.fa-icon-success {
+.fa-icon-success a {
   color: #4CAF50;
+
 }
 
-.fa-icon-info {
+.fa-icon-info a {
   color: #2196F3;
 }
 
-.fa-icon-warning {
+.fa-icon-warning a {
   color: #ffeb3b;
 }
 
-.fa-icon-danger {
+.fa-icon-danger a {
   color: #f44336;
 }
 
-p.auto-links a {
-  font-size: 14px;
+span.time-stamp {
+  font-style: italic;
+}
+
+p.time-stamp {
+  font-style: italic;
+}
+
+p.message-body a {
+  color: #2875b6;
+  font-size: inherit;
 }

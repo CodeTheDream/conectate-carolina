@@ -23,10 +23,74 @@ es:
   nav_links:
     home: Inicio
     about: Acerca
+    mobile_app: App móvil
+
     sign_in: Iniciar sesion
     sign_up: Inscribirse
     edit_accnt: Actualizar cuenta
     sign_out: Terminar sesion
+  pages:
+    privacy:
+      h2: Póliza de Privacidad
+      p1: Estudiantes en Acción con Campesinos (SAF) desarrolló Conéctate Carolina, una aplicación móvil gratuita. Este SERVICIO es proporcionado por Estudiantes en Acción con Campesinos en forma gratuita con la intención de ser utilizado de ese modo.
+      p2: Está página se utiliza para informar a los visitantes sobre nuestra póliza de recopilación, uso, y divulgación de Información Personal para los que decidan utilizar nuestro Servicio.
+      p3: Si usted elige utilizar nuestro Servicio, usted está de acuerdo en que recopilemos y usemos la información según esta póliza. La Información Personal que recopilamos se utiliza para proporcionar y mejorar el Servicio. No utilizaremos o compartiremos su información con nadie, excepto por lo descrito en esta Póliza de Privacidad.
+      p4: Los términos en esta Póliza de Privacidad tienen el mismo significado que en nuestros Términos y Condiciones, los cuales se pueden encontrar en Conéctate Carolina, a menos que se definan de otro modo en esta Póliza de Privacidad.
+
+      p5: Recopilación y Uso de Información
+      p6: Para tener una buena experiencia, mientras utilice nuestro Servicio, puede que requiramos que usted proporcione cierta información personal identificable, lo cual incluye, pero no se limita a su ubicación como sea identificada por su proveedor de GPS (sistema de posicionamiento global), su conexión wifi, y/o sus torres celulares.
+      p7: La información que solicitemos será conservada por nosotros y utilizada como se describe en esta Póliza de Privacidad.
+      p8: La aplicación utiliza servicios de terceros que pueden recopilar información utilizada para identificarlo a usted.
+      p9: Enlace a la Póliza de Privacidad de empresas externas utilizadas por la aplicación
+      p10: Servicios de Google Play
+
+      p11: Datos de registro
+      p12: Queremos informarle que al usar nuestro Servicio, si hay un error en el funcionamiento de la aplicación, recopilamos datos e información (a través de terceros) en su teléfono, lo cual se le llama datos de registro. Estos datos de registro pueden incluir información como el Protocolo de Internet (IP), nombre de su móvil, versión de su sistema operativo, la configuración de la aplicación cuando utilice nuestro Servicio, la hora y fecha cuando usó el Servicio, y otras estadísticas.
+
+      p13: Los “cookies” son archivos con unos pocos datos que comúnmente se usan como identificador singular anónimo. Estos son enviados a su navegador por sitios web que usted visite y son guardados en la memoria interna de su móvil.
+      p14: Este Servicio no utiliza estas “cookies” deliberadamente. Sin embargo, es posible que la aplicación use código de terceros y colecciones que usan “cookies” para recopilar información y mejorar sus servicios. Usted tiene la opción de aceptar o rechazar estas “cookies” y saber cuándo una de estas es enviada a su móvil. Si elige rechazar nuestras “cookies,” es posible que usted no pueda usar algunas partes de este Servicio.
+
+      p15: Proveedores de servicios
+      p16: Es posible que utilicemos empresas e individuos externos debido a las siguientes razones
+      p17: Para facilitar nuestro Servicio
+      p18: Para ofrecer el Servicio de parte nuestra
+      p19: Para ofrecer actividades relacionadas con nuestro Servicio
+      p20: o
+      p21: Para ayudarnos a analizar cómo se utiliza nuestro Servicio.
+      p22: Queremos informar a los usuarios de este Servicio que estas empresas externas tienen acceso a su Información Personal, lo cual es para realizar las tareas que les son designadas por parte nuestra. Sin embargo, se les requiere que no revelen o usen la información para cualquier otra razón.
+
+      p23: Seguridad
+      p24: Valoramos su confianza en proporcionarnos su Información Personal, por lo tanto nos esforzamos por usar medios comerciales aceptables para protegerla. Pero recuerde que ningún método de transmisión a través de internet, o de almacenaje electrónico es 100% seguro y fiable, y no podemos garantizar su seguridad absoluta.
+
+      p25: Enlaces a otros sitios
+      p26: Este Servicio puede contener enlaces a otros sitios. Si usted oprime un enlace de una empresa externa, será dirigido a ese sitio. Tome en cuenta que nosotros no manejamos esos sitios externos. Por lo tanto, le recomendamos encarecidamente que lea las Pólizas de Privacidad de esos sitios web. No tenemos control y no asumimos la responsabilidad por el contenido, pólizas de privacidad, o prácticas de cualquier sitio web o servicios de terceros.
+
+      p27: Privacidad de menores
+      p28: Estos Servicios no son dirigidos a ninguna persona que tenga menos de trece años de edad. No recopilamos información personal identificable intencionalmente de niñas/os menores de 13 años. En caso de descubrir que un/a niño/a menor de 13 años haya proporcionado su información personal, la borramos inmediatamente de nuestros servidores. Si usted es un padre/madre o tutor y sabe que su hijo/a nos ha proporcionado su información personal, por favor comuníquese con nosotros para tomar las acciones necesarias.
+
+      p29: Cambios a esta Póliza de Privacidad
+      p30: De vez en cuando es posible que actualicemos nuestra Póliza de Privacidad. De ese modo, le recomendamos que revise esta página regularmente para enterarse de cualquier cambio. Le avisaremos de cualquier cambio al publicar la nueva Póliza de Privacidad en esta página. Estos cambios tienen efecto inmediatamente después de ser publicados en esta página.
+
+      p31: Comuníquese con nosotros
+      p32: Si tiene cualquier pregunta o sugerencia sobre nuestra Póliza de Privacidad, no dude en comunicarse con nosotros al escribir a admin@saf-unite.org.
+
+    tac:
+      h2: Términos y Condiciones
+      p1: Al descargar o utilizar la aplicación, estos términos automáticamente le afectarán a usted – por eso, debe asegurarse de leerlos detenidamente antes de utilizar la aplicación. No se permite que copie o modifique la aplicación, cualquier parte de la aplicación, o nuestras marcas registradas de una forma u otra. No se permite que trate de obtener el código fuente de la aplicación, y tampoco debe tratar de traducir la aplicación a otros idiomas, o crear versiones derivadas. La aplicación en sí, y todas las marcas registradas, derechos de autor, derechos de base de datos, y otros derechos de propiedad intelectual relacionadas, aún le pertenecen a Estudiantes en Acción con Campesinos (SAF).
+      p2: Estudiantes en Acción con Campesinos (SAF) se compromete a asegurar que la aplicación sea lo más útil y eficiente posible. Por esa razón, se reserva el derecho a hacer cambios a la aplicación o cobrar por los servicios, en cualquier momento y por cualquier razón. Nunca le cobraremos por la aplicación o sus servicios sin dejarle en claro exactamente por lo que está pagando.
+      p3: La aplicación Conéctate Carolina guarda y procesa datos personales que usted nos ha proporcionado con el fin de ofrecer nuestro Servicio. Es su responsabilidad cuidar su teléfono y evitar que otros tengan acceso a la aplicación. Por lo tanto recomendamos que no haga jailbreak o root a su teléfono, lo cual es el proceso de quitar restricciones de software y limites colocados por el sistema de operación oficial de su móvil. Esto podría hacer que su móvil sea vulnerable a malware/virus/programas malignos, que se pongan en riesgo las medidas de seguridad de su teléfono, y que la aplicación de Conéctate Carolina no funcione adecuadamente o en absoluto.
+      p4: Usted debe estar informado que hay ciertas cosas por las cuales Estudiantes en Acción con Campesinos (SAF) no se hará responsable. Ciertas funciones de la aplicación requieren que tenga una conexión a internet en funcionamiento. La conexión puede ser de wifi, o de su proveedor de red de telefonía móvil, pero Estudiantes en Acción con Campesinos (SAF) no puede hacerse responsable si no todas las características de la aplicación funcionan por no tener acceso a wifi, o si excede su límite de datos.
+      p5: Si está usando la aplicación fuera de una zona con wifi, debe recordar que los términos del acuerdo con su proveedor de red de telefonía móvil siguen siendo validos. Como resultado, es posible que su proveedor de telefonía le cobre por el costo de datos mientras esté conectado y utilice la aplicación, u otros cargos de terceros. Al usar la aplicación, usted acepta responsabilidad por cualquier cargo, incluyendo cargos por servicio de roaming si utiliza la aplicación fuera de su zona (esto es, región o país) sin apagar el servicio de roaming. Si usted no es la persona que paga el móvil que utilice para entrar a la aplicación, por favor tenga en cuenta que supondremos que usted recibió permiso del pagador para usar la aplicación.
+      p6: De la misma forma, Estudiantes en Acción con Campesinos (SAF) no siempre puede hacerse responsable por la manera en la que usted utilice la aplicación. Esto es, usted debe asegurarse de cargar su móvil – si se queda sin batería y no lo puede encender para utilizar el Servicio, Estudiantes en Acción con Campesinos (SAF) no se puede hacer responsable.
+      p7: Con respeto a la responsabilidad de Estudiantes en Acción con Campesinos (SAF) por su uso de la aplicación, es importante tener en cuenta que aunque nos esforzamos por asegurarnos de que siempre esté actualizada y la información sea correcta, nosotros dependemos de empresas externas para proporcionarnos datos para hacerlos disponibles a usted. Estudiantes en Acción con Campesinos (SAF) no acepta responsabilidad por cualquier pérdida, directa o indirecta, que usted sufra como resultado de depender totalmente en la funcionalidad de la aplicación.
+      p8: En algún momento, es posible que actualicemos la aplicación. La aplicación actualmente está disponible en Android e iOS – los requisitos de ambos sistemas (y de cualquier sistema adicional que decidamos añadir) puede cambiar, y usted deberá descargar las actualizaciones si desea seguir usando la aplicación. Estudiantes en Acción con Campesinos (SAF) no se puede comprometer a siempre actualizar la aplicación para que sea relevante para usted y/o funcione con las versiones de Android e iOS que haya instalado en su móvil. Sin embargo, usted promete aceptar las actualizaciones a la aplicación cuando estén disponibles. Puede que decidamos dejar de ofrecer la aplicación, y terminemos su uso en cualquier momento sin avisarle de su suspensión. A menos que le avisemos otra cosa, al suspenderse, se terminarán (a) los derechos y licencias concedidas a usted en estos términos; (b) usted debe dejar de usar la aplicación, y (si es necesario) usted debe borrar la aplicación de su móvil.
+
+      p9: Cambios a los Términos y Condiciones
+      p10: De vez en cuando es posible que actualicemos nuestros Términos y Condiciones. De ese modo, le recomendamos que revise esta página regularmente para enterarse de cualquier cambio. Le avisaremos de cualquier cambio al publicar los nuevos Términos y Condiciones en esta página. Estos cambios tienen efecto inmediato después de ser publicados en esta página.
+
+      p11: Comuníquese con nosotros
+      p12: Si tiene cualquier pregunta o sugerencia sobre nuestros Términos y Condiciones, no dude en comunicarse con nosotros al escribir a admin@saf-unite.org.
+
   category:
     categories: Categorías
     all_cat: Lista de Categorias
@@ -55,6 +119,9 @@ es:
     bttn_search: Buscar
   about_page:
     text: Aplicación creada por
+  mobile_page:
+    h2: Descargue la aplicación. ¡Es gratis!
+    p: Descubre los recursos en tu area. ¡Empieza ahora!
   views_index:
     h1: Organizaciones
   new_page:
@@ -96,3 +163,39 @@ es:
     nav: Preguntas Frequentes
     add: Crear Pregunta
     edit: Actualizar pregunta
+  datetime:
+    distance_in_words:
+      half_a_minute: "hace medio minuto"
+      less_than_x_seconds:
+        one:   "hace menos de 1 segundo"
+        other: "hace menos que %{count} segundos"
+      x_seconds:
+        one:   "hace 1 segundo"
+        other: "hace %{count} segundos"
+      less_than_x_minutes:
+        one:   "hace menos de un minuto"
+        other: "hace menos que %{count} minutos"
+      x_minutes:
+        one:   "hace 1 minuto"
+        other: "hace %{count} minutos"
+      about_x_hours:
+        one:   "hace 1 hora"
+        other: "hace %{count} horas"
+      x_days:
+        one:   "hace 1 día"
+        other: "hace %{count} dias"
+      about_x_months:
+        one:   "hace 1 mes"
+        other: "hace %{count} meses"
+      x_months:
+        one:   "hace 1 mes"
+        other: "hace %{count} meses"
+      about_x_years:
+        one:   "hace 1 año"
+        other: "hace %{count} años"
+      over_x_years:
+        one:   "hace más de 1 año"
+        other: "hace más de %{count} años"
+      almost_x_years:
+        one:   "hace casi 1 año"
+        other: "hace casi %{count} años"

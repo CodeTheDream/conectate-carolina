@@ -30,7 +30,7 @@
                   <% end %>
                 </li>
                 <li>
-                    <%= link_to agencies_path do %>
+                    <%= link_to faqs_path do %>
                         <%= fa_icon 'question-circle', text: 'FAQ' %>
                     <% end %>
                 </li>
@@ -92,5 +92,9 @@
     </div>
 </div>
 <div class="footer-copyright">
-    <p>© 2017 Copyright </p>
+    <p>© 2017 Copyright</p>
+    <p>.</p>
+    <p><%= link_to (t'pages.privacy.h2'), pages_privacy_policy_path, class: "privacy" %></p>
+    <p>.</p>
+    <p> <%= link_to (t'pages.tac.h2'), pages_terms_and_conditions_path, class: "privacy" %></p>
 </div>

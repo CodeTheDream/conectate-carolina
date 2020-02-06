@@ -98,6 +98,7 @@ class Agency < ApplicationRecord
       contact: self.contact,
       email: self.email,
       phone: self.phone,
+      mobile_phone: self.phone,
       latitude: self.latitude,
       longitude: self.longitude,
       description: self.description,
