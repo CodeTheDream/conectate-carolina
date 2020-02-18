@@ -1,0 +1,45 @@
+<%= form_for @faq, :html => { :class => "form-horizontal" } do |f| %>
+  <% if not @faq.nil? and @faq.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@faq.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <ul>
+        <% @faq.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group required">
+    <%= f.label(:question, class: 'control-label col-md-4') %>
+    <div class="controls col-md-8">
+      <%= f.text_field :question, class: 'input-md  textinput textInput form-control' %>
+    </div>
+  </div>
+  <div class="form-group required">
+    <%= f.label(:answer, class: 'control-label col-md-4') %>
+    <div class="controls col-md-8">
+      <%= f.text_field :answer, class: 'input-md  textinput textInput form-control' %>
+    </div>
+  </div>
+  <div class="form-group required">
+    <%= f.label(:pregunta, class: 'control-label col-md-4') %>
+    <div class="controls col-md-8">
+      <%= f.text_field :pregunta, class: 'input-md  textinput textInput form-control' %>
+    </div>
+  </div>
+  <div class="form-group required">
+    <%= f.label(:respuesta, class: 'control-label col-md-4') %>
+    <div class="controls col-md-8">
+      <%= f.text_field :respuesta, class: 'input-md  textinput textInput form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="controls col-md-8">
+      <%= button_tag type: 'submit', class: "btn btn-primary btn-info" do %>
+      <i class="fa fa-archive"></i><%= (t'buttons_t.save')%>
+      <% end %>
+    </div>
+  </div>
+<% end %> <%# end of form_for %>

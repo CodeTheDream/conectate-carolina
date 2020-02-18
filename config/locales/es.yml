@@ -161,8 +161,8 @@ es:
     new: Añadir pregunta
     h1: Preguntas Frequentes
     nav: Preguntas Frequentes
-    add: Crear Pregunta
-    edit: Actualizar pregunta
+    add: Crear Faq
+    edit: Actualizar Faq
   datetime:
     distance_in_words:
       half_a_minute: "hace medio minuto"

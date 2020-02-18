@@ -20,10 +20,10 @@ class FaqsController < ApplicationController
     @faq = Faq.new(faq_params)
     authorize @faq
     if @faq.save
-        flash[:success] = "Question Saved"
+        flash[:notice] = "Faq Saved"
         redirect_to(faqs_path)
     else
-        flash[:error] = "Question not saved"
+        flash[:error] = "Faq not saved"
         render('new')
     end
   end
@@ -37,10 +37,10 @@ class FaqsController < ApplicationController
     @faq = Faq.find(params[:id])
     authorize @faq
     if @faq.update_attributes(faq_params)
-        flash[:success] = "Question Succesfully updated"
+        flash[:notice] = "Faq updated"
         redirect_to(faqs_path)
     else
-        flash[:error] = "Question not saved"
+        flash[:error] = "Faq not updated"
     end
   end
 
@@ -48,10 +48,10 @@ class FaqsController < ApplicationController
     @faq = Faq.find(params[:id])
     authorize @faq
     if @faq.destroy
-        flash[:success] = "Question Deleted"
+        flash[:success] = "Faq Deleted"
         redirect_to faqs_path
     else
-        flash[:error] = "Error deleting the quesion"
+        flash[:error] = "Error deleting the Faq"
     end
   end
 
