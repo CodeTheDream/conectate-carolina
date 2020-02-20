@@ -71,7 +71,7 @@ RSpec.describe FaqsController, type: :controller do
 
     it "flashes a success message" do
       faq
-      expect(flash[:success]).to match("Question Deleted")
+      expect(flash[:success]).to match("Faq Deleted")
     end
 
     it "redirects to faq_url(faqs_path) after destroy" do
