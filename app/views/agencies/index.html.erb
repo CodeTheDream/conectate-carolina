@@ -30,19 +30,7 @@ function showPosition(position) {
 getLocation();
 </script>
 
-<section class="logo-header">
-  <div class="logo">
-    <%= image_tag("logo.png", :alt => "logo image") %>
-    <div class="header-text">
-      <h2><%= (t'home_page.browse') %></h2>    </div>
-  </div>
-  <div class="farm-image">
-    <%= image_tag("farm.png", :alt => "farm image") %>
-  </div>
-</section>
-
-<section class="top-background" id="top-background">
-  <!-- flash message starts here -->
+<!-- flash message starts here -->
   <% if @message.present? %>
     <div id="div1">
       <% if params[:locale] == "en" %>
@@ -71,6 +59,23 @@ getLocation();
     </div>
   <% end %>
 <!-- flash message ends -->
+
+<section class="header-container">
+  <div class="logo-wrapper">
+    <%= image_tag("logo.png", :alt => "logo image") %>
+    </div>
+    <div class="header-text">
+      <h2><%= (t'home_page.browse') %></h2>    </div>
+  </div>
+  <div class="farm-image">
+    <%= image_tag("tobacco.jpg", :alt => "tobacco field image") %>
+  </div> 
+</section>
+
+<section class="top-background" id="top-background">
+
+
+  
   <div class="header" id="section2">
     <div class="wrapper">
       <%= form_tag agencies_path(anchor: "organizations"), method: :get, class: 'form-group', id: 'agency-lookup-form', data: { behaviors: 'turboform' } do %>
