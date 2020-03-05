@@ -1,10 +1,10 @@
-<div class="separate-main">
-  <h2 class="alerts-page-title">Alert History</h2><br/>
+<div class="containers">
+  <h2 class="header-titles">Alerts</h2><br/>
 
-  <div class="ml-5">
+  <div class="row">
     <% @user_messages.each do |user_message| %>
-      <div class="row32">
-        <div class="col-md borders clickable-row" data-href=<%=user_message_path(user_message)%>>
+      <div class="panel panel-default">
+       <div class="col-md borders panel-heading clickable-row" data-href=<%=user_message_path(user_message)%>>
           <div class="left-icon">
             <% case user_message.message_type %>
             <% when "success" %>

@@ -96,10 +96,9 @@ body {
 a {
 	color: $links_color;
 	font-size: 18px;
-	// font-style: italic;
 	text-align: center;
 	text-decoration: none;
-	// all: none;
+	
 }
 
 a:hover {
@@ -124,7 +123,7 @@ a:hover {
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
-	// flex:1 1 auto;
+
 }
 
 .flex-row .caption,
@@ -144,19 +143,16 @@ a:hover {
 	min-width: 0;
 	width: 100%;
 }
-// Header index
 
-// h1 {
-// 	color: #1f201f;
-// 	font-size: 28px;
-// 	font-weight: 700;
-// 	letter-spacing: 2px;
-// 	line-height: 38px;
-// 	// margin-bottom: 24px;
-// 	text-align: center;
-// 	//text-transform: uppercase;
-// 	text-shadow: 1px 1px 0 rgba(#636363, 0.61);
-// }
+
+.header-titles{
+
+	color: #1f201f; 
+	text-align: center;
+	padding: 10px;
+
+
+}
 
 .jumbotron {
 	background-color: #eee;
