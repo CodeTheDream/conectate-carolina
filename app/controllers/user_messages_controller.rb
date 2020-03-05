@@ -1,3 +1,5 @@
+require 'rails_rinku' 
+
 class UserMessagesController < ApplicationController
   def index
     posted_messages = Message.posted

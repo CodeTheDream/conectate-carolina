@@ -3,128 +3,143 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .alert {
-  margin: 5px 10px 0 10px;
-  display: flex;
+	margin: 10px;
+	margin-top: 35px;
+	margin-bottom: 15px !important;
+	display: flex;
 }
 
 .left {
-  flex: 1;
+	flex: 1;
 }
 
 .remove button {
-  background-color: inherit;
-  border: none;
+	background-color: inherit;
+	border: none;
 }
 
 .messages {
-  border-bottom: 1px solid #8a6d3b;
+	border-bottom: 1px solid #8a6d3b;
 }
 
 .borders {
-  display: flex;
-  flex-direction: row;
-  border-top: 1px solid #dee2e6 !important;
-  border-bottom: 1px solid #dee2e6 !important;
+	display: flex;
+	flex-direction: row;
+	border-top: 1px solid #dee2e6 !important;
+	border-bottom: 1px solid #dee2e6 !important;
+	cursor: pointer;
 }
 
 .left-icon {
-  padding-top: 10px;
+	padding-top: 10px;
 }
 
 .message {
-  position: relative;
-  border: 1px solid #8a6d3b;
-  border-bottom: none;
+	position: relative;
+	border: 1px solid #8a6d3b;
+	border-bottom: none;
 }
 
 .separate-main {
-  margin-top: 25px;
+	margin-top: 50px;
+	background-color: #eee;
 }
 
 .button_to {
-  display: inline;
+	display: inline;
 }
 
 .pagination a {
-  background-color: #fbf6ee;
-  padding: 0 25px 0 25px;
+	background-color: #fbf6ee;
+	padding: 0 25px 0 25px;
 }
 
 #fa-triangle {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
-
 .msg-content {
-  margin-left: 10px;
-  padding-top: 5px;
+	margin-left: 10px;
+	padding-top: 5px;
 }
 
 #icons {
-  margin-left: 10px;
+	margin-left: 10px;
 }
 
 #buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
 }
 
 .row1 {
-  height: auto;
-  display: flex;
-  align-items: center;
-  border-bottom: none;
+	height: auto;
+	display: flex;
+	align-items: center;
+	border-bottom: none;
+}
+
+.row32 {
+	// padding-top: 10px;
+	// padding-bottom: 10px;
 }
 
 .row1:hover {
-  background-color: LightYellow;
+	background-color: LightYellow;
 }
 
 .row32:hover {
-  background-color: LightYellow;
+	background-color: LightYellow;
 }
 
 .edit-delete-buttons {
-  display: none;
+	display: none;
 }
 
 .row1:hover .edit-delete-buttons {
-  display: block;
+	display: block;
 }
 
 #active-link {
-  border: dotted 1px #8a6d3b;
+	border: dotted 1px #8a6d3b;
 }
 
 .fa-icon-success a {
-  color: #4CAF50;
-
+	color: #4caf50;
 }
 
 .fa-icon-info a {
-  color: #2196F3;
+	color: #2196f3;
 }
 
 .fa-icon-warning a {
-  color: #ffeb3b;
+	color: #ffeb3b;
 }
 
 .fa-icon-danger a {
-  color: #f44336;
+	color: #f44336;
 }
 
 span.time-stamp {
-  font-style: italic;
+	font-style: italic;
 }
 
 p.time-stamp {
-  font-style: italic;
+	font-style: italic;
 }
 
 p.message-body a {
-  color: #2875b6;
-  font-size: inherit;
+	color: #2875b6;
+	font-size: inherit;
+}
+
+.active-inactive a {
+	color: #1d90ff;
+}
+
+.btn btn-sm btn-secondary i {
+	color: red;
 }

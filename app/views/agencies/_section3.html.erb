@@ -2,7 +2,11 @@
 
   <!-- FIXME: fix styling to show the text below-->
   <% if @distance.nil? %>
-    <h1 id="organizations"><%= (t'footer.organizations')%></h1>
+    <%
+=begin%>
+ <h1 id="organizations"><%= (t'footer.organizations')%></h1> 
+<%
+=end%>
   <% elsif @agencies.size == 0 %>
     <div class="alert alert-danger">
       <strong>Oh nó!</strong> Al parecer no encontramos organizaciones con tus requisitos. Trata de buscar por categoria ó ciudad.
