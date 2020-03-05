@@ -5,17 +5,17 @@ es:
   activerecord:
     attributes:
       agency:
-        name: "Nombre de la organizacion:"
-        address: "Direccion:"
-        city: "Ciudad:"
-        state: "Estado:"
-        zipcode: "Codigo Postal"
-        contact: "Persona de contacto:"
-        email: "Correo Electronico:"
-        phone: "Numeros de telefono:"
-        mobile_phone: "Telefonos celular:"
-        description: "Description(eng):"
-        descripcion: "Descripción:"
+        name: 'Nombre de la organizacion:'
+        address: 'Direccion:'
+        city: 'Ciudad:'
+        state: 'Estado:'
+        zipcode: 'Codigo Postal'
+        contact: 'Persona de contacto:'
+        email: 'Correo Electronico:'
+        phone: 'Numeros de telefono:'
+        mobile_phone: 'Telefonos celular:'
+        description: 'Description(eng):'
+        descripcion: 'Descripción:'
       category:
         categories: Categorias
       message:
@@ -24,11 +24,11 @@ es:
     home: Inicio
     about: Acerca
     mobile_app: App móvil
-
     sign_in: Iniciar sesion
     sign_up: Inscribirse
     edit_accnt: Actualizar cuenta
     sign_out: Terminar sesion
+    alerts: Alertas
   pages:
     privacy:
       h2: Póliza de Privacidad
@@ -115,7 +115,7 @@ es:
     update: Organización actualizada!
   search_page:
     search: Buscar a través de organizaciones
-    plchldr_search: "Buscar: Educacion, Servicios, Salud... "
+    plchldr_search: 'Buscar: Educacion, Servicios, Salud... '
     bttn_search: Buscar
   about_page:
     text: Aplicación creada por
@@ -127,20 +127,20 @@ es:
   new_page:
     h1: Crear Organización
     submit: Crear Organización
-    fill_fields: "Llena las siguientes columnas"
+    fill_fields: 'Llena las siguientes columnas'
   edit_page:
-   h1: Actualizar Organización
-   submit: Guardar cambios
+    h1: Actualizar Organización
+    submit: Guardar cambios
   show_page:
-    address: "Direccion:"
-    state: "Estado:"
-    city: "Ciudad:"
-    zip: "Codigo postal:"
-    contact: "Contacto:"
-    phone: "Numeros De telefono:"
-    description: "Descripcion:"
-    websites: "Sitios web"
-    title: "Titulo:"
+    address: 'Direccion:'
+    state: 'Estado:'
+    city: 'Ciudad:'
+    zip: 'Codigo postal:'
+    contact: 'Contacto:'
+    phone: 'Numeros De telefono:'
+    description: 'Descripcion:'
+    websites: 'Sitios web'
+    title: 'Titulo:'
   buttons_t:
     back: Atras
     edit: Actualizar
@@ -149,10 +149,10 @@ es:
     all_org: Todas las organizaciones
   plchldr_forms:
     name: Nombre
-    address: "123 main street"
+    address: '123 main street'
     city: Raleigh
     state: Ej. NC
-    zipcode: "27516"
+    zipcode: '27516'
   footer:
     about: Acerca
     organizations: Organizaciones
@@ -165,37 +165,37 @@ es:
     edit: Actualizar Faq
   datetime:
     distance_in_words:
-      half_a_minute: "hace medio minuto"
+      half_a_minute: 'hace medio minuto'
       less_than_x_seconds:
-        one:   "hace menos de 1 segundo"
-        other: "hace menos que %{count} segundos"
+        one: 'hace menos de 1 segundo'
+        other: 'hace menos que %{count} segundos'
       x_seconds:
-        one:   "hace 1 segundo"
-        other: "hace %{count} segundos"
+        one: 'hace 1 segundo'
+        other: 'hace %{count} segundos'
       less_than_x_minutes:
-        one:   "hace menos de un minuto"
-        other: "hace menos que %{count} minutos"
+        one: 'hace menos de un minuto'
+        other: 'hace menos que %{count} minutos'
       x_minutes:
-        one:   "hace 1 minuto"
-        other: "hace %{count} minutos"
+        one: 'hace 1 minuto'
+        other: 'hace %{count} minutos'
       about_x_hours:
-        one:   "hace 1 hora"
-        other: "hace %{count} horas"
+        one: 'hace 1 hora'
+        other: 'hace %{count} horas'
       x_days:
-        one:   "hace 1 día"
-        other: "hace %{count} dias"
+        one: 'hace 1 día'
+        other: 'hace %{count} dias'
       about_x_months:
-        one:   "hace 1 mes"
-        other: "hace %{count} meses"
+        one: 'hace 1 mes'
+        other: 'hace %{count} meses'
       x_months:
-        one:   "hace 1 mes"
-        other: "hace %{count} meses"
+        one: 'hace 1 mes'
+        other: 'hace %{count} meses'
       about_x_years:
-        one:   "hace 1 año"
-        other: "hace %{count} años"
+        one: 'hace 1 año'
+        other: 'hace %{count} años'
       over_x_years:
-        one:   "hace más de 1 año"
-        other: "hace más de %{count} años"
+        one: 'hace más de 1 año'
+        other: 'hace más de %{count} años'
       almost_x_years:
-        one:   "hace casi 1 año"
-        other: "hace casi %{count} años"
+        one: 'hace casi 1 año'
+        other: 'hace casi %{count} años'

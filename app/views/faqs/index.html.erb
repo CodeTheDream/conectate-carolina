@@ -1,7 +1,7 @@
-<div class="container">
+<div class="containers">
   <% content_for :title do %><%=(t'faq.nav') %> | Conectate Carolina<% end %>
   <div class="row">
-    <h1><%= (t'faq.h1') %></h1>
+    <h1 class='header-titles'><%= (t'faq.h1') %></h1>
     <% @faqs.each do |question| %>
       <% if params[:locale] == "en" %>
       <div class="panel panel-default">
