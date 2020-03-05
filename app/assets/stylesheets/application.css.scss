@@ -62,11 +62,7 @@ body {
 	margin-top: 50px;
 	color: #656b75;
 }
-// section {
-// 	padding-top: 0;
-// 	padding-bottom: 40px;
-// 	min-height: 20vh;
-// }
+
 #section2 {
 	margin-top: 0px;
 	color: #686868;
@@ -115,19 +111,10 @@ a:hover {
 	margin-top: 30px;
 }
 
-.agencies-body {
-	/* fallback */
-	// background-color: rgba(#1a82f7, 0.69);
-}
-// Flex
-
 .flex-row {
 	display: -ms-flex;
 	display: -webkit-flex;
 	display: flex;
-	// flex-wrap: wrap;
-	// justify-content: center;
-	// align-content: stretch;
 	flex-flow: row wrap;
 }
 
@@ -159,20 +146,20 @@ a:hover {
 }
 // Header index
 
-h1 {
-	color: #1f201f;
-	font-size: 28px;
-	font-weight: 700;
-	letter-spacing: 2px;
-	line-height: 38px;
-	// margin-bottom: 24px;
-	text-align: center;
-	//text-transform: uppercase;
-	text-shadow: 1px 1px 0 rgba(#636363, 0.61);
-}
+// h1 {
+// 	color: #1f201f;
+// 	font-size: 28px;
+// 	font-weight: 700;
+// 	letter-spacing: 2px;
+// 	line-height: 38px;
+// 	// margin-bottom: 24px;
+// 	text-align: center;
+// 	//text-transform: uppercase;
+// 	text-shadow: 1px 1px 0 rgba(#636363, 0.61);
+// }
 
 .jumbotron {
-	background-color: white;
+	background-color: #eee;
 }
 
 .jumbotron h1 {
@@ -181,7 +168,7 @@ h1 {
 
 #jumbotron {
 	padding-top: 20px;
-	margin-top: 20px;
+	margin-top: 75px;
 	margin-left: 55px;
 	margin-right: 55px;
 }
@@ -243,9 +230,6 @@ address {
 	margin-top: 50px;
 	position: relative;
 }
-// #farm-background {
-//   opacity: 0.9;
-// }
 
 .header {
 	padding: 40px 10px 10px 10px;
@@ -258,11 +242,11 @@ address {
 }
 
 // Manual Changes when using a phone
+
 @media screen and (max-width: 480px) {
 	.top-background h1 {
 		font-size: 42px;
 		color: whitesmoke;
-		// margin-top: 100px;
 	}
 	.top-background h2 {
 		font-size: 28px;
@@ -378,14 +362,6 @@ select {
 	background: #fff;
 	box-shadow: 1px 5px 5px 0 rgba(0, 0, 0, 0.16), 0 7px 7px 0 rgba(0, 0, 0, 0.12);
 }
-
-// .well-agency a {
-//     text-decoration: none;
-//     color: $links_color;
-//     font-size: 14px;
-//     // font-style: italic;
-//     text-align: center;
-// }
 
 .well-agency a:hover {
 	color: $links_color_hover;
@@ -628,16 +604,24 @@ select {
 	height: 40px;
 	border-radius: 0;
 }
-// bootsrap css
-// .panel-body {
-// }
-// Sidebar CSS
 
 .close {
 	font-size: 27px;
 }
 
 ////////// CSS for the styling of the FAQ page.////////////////
+
+.faq-title{
+	color: #1f201f;
+	font-size: 28px;
+	font-weight: 700;
+	letter-spacing: 2px;
+	line-height: 38px;
+	margin-top: 50px;
+	text-align: center;
+	//text-transform: uppercase;
+	text-shadow: 1px 1px 0 rgba(#636363, 0.61);
+}
 
 .category_spacer {
 	margin-top: 20px;
@@ -798,15 +782,15 @@ ul#faq_answer {
 	}
 }
 
-.logos#ctd {
+.logos {
 	margin: 0 34% 0 34%;
-	background: whitesmoke;
-	padding: 12px;
+	max-width: 325px;
 }
 
-.logos#saf {
-	margin: 0 34% 0 34%;
-	background: white;
+.logo-container {
+	display: grid;
+	padding-top: 5%;
+	grid-gap: 25%;
 }
 
 .mobile-app-links {
@@ -864,7 +848,6 @@ ul#faq_answer {
 		width: auto;
 	}
 	.header-text {
-		
 		color: #656b75;
 		width: auto;
 		margin-left: 9px;
@@ -872,7 +855,7 @@ ul#faq_answer {
 	}
 
 	.logo-wrapper img {
-	margin-top: 25px;
+		margin-top: 25px;
 		width: 350px;
 		padding: 10px;
 	}
@@ -915,7 +898,6 @@ ul#faq_answer {
 		padding-left: 0;
 		margin-right: auto;
 		margin-left: auto;
-		
 	}
 
 	main {
@@ -945,3 +927,16 @@ ul#faq_answer {
 		margin-top: 20px;
 	}
 }
+
+.alerts-page-title{
+color: $main_green;
+text-align: center;
+};
+
+.about-page-title{
+color: $main_green;
+text-align: center;
+padding: 25px;
+
+}
+
