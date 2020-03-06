@@ -49,6 +49,7 @@ en:
     sign_up: Sign up
     edit_accnt: Edit Account
     sign_out: Sign out
+    alerts: Alerts
   pages:
     privacy:
       h2: Privacy Policy

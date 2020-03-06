@@ -96,10 +96,8 @@ body {
 a {
 	color: $links_color;
 	font-size: 18px;
-	// font-style: italic;
 	text-align: center;
 	text-decoration: none;
-	// all: none;
 }
 
 a:hover {
@@ -124,7 +122,6 @@ a:hover {
 	display: -ms-flexbox;
 	display: -webkit-flex;
 	display: flex;
-	// flex:1 1 auto;
 }
 
 .flex-row .caption,
@@ -144,19 +141,12 @@ a:hover {
 	min-width: 0;
 	width: 100%;
 }
-// Header index
 
-// h1 {
-// 	color: #1f201f;
-// 	font-size: 28px;
-// 	font-weight: 700;
-// 	letter-spacing: 2px;
-// 	line-height: 38px;
-// 	// margin-bottom: 24px;
-// 	text-align: center;
-// 	//text-transform: uppercase;
-// 	text-shadow: 1px 1px 0 rgba(#636363, 0.61);
-// }
+.header-titles {
+	color: #1f201f;
+	text-align: center;
+	padding: 10px;
+}
 
 .jumbotron {
 	background-color: #eee;
@@ -611,7 +601,7 @@ select {
 
 ////////// CSS for the styling of the FAQ page.////////////////
 
-.faq-title{
+.faq-title {
 	color: #1f201f;
 	font-size: 28px;
 	font-weight: 700;
@@ -928,15 +918,10 @@ ul#faq_answer {
 	}
 }
 
-.alerts-page-title{
-color: $main_green;
-text-align: center;
-};
-
-.about-page-title{
-color: $main_green;
-text-align: center;
-padding: 25px;
-
+.panel-default {
+	display: flex;
+	flex-direction: column;
+	margin-left: 10px;
+	margin-right: 10px;
+	box-shadow: 0 1px 1px rgba(204, 19, 19, 0);
 }
-
