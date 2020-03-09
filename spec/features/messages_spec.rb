@@ -12,11 +12,11 @@ RSpec.feature "Messages", type: :feature, js: true do
     expect(page).to_not have_text "Alert!"
   end
 
-  scenario "displays user messages when visitor clicks `bell` icon" do
+  scenario "hides alert flash message when visitor clicks `X` icon" do
     visit root_path(locale: 'en')
     click_button 'my_x_button' #hides message
-    click_link 'my_icon_link'   #displays user_messages
-    expect(page).to have_text "Alert History"
+    # click_link 'my_icon_link'   #displays user_messages
+    expect(page).to have_text "Alerts"
   end
 
   scenario "displays list of messages" do
