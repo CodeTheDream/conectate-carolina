@@ -10,7 +10,7 @@ feature 'Home page' do
   #   Then I see "Welcome"
   scenario 'visit the home page' do
     visit root_path(locale: 'en')
-    expect(page).to have_content 'CONECTATE'
+    expect(page).to have_content 'Directory of organizations and services in North Carolina'
   end
 
 end
