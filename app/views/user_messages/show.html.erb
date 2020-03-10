@@ -1,6 +1,14 @@
-<div class="jumbotron" id="jumbotron">
-  <p><strong><%= @user_message.title%></strong><br>
-  <span class="time-stamp"><%= @user_message.posted_at.strftime("%b %d, %Y %I:%M %p")%></span></p>
-  <p class="message-body"><%= auto_link(@user_message.body, html: {target: '_blank'}) %></p>
-  <%= link_to "Back", user_messages_path, class: "btn btn-info"  %>
+<div class="containers">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p><b><%= @user_message.title%></b><br/>
+        <span class="time-stamp"><%= @user_message.posted_at.strftime("%b %d, %Y %I:%M %p")%></span></p>
+        <p class="message-body"><%= auto_link(@user_message.body, html: {target: '_blank'}) %></p>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <%= link_to "Back", user_messages_path, class: "btn btn-success"  %>
+    </div>
+  </div>
 </div>
