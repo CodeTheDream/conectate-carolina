@@ -2,9 +2,29 @@
   <div class="row">
     <div class="panel panel-default">
       <div class="panel-body">
-        <p><b><%= @user_message.title%></b><br/>
-        <span class="time-stamp"><%= @user_message.posted_at.strftime("%b %d, %Y %I:%M %p")%></span></p>
-        <p class="message-body"><%= auto_link(@user_message.body, html: {target: '_blank'}) %></p>
+        <% if locale == :en %>
+          <p><b><%= @user_message.title%></b><br/>
+          <%= @user_message.posted_at.strftime('%b %d, %I:%M %p') %></p>
+          <p class="message-body"><%= auto_link(@user_message.body, html: {target: '_blank'}) %></p>
+
+        <% elsif locale == :es %>
+          <% @month_short_name = @user_message.posted_at.strftime('%b')
+             @second_part      = @user_message.posted_at.strftime('%d, %I:%M %p') %>
+          <p><b><%= @user_message.titulo%></b><br/>
+          <% case @month_short_name %>
+          <% when 'Jan' %>
+            ene <%= @second_part %></p>
+          <% when 'Apr' %>
+            abr <%= @second_part %></p>
+          <% when 'Aug' %>
+            ago <%= @second_part %></p>
+          <% when 'Dec' %>
+            dic <%= @second_part %></p>
+          <% else %>
+            <%= @user_message.posted_at.strftime('%b').downcase %> <%= @second_part %></p>
+          <% end %>
+          <p class="message-body"><%= auto_link(@user_message.cuerpo, html: {target: '_blank'}) %></p>
+        <% end %>
       </div>
     </div>
     <div class="panel panel-default">
