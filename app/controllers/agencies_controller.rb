@@ -32,7 +32,7 @@ class AgenciesController < ApplicationController
 		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
 	  	marker.lat agency.latitude
 			marker.lng agency.longitude
-			marker.infowindow agency.name
+			marker.infowindow "<a href='/#{params[:locale]}/agencies/#{agency.id}'>#{agency.name}</a>"
 		end
 		@categories = Category.all
     @message = Message.posted.order(updated_at: :desc).first
@@ -66,7 +66,7 @@ class AgenciesController < ApplicationController
     @hash = Gmaps4rails.build_markers(@agency) do |agency, marker|
       marker.lat agency.latitude
       marker.lng agency.longitude
-      marker.infowindow agency.name
+      marker.infowindow "<a href='https://www.google.com/maps/dir/Current+Location/#{agency.full_address}' targe='_blank'>#{agency.name}</a>"
     end
   end
 

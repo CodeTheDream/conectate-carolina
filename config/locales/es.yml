@@ -100,6 +100,7 @@ es:
     cat_view1: categoria
     sidebar: Ver todas las categorías
   message:
+    title: Alertas
     messages: Mensajes
     all_msg: Mensajes
     new_msg: Crear Mensaje
@@ -161,8 +162,8 @@ es:
     new: Añadir pregunta
     h1: Preguntas Frequentes
     nav: Preguntas Frequentes
-    add: Crear Faq
-    edit: Actualizar Faq
+    add: Crear FAQ
+    edit: Actualizar FAQ
   datetime:
     distance_in_words:
       half_a_minute: 'hace medio minuto'

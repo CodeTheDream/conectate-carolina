@@ -121,6 +121,7 @@ en:
     cat_view1: category
     sidebar: See all categories
   message:
+    title: Alerts
     messages: Messages
     all_msg: Messages
     new_msg: Create Message
@@ -153,7 +154,7 @@ en:
    h1: Edit Organization
    submit: Save changes
   show_page:
-    address: "Organization Address:"
+    address: "Direction:"
     state: "State:"
     city: "City:"
     zip: "Zip code:"
@@ -185,5 +186,5 @@ en:
     new: Add a Question
     h1: Frequently Asked Questions
     nav: FAQ
-    add: Create Faq
-    edit: Update Faq
+    add: Create FAQ
+    edit: Update FAQ

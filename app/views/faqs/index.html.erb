@@ -6,10 +6,11 @@
       <% if params[:locale] == "en" %>
       <div class="panel panel-default">
         <div class="panel-heading"><span class="faq_edit">
+          <h4><%= (question.question) %>
           <% if policy(Faq).new? %>
-            <%= link_to (t'buttons_t.edit'), edit_faq_path(question) %></span>
+            <%= link_to (t'buttons_t.edit'), edit_faq_path(question) %></h4>
           <% end %>
-          <h4><%= (question.question) %></h4>
+
         </div>
         <div class="panel-body">
           <ul>
@@ -19,11 +20,11 @@
       </div>
       <% else %>
       <div class="panel panel-default">
-        <div class="panel-heading"><span class="faq_edit">
+        <div class="panel-heading">
+          <h4><%= (question.pregunta) %>
           <% if policy(Faq).new? %>
-            <%= link_to (t'buttons_t.edit'), edit_faq_path(question) %></span>
+            <%= link_to (t'buttons_t.edit'), edit_faq_path(question) %></h4>
           <% end %>
-          <h4><%= (question.pregunta) %></h4>
         </div>
         <div class="panel-body">
           <ul>
@@ -35,6 +36,6 @@
     <% end %>
     </div>
     <% if policy(Faq).new? %>
-      <%= link_to "New Question", new_faq_path %>
+      <%= link_to "New Question", new_faq_path, class: "btn btn-success" %>
     <% end %>
 </div>
