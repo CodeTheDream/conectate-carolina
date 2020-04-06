@@ -154,7 +154,7 @@ en:
    h1: Edit Organization
    submit: Save changes
   show_page:
-    address: "Direction:"
+    address: "Address:"
     state: "State:"
     city: "City:"
     zip: "Zip code:"
