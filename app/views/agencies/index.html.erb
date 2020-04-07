@@ -61,7 +61,7 @@ getLocation();
 <!-- flash message ends -->
 
 <section class="header-container">
-  <%= render partial: 'app/covid19/header_container' %>
+  <%= render partial: "app/#{ENV['APP_NAME']}/header_container" %>
 </section>
 
 <section class="top-background" id="top-background">

@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-sm-3">
+        <%# (t'footer.brand')%>
+        <% if params[:locale] == "en" %>
+            <p>Web Application <%= fa_icon "code", text: ('by Jorge and Fernando.')%>
+            Thank you to our mentors Ramiro and Lyly.</p>
+        <% else %>
+            <p>Aplicación web <%= fa_icon "code", text: ('de Jorge y Fernando.')%>
+            Gracias a nuestros mentores Ramiro y Lyly.</p>
+        <% end %>
+        <%= image_tag 'http://forthebadge.com/images/badges/made-with-ruby.svg' %>
+    </div>
+    <div class="col-sm-2">
+      <% if params[:locale] == "en" %>
+        <h5>Get started</h5>
+      <% else %>
+        <h5>Comencémos</h5>
+      <% end %>
+        <ul>
+            <li>
+              <% if params[:locale] == "en" %>
+                <%= link_to agencies_path do %>
+                    <%= fa_icon 'home', text: ('Home') %>
+                <% end %>
+              <% else %>
+                <%= link_to agencies_path do %>
+                    <%= fa_icon 'home', text: ('Inicio') %>
+                <% end %>
+              <% end %>
+            </li>
+            <li>
+                <%= link_to faqs_path do %>
+                    <%= fa_icon 'question-circle', text: 'FAQ' %>
+                <% end %>
+            </li>
+        </ul>
+    </div>
+    <div class="col-sm-2">
+      <% if params[:locale] == "en" %>
+        <h5>About Us</h5>
+      <% else %>
+        <h5>Sobre nosotros</h5>
+      <% end %>
+        <ul>
+            <li><a href="https://www.codethedream.org/">Code the Dream</a></li>
+            <li><a href="http://www.saf-unite.org/">Student Action with Farmworkers</a></li>
+        </ul>
+    </div>
+    <div class="col-sm-2">
+      <% if params[:locale] == "en" %>
+        <h5>Support</h5>
+      <% else %>
+        <h5>Apoyo</h5>
+      <% end %>
+        <ul>
+            <li>
+            <%= link_to agencies_path do %>
+                <%= fa_icon 'home', text: (t'footer.organizations') %>
+            <% end %>
+            <%# link_to (t'footer.organizations'), agencies_path %>
+            </li>
+            <% if user_signed_in? %>
+              <li>
+              <%= link_to edit_user_registration_path do %>
+                  <%= fa_icon 'edit', text: (t'nav_links.edit_accnt') %>
+              <% end %>
+              <%# link_to (t'nav_links.edit_accnt'), edit_user_registration_path %>
+              </li>
+              <li>
+              <%= link_to destroy_user_session_path, method: 'delete' do %>
+                  <%= fa_icon 'trash', text: (t'nav_links.sign_out') %>
+              <% end %>
+              <%# link_to (t'nav_links.sign_out'), destroy_user_session_path, :method=>'delete' %>
+              </li>
+            <% else %>
+              <li><%= link_to (t'nav_links.sign_in'), new_user_session_path %></li>
+              <li><%= link_to (t'nav_links.sign_up'), new_user_registration_path %></li>
+            <% end %>
+        </ul>
+    </div>
+    <div class="col-sm-3">
+    <!--
+        <div class="social-networks">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+        </div>
+        <button type="button" class="btn btn-default">Contact us</button>
+    -->
+    </div>
+</div>
