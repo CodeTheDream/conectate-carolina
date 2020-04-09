@@ -1,0 +1,39 @@
+<% content_for :title do %><%=(t'faq.nav') %> | Conectate Carolina<% end %>
+<div class="row">
+  <h1 class='header-titles'><%= (t'faq.h1') %></h1>
+  <% @faqs.each do |question| %>
+    <% if params[:locale] == "en" %>
+    <div class="panel panel-default">
+      <div class="panel-heading"><span class="faq_edit">
+        <h4><%= (question.question) %>
+        <% if policy(Faq).new? %>
+          <%= link_to (t'buttons_t.edit'), edit_faq_path(question) %></h4>
+        <% end %>
+
+      </div>
+      <div class="panel-body">
+        <ul>
+          <li class="break-links"><%= markdown(question.answer)%></li>
+        </ul>
+      </div>
+    </div>
+    <% else %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4><%= (question.pregunta) %>
+        <% if policy(Faq).new? %>
+          <%= link_to (t'buttons_t.edit'), edit_faq_path(question) %></h4>
+        <% end %>
+      </div>
+      <div class="panel-body">
+        <ul>
+          <li class="break-links"><%= markdown(question.respuesta)%></li>
+        </ul>
+      </div>
+    </div>
+      <% end %>
+  <% end %>
+  </div>
+  <% if policy(Faq).new? %>
+    <%= link_to "New Question", new_faq_path, class: "btn btn-success" %>
+  <% end %>

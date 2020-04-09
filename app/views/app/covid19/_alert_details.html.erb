@@ -1,0 +1,11 @@
+<% if locale == :en %>
+  <p><b><%= @user_message.title%></b><br/>
+  <%= @user_message.posted_at.strftime('%b %d, %I:%M %p') %></p>
+  <p class="message-body"><%= auto_link(@user_message.body, html: {target: '_blank'}) %></p>
+
+<% elsif locale == :es %>
+  <p><b><%= @user_message.titulo%></b><br/>
+  <%= I18n.l(@user_message.posted_at, format: '%b %d, %I:%M %p', locale: 'es-US') %></p>
+  <p class="message-body"><%= auto_link(@user_message.cuerpo, html: {target: '_blank'}) %></p>
+
+<% end %>

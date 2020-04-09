@@ -4,7 +4,6 @@
   <p><%= (t'mobile_page.p') %></p>
 
   <div class="mobile-apps">
-    <%= link_to image_tag("https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg"), "https://apps.apple.com/us/app/conectate-carolina/id1482007406?ls=1"%>
-    <%= link_to image_tag("https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"), "https://play.google.com/store/apps/details?id=com.CodetheDream.ConectateCarolina" %>
+    <%= render "app/#{ENV['APP_NAME']}/mobile_app" %>
   </div>
 </div>

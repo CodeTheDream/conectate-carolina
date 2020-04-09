@@ -11,7 +11,7 @@
   </head>
   <body>
     <header>
-      <%= render 'layouts/navigation' %>
+      <%= render "app/#{ENV['APP_NAME']}/navigation" %>
     </header>
     <main role="main">
        <%= render 'layouts/messages' %>
@@ -27,7 +27,6 @@
     </script>
   </body>
 
-  <footer id='myFooter'>
-    <%= render 'layouts/footer' %>
-  </footer>
+  <%= render "app/#{ENV['APP_NAME']}/app_footer" %>
+
 </html>
