@@ -1,16 +1,24 @@
 class Api::V1::DevicesController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: [:create]
+  skip_before_action :verify_authenticity_token, only: [:create, :update]
 
+  # POST /todos
   def create
     @device = Device.find_by(token: params[:device][:token])
 
-    if @device
-      @device.update(device_params)
-      head :no_content
+    @device = Device.create!(device_params) if @device.nil?
+    json_response(@device, :created)
+  end
+
+    # PUT /devices/:id
+  def update
+    @device = Device.find_by(token: params[:device][:token])
+
+    if @device.update(selected_lang: params[:device][:selected_lang])
+      render json: {id: @device.id, success: true, status: status, selected_lang: @device.selected_lang}
     else
-      @device = Device.create(device_params)
-      json_response(@device, :created)
+      render json: { error: { message: 'could not update' } }, status: 400
     end
+
   end
 
 

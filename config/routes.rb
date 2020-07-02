@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 			resources :faqs,       only: [:index]
 			resources :categories, only: [:index]
 			resources :agencies,   only: [:index]
-			resources :devices,    only: [:create]
+			resources :devices,    only: [:create, :update]
 			resources :messages,   only: [:index]
 		end
 	end
