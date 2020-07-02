@@ -5,8 +5,8 @@ class Api::V1::DevicesController < ApplicationController
     @device = Device.find_by(token: params[:device][:token])
 
     if @device
-      @device.update(selected_lang: params[:device][:selected_lang])
-      json_response(@device, :updated)
+      @device.update(device_params)
+      head :no_content
     else
       @device = Device.create(device_params)
       json_response(@device, :created)
