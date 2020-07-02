@@ -7,10 +7,6 @@ Rails.application.routes.draw do
 			resources :devices,    only: [:create]
 			resources :messages,   only: [:index]
 		end
-
-		namespace :v2 do
-			resources :devices, only: [:create]
-		end
 	end
 
 	scope ":locale", locale:  /en|es/ do

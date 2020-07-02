@@ -84,7 +84,7 @@ class MessagesController < ApplicationController
       end
 
       begin
-        client.publish messages
+        client.send_messages messages
       rescue Exponent::Push::UnknownError => e
         Rails.logger.info e.message
       end
