@@ -2,9 +2,9 @@
   <p>
     <strong><%= @message.title%></strong><br>
     <% if @message.posted_at? %>
-      <span class="time-stamp"><%= @message.posted_at.strftime("%b %d, %Y %I:%M %p")%></span>
+      <span class="time-stamp"><%= @message.posted_at.in_time_zone("Eastern Time (US & Canada)").strftime("%b %d, %Y %I:%M %p")%></span>
     <% else %>
-      <span class="time-stamp"><%= @message.created_at.strftime("%b %d, %Y %I:%M %p")%> (created)</span>
+      <span class="time-stamp"><%= @message.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%b %d, %Y %I:%M %p")%> (created)</span>
     <% end %>
   </p>
   <p class="message-body"><%= auto_link(@message.body, html: {target: '_blank'}) %></p>

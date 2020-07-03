@@ -1,6 +1,6 @@
 <% if locale == :en %>
   <p><b><%= @user_message.title%></b><br/>
-  <%= @user_message.posted_at.strftime('%b %d, %I:%M %p') %></p>
+  <%= @user_message.posted_at.in_time_zone("Eastern Time (US & Canada)").strftime('%b %d, %I:%M %p') %></p>
   <p class="message-body"><%= auto_link(@user_message.body, html: {target: '_blank'}) %></p>
 
 <% elsif locale == :es %>
