@@ -62,31 +62,29 @@ class MessagesController < ApplicationController
     authorize @message
     if !@message.posted? && @message.posted_at.nil?
       @message.update(posted: true, posted_at: Time.zone.now)
-
-      devices = Device.all
       client = Exponent::Push::Client.new
-      messages = []
-      messages = devices.map do |device|
-        {
-          to: device.token,
-          sound: "default",
-          title: device.selected_lang == 'en' ? @message.title : @message.titulo,
-          body:  device.selected_lang == 'en' ? @message.body : @message.cuerpo,
-          data: {
-                  id: @message.id,
-                  title: { en: @message.title, es: @message.titulo },
-                  body: { en: @message.body,  es: @message.cuerpo },
-                  message_type: @message.message_type,
-                  updated_at: @message.updated_at,
-                  posted_at: @message.posted_at
-                }
-        }
-      end
-
-      begin
-        client.send_messages messages
-      rescue Exponent::Push::UnknownError => e
-        Rails.logger.info e.message
+      messages = Device.find_in_batches(batch_size: 100) do |group|
+        messages = group.map do |device|
+          {
+            to: device.token,
+            sound: "default",
+            title: device.selected_lang == 'en' ? @message.title : @message.titulo,
+            body:  device.selected_lang == 'en' ? @message.body : @message.cuerpo,
+            data: {
+                    id: @message.id,
+                    title: { en: @message.title, es: @message.titulo },
+                    body: { en: @message.body,  es: @message.cuerpo },
+                    message_type: @message.message_type,
+                    updated_at: @message.updated_at,
+                    posted_at: @message.posted_at
+                  }
+          }
+        end
+        begin
+          client.send_messages messages
+        rescue Exponent::Push::UnknownError => e
+          Rails.logger.info e.message
+        end
       end
 
       flash[:notice] = "Message posted."
