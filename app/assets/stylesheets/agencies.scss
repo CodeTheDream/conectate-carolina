@@ -39,3 +39,8 @@ p.auto-links a {
   color: inherit;
   font-size: inherit;
 }
+
+label.required:after {
+    content: " *";
+    color: red;
+}

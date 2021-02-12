@@ -11,78 +11,78 @@
   <% end %>
 
   <div class="form-group required">
-    <%= f.label( Agency.human_attribute_name("name"), class: 'control-label col-md-4') %>
+    <%= f.label "Name", class: 'required control-label col-md-4' %>
     <div class="controls col-md-8">
-      <%= f.text_field :name, class: 'input-md  textinput textInput form-control' %>
+      <%= f.text_field :name, placeholder: 'name', class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <div class="form-group required">
-    <%= f.label( Agency.human_attribute_name("address"), class: 'control-label col-md-4') %>
+    <%= f.label "Address", class: 'control-label col-md-4' %>
     <div class="controls col-md-8">
-      <%= f.text_field :address, class: 'input-md  textinput textInput form-control' %>
+      <%= f.text_field :address, placeholder: 'address', class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <div class="form-group required">
-    <%= f.label( Agency.human_attribute_name("city"), class: 'control-label col-md-4') %>
+    <%= f.label "City", class: 'control-label col-md-4' %>
     <div class="controls col-md-8">
-      <%= f.text_field :city, class: 'input-md  textinput textInput form-control' %>
+      <%= f.text_field :city, placeholder: 'city', class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <div class="form-group required">
-    <%= f.label(Agency.human_attribute_name("state"), class: 'control-label col-md-4') %>
+    <%= f.label "State", class: 'control-label col-md-4' %>
     <div class="controls col-md-8">
-      <%= f.text_field :state, class: 'input-md  textinput textInput form-control' %>
+      <%= f.text_field :state, placeholder: 'state', class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <div class="form-group required">
-    <%= f.label(Agency.human_attribute_name("zipcode"), class: 'control-label col-md-4') %>
+    <%= f.label "Zip Code", class: 'control-label col-md-4' %>
     <div class="controls col-md-8">
-      <%= f.text_field :zipcode, class: 'input-md  textinput textInput form-control' %>
+      <%= f.text_field :zipcode, placeholder: 'zipcode', class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <div class="form-group required">
-    <%= f.label(Agency.human_attribute_name("contact"), class: 'control-label col-md-4') %>
+    <%= f.label "Contact Person", class: 'control-label col-md-4' %>
     <div class="controls col-md-8">
-      <%= f.text_field :contact, class: 'input-md  textinput textInput form-control' %>
+      <%= f.text_field :contact, placeholder: 'contact', class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <div class="form-group required">
-    <%= f.label(Agency.human_attribute_name("email"), class: 'control-label col-md-4') %>
+    <%= f.label "Email", class: 'control-label col-md-4' %>
     <div class="controls col-md-8">
-      <%= f.text_field :email, class: 'input-md  textinput textInput form-control' %>
+      <%= f.text_field :email, placeholder: 'email', class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <div class="form-group required">
-    <%= f.label(Agency.human_attribute_name("phone"), class: 'control-label col-md-4') %>
+    <%= f.label "Phone", class: 'control-label col-md-4' %>
     <div class="controls col-md-8">
-      <%= f.telephone_field :phone, class: 'input-md  textinput textInput form-control' %>
+      <%= f.telephone_field :phone, placeholder: 'phone', class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <div class="form-group required">
-    <%= f.label(Agency.human_attribute_name("mobile_phone"), class: 'control-label col-md-4') %>
+    <%= f.label "Cell Phone", class: 'control-label col-md-4' %>
     <div class="controls col-md-8">
-      <%= f.telephone_field :mobile_phone, class: 'input-md  textinput textInput form-control' %>
+      <%= f.telephone_field :mobile_phone, placeholder: 'mobile_phone', class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <% WebsiteType.all.each do |website_type| %>
     <% website = @agency.websites.find_by(website_type_id: website_type.id) %>
     <div class="form-group">
-        <%= f.label("#{website_type.name}:", class: 'control-label col-md-4') %>
+        <%= f.label "#{website_type.name} URL", class: 'control-label col-md-4' %>
         <div class="controls col-md-8">
-          <%= text_field_tag "agency[website][#{website_type.id}]", (website ? website.url : ''), class: 'input-md  textinput textInput form-control' %>
+          <%= text_field_tag "agency[website][#{website_type.id}]", (website ? website.url : ''), placeholder: "#{website_type.name.to_s.downcase}_url", class: 'input-md  textinput textInput form-control' %>
         </div>
     </div>
   <% end %>
   <div class="form-group">
-    <%= f.label(Agency.human_attribute_name("description"), class: 'control-label col-md-4') %>
+    <%= f.label "Description", class: 'control-label col-md-4' %>
     <div class="controls col-md-8">
-      <%= f.text_area(:description, class: 'input-md  textinput textInput form-control') %>
+      <%= f.text_area(:description, placeholder: 'description', class: 'input-md  textinput textInput form-control') %>
     </div>
   </div>
   <div class="form-group">
-    <%= f.label(Agency.human_attribute_name("descripcion"), class: 'control-label col-md-4') %>
+    <%= f.label "Descripcion(es)", class: 'control-label col-md-4' %>
     <div class="controls col-md-8">
-      <%= f.text_area(:descripcion, class: 'input-md  textinput textInput form-control') %>
+      <%= f.text_area(:descripcion, placeholder: 'descripcion', class: 'input-md  textinput textInput form-control') %>
     </div>
   </div>
 
