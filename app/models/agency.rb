@@ -25,55 +25,23 @@ class Agency < ApplicationRecord
 
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
-
       hash = row.to_hash
       next if hash.empty?
-      agency = Agency.find_or_create_by(
-                name:        hash["name"],
-                address:     hash["address"],
-                city:        hash["city"],
-                state:       hash["state"],
-                zipcode:     hash["zipcode"]
-              )
-      agency.update_attributes( contact:     hash["contact"],
-                                email:       hash["email"],
-                                phone:       hash["phone"],
-                                description: hash["description"],
-                                descripcion: hash["descripcion"]
-                                )
-
-      next unless agency.save
-      # Agency site
-      @agency_site = agency.websites.find_by(url:          'http://' + hash["agency_url"],
-                                             website_type: WebsiteType.find_by(name: "Website")
-                                            )
-      if @agency_site.present?
-
-      else
-        agency.websites.create(url:          hash["agency_url"],
-                               website_type: WebsiteType.find_by(name: "Website")
-                              )
+      @agency = Agency.where(name:hash["name"], address:hash["address"], city:hash["city"], state:hash["state"], zipcode:hash["zipcode"]).first_or_create do |agency|
+        agency.contact = hash["contact"],
+        agency.email = hash["email"],
+        agency.phone = hash["phone"],
+        agency.description = hash["description"],
+        agency.descripcion = hash["descripcion"]
       end
-
-      # Facebook site
-      @facebook_site = agency.websites.find_by(url:         'http://' + hash["facebook_url"],
-                                               website_type: WebsiteType.find_by(name: "Facebook")
-                                              )
-      if @facebook_site.present?
-
-      else
-        agency.websites.create(url:          hash["facebook_url"],
-                               website_type: WebsiteType.find_by(name: "Facebook")
-                              )
-      end
-
+      # Agency and Facebook urls
+      @agency.websites.where(url: 'http://' + hash["agency_url"], website_type: WebsiteType.find_by(name: "Website")).first_or_create if hash["agency_url"].present?
+      @agency.websites.where(url: 'http://' + hash["facebook_url"], website_type: WebsiteType.find_by(name: "Facebook")).first_or_create if hash["facebook_url"].present?
       # Category
-      @category = Category.find_or_create_by(name: hash["cat_name"],
-                                             categoria: hash["categoria"],
-                                             fa_name: hash["fa_name"]
-                                            )
-      agency_category = agency.agency_categories.find_or_create_by(category_id: @category.id)
-
+      category = Category.where(name: hash["category"], categoria: hash["categoria"], fa_name: hash["icon"]).first_or_create
+      if @agency && category
+        AgencyCategory.where(agency_id: @agency.id, category_id: category.id).first_or_create
+      end
     end
   end
 
