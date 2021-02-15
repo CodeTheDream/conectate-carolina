@@ -15,7 +15,7 @@
         <h3>Import Organizations</h3>
         <%= form_tag import_agencies_path, multipart: true do %>
           <%= file_field_tag :file, class: 'form-control', style: 'margin-bottom: 10px;'%>
-          <%= submit_tag "Import",  class:"btn btn-primary", data: {disable_with: "Importing... "}%>
+          <%= submit_tag "Import",  class:"btn btn-info", data: {disable_with: "Importing... "}%>
         <% end %>
       </div>
     </div> <%#end panel-body%>
