@@ -108,18 +108,9 @@ class AgenciesController < ApplicationController
 
   def import
     authorize Agency
-    @agency_ids = Agency.ids
-    @initial_count = Agency.count
-
     if params[:file].present?
-      Agency.import(params[:file])
-      @added_agencies = Agency.where.not(id: @agency_ids)
-      @added_count = Agency.count - @initial_count
-      if @added_count != 0
-        flash.now[:notice] = "#{@added_count} #{'agency'.pluralize(@added_count)} added successfully!"
-      else
-        flash.now[:warning] = "Some or all agencies have been added already!"
-      end
+      @agencies = Agency.import(params[:file])
+      flash.now[:notice] = "#{@agencies.count} agencies uploaded successfully!"
     else
       redirect_to new_agency_path, alert: "You need to choose a file first!"
     end
