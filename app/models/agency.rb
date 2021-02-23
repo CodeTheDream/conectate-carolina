@@ -24,16 +24,18 @@ class Agency < ApplicationRecord
   end
 
   def self.import(file)
+    list = []
     CSV.foreach(file.path, headers: true) do |row|
       hash = row.to_hash
       next if hash.empty?
       @agency = Agency.where(name:hash["name"], address:hash["address"], city:hash["city"], state:hash["state"], zipcode:hash["zipcode"]).first_or_create do |agency|
-        agency.contact = hash["contact"],
-        agency.email = hash["email"],
-        agency.phone = hash["phone"],
-        agency.description = hash["description"],
+        agency.contact = hash["contact"]
+        agency.email = hash["email"]
+        agency.phone = hash["phone"]
+        agency.description = hash["description"]
         agency.descripcion = hash["descripcion"]
       end
+      list.push @agency
       # Agency and Facebook urls
       @agency.websites.where(url: 'http://' + hash["agency_url"], website_type: WebsiteType.find_by(name: "Website")).first_or_create if hash["agency_url"].present?
       @agency.websites.where(url: 'http://' + hash["facebook_url"], website_type: WebsiteType.find_by(name: "Facebook")).first_or_create if hash["facebook_url"].present?
@@ -43,6 +45,7 @@ class Agency < ApplicationRecord
         AgencyCategory.where(agency_id: @agency.id, category_id: category.id).first_or_create
       end
     end
+    list
   end
 
   def new_agency_hash
