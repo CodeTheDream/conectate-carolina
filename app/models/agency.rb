@@ -34,6 +34,7 @@ class Agency < ApplicationRecord
         agency.phone = hash["phone"]
         agency.description = hash["description"]
         agency.descripcion = hash["descripcion"]
+        agency.mobile_phone = hash["mobile_phone"]
       end
       list.push @agency
       # Agency and Facebook urls
