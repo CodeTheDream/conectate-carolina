@@ -1,4 +1,5 @@
 require 'rails_rinku'
+require 'csv'
 
 class AgenciesController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
@@ -29,6 +30,11 @@ class AgenciesController < ApplicationController
     	@agencies = @agencies.near(location, 15)
    	end
 
+    # This code below is for the csv downloads.
+    @download_agencies = Agency.all
+    response_format
+
+    # This code below is for map markers 
 		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
 	  	marker.lat agency.latitude
 			marker.lng agency.longitude
