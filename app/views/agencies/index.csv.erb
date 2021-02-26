@@ -1,6 +1,5 @@
 <%- headers = Agency.attribute_names -%>
 <%=CSV.generate_line headers %>
 <%- @download_agencies.each do |agency| -%>
-<%# Not Sure if this is the best way to handle this %>
-<%=sanitize raw(CSV.generate_line(agency.attributes.values)) -%>
+  <%=sanitize raw(CSV.generate_line(agency.attributes.values)) -%>
 <%- end -%>

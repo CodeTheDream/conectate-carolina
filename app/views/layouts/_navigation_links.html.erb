@@ -52,13 +52,17 @@
     <% end %>
   </li>
 <% end %>
-<li class="dropdown">
-  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    <span class="fa fa-download"></span>
-    Downloads
-  </a>
-  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-    <%=link_to 'Agencies CSV', root_path(format: :csv), class:"dropdown-item"%>
-    <div class="dropdown-divider"></div>
-  </div>
+<li class="nav-item dropdown">
+  <% if current_user %>
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="fa fa-download"></span>
+      Downloads
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <%=link_to 'Agencies CSV', root_path(format: :csv), class:"dropdown-item"%>
+      <div class="dropdown-divider"></div>
+      <%=link_to 'Categories CSV', categories_path(format: :csv), class:"dropdown-item"%>
+      <div class="dropdown-divider"></div>
+    </div>
+  <%end%>
 </li>

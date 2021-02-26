@@ -1,3 +1,5 @@
+require 'csv'
+
 class CategoriesController < ApplicationController
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   after_action  :verify_authorized
@@ -10,6 +12,9 @@ class CategoriesController < ApplicationController
     @categories = Category.all
     # @categories = Category.paginate(page: params[:page], per_page: 5)
     authorize @categories
+
+    # This code below is for the csv downloads.
+    response_format
   end
 
   def show

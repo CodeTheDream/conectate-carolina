@@ -1,0 +1,5 @@
+<%- headers = Category.attribute_names -%>
+<%=CSV.generate_line headers %>
+<%- @categories.each do |category| -%>
+  <%=sanitize raw(CSV.generate_line(category.attributes.values)) -%>
+<%- end -%>
