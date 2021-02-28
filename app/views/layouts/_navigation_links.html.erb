@@ -29,7 +29,7 @@
   </li>
 <% end %>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= fa_icon 'list', text: (t'category.categories') %> <span class="caret"></span></a>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= fa_icon 'list', text: (t'category.categories') %></a>
   <ul class="dropdown-menu">
     <li><%= link_to (t'category.all_cat'), categories_path %></li>
     <% Category.all.each do |category| %>
@@ -47,9 +47,22 @@
 </li>
 <% if Message.unposted.any? %>
   <li>
-  
-<%= link_to user_messages_path do %>
-  <%= fa_icon 'bell', text: (t'nav_links.alerts') %>
+    <%= link_to user_messages_path do %>
+      <%= fa_icon 'bell', text: (t'nav_links.alerts') %>
+    <% end %>
+  </li>
 <% end %>
+<li class="nav-item dropdown">
+  <% if current_user %>
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="fa fa-download"></span>
+      Downloads
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <%=link_to 'Agencies CSV', root_path(format: :csv), class:"dropdown-item"%>
+      <div class="dropdown-divider"></div>
+      <%=link_to 'Categories CSV', categories_path(format: :csv), class:"dropdown-item"%>
+      <div class="dropdown-divider"></div>
+    </div>
+  <%end%>
 </li>
-<% end %>
