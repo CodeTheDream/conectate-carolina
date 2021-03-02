@@ -1,5 +1,33 @@
-<%- headers = Agency.attribute_names -%>
+<%- headers = ["name",
+               "address",
+               "city",
+               "state",
+               "zipcode",
+               "contact",
+               "phone",
+               "description",
+               "email",
+               "descripcion",
+               "mobile_phone",
+               "category",
+               "categoria",
+               "icon"]
+-%>
 <%=CSV.generate_line headers %>
-<%- @download_agencies.each do |agency| -%>
-  <%=sanitize raw(CSV.generate_line(agency.attributes.values)) -%>
+<%- @agency_categories.each do |ac| -%>
+<% website = ac.agency.websites.find_by_website_type_id(WebsiteType.find_by_name("Website").id)%>
+  <%=sanitize raw(CSV.generate_line([ac.agency.name,
+                                     ac.agency.address,
+                                     ac.agency.city,
+                                     ac.agency.state,
+                                     ac.agency.zipcode,
+                                     ac.agency.contact,
+                                     ac.agency.phone,
+                                     ac.agency.description,
+                                     ac.agency.email,
+                                     ac.agency.descripcion,
+                                     ac.agency.mobile_phone,
+                                     ac.category.name,
+                                     ac.category.categoria,
+                                     ac.category.fa_name])) -%>
 <%- end -%>

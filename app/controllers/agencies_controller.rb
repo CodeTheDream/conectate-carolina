@@ -31,10 +31,10 @@ class AgenciesController < ApplicationController
    	end
 
     # This code below is for the csv downloads.
-    @download_agencies = Agency.all
+    @agency_categories = AgencyCategory.order(:agency_id)
     response_format
 
-    # This code below is for map markers 
+    # This code below is for map markers
 		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
 	  	marker.lat agency.latitude
 			marker.lng agency.longitude
