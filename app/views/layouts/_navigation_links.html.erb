@@ -55,13 +55,35 @@
 <li class="nav-item dropdown">
   <% if current_user %>
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="fa fa-download"></span>
-      Downloads
+      <span class="fa fa-user-circle"></span>
+      Admin
     </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <%=link_to 'Agencies CSV', root_path(format: :csv), class:"dropdown-item"%>
+    <div class="dropdown-menu pl-1" aria-labelledby="navbarDropdown">
+      <% if policy(Agency).new? %>
+        <%= link_to new_agency_path do %>
+          <%= fa_icon "plus", text: (t'new_page.h1')%>
+        <% end %>
+      <% end %>
       <div class="dropdown-divider"></div>
-      <%=link_to 'Categories CSV', categories_path(format: :csv), class:"dropdown-item"%>
+      <% if policy(Category).new? %>
+        <%= link_to new_category_path do %>
+          <%= fa_icon "plus", text: (t'category.new_cat')%>
+        <% end %>
+      <% end %>
+      <div class="dropdown-divider"></div>
+      <% if policy(Message).index? %>
+        <%= link_to messages_path, id: "my_messages_link" do %>
+          <%= fa_icon "envelope", text: (t'message.all_msg') %>
+        <% end %>
+      <% end %>
+      <div class="dropdown-divider"></div>
+      <%= link_to root_path(format: :csv), class:"dropdown-item" do %>
+        <%= fa_icon "download", text: ('Export Agency') %>
+      <% end %>
+      <div class="dropdown-divider"></div>
+      <%= link_to categories_path(format: :csv), class:"dropdown-item" do %>
+        <%= fa_icon "download", text: ('Export Category') %>
+      <% end %>
       <div class="dropdown-divider"></div>
     </div>
   <%end%>
