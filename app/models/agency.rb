@@ -6,6 +6,8 @@ class Agency < ApplicationRecord
   has_many :categories, through: :agency_categories
   validates :name, presence: true, uniqueness: { scope: [:address, :city, :state, :zipcode],
     message: "should have different address" }
+  validate :update_with_geocoded_locations
+
   geocoded_by :full_address
   after_validation :geocode, if: ->(obj) { obj.full_address.present? && obj.address_changed? }
   include PgSearch::Model
@@ -103,5 +105,58 @@ class Agency < ApplicationRecord
       categories: category_array,
       websites: website_array
     }
+  end
+
+  def update_with_geocoded_locations
+    if address.present? && city.present? && state.present? && zipcode.present?
+      result = Geocoder.search(self.full_address)
+      if result.length != 0 || result.first.data["partial_match"].nil?
+        # Street number
+        street_number = (result.first.data["address_components"].select { |address_hash| address_hash["types"] == ["street_number"]}).first
+        if !street_number.nil?
+          street_num = street_number["long_name"]
+        else
+          errors[:base] << "The street number could not be found."
+        end
+        # Street name
+        route = (result.first.data["address_components"].select { |address_hash| address_hash["types"] == ["route"]}).first
+        if !route.nil?
+          street_name = route["short_name"]
+        else
+          errors[:base] << "The street name could not be found."
+        end
+        self.address = "#{street_num} #{street_name}" unless street_num.nil? && street_name.nil?
+
+        # Suite number
+        suite_number = (result.first.data["address_components"].select { |address_hash| address_hash["types"] == ["subpremise"]}).first
+        if !suite_number.nil?
+          self.address = self.address + " #" + suite_number["long_name"]
+        end
+
+        # City
+        city = (result.first.data["address_components"].select { |address_hash| address_hash["types"] == ["locality", "political"]}).first
+        city = (result.first.data["address_components"].select { |address_hash| address_hash["types"] == ["neighborhood", "political"]}).first if city.nil?
+        if !city.nil?
+          self.city = city["long_name"]
+        else
+          errors[:base] << "The city could not be found."
+        end
+
+        # State
+        state = (result.first.data["address_components"].select { |address_hash| address_hash["types"] == ["administrative_area_level_1", "political"]}).first
+        if !state.nil?
+          self.state = state["short_name"]
+        else
+          errors[:base] << "The state could not be found."
+        end
+        # Zip code
+        zipcode = (result.first.data["address_components"].select { |address_hash| address_hash["types"] == ["postal_code"]}).first
+        if !zipcode.nil?
+          self.zipcode = zipcode["long_name"]
+        else
+          errors[:base] << "The zip code could not be found."
+        end
+      end
+    end
   end
 end
