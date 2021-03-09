@@ -43,7 +43,7 @@ class MessagesController < ApplicationController
 
   def update
     authorize @message
-    if @message.update_attributes(message_params)
+    if @message.update(message_params)
       flash[:notice] = "Message updated."
       redirect_to messages_path
     else
