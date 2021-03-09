@@ -11,9 +11,9 @@
                                      agency.email,
                                      agency.descripcion,
                                      agency.mobile_phone,
-                                     agency.categories.first.name,
-                                     agency.categories.first.categoria,
-                                     agency.categories.first.fa_name,
+                                     agency.categories.first&.name,
+                                     agency.categories.first&.categoria,
+                                     agency.categories.first&.fa_name,
                                      agency.websites.find_by(website_type: WebsiteType.find_by(name: "Website"))&.url,
                                      agency.websites.find_by(website_type: WebsiteType.find_by(name: "Facebook"))&.url])) -%>
 <%- end -%>
