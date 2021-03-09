@@ -36,7 +36,7 @@ class FaqsController < ApplicationController
   def update
     @faq = Faq.find(params[:id])
     authorize @faq
-    if @faq.update_attributes(faq_params)
+    if @faq.update(faq_params)
         flash[:notice] = "Faq updated"
         redirect_to(faqs_path)
     else

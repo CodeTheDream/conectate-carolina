@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     authorize @user
     if User.roles.keys.include?(params[:user][:role])
-      if @user.update_attributes(secure_params)
+      if @user.update(secure_params)
         flash[:notice] = "User updated"
       else
         flash[:alert] = "Unable to update user"

@@ -43,7 +43,7 @@ class CategoriesController < ApplicationController
   def update
 		@category = Category.find(params[:id])
     authorize @category
-		if @category.update_attributes(category_params)
+		if @category.update(category_params)
 			flash[:notice] = (t'flash_notice.update')
 			redirect_to @category
 		else

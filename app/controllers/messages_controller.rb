@@ -95,7 +95,7 @@ class MessagesController < ApplicationController
   def unpost
     authorize @message
     if @message.posted? && !@message.posted_at.nil?
-      @message.update_attributes(posted: false)
+      @message.update(posted: false)
       flash[:notice] = "Message unposted."
       redirect_to request.referrer || messages_path
     end
