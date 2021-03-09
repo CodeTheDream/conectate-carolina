@@ -38,10 +38,11 @@ class Agency < ApplicationRecord
                         description: hash["description"],
                         descripcion: hash["descripcion"])
         else
-          @agency = Agency.create(name:hash["name"], address:hash["address"], city:hash["city"], state:hash["state"], zipcode:hash["zipcode"],contact: hash["contact"],
-                                  email: hash["email"],
-                                  phone: hash["phone"],
-                                  description: hash["description"],
+          @agency = Agency.create(name:hash["name"],
+                                  address:hash["address"], city:hash["city"],
+                                  state:hash["state"], zipcode:hash["zipcode"],
+                                  contact: hash["contact"],email: hash["email"],
+                                  phone: hash["phone"],description: hash["description"],
                                   descripcion: hash["descripcion"])
         end
       list.push @agency
@@ -49,17 +50,21 @@ class Agency < ApplicationRecord
       # Agency and Facebook urls
       website_type1 = WebsiteType.find_by(name: "Website")
       website_type2 = WebsiteType.find_by(name: "Facebook")
-      website = @agency.websites.find_by(url: 'http://' + hash["agency_url"], website_type: website_type1) if hash["agency_url"].present?
-      if website
-        website.update(url: hash["agency_url"])
-      else
-        website = @agency.websites.create(url: 'http://' + hash["agency_url"], website_type: website_type1)
+      if hash["agency_url"].present?
+        website = @agency.websites.find_by(url: 'http://' + hash["agency_url"], website_type: website_type1)
+        if website
+          website.update(url: hash["agency_url"])
+        else
+          website = @agency.websites.create(url: 'http://' + hash["agency_url"], website_type: website_type1)
+        end
       end
-      facebook = @agency.websites.find_by(url: 'http://' + hash["facebook_url"], website_type: website_type2) if hash["facebook_url"].present?
-      if facebook
-        facebook.update(url: hash["agency_url"])
-      else
-        facebook = @agency.websites.create(url: 'http://' + hash["agency_url"], website_type: website_type1)
+      if hash["facebook_url"].present?
+        facebook = @agency.websites.find_by(url: 'http://' + hash["facebook_url"], website_type: website_type2)
+        if facebook
+          facebook.update(url: hash["facebook_url"])
+        else
+          facebook = @agency.websites.create(url: 'http://' + hash["facebook_url"], website_type: website_type2)
+        end
       end
 
       # Category
