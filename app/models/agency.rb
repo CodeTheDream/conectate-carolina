@@ -36,6 +36,7 @@ class Agency < ApplicationRecord
           @agency.update(contact: hash["contact"],
                         email: hash["email"],
                         phone: hash["phone"],
+                        mobile_phone: hash["mobile_phone"],
                         description: hash["description"],
                         descripcion: hash["descripcion"])
         else
@@ -43,7 +44,7 @@ class Agency < ApplicationRecord
                                   address:hash["address"], city:hash["city"],
                                   state:hash["state"], zipcode:hash["zipcode"],
                                   contact: hash["contact"],email: hash["email"],
-                                  phone: hash["phone"],description: hash["description"],
+                                  phone: hash["phone"], mobile_phone: hash["mobile_phone"], description: hash["description"],
                                   descripcion: hash["descripcion"])
 
           if @agency.valid? && @agency.save
