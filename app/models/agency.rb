@@ -4,9 +4,9 @@ class Agency < ApplicationRecord
   accepts_nested_attributes_for :websites
   has_many :agency_categories
   has_many :categories, through: :agency_categories
+  validate :update_with_geocoded_locations
   validates :name, presence: true, uniqueness: { scope: [:address, :city, :state, :zipcode],
     message: "should have different address" }
-  validate :update_with_geocoded_locations
 
   geocoded_by :full_address
   after_validation :geocode, if: ->(obj) { obj.full_address.present? && obj.address_changed? }
@@ -27,6 +27,7 @@ class Agency < ApplicationRecord
 
   def self.import(file)
     list = []
+    errors = []
     CSV.foreach(file.path, headers: true) do |row|
       hash = row.to_hash
       next if hash.empty?
@@ -38,14 +39,21 @@ class Agency < ApplicationRecord
                         description: hash["description"],
                         descripcion: hash["descripcion"])
         else
-          @agency = Agency.create(name:hash["name"],
+          @agency = Agency.new(name:hash["name"],
                                   address:hash["address"], city:hash["city"],
                                   state:hash["state"], zipcode:hash["zipcode"],
                                   contact: hash["contact"],email: hash["email"],
                                   phone: hash["phone"],description: hash["description"],
                                   descripcion: hash["descripcion"])
+
+          if @agency.valid? && @agency.save
+            list.push @agency
+          else
+            errors.push(@agency)
+          end
         end
-      list.push @agency
+
+
 
       # Agency and Facebook urls
       website_type1 = WebsiteType.find_by(name: "Website")
@@ -78,7 +86,7 @@ class Agency < ApplicationRecord
         AgencyCategory.where(agency_id: @agency.id, category_id: category.id).first_or_create
       end
     end
-    list
+    return list, errors
   end
 
   def new_agency_hash

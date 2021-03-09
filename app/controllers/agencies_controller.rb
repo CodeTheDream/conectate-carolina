@@ -53,7 +53,7 @@ class AgenciesController < ApplicationController
   def create
     @agency = Agency.new(agency_params)
     authorize @agency
-    if @agency.save
+    if @agency.valid? && @agency.save
       params[:agency][:website].each do |website_type_id, url|
         next if url.blank?
         @agency.websites.create(
@@ -116,8 +116,7 @@ class AgenciesController < ApplicationController
   def import
     authorize Agency
     if params[:file].present?
-      @agencies = Agency.import(params[:file])
-      flash.now[:notice] = "#{@agencies.count} agencies uploaded successfully!"
+      @agencies, @errors = Agency.import(params[:file])
     else
       redirect_to new_agency_path, alert: "You need to choose a file first!"
     end
