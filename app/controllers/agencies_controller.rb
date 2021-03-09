@@ -90,7 +90,7 @@ class AgenciesController < ApplicationController
   def update
     @agency = Agency.find(params[:id])
     authorize @agency
-    if @agency.update_attributes(agency_params)
+    if @agency.update(agency_params)
       @agency.websites.each(&:destroy)
       params[:agency][:website].each do |website_type_id, url|
         next if url.blank?
