@@ -1,5 +1,5 @@
 <%- headers = @headers %>
-<%=CSV.generate_line headers %><%- Agency.all.each do |agency| -%><%=sanitize raw(CSV.generate_line(
+<%=CSV.generate_line headers %><%- Agency.all.includes(:websites, :categories).each do |agency| -%><%=sanitize raw(CSV.generate_line(
                                     [agency.name,
                                      agency.address,
                                      agency.city,
@@ -14,6 +14,6 @@
                                      agency.categories.first&.name,
                                      agency.categories.first&.categoria,
                                      agency.categories.first&.fa_name,
-                                     agency.websites.find_by(website_type: WebsiteType.find_by(name: "Website"))&.url,
-                                     agency.websites.find_by(website_type: WebsiteType.find_by(name: "Facebook"))&.url])) -%>
+                                     Website.map[agency.id]["Website"],
+                                     Website.map[agency.id]["Facebook"]])) -%>
 <%- end -%>
