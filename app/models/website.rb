@@ -19,4 +19,13 @@ class Website < ApplicationRecord
     end
   end
 
+  def self.map
+    return @ret if @ret
+    @ret = Hash.new{|h,k| h[k] = {} }
+    all.each do |website| 
+      @ret[website.agency_id][website.website_type.name] = website.url
+    end
+    return @ret
+  end
+
 end
