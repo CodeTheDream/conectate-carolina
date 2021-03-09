@@ -4,8 +4,10 @@ class Agency < ApplicationRecord
   accepts_nested_attributes_for :websites
   has_many :agency_categories
   has_many :categories, through: :agency_categories
+  validate :update_with_geocoded_locations
   validates :name, presence: true, uniqueness: { scope: [:address, :city, :state, :zipcode],
     message: "should have different address" }
+
   geocoded_by :full_address
   after_validation :geocode, if: ->(obj) { obj.full_address.present? && obj.address_changed? }
   include PgSearch::Model
@@ -25,27 +27,66 @@ class Agency < ApplicationRecord
 
   def self.import(file)
     list = []
+    errors = []
     CSV.foreach(file.path, headers: true) do |row|
       hash = row.to_hash
       next if hash.empty?
-      @agency = Agency.where(name:hash["name"], address:hash["address"], city:hash["city"], state:hash["state"], zipcode:hash["zipcode"]).first_or_create do |agency|
-        agency.contact = hash["contact"]
-        agency.email = hash["email"]
-        agency.phone = hash["phone"]
-        agency.description = hash["description"]
-        agency.descripcion = hash["descripcion"]
-      end
-      list.push @agency
+      @agency = Agency.find_by(name:hash["name"], address:hash["address"], city:hash["city"], state:hash["state"], zipcode:hash["zipcode"])
+        if @agency
+          @agency.update(contact: hash["contact"],
+                        email: hash["email"],
+                        phone: hash["phone"],
+                        description: hash["description"],
+                        descripcion: hash["descripcion"])
+        else
+          @agency = Agency.new(name:hash["name"],
+                                  address:hash["address"], city:hash["city"],
+                                  state:hash["state"], zipcode:hash["zipcode"],
+                                  contact: hash["contact"],email: hash["email"],
+                                  phone: hash["phone"],description: hash["description"],
+                                  descripcion: hash["descripcion"])
+
+          if @agency.valid? && @agency.save
+            list.push @agency
+          else
+            errors.push(@agency)
+          end
+        end
+
+
+
       # Agency and Facebook urls
-      @agency.websites.where(url: 'http://' + hash["agency_url"], website_type: WebsiteType.find_by(name: "Website")).first_or_create if hash["agency_url"].present?
-      @agency.websites.where(url: 'http://' + hash["facebook_url"], website_type: WebsiteType.find_by(name: "Facebook")).first_or_create if hash["facebook_url"].present?
+      website_type1 = WebsiteType.find_by(name: "Website")
+      website_type2 = WebsiteType.find_by(name: "Facebook")
+      if hash["agency_url"].present?
+        website = @agency.websites.find_by(url: 'http://' + hash["agency_url"], website_type: website_type1)
+        if website
+          website.update(url: hash["agency_url"])
+        else
+          website = @agency.websites.create(url: 'http://' + hash["agency_url"], website_type: website_type1)
+        end
+      end
+      if hash["facebook_url"].present?
+        facebook = @agency.websites.find_by(url: 'http://' + hash["facebook_url"], website_type: website_type2)
+        if facebook
+          facebook.update(url: hash["facebook_url"])
+        else
+          facebook = @agency.websites.create(url: 'http://' + hash["facebook_url"], website_type: website_type2)
+        end
+      end
+
       # Category
-      category = Category.where(name: hash["category"], categoria: hash["categoria"], fa_name: hash["icon"]).first_or_create
+      category = Category.find_by(name: hash["category"]) if hash["category"].present?
+      if category
+        category.update(categoria: hash["categoria"], fa_name: hash["icon"])
+      else
+        category = Category.create(name: hash["category"], categoria: hash["categoria"], fa_name: hash["icon"])
+      end
       if @agency && category
         AgencyCategory.where(agency_id: @agency.id, category_id: category.id).first_or_create
       end
     end
-    list
+    return list, errors
   end
 
   def new_agency_hash
@@ -77,5 +118,58 @@ class Agency < ApplicationRecord
       categories: category_array,
       websites: website_array
     }
+  end
+
+  def update_with_geocoded_locations
+    if address.present? && city.present? && state.present? && zipcode.present?
+      result = Geocoder.search(self.full_address)
+      if result.length != 0 || result.first.data["partial_match"].nil?
+        # Street number
+        street_number = (result.first.data["address_components"].select { |address_hash| address_hash["types"] == ["street_number"]}).first
+        if !street_number.nil?
+          street_num = street_number["long_name"]
+        else
+          errors[:base] << "The street number could not be found."
+        end
+        # Street name
+        route = (result.first.data["address_components"].select { |address_hash| address_hash["types"] == ["route"]}).first
+        if !route.nil?
+          street_name = route["short_name"]
+        else
+          errors[:base] << "The street name could not be found."
+        end
+        self.address = "#{street_num} #{street_name}" unless street_num.nil? && street_name.nil?
+
+        # Suite number
+        suite_number = (result.first.data["address_components"].select { |address_hash| address_hash["types"] == ["subpremise"]}).first
+        if !suite_number.nil?
+          self.address = self.address + " #" + suite_number["long_name"]
+        end
+
+        # City
+        city = (result.first.data["address_components"].select { |address_hash| address_hash["types"] == ["locality", "political"]}).first
+        city = (result.first.data["address_components"].select { |address_hash| address_hash["types"] == ["neighborhood", "political"]}).first if city.nil?
+        if !city.nil?
+          self.city = city["long_name"]
+        else
+          errors[:base] << "The city could not be found."
+        end
+
+        # State
+        state = (result.first.data["address_components"].select { |address_hash| address_hash["types"] == ["administrative_area_level_1", "political"]}).first
+        if !state.nil?
+          self.state = state["short_name"]
+        else
+          errors[:base] << "The state could not be found."
+        end
+        # Zip code
+        zipcode = (result.first.data["address_components"].select { |address_hash| address_hash["types"] == ["postal_code"]}).first
+        if !zipcode.nil?
+          self.zipcode = zipcode["long_name"]
+        else
+          errors[:base] << "The zip code could not be found."
+        end
+      end
+    end
   end
 end
