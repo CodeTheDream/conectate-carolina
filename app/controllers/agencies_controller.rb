@@ -32,7 +32,6 @@ class AgenciesController < ApplicationController
 
     # This code below is for the csv downloads.
     @headers = %w(name address city state zipcode contact phone description email descripcion mobile_phone category categoria icon agency_url facebook_url)
-    @agency_categories = AgencyCategory.order(:agency_id)
     response_format
 
     # This code below is for map markers
