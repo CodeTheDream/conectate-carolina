@@ -29,7 +29,7 @@
   </li>
 <% end %>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= fa_icon 'list', text: (t'category.categories') %> <span class="caret"></span></a>
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= fa_icon 'list', text: (t'category.categories') %></a>
   <ul class="dropdown-menu">
     <li><%= link_to (t'category.all_cat'), categories_path %></li>
     <% Category.all.each do |category| %>
@@ -47,9 +47,44 @@
 </li>
 <% if Message.unposted.any? %>
   <li>
-  
-<%= link_to user_messages_path do %>
-  <%= fa_icon 'bell', text: (t'nav_links.alerts') %>
+    <%= link_to user_messages_path do %>
+      <%= fa_icon 'bell', text: (t'nav_links.alerts') %>
+    <% end %>
+  </li>
 <% end %>
+<li class="nav-item dropdown">
+  <% if current_user %>
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="fa fa-user-circle"></span>
+      Admin
+    </a>
+    <div class="dropdown-menu pl-1" aria-labelledby="navbarDropdown">
+      <% if policy(Agency).new? %>
+        <%= link_to new_agency_path do %>
+          <%= fa_icon "plus", text: (t'new_page.h1')%>
+        <% end %>
+      <% end %>
+      <div class="dropdown-divider"></div>
+      <% if policy(Category).new? %>
+        <%= link_to new_category_path do %>
+          <%= fa_icon "plus", text: (t'category.new_cat')%>
+        <% end %>
+      <% end %>
+      <div class="dropdown-divider"></div>
+      <% if policy(Message).index? %>
+        <%= link_to messages_path, id: "my_messages_link" do %>
+          <%= fa_icon "envelope", text: (t'message.all_msg') %>
+        <% end %>
+      <% end %>
+      <div class="dropdown-divider"></div>
+      <%= link_to root_path(format: :csv), class:"dropdown-item" do %>
+        <%= fa_icon "download", text: ('Export Agency') %>
+      <% end %>
+      <div class="dropdown-divider"></div>
+      <%= link_to categories_path(format: :csv), class:"dropdown-item" do %>
+        <%= fa_icon "download", text: ('Export Category') %>
+      <% end %>
+      <div class="dropdown-divider"></div>
+    </div>
+  <%end%>
 </li>
-<% end %>

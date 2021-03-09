@@ -20,4 +20,14 @@ class ApplicationController < ActionController::Base
     flash[:alert] = 'Access denied'
     redirect_to(request.referrer || root_path)
   end
+
+  def response_format
+    respond_to do |format|
+      format.html
+      format.csv do
+        headers['Content-Disposition'] = "attatchment; filename=\"#{Date.today}-#{controller_path.split("_").first}-list.csv\""
+        headers['Content-Type'] ||= 'text/csv'
+      end
+    end
+  end
 end

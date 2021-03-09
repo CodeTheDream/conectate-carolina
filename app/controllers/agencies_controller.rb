@@ -1,4 +1,5 @@
 require 'rails_rinku'
+require 'csv'
 
 class AgenciesController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
@@ -29,6 +30,12 @@ class AgenciesController < ApplicationController
     	@agencies = @agencies.near(location, 15)
    	end
 
+    # This code below is for the csv downloads.
+    @headers = %w(name address city state zipcode contact phone description email descripcion mobile_phone category categoria icon agency_url facebook_url)
+    @agency_categories = AgencyCategory.order(:agency_id)
+    response_format
+
+    # This code below is for map markers
 		@hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
 	  	marker.lat agency.latitude
 			marker.lng agency.longitude
@@ -46,7 +53,7 @@ class AgenciesController < ApplicationController
   def create
     @agency = Agency.new(agency_params)
     authorize @agency
-    if @agency.save
+    if @agency.valid? && @agency.save
       params[:agency][:website].each do |website_type_id, url|
         next if url.blank?
         @agency.websites.create(
@@ -109,8 +116,7 @@ class AgenciesController < ApplicationController
   def import
     authorize Agency
     if params[:file].present?
-      @agencies = Agency.import(params[:file])
-      flash.now[:notice] = "#{@agencies.count} agencies uploaded successfully!"
+      @agencies, @errors = Agency.import(params[:file])
     else
       redirect_to new_agency_path, alert: "You need to choose a file first!"
     end

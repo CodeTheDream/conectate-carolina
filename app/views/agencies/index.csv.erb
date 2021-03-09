@@ -1,0 +1,19 @@
+<%- headers = @headers %>
+<%=CSV.generate_line headers %><%- @agency_categories.each do |ac| -%><%=sanitize raw(CSV.generate_line(
+                                    [ac.agency.name,
+                                     ac.agency.address,
+                                     ac.agency.city,
+                                     ac.agency.state,
+                                     ac.agency.zipcode,
+                                     ac.agency.contact,
+                                     ac.agency.phone,
+                                     ac.agency.description,
+                                     ac.agency.email,
+                                     ac.agency.descripcion,
+                                     ac.agency.mobile_phone,
+                                     ac.category.name,
+                                     ac.category.categoria,
+                                     ac.category.fa_name,
+                                     ac.agency.websites.find_by(website_type: WebsiteType.find_by(name: "Website"))&.url,
+                                     ac.agency.websites.find_by(website_type: WebsiteType.find_by(name: "Facebook"))&.url])) -%>
+<%- end -%>
