@@ -62,6 +62,10 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    airbrake (11.0.1)
+      airbrake-ruby (~> 5.1)
+    airbrake-ruby (5.2.0)
+      rbtree3 (~> 0.5)
     ast (2.4.2)
     autoprefixer-rails (10.2.4.0)
       execjs
@@ -247,6 +251,7 @@ GEM
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rb-readline (0.5.5)
+    rbtree3 (0.6.0)
     redcarpet (3.5.1)
     regexp_parser (2.1.1)
     responders (3.0.1)
@@ -357,6 +362,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake
   autoprefixer-rails
   better_errors
   binding_of_caller
