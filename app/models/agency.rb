@@ -4,7 +4,7 @@ class Agency < ApplicationRecord
   accepts_nested_attributes_for :websites
   has_many :agency_categories
   has_many :categories, through: :agency_categories
-  validate :update_with_geocoded_locations
+  # validate :update_with_geocoded_locations
   validates :name, presence: true, uniqueness: { scope: [:address, :city, :state, :zipcode],
     message: "should have different address" }
 
