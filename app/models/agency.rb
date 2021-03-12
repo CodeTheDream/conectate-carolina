@@ -55,7 +55,8 @@ class Agency < ApplicationRecord
           if @created.valid? && @created.save
             list.push @created
           else
-            errors.push(@created)
+            errors.push(@agency)
+            next
           end
         end
 
