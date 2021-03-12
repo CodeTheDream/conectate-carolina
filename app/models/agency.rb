@@ -51,6 +51,7 @@ class Agency < ApplicationRecord
             list.push @agency
           else
             errors.push(@agency)
+            next
           end
         end
 
