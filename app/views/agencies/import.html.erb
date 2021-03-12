@@ -1,61 +1,70 @@
 <style>
-          table {
-            border: 3px solid gray;
-          }
-          table, tr, th, td {
-            border: solid 1px gray;
-            padding: 3px;
-          }
-          .thead tr:nth-child(2n+1) { /*(odd) or (2n+1)*/
-          	background: #D2691E;
-          }
-          .tbody tr:nth-child(2n+0) { /*(even) or (2n+0)*/
-          	background: #A4D1FF;
-          }
+  table {
+    border: 3px solid gray;
+  }
+  table, tr, th, td {
+    border: solid 1px gray;
+    padding: 3px;
+  }
+  .thead tr:nth-child(2n+1) { /*(odd) or (2n+1)*/
+  	background: #D2691E;
+  }
+  .tbody tr:nth-child(2n+0) { /*(even) or (2n+0)*/
+  	background: #A4D1FF;
+  }
 
-          .tbody tr:nth-child(2n+1) { /*(odd) or (2n+1)*/
-          	background: #EAF4FF;
-          }
-        </style>
+  .tbody tr:nth-child(2n+1) { /*(odd) or (2n+1)*/
+  	background: #EAF4FF;
+  }
+</style>
+<div class="container" style="margin-top: 70px">
+<h2>Organizations updated</h2>
+<% if @agencies.count > 0 %>
+  <table>
+    <thead class="thead">
+      <tr>
+        <th>Organization Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      <% @agencies.each do |agency| %>
+      <tr>
+        <td><%= agency.name %></td>
+        <td><%= agency.full_address %></td>
+        <td><%= agency.phone %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<%else%>
+  <p>Organizations are up to date.</p>
+<%end%>
 
-          <h2>Update agencies</h2>
-          <table>
-            <thead class="thead">
-              <tr>
-                <th>Agency Name</th>
-                <th>Address</th>
-                <th>Phone</th>
-              </tr>
-            </thead>
-            <tbody class="tbody">
-              <% @agencies.each do |agency| %>
-              <tr>
-                <td><%= agency.name %></td>
-                <td><%= agency.full_address %></td>
-                <td><%= agency.phone %></td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
-
-          <h2>Agencies with errors</h2>
-          <table>
-            <thead class="thead">
-              <tr>
-                <th>Agency Name</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Errors</th>
-              </tr>
-            </thead>
-            <tbody class="tbody">
-              <% @errors.each do |agency| %>
-              <tr>
-                <td><%= agency.name %></td>
-                <td><%= agency.full_address %></td>
-                <td><%= agency.phone %></td>
-                <td><%= agency.errors.to_a %></td>
-              </tr>
-              <% end %>
-            </tbody>
-          </table>
+<h2>Organizations import errors</h2>
+<% if @errors.count > 0 %>
+  <table>
+    <thead class="thead">
+      <tr>
+        <th>Organization Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Errors</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      <% @errors.each do |agency| %>
+      <tr>
+        <td><%= agency.name %></td>
+        <td><%= agency.full_address %></td>
+        <td><%= agency.phone %></td>
+        <td><%= agency.errors.to_a %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<%else%>
+  <p>No errors on organizations import.</p>
+<%end%>
+</div>

@@ -59,7 +59,7 @@ class Agency < ApplicationRecord
       # Agency and Facebook urls
       website_type1 = WebsiteType.find_by(name: "Website")
       website_type2 = WebsiteType.find_by(name: "Facebook")
-      if hash["agency_url"].present?
+      if @agency && hash["agency_url"].present?
         website = @agency.websites.find_by(url: 'http://' + hash["agency_url"], website_type: website_type1)
         if website
           website.update(url: hash["agency_url"])
@@ -67,7 +67,7 @@ class Agency < ApplicationRecord
           website = @agency.websites.create(url: 'http://' + hash["agency_url"], website_type: website_type1)
         end
       end
-      if hash["facebook_url"].present?
+      if @agency && hash["facebook_url"].present?
         facebook = @agency.websites.find_by(url: 'http://' + hash["facebook_url"], website_type: website_type2)
         if facebook
           facebook.update(url: hash["facebook_url"])
@@ -77,7 +77,9 @@ class Agency < ApplicationRecord
       end
 
       # Category
-      category = Category.find_by(name: hash["category"]) if hash["category"].present?
+      if @agency && hash["category"].present?
+        category = Category.find_by(name: hash["category"])
+      end
       if category
         category.update(categoria: hash["categoria"], fa_name: hash["icon"])
       else
