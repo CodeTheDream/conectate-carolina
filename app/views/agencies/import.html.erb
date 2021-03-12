@@ -83,7 +83,7 @@
         <td><%= agency.name %></td>
         <td><%= agency.full_address %></td>
         <td><%= agency.phone %></td>
-        <td><%= agency.errors.to_a %></td>
+        <td><%= agency.errors.full_messages.to_sentence %></td>
       </tr>
       <% end %>
     </tbody>
