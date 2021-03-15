@@ -19,7 +19,7 @@
 </style>
 <div class="container" style="margin-top: 70px">
 <h2>Organizations updated</h2>
-<% if @agencies.count > 0 %>
+<% if @updated && @updated.count > 0 %>
   <table>
     <thead class="thead">
       <tr>
@@ -29,7 +29,7 @@
       </tr>
     </thead>
     <tbody class="tbody">
-      <% @agencies.each do |agency| %>
+      <% @updated.each do |agency| %>
       <tr>
         <td><%= agency.name %></td>
         <td><%= agency.full_address %></td>
@@ -42,8 +42,32 @@
   <p>Organizations are up to date.</p>
 <%end%>
 
+<h2>Organizations created</h2>
+<% if @created && @created.count > 0 %>
+  <table>
+    <thead class="thead">
+      <tr>
+        <th>Organization Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+      </tr>
+    </thead>
+    <tbody class="tbody">
+      <% @created.each do |agency| %>
+      <tr>
+        <td><%= agency.name %></td>
+        <td><%= agency.full_address %></td>
+        <td><%= agency.phone %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<%else%>
+  <p>No organizations are created.</p>
+<%end%>
+
 <h2>Organizations import errors</h2>
-<% if @errors.count > 0 %>
+<% if @errors && @errors.count > 0 %>
   <table>
     <thead class="thead">
       <tr>
@@ -59,7 +83,7 @@
         <td><%= agency.name %></td>
         <td><%= agency.full_address %></td>
         <td><%= agency.phone %></td>
-        <td><%= agency.errors.to_a %></td>
+        <td><%= agency.errors.full_messages.to_sentence %></td>
       </tr>
       <% end %>
     </tbody>

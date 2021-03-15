@@ -31,24 +31,29 @@ class Agency < ApplicationRecord
     CSV.foreach(file.path, headers: true) do |row|
       hash = row.to_hash
       next if hash.empty?
-      @agency = Agency.find_by(name:hash["name"], address:hash["address"], city:hash["city"], state:hash["state"], zipcode:hash["zipcode"])
-        if @agency
-          @agency.update(contact: hash["contact"],
+      @updated = Agency.find_by(name:hash["name"], address:hash["address"], city:hash["city"], state:hash["state"], zipcode:hash["zipcode"])
+        if @updated
+          @updated.update(contact: hash["contact"],
                         email: hash["email"],
                         phone: hash["phone"],
                         mobile_phone: hash["mobile_phone"],
                         description: hash["description"],
                         descripcion: hash["descripcion"])
+          if @updated.valid? && @updated.save
+            list.push @updated
+          else
+            errors.push(@updated)
+          end
         else
-          @agency = Agency.new(name:hash["name"],
+          @created = Agency.new(name:hash["name"],
                                   address:hash["address"], city:hash["city"],
                                   state:hash["state"], zipcode:hash["zipcode"],
                                   contact: hash["contact"],email: hash["email"],
                                   phone: hash["phone"], mobile_phone: hash["mobile_phone"], description: hash["description"],
                                   descripcion: hash["descripcion"])
 
-          if @agency.valid? && @agency.save
-            list.push @agency
+          if @created.valid? && @created.save
+            list.push @created
           else
             errors.push(@agency)
             next
