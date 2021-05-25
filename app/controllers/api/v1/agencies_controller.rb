@@ -27,10 +27,10 @@ class Api::V1::AgenciesController < ApplicationController
           location = params[:coordinates] if params[:coordinates].present?
         end
 
-        distance = params[:distance] if params[:distance].present?
-        distance = 20 unless distance.present?
+        distance = params[:distance].present? ? params[:distance] : 20
         agencies = agencies.near(location, distance)
       end
+      agencies = agencies.where(county: params[:county]) if params[:county].present?
     end
 
     agencies = agencies.map do |agency|
