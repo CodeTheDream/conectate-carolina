@@ -27,10 +27,12 @@ en:
     attributes:
       agency:
         name: "Name of Organization:"
+        nombre: "Name of Organization in Spanish:"
         address: "Address:"
         city: "City:"
         state: "State:"
         zipcode: "Zip Code:"
+        county: "County:"
         contact: "Contact Person:"
         email: "Email:"
         phone: "Phone Numbers:"
