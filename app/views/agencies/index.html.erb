@@ -85,12 +85,12 @@ getLocation();
             <!-- <%= text_field_tag :location, params[:location], placeholder: "search by location", :class => 'form-control search-input', autofocus: params[:location].present? %> -->
 
           </div>
-          <div class="col-md-1">
+          <div class="col-md-2">
             <!-- <%= label :distance, "Choose a distance : " %> -->
             <% if params[:locale] == "en" %>
-              <%= select_tag :distance, options_for_select([['10 Miles', 10], ['30 Miles', 30], ['50 Miles', 50]]), class: "form-control" %>
+              <%= select_tag :distance, options_for_select([['10 Miles', 10], ['30 Miles', 30], ['All', 12000]]), class: "form-control" %>
             <% else %>
-              <%= select_tag :distance, options_for_select([['10 Millas', 10], ['30 Millas', 30], ['50 Millas', 50]]), class: "form-control" %>
+              <%= select_tag :distance, options_for_select([['10 Millas', 10], ['30 Millas', 30], ['Todas', 12000]]), class: "form-control" %>
             <% end %>
           </div>
 
