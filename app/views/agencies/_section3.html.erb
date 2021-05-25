@@ -4,16 +4,24 @@
   <% if @distance.nil? %>
     <%
 =begin%>
- <h1 id="organizations"><%= (t'footer.organizations')%></h1> 
+ <h1 id="organizations"><%= (t'footer.organizations')%></h1>
 <%
 =end%>
   <% elsif @agencies.size == 0 %>
     <div class="alert alert-danger">
-      <strong>Oh nó!</strong> Al parecer no encontramos organizaciones con tus requisitos. Trata de buscar por categoria ó ciudad.
+      <% if params[:locale] == "en" %>
+        Oh no! We don't seem to find organizations with your requirements. Try to search by category or city.
+      <% else %>
+        Oh nó! Al parecer no encontramos organizaciones con tus requisitos. Trata de buscar por categoria ó ciudad.
+      <% end %>
     </div>
   <% elsif @agencies.size > 0 %>
     <div class="alert alert-success">
-      <strong>Exito!</strong> Encontramos <%= @agencies.size %> organizaciones a <%= @distance %> millas.
+      <% if params[:locale] == "en" %>
+        Success! We found <%= @agencies.size %> organizations within <%= @distance %> miles.
+      <% else %>
+        Exito! Encontramos <%= @agencies.size %> organizaciones a <%= @distance %> millas.
+      <% end %>
     </div>
   <% end %>
   <div class="flex-row row">
