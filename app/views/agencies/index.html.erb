@@ -88,9 +88,9 @@ getLocation();
           <div class="col-md-2">
             <!-- <%= label :distance, "Choose a distance : " %> -->
             <% if params[:locale] == "en" %>
-              <%= select_tag :distance, options_for_select([['10 Miles', 10], ['30 Miles', 30], ['All', 12000]]), class: "form-control" %>
+              <%= select_tag :distance, options_for_select([['10 Miles', 10], ['30 Miles', 30], ['50 Miles', 50], ['100 Miles', 100], ['Anywhere', 12000]]), class: "form-control" %>
             <% else %>
-              <%= select_tag :distance, options_for_select([['10 Millas', 10], ['30 Millas', 30], ['Todas', 12000]]), class: "form-control" %>
+              <%= select_tag :distance, options_for_select([['10 Millas', 10], ['30 Millas', 30], ['50 Millas', 50], ['100 Millas', 100], ['En cualquier lugar', 12000]]), class: "form-control" %>
             <% end %>
           </div>
 
