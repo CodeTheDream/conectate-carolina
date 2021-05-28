@@ -56,10 +56,12 @@ csv.each do |row|
 
   t = Agency.new
   t.name = row['Organization Name']
+  t.nombre = row['Organization Name in Spanish']
   t.address = row['Street Address']
   t.city = row['City']
   t.state = row['State']
   t.zipcode = row['Zipcode']
+  t.county = row['County']
   t.contact = row['Person of Contact']
   t.phone = row['Phone number']
   t.description = row['Descriptions']

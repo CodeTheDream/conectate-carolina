@@ -33,21 +33,23 @@ class Agency < ApplicationRecord
       next if hash.empty?
       @updated = Agency.find_by(name:hash["name"], address:hash["address"], city:hash["city"], state:hash["state"], zipcode:hash["zipcode"])
         if @updated
-          @updated.update(contact: hash["contact"],
-                        email: hash["email"],
-                        phone: hash["phone"],
-                        mobile_phone: hash["mobile_phone"],
-                        description: hash["description"],
-                        descripcion: hash["descripcion"])
+          @updated.update(nombre: hash["nombre"],
+                          county: hash["county"],
+                          contact: hash["contact"],
+                          email: hash["email"],
+                          phone: hash["phone"],
+                          mobile_phone: hash["mobile_phone"],
+                          description: hash["description"],
+                          descripcion: hash["descripcion"])
           if @updated.valid? && @updated.save
             list.push @updated
           else
             errors.push(@updated)
           end
         else
-          @created = Agency.new(name:hash["name"],
+          @created = Agency.new(name:hash["name"], nombre: hash["nombre"],
                                   address:hash["address"], city:hash["city"],
-                                  state:hash["state"], zipcode:hash["zipcode"],
+                                  state:hash["state"], zipcode:hash["zipcode"], county: hash["county"],
                                   contact: hash["contact"],email: hash["email"],
                                   phone: hash["phone"], mobile_phone: hash["mobile_phone"], description: hash["description"],
                                   descripcion: hash["descripcion"])
@@ -112,10 +114,12 @@ class Agency < ApplicationRecord
 
     { id: self.id,
       name: self.name,
+      nombre: self.nombre,
       address: self.address,
       city: self.city,
       state: self.state,
       zipcode: self.zipcode,
+      county: self.county,
       contact: self.contact,
       email: self.email,
       phone: self.phone,
