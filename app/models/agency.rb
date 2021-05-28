@@ -112,10 +112,12 @@ class Agency < ApplicationRecord
 
     { id: self.id,
       name: self.name,
+      nombre: self.nombre,
       address: self.address,
       city: self.city,
       state: self.state,
       zipcode: self.zipcode,
+      county: self.county,
       contact: self.contact,
       email: self.email,
       phone: self.phone,
