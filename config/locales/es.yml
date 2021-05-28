@@ -6,10 +6,12 @@ es:
     attributes:
       agency:
         name: 'Nombre de la organizacion:'
+        nombre: 'Nombre de la organización en español'
         address: 'Direccion:'
         city: 'Ciudad:'
         state: 'Estado:'
         zipcode: 'Codigo Postal'
+        county: 'Condado'
         contact: 'Persona de contacto:'
         email: 'Correo Electronico:'
         phone: 'Numeros de telefono:'

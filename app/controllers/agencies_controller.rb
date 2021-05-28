@@ -126,7 +126,7 @@ class AgenciesController < ApplicationController
   private
 
   def agency_params
-    params.require(:agency).permit(:name, :address, :city, :state, :zipcode,
+    params.require(:agency).permit(:name, :nombre, :address, :city, :state, :zipcode, :county,
                                    :contact, :phone, :mobile_phone, :description, :descripcion, :email, :name, :website, :website_type,
                                    category_ids: [])
   end
