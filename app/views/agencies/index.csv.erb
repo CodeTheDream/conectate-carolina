@@ -1,10 +1,12 @@
 <%- headers = @headers %>
 <%=CSV.generate_line headers %><%- Agency.all.includes(:websites, :categories).each do |agency| -%><%=sanitize raw(CSV.generate_line(
                                     [agency.name,
+                                     agency.nombre,
                                      agency.address,
                                      agency.city,
                                      agency.state,
                                      agency.zipcode,
+                                     agency.county,
                                      agency.contact,
                                      agency.phone,
                                      agency.description,

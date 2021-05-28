@@ -31,7 +31,7 @@ class AgenciesController < ApplicationController
    	end
 
     # This code below is for the csv downloads.
-    @headers = %w(name address city state zipcode contact phone description email descripcion mobile_phone category categoria icon agency_url facebook_url)
+    @headers = %w(name nombre address city state zipcode county contact phone description email descripcion mobile_phone category categoria icon agency_url facebook_url)
     @website_type = WebsiteType.find_by(name: "Website")
     @facebook_type = WebsiteType.find_by(name: "Facebook")
     response_format
