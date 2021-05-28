@@ -30,8 +30,8 @@ class Api::V1::AgenciesController < ApplicationController
         distance = params[:distance].present? ? params[:distance] : 20
         agencies = agencies.near(location, distance)
       end
-      agencies = agencies.where(county: params[:county]) if params[:county].present?
     end
+    agencies = agencies.where(county: params[:county]) if params[:county].present?
 
     agencies = agencies.map do |agency|
       agency.new_agency_hash
