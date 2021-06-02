@@ -18,25 +18,19 @@ class Api::V1::AgenciesController < ApplicationController
     # when passed `search` parameter
     if params[:search].present?
       agencies = agencies.search_name(params[:search])
-
-      # when `address` or `coordinates` are passed
-      if params[:address].present? || params[:coordinates].present?
-        if params[:address].present?
-          location = params[:address]
-        else
-          location = params[:coordinates] if params[:coordinates].present?
-        end
-
+      if params[:address] || params[:coordinates]
+        location = params[:address] if params[:address].present?
+        location = params[:coordinates] if params[:coordinates].present?
         distance = params[:distance].present? ? params[:distance] : 20
         agencies = agencies.near(location, distance)
       end
     end
-    agencies = agencies.where(county: params[:county]) if params[:county].present?
 
+    # when passed `county` parameter
+    agencies = agencies.where(county: params[:county]) if params[:county].present?
     agencies = agencies.map do |agency|
       agency.new_agency_hash
     end
-
     render json: agencies, status: :ok
   end
 end
