@@ -157,6 +157,7 @@ es:
     state: 'Estado:'
     city: 'Ciudad:'
     zip: 'Codigo postal:'
+    county: 'Condado:'
     contact: 'Contacto:'
     phone: 'Numeros De telefono:'
     description: 'Descripcion:'
@@ -174,6 +175,7 @@ es:
     city: Raleigh
     state: Ej. NC
     zipcode: '27516'
+    county: Wake
   footer:
     about: Acerca
     organizations: Organizaciones
