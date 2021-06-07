@@ -1,6 +1,7 @@
 class Api::V1::AgenciesController < ApplicationController
   def index
     agencies = Agency.order(:name)
+    counties = Agency.where.not(county: nil).distinct.pluck(:county)
 
     # when passed 'updated_since' parameter
     if params[:updated_since].present?
@@ -37,6 +38,6 @@ class Api::V1::AgenciesController < ApplicationController
       agency.new_agency_hash
     end
 
-    render json: agencies, status: :ok
+    render json: {agencies: agencies, counties: counties}, status: :ok
   end
 end
