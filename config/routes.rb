@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 	  resources :agencies do
 	  	collection { post :import }
 	  end
+		resources :agency_update_requests, only: :index
 		resources :users
 		resources :faqs
 		get 'about', to: 'pages#about'
