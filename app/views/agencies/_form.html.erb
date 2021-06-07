@@ -17,6 +17,12 @@
     </div>
   </div>
   <div class="form-group required">
+    <%= f.label "Nombre", class: 'control-label col-md-4' %>
+    <div class="controls col-md-8">
+      <%= f.text_field :nombre, placeholder: 'nombre', class: 'input-md  textinput textInput form-control' %>
+    </div>
+  </div>
+  <div class="form-group required">
     <%= f.label "Address", class: 'control-label col-md-4' %>
     <div class="controls col-md-8">
       <%= f.text_field :address, placeholder: 'address', class: 'input-md  textinput textInput form-control' %>
@@ -38,6 +44,12 @@
     <%= f.label "Zip Code", class: 'control-label col-md-4' %>
     <div class="controls col-md-8">
       <%= f.text_field :zipcode, placeholder: 'zipcode', class: 'input-md  textinput textInput form-control' %>
+    </div>
+  </div>
+  <div class="form-group required">
+    <%= f.label "County", class: 'control-label col-md-4' %>
+    <div class="controls col-md-8">
+      <%= f.text_field :county, placeholder: 'county', class: 'input-md  textinput textInput form-control' %>
     </div>
   </div>
   <div class="form-group required">
