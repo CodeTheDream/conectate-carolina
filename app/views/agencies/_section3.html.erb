@@ -50,7 +50,8 @@
             </span>
           </a>
         </address>
-        <p><%= t'show_page.county' %> <small><%= agency.county ? agency.county : 'No info' %></small></p>
+        <% no_info = params[:locale] == 'en' ? 'No info' : 'Nada' %>
+        <p><%= t'show_page.county' %> <small><%= agency.county ? agency.county : no_info %></small></p>
 
           <!-- check HTML in this agency card   -->
           <p><%= Agency.human_attribute_name("contact") %><br>
