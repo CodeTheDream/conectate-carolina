@@ -1,0 +1,2 @@
+class AgencyUpdateRequest < ApplicationRecord
+end
