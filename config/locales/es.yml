@@ -163,6 +163,7 @@ es:
     description: 'Descripcion:'
     websites: 'Sitios web'
     title: 'Titulo:'
+    no_info: "Nada"
   buttons_t:
     back: Atras
     edit: Actualizar

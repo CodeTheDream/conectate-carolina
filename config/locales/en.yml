@@ -184,6 +184,7 @@ en:
     description: "Description:"
     websites: "Websites"
     title: "Title:"
+    no_info: "No info"
   buttons_t:
     back: Back
     edit: Edit
