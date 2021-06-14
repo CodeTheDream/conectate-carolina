@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_07_135447) do
+ActiveRecord::Schema.define(version: 2021_06_14_165838) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,8 @@ ActiveRecord::Schema.define(version: 2021_06_07_135447) do
     t.string "status", default: "submitted"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "agency_id", null: false
+    t.index ["agency_id"], name: "index_agency_update_requests_on_agency_id"
   end
 
   create_table "categories", id: :serial, force: :cascade do |t|
@@ -147,6 +149,7 @@ ActiveRecord::Schema.define(version: 2021_06_07_135447) do
 
   add_foreign_key "agency_categories", "agencies"
   add_foreign_key "agency_categories", "categories"
+  add_foreign_key "agency_update_requests", "agencies"
   add_foreign_key "websites", "agencies"
   add_foreign_key "websites", "website_types"
 end
