@@ -1,2 +1,12 @@
-<h1>AgencyUpdateRequests#index</h1>
-<p>Find me in app/views/agency_update_requests/index.html.erb</p>
+<section class="header-container">
+  <%= render partial: "app/#{ENV['APP_NAME']}/header_container" %>
+</section>
+<section class="top-background" id="top-background">
+
+  <div class="sub-menu-container">
+    <div class="organizations-title">
+        <h1 id="organizations"><%= (t'footer.organization-updates')%></h1>
+    </div>
+  </div>
+
+  <%= render 'section4' %><br/>
