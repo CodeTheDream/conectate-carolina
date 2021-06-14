@@ -31,15 +31,17 @@
         <div class="card_title">
           <p class="lead agency-name">
             <strong>
-              <%= link_to agency.name, controller: 'agencies',
-              action: 'show', id: agency.id%>
+              <% if params[:locale] == 'en' %>
+                <%= link_to agency.name, controller: 'agencies', action: 'show', id: agency.id%>
+              <% else %>
+                <%= link_to agency.nombre, controller: 'agencies', action: 'show', id: agency.id%>
+              <% end %>
             </strong>
           </p>
-
         </div>
         <div>
         <hr>
-        <p><%=(t'show_page.address') %><br></p>
+        <p><%=(t'show_page.address') %></p>
         <address>
           <%= agency.full_address %>
           <a href="https://www.google.com/maps/dir/Current+Location/<%= agency.full_address %>" class="btn btn-default btn-sm btn-link" target="_blank">
@@ -48,6 +50,16 @@
             </span>
           </a>
         </address>
+        <p><%= t'show_page.county' %>
+          <small>
+            <% if agency.county.present? %>
+              <%= agency.county %>
+            <%else%>
+             <%=t'show_page.no_info'%>
+             <%end%>
+          </small>
+        </p>
+
           <!-- check HTML in this agency card   -->
           <p><%= Agency.human_attribute_name("contact") %><br>
             <div id="agency-attributes">

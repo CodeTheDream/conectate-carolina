@@ -178,11 +178,13 @@ en:
     state: "State:"
     city: "City:"
     zip: "Zip code:"
+    county: "County:"
     contact: "Contact:"
     phone: "Phone Numbers:"
     description: "Description:"
     websites: "Websites"
     title: "Title:"
+    no_info: "No info"
   buttons_t:
     back: Back
     edit: Edit
@@ -198,6 +200,7 @@ en:
     city: Raleigh
     state: Ex. NC
     zipcode: "27516"
+    county: Wake
   footer:
     about: About
     organizations: Organizations
