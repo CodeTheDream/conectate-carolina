@@ -147,6 +147,7 @@ es:
     h1: Organizaciones
   new_page:
     h1: Crear Organización
+    h2: Solicitud de actualización de la organización
     submit: Crear Organización
     fill_fields: 'Llena las siguientes columnas'
   edit_page:

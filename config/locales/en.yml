@@ -168,6 +168,7 @@ en:
     h1: Organizations
   new_page:
     h1: Organization
+    h2: Organization Update Request
     submit: Create Organization
     fill_fields: "Fill the following fields"
   edit_page:

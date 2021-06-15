@@ -1,1 +1,18 @@
-<h1>Agency update request new form</h1>
+<h1 class="text-center" style="margin-top: 45px;"><%= (t'new_page.h2')%></h1>
+<div class="d-flex justify-content-between">
+  <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-1 col-sm-6 col-sm-offset-1">
+    <label><strong style="color: red;"> *</strong> = Required fields</label>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+          <div class="panel-title"><%= (t'new_page.fill_fields') %></div>
+          <div style="float:right; font-size: 85%; position: relative; top:-10px"></div>
+      </div>
+      <div class="panel-body">
+        <div class="individual-import">
+          <%= render 'form' %>
+        </div>
+      </div> <%#end panel-body%>
+    </div> <%# end of panel-info div%>
+
+  </div> <%# end of titlebox %>
+</div>
