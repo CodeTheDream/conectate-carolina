@@ -27,7 +27,7 @@ class AgencyUpdateRequestsController < ApplicationController
   end
 
   def ag_params
-    params.require(:require).permit(:name,
+    params.require(:agency_update_request).permit(:name,
                                     :nombre,
                                     :address,
                                     :city,

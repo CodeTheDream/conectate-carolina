@@ -1,4 +1,4 @@
-<%= form_for @agency_update_request, :html => { :class => "form-horizontal" } do |f| %>
+<%= form_for @agency_update_request, :html => { :class => "form-horizontal" }, url: agency_agency_update_requests_path do |f| %>
   <% if not @agency_update_request.nil? and @agency_update_request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@agency_update_request.errors.count, "error") %> prohibited this agency from being saved:</h2>
