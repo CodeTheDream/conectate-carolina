@@ -132,6 +132,7 @@ es:
     location: ubicación actual
   flash_notice:
     success: Organización creada!
+    update-success: Solicitud de actualización de la organización creada con éxito!
     delete: Organización eliminada!
     update: Organización actualizada!
   search_page:
