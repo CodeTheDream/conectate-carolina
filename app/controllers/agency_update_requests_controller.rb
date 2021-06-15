@@ -14,7 +14,7 @@ class AgencyUpdateRequestsController < ApplicationController
     @agency_update_request = @agency.agency_update_requests.new(ag_params)
     if @agency_update_request.save
       flash.notice = (t'flash_notice.success')
-      redirect_to @agency_update_request
+      redirect_to @agency
     else
       render 'new'
     end
