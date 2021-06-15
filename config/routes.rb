@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 		root to: 'agencies#index'
 	  resources :agencies do
 	  	collection { post :import }
+			resources :agency_update_requests, only: [:new, :create]
 	  end
 		resources :agency_update_requests, only: :index
 		resources :users
