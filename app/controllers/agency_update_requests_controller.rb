@@ -3,7 +3,7 @@ class AgencyUpdateRequestsController < ApplicationController
   before_action :set_agency, only: [:new, :create]
 
   def index
-    @agency_update_requests = AgencyUpdateRequest.all
+    @agencies_with_updates = Agency.joins(:agency_update_requests).distinct
   end
 
   def new
