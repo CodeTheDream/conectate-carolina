@@ -12,7 +12,7 @@
 
 <section class="container-fluid" id="section3">
   <div class="flex-row row">
-    <% @agencies_with_updates.each do |agency| %>
+    <% @agency_update_requests.each do |agency| %>
     <div class="col-xs-12 col-sm-6 col-lg-4 col-md-6 card">
       <div class="col-xs-12 well well-sm well-agency">
         <div class="card_title">
@@ -84,6 +84,7 @@
           </p>
         </div>
           <hr>
+          <span style="color: #e36419"><%= agency.agency.name%></span>
           <% if false %>
               <!-- Same effect agency.categories.each do etc...(using partial instead) -->
               <p><%= (t'category.categories') %></p>
