@@ -54,6 +54,7 @@ class AgencyUpdateRequestsController < ApplicationController
                                     :contact,
                                     :phone,
                                     :mobile_phone,
+                                    :status,
                                     :description,
                                     :descripcion,
                                     :email)

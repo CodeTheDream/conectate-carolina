@@ -94,13 +94,16 @@
       <%= f.text_area(:descripcion, placeholder: 'descripcion', class: 'input-md  textinput textInput form-control') %>
     </div>
   </div>
-  <br>
+  <div class="form-group">
+    <%= f.label(:status, class: 'control-label col-md-4') %>
+    <%= f.select(:status, options_for_select([["Submit","submitted"], ["Approve", "approved"], ["Reject", "rejected"]], @agency_update_request.status)) %>
+  </div><br>
 
-    <div class="panel-inline-body">
-      <%= link_to (t'buttons_t.back'), agency_update_requests_path, class: 'btn btn-primary' %>
-      <%= f.button (t'buttons_t.save'), class: "btn btn-primary btn-info",
-        data: {disable_with:
-        "<i class='fa fa-spinner fa-pulse fa-lg fa-fw'></i> Saving..."} %><br>
-    </div>
+  <div class="panel-inline-body">
+    <%= link_to (t'buttons_t.back'), agency_update_requests_path, class: 'btn btn-primary' %>
+    <%= f.button (t'buttons_t.save'), class: "btn btn-primary btn-info",
+      data: {disable_with:
+      "<i class='fa fa-spinner fa-pulse fa-lg fa-fw'></i> Saving..."} %><br>
+  </div>
 
 <% end %>
