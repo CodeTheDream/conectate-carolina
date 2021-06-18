@@ -3,7 +3,7 @@ class AgencyUpdateRequestsController < ApplicationController
   before_action :set_agency, only: [:new, :create]
 
   def index
-    @agency_update_requests = AgencyUpdateRequest.all
+    @agency_update_requests = AgencyUpdateRequest.where(status: "submitted")
   end
 
   def new
