@@ -36,7 +36,7 @@ en:
         contact: "Contact:"
         email: "Email:"
         phone: "Phone:"
-        mobile_phone: "Mobile phone:"
+        mobile_phone: "Cell phone:"
         description: "Description(eng):"
         descripcion: "Descripción:"
       category:
@@ -182,7 +182,7 @@ en:
     zip: "Zip code:"
     county: "County:"
     contact: "Contact:"
-    phone: "Phone Numbers:"
+    phone: "Phone:"
     description: "Description:"
     websites: "Websites"
     title: "Title:"
