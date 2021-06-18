@@ -25,7 +25,12 @@ class AgencyUpdateRequestsController < ApplicationController
   end
 
   def update
-
+    if @agency_update_request.update(ag_params)
+      redirect_to edit_agency_update_request_path
+      return
+    else
+      render 'edit'
+    end
   end
 
   private
