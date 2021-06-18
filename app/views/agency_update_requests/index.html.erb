@@ -19,9 +19,9 @@
           <p class="lead agency-name">
             <strong>
               <% if params[:locale] == 'en' %>
-                <%= link_to agency.name, controller: 'agencies', action: 'show', id: agency.id%>
+                <%= link_to agency.name, controller: 'agency_update_requests', action: 'edit', id: agency.id%>
               <% else %>
-                <%= link_to agency.nombre, controller: 'agencies', action: 'show', id: agency.id%>
+                <%= link_to agency.nombre, controller: 'agency_update_requests', action: 'edit', id: agency.id%>
               <% end %>
             </strong>
           </p>
