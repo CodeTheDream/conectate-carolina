@@ -1,6 +1,7 @@
 class AgencyUpdateRequestsController < ApplicationController
   before_action :authenticate_user!, only: :index
   before_action :set_agency, only: [:new, :create]
+  before_action :set_agency_update_request, only: [:edit, :update]
 
   def index
     @agency_update_requests = AgencyUpdateRequest.where(status: "submitted")
@@ -21,7 +22,6 @@ class AgencyUpdateRequestsController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
@@ -32,6 +32,10 @@ class AgencyUpdateRequestsController < ApplicationController
 
   def set_agency
     @agency = Agency.find(params[:agency_id])
+  end
+
+  def set_agency_update_request
+    @agency_update_request = AgencyUpdateRequest.find(params[:id])
   end
 
   def ag_params
