@@ -166,6 +166,7 @@ es:
     websites: 'Sitios web'
     title: 'Titulo:'
     no_info: "Nada"
+    status: "Estado:"
   buttons_t:
     back: Atras
     edit: Actualizar

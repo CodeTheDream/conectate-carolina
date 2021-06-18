@@ -33,9 +33,9 @@ en:
         state: "State:"
         zipcode: "Zip Code:"
         county: "County:"
-        contact: "Contact Person:"
+        contact: "Contact:"
         email: "Email:"
-        phone: "Phone Numbers:"
+        phone: "Phone:"
         mobile_phone: "Mobile phone:"
         description: "Description(eng):"
         descripcion: "Descripción:"
@@ -187,6 +187,7 @@ en:
     websites: "Websites"
     title: "Title:"
     no_info: "No info"
+    status: "Status:"
   buttons_t:
     back: Back
     edit: Edit
