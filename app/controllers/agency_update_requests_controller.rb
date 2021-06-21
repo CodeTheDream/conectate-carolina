@@ -26,7 +26,30 @@ class AgencyUpdateRequestsController < ApplicationController
 
   def update
     if @agency_update_request.update(ag_params)
-      redirect_to edit_agency_update_request_path
+      if ag_params["status"] == "approved"
+        @agency = Agency.find(@agency_update_request.agency_id)
+        @agency.update(@agency_update_request.attributes_from_keys(:name,
+                                                                  :nombre,
+                                                                  :address,
+                                                                  :city,
+                                                                  :state,
+                                                                  :zipcode,
+                                                                  :county,
+                                                                  :latitude,
+                                                                  :longitude,
+                                                                  :contact,
+                                                                  :phone,
+                                                                  :description,
+                                                                  :email,
+                                                                  :descripcion,
+                                                                  :mobile_phone
+                                                                  ))
+        flash.notice = (t'flash_notice.update-success')
+        redirect_to agency_path(@agency)
+      elsif ag_params["status"] == "rejected"
+        flash.notice = (t'flash_notice.update-success')
+        redirect_to agency_update_requests_path
+      end
       return
     else
       render 'edit'
