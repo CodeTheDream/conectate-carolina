@@ -7,7 +7,7 @@
           <div class="panel-title"><%= (t'new_page.fill_fields') %></div>
           <div style="float:right; font-size: 85%; position: relative; top:-10px"></div>
       </div>
-      <div class="panel-body">
+      <div class="panel-body pb-2">
         <div class="individual-import">
           <%= form_for [:agency, @agency_update_request], :html => { :class => "form-horizontal" }, url: agency_agency_update_requests_path do |f| %>
             <% if not @agency_update_request.nil? and @agency_update_request.errors.any? %>
