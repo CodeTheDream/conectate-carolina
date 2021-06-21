@@ -47,10 +47,12 @@ class AgencyUpdateRequestsController < ApplicationController
         flash.notice = (t'flash_notice.approve-success')
         redirect_to agency_path(@agency)
       elsif ag_params["status"] == "rejected"
-        flash.notice = (t'flash_notice.reject-success')
+        flash.alert = (t'flash_notice.reject-success')
         redirect_to agency_update_requests_path
+      else
+        flash.notice = (t'flash_notice.save-success')
+        redirect_to (request.referrer || agency_update_requests_url)
       end
-      return
     else
       render 'edit'
     end

@@ -133,6 +133,7 @@ es:
   flash_notice:
     success: Organización creada!
     update-success: Solicitud de actualización de la organización creada con éxito!
+    save-success: La solicitud de actualización de la organización se guardó con éxito!
     approve-success: Solicitud de actualización de la organización aprobada!
     reject-success: Solicitud de actualización de la organización rechazada!
     delete: Organización eliminada!
