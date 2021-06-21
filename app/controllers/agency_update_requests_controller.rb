@@ -44,10 +44,10 @@ class AgencyUpdateRequestsController < ApplicationController
                                                                   :descripcion,
                                                                   :mobile_phone
                                                                   ))
-        flash.notice = (t'flash_notice.update-success')
+        flash.notice = (t'flash_notice.approve-success')
         redirect_to agency_path(@agency)
       elsif ag_params["status"] == "rejected"
-        flash.notice = (t'flash_notice.update-success')
+        flash.notice = (t'flash_notice.reject-success')
         redirect_to agency_update_requests_path
       end
       return

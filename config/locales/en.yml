@@ -154,6 +154,8 @@ en:
   flash_notice:
     success: Organization Succesfully created!
     update-success: Organization Update Request succesfully created!
+    approve-success: Organization Update Request approved!
+    reject-success: Organization Update Request rejected!
     delete: Organization Succesfully deleted!
     update: Organization Succesfully updated!
   search_page:
