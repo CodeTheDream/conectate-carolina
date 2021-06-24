@@ -2,6 +2,7 @@ class AgencyUpdateRequestsController < ApplicationController
   before_action :authenticate_user!, only: :index
   before_action :set_agency, only: [:new, :create]
   before_action :set_agency_update_request, only: [:edit, :update]
+  before_action :set_aur_status, only: [:edit, :update]
 
   def index
     @agency_update_requests = AgencyUpdateRequest.where(status: "submitted")
@@ -26,7 +27,7 @@ class AgencyUpdateRequestsController < ApplicationController
 
   def update
     if @agency_update_request.update(ag_params)
-      if ag_params["status"] == "approved"
+      if params["status"] == "approved"
         @agency = Agency.find(@agency_update_request.agency_id)
         @agency.update(@agency_update_request.attributes_from_keys(:name,
                                                                   :nombre,
@@ -46,7 +47,7 @@ class AgencyUpdateRequestsController < ApplicationController
                                                                   ))
         flash.notice = (t'flash_notice.approve-success')
         redirect_to agency_path(@agency)
-      elsif ag_params["status"] == "rejected"
+      elsif params["status"] == "rejected"
         flash.alert = (t'flash_notice.reject-success')
         redirect_to agency_update_requests_path
       else
@@ -66,6 +67,10 @@ class AgencyUpdateRequestsController < ApplicationController
 
   def set_agency_update_request
     @agency_update_request = AgencyUpdateRequest.find(params[:id])
+  end
+
+  def set_aur_status
+    @agency_update_request.status = params["status"]
   end
 
   def ag_params
