@@ -85,6 +85,10 @@
         <%= fa_icon "download", text: ('Export Category') %>
       <% end %>
       <div class="dropdown-divider"></div>
+      <%= link_to agency_update_requests_path, class:"dropdown-item" do %>
+        <%= fa_icon "pencil", text: ('Organization Updates') %>
+      <% end %>
+      <div class="dropdown-divider"></div>
     </div>
   <%end%>
 </li>

@@ -69,6 +69,7 @@
               <%= @agency.descripcion %>
             <% end %>
           </p>
+          <p><%= link_to "Update", new_agency_agency_update_request_path(@agency) %></p>
           <hr>
           <% if @agency.websites.present? %>
           <p><b><%= (t'show_page.websites')%></b></p>
