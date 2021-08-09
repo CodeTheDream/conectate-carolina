@@ -20,6 +20,8 @@
                 </ul>
               </div>
             <% end %>
+            <%= f.hidden_field :submitted_by, value: @agency_update_request.submitted_by  %>
+            <%= f.hidden_field :submitter_email, value: @agency_update_request.submitter_email  %>
 
             <div class="form-group required">
               <%= f.label "Name", class: 'required control-label col-md-4' %>
@@ -99,7 +101,6 @@
                 <%= f.text_area(:descripcion, placeholder: 'descripcion', class: 'input-md  textinput textInput form-control') %>
               </div>
             </div>
-
             <div class="panel-inline-body">
               <%= link_to (t'buttons_t.back'), agency_update_requests_path, class: 'btn btn-primary' %>
               <%= f.button (t'buttons_t.save'), class: "btn btn-info" %>
