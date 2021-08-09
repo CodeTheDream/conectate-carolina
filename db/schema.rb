@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_14_165838) do
+ActiveRecord::Schema.define(version: 2021_08_09_144224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,8 @@ ActiveRecord::Schema.define(version: 2021_06_14_165838) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "agency_id", null: false
+    t.string "submitted_by"
+    t.string "submitter_email"
     t.index ["agency_id"], name: "index_agency_update_requests_on_agency_id"
   end
 
