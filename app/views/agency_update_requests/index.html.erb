@@ -83,8 +83,11 @@
         </p>
         </div>
           <hr>
-          <span style="color: #e36419"><%= agency.agency.name%></span> -
-          <span><%= agency.status%></span>
+          <span style="color: #e36419"><%= agency.agency.name%></span>
+          <div class="">
+            Submitted by: <%= agency.submitted_by %><br/>
+            Email: <%= agency.submitter_email %>
+          </div>
           <% if false %>
               <!-- Same effect agency.categories.each do etc...(using partial instead) -->
               <p><%= (t'category.categories') %></p>

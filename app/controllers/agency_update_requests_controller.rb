@@ -87,6 +87,8 @@ class AgencyUpdateRequestsController < ApplicationController
                                     :status,
                                     :description,
                                     :descripcion,
-                                    :email)
+                                    :email,
+                                    :submitted_by,
+                                    :submitter_email)
   end
 end
