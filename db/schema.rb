@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_25_201118) do
+ActiveRecord::Schema.define(version: 2021_08_10_200941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,12 +42,49 @@ ActiveRecord::Schema.define(version: 2021_05_25_201118) do
     t.integer "category_id"
   end
 
+  create_table "agency_update_requests", force: :cascade do |t|
+    t.string "name"
+    t.string "nombre"
+    t.string "address"
+    t.string "city"
+    t.string "state"
+    t.string "zipcode"
+    t.string "county"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "contact"
+    t.string "phone"
+    t.string "description"
+    t.string "email"
+    t.string "descripcion"
+    t.string "mobile_phone"
+    t.string "status", default: "submitted"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "agency_id", null: false
+    t.string "submitted_by", null: false
+    t.string "submitter_email", null: false
+    t.index ["agency_id"], name: "index_agency_update_requests_on_agency_id"
+  end
+
   create_table "categories", id: :serial, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "categoria"
     t.string "fa_name"
+  end
+
+  create_table "device_messages", force: :cascade do |t|
+    t.bigint "device_id", null: false
+    t.bigint "message_id", null: false
+    t.string "ticket_id"
+    t.string "status"
+    t.json "errors"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["device_id"], name: "index_device_messages_on_device_id"
+    t.index ["message_id"], name: "index_device_messages_on_message_id"
   end
 
   create_table "devices", force: :cascade do |t|
@@ -84,7 +121,7 @@ ActiveRecord::Schema.define(version: 2021_05_25_201118) do
     t.integer "searchable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
@@ -126,6 +163,9 @@ ActiveRecord::Schema.define(version: 2021_05_25_201118) do
 
   add_foreign_key "agency_categories", "agencies"
   add_foreign_key "agency_categories", "categories"
+  add_foreign_key "agency_update_requests", "agencies"
+  add_foreign_key "device_messages", "devices"
+  add_foreign_key "device_messages", "messages"
   add_foreign_key "websites", "agencies"
   add_foreign_key "websites", "website_types"
 end
