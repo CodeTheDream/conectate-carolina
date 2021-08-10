@@ -1,5 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe AgencyUpdateRequest, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "Validations" do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:submitted_by) }
+    it { should validate_presence_of(:submitter_email) }
+  end
+
+  describe "Associations" do
+    it { should belong_to(:agency) }
+  end
 end
