@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 2021_08_09_144224) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "agency_id", null: false
-    t.string "submitted_by"
-    t.string "submitter_email"
+    t.string "submitted_by", null: false
+    t.string "submitter_email", null: false
     t.index ["agency_id"], name: "index_agency_update_requests_on_agency_id"
   end
 
