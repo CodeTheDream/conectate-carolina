@@ -7,6 +7,7 @@ RSpec.describe Agency, type: :model do
 
   describe "Associations" do
     it { should have_many(:agency_categories) }
+    it { should have_many(:agency_update_requests) }
     it { should have_many(:websites).dependent(:destroy) }
     it { should have_many(:categories).through(:agency_categories) }
   end
