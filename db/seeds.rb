@@ -106,3 +106,9 @@ puts "there are #{Faq.count} faqs in the Faq table"
 puts "There are now #{Agency.count} rows in the Agency table"
 # Print contents of the variable
 # puts csv
+aur1 = AgencyUpdateRequest.create(name: 'ABC', agency_id: Agency.first.id, nombre: 'abc', address: '201 W Main st.', city: 'Durham', state: 'NC', zipcode: '27701',
+                                  county: 'Durham', latitude: 35.994034, longitude: -78.898621, contact: 'Kevin Smith', phone: '9197780289',
+                                  description: "No description", email: "kevin@smith.com", descripcion: 'No descripcion', mobile_phone: '9196678894')
+aur2 = AgencyUpdateRequest.create(name: 'XYZ', agency_id: Agency.second.id, nombre: 'xyz', address: '3100 Duraleigh Rd STE 300', city: 'Raleigh', state: 'NC', zipcode: '27612',
+                                  county: 'Wake', latitude: 35.787743, longitude: -78.644257, contact: 'Robin Smith', phone: '9197780200',
+                                  description: "No description", email: "robin@smith.com", descripcion: 'No descripcion', mobile_phone: '9196678800')

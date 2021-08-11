@@ -33,10 +33,10 @@ en:
         state: "State:"
         zipcode: "Zip Code:"
         county: "County:"
-        contact: "Contact Person:"
+        contact: "Contact:"
         email: "Email:"
-        phone: "Phone Numbers:"
-        mobile_phone: "Mobile phone:"
+        phone: "Phone:"
+        mobile_phone: "Cell phone:"
         description: "Description(eng):"
         descripcion: "Descripción:"
       category:
@@ -148,11 +148,15 @@ en:
     edit_msg: Edit Message
   home_page:
     title: CONECTATE CAROLINA
-    browse: Directory of organizations and services in the United States
+    browse: Directory of organizations and services in North Carolina
     listing: Listing all organizations
     location: current location
   flash_notice:
     success: Organization Succesfully created!
+    update-success: Organization Update Request succesfully created!
+    save-success: Organization Update Request succesfully saved!
+    approve-success: Organization Update Request approved!
+    reject-success: Organization Update Request rejected!
     delete: Organization Succesfully deleted!
     update: Organization Succesfully updated!
   search_page:
@@ -168,6 +172,7 @@ en:
     h1: Organizations
   new_page:
     h1: Organization
+    h2: Organization Update Request
     submit: Create Organization
     fill_fields: "Fill the following fields"
   edit_page:
@@ -180,16 +185,19 @@ en:
     zip: "Zip code:"
     county: "County:"
     contact: "Contact:"
-    phone: "Phone Numbers:"
+    phone: "Phone:"
     description: "Description:"
     websites: "Websites"
     title: "Title:"
     no_info: "No info"
+    status: "Status:"
   buttons_t:
     back: Back
     edit: Edit
     delete: Delete
     save: Save
+    approve: Approve
+    reject: Reject
     post: Post
     unpost: Unpost
     new: Create a Message
@@ -204,6 +212,7 @@ en:
   footer:
     about: About
     organizations: Organizations
+    organization-updates: Organization Update Submissions
     brand: App made by Fernando and Jorge from Code the Dream
   faq:
     new: Add a Question

@@ -12,9 +12,9 @@ es:
         state: 'Estado:'
         zipcode: 'Codigo Postal'
         county: 'Condado'
-        contact: 'Persona de contacto:'
+        contact: 'Contacto:'
         email: 'Correo Electronico:'
-        phone: 'Numeros de telefono:'
+        phone: 'Teléfono:'
         mobile_phone: 'Telefonos celular:'
         description: 'Description(eng):'
         descripcion: 'Descripción:'
@@ -127,11 +127,15 @@ es:
     edit_msg: Actualizar Mensaje
   home_page:
     title: CONECTATE CAROLINA
-    browse: Directorio de organizaciones y servicios en los Estados Unidos
+    browse: Directorio de organizaciones y servicios en Carolina del Norte
     listing: Demonstrando todas las organizaciones
     location: ubicación actual
   flash_notice:
     success: Organización creada!
+    update-success: Solicitud de actualización de la organización creada con éxito!
+    save-success: La solicitud de actualización de la organización se guardó con éxito!
+    approve-success: Solicitud de actualización de la organización aprobada!
+    reject-success: Solicitud de actualización de la organización rechazada!
     delete: Organización eliminada!
     update: Organización actualizada!
   search_page:
@@ -147,6 +151,7 @@ es:
     h1: Organizaciones
   new_page:
     h1: Crear Organización
+    h2: Solicitud de actualización de la organización
     submit: Crear Organización
     fill_fields: 'Llena las siguientes columnas'
   edit_page:
@@ -159,16 +164,19 @@ es:
     zip: 'Codigo postal:'
     county: 'Condado:'
     contact: 'Contacto:'
-    phone: 'Numeros De telefono:'
+    phone: 'Teléfono:'
     description: 'Descripcion:'
     websites: 'Sitios web'
     title: 'Titulo:'
     no_info: "Nada"
+    status: "Estado:"
   buttons_t:
     back: Atras
     edit: Actualizar
     delete: Eliminar
     save: Guardar
+    approve: Aprobar
+    reject: Rechazar
     all_org: Todas las organizaciones
   plchldr_forms:
     name: Nombre
@@ -180,6 +188,7 @@ es:
   footer:
     about: Acerca
     organizations: Organizaciones
+    organization-updates: Envíos de actualización de la organización
     brand: Aplicación hecha por Fernando y Jorge de Code the Dream
   faq:
     new: Añadir pregunta

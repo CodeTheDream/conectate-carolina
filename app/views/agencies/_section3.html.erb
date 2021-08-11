@@ -34,7 +34,7 @@
               <% if params[:locale] == 'en' %>
                 <%= link_to agency.name, controller: 'agencies', action: 'show', id: agency.id%>
               <% else %>
-                <%= link_to agency.nombre, controller: 'agencies', action: 'show', id: agency.id%>
+                <%= link_to (agency.nombre || agency.name), controller: 'agencies', action: 'show', id: agency.id%>
               <% end %>
             </strong>
           </p>
@@ -95,6 +95,7 @@
               <% end %>
             </div>
           </p>
+          <p><%= link_to "Update", new_agency_agency_update_request_path(agency) %></p>
         </div>
           <hr>
           <% if agency.categories.any? %>
