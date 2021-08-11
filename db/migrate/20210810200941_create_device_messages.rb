@@ -5,7 +5,7 @@ class CreateDeviceMessages < ActiveRecord::Migration[6.1]
       t.references :message, null: false, foreign_key: true
       t.string :ticket_id
       t.string :status
-      t.json :errors
+      t.json :error_messages
 
       t.timestamps
     end
