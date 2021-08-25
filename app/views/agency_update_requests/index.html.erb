@@ -21,7 +21,7 @@
               <% if params[:locale] == 'en' %>
                 <%= link_to agency.name, controller: 'agency_update_requests', action: 'edit', id: agency.id%>
               <% else %>
-                <%= link_to agency.nombre, controller: 'agency_update_requests', action: 'edit', id: agency.id%>
+                <%= link_to (agency.nombre || agency.name), controller: 'agency_update_requests', action: 'edit', id: agency.id%>
               <% end %>
             </strong>
           </p>

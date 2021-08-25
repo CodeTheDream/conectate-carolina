@@ -14,6 +14,9 @@ class AgencyUpdateRequestsController < ApplicationController
 
   def create
     @agency_update_request = @agency.agency_update_requests.new(ag_params)
+    if ag_params[:nombre].blank?
+      @agency_update_request.nombre = nil
+    end
     if @agency_update_request.save
       flash.notice = (t'flash_notice.update-success')
       redirect_to @agency
@@ -45,6 +48,9 @@ class AgencyUpdateRequestsController < ApplicationController
                                                                   :descripcion,
                                                                   :mobile_phone
                                                                   ))
+        if ag_params[:nombre].blank?
+          @agency.update(nombre: nil)
+        end
         flash.notice = (t'flash_notice.approve-success')
         redirect_to agency_path(@agency)
       elsif params["status"] == "rejected"

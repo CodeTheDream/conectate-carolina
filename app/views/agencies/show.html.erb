@@ -15,7 +15,7 @@
             <% if params[:locale] == 'en' %>
               <strong><%= link_to @agency.name, @agency %></strong>
             <% else %>
-              <strong><%= link_to @agency.nombre, @agency %></strong>
+              <strong><%= link_to (@agency.nombre || @agency.name), @agency %></strong>
             <% end %>
           </p>
           <hr>
