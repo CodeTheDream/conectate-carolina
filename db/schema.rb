@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_09_144224) do
+ActiveRecord::Schema.define(version: 2021_08_10_200941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,18 @@ ActiveRecord::Schema.define(version: 2021_08_09_144224) do
     t.datetime "updated_at", null: false
     t.string "categoria"
     t.string "fa_name"
+  end
+
+  create_table "device_messages", force: :cascade do |t|
+    t.bigint "device_id", null: false
+    t.bigint "message_id", null: false
+    t.string "ticket_id"
+    t.string "status"
+    t.json "error_messages"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["device_id"], name: "index_device_messages_on_device_id"
+    t.index ["message_id"], name: "index_device_messages_on_message_id"
   end
 
   create_table "devices", force: :cascade do |t|
@@ -151,6 +163,8 @@ ActiveRecord::Schema.define(version: 2021_08_09_144224) do
 
   add_foreign_key "agency_categories", "agencies"
   add_foreign_key "agency_categories", "categories"
+  add_foreign_key "device_messages", "devices"
+  add_foreign_key "device_messages", "messages"
   add_foreign_key "agency_update_requests", "agencies"
   add_foreign_key "websites", "agencies"
   add_foreign_key "websites", "website_types"
