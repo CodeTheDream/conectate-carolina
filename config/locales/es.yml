@@ -174,7 +174,7 @@ es:
     back: Atras
     edit: Actualizar
     delete: Eliminar
-    save: Guardar
+    submit: Enviar
     approve: Aprobar
     reject: Rechazar
     all_org: Todas las organizaciones
