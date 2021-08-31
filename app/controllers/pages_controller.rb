@@ -11,4 +11,7 @@ class PagesController < ApplicationController
 
   def mobile_page
   end
+
+  def confirmation
+  end
 end
