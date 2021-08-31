@@ -101,13 +101,13 @@
             </div>
             <div class="col-md-offset-3 jumbotron jumbotron-fluid" style="background-color: white;">
               <div class="form-group">
-                <%= f.label :submitted_by, class: 'control-label col-md-4' %>
+                <%= f.label :submitted_by, class: 'required control-label col-md-4' %>
                 <div class="controls col-md-8">
                   <%= f.text_field(:submitted_by, class: 'input-md  textinput textInput form-control') %>
                 </div>
               </div>
               <div class="form-group">
-                <%= f.label "Email", class: 'control-label col-md-4' %>
+                <%= f.label "Email", class: 'required control-label col-md-4' %>
                 <div class="controls col-md-8">
                   <%= f.text_field(:submitter_email, class: 'input-md  textinput textInput form-control') %>
                 </div>
