@@ -18,8 +18,7 @@ class AgencyUpdateRequestsController < ApplicationController
       @agency_update_request.nombre = nil
     end
     if @agency_update_request.save
-      flash.notice = (t'flash_notice.update-success')
-      redirect_to @agency
+      redirect_to confirmation_path
     else
       render 'new'
     end
