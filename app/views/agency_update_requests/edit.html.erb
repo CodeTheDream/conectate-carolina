@@ -100,7 +100,8 @@
               </div>
             </div>
             <div class="panel-inline-body">
-              <%= link_to (t'buttons_t.back'), agency_update_requests_path, class: 'btn btn-info' %>
+              <%= link_to (t'buttons_t.back'), agency_update_requests_path, class: 'btn btn-primary' %>
+              <%= f.button (t'buttons_t.save'), class: "btn btn-info" %>
               <%= f.button (t'buttons_t.approve'),  name: "status", value: "approved", class: "btn btn-primary" %>
               <%= f.button (t'buttons_t.reject'), name: "status", value: "rejected", class: "btn btn-warning" %>
             </div>
