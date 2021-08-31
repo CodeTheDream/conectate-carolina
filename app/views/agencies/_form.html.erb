@@ -100,7 +100,7 @@
 
   <div class="checkbox">
     <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
-      <%= cb.label(class: 'checkbox input_checkbox btn btn-default') {
+      <%= cb.label(class: 'checkbox input_checkbox') {
         cb.check_box(class: 'checkbox') + cb.text }  %>
     <% end %>
   </div>
