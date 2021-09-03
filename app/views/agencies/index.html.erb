@@ -87,10 +87,6 @@ function toggle() {
           </div>
 
           <div class="col-md-2">
-            <% county_options = {} %>
-          <% County.all.pluck(:name).uniq.each do |name| %>
-              <% county_options[name]=name %>
-          <% end %>
             <%= select_tag :county, options_for_select({"All Counties"=>""}.merge(county_options).map {|k, v| [k.humanize.capitalize, v]}, selected: params[:county] || 1), onchange: "toggle()", class: 'form-control' %>
           </div>
 
