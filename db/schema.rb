@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_31_170540) do
+ActiveRecord::Schema.define(version: 2021_09_03_024259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_08_31_170540) do
     t.bigint "county_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["agency_id", "county_id"], name: "index_agency_counties_on_agency_id_and_county_id", unique: true
     t.index ["agency_id"], name: "index_agency_counties_on_agency_id"
     t.index ["county_id"], name: "index_agency_counties_on_county_id"
   end
