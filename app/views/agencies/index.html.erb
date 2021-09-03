@@ -72,19 +72,24 @@ getLocation();
     <div class="wrapper">
       <%= form_tag agencies_path(anchor: "organizations"), method: :get, class: 'form-group', id: 'agency-lookup-form', data: { behaviors: 'turboform' } do %>
         <div class="row" id="search-row">
-          <div class="col-md-3 col-md-offset-2">
-
+          <div class="col-md-3 col-md-offset-1">
             <%= text_field_tag :search, params[:search], placeholder: (t'search_page.plchldr_search'), :class => 'form-control', autofocus: params[:search].present? %>
+          </div>
 
+          <div class="col-md-2">
+            <% county_options = {} %>
+          <% County.all.pluck(:name).uniq.each do |name| %>
+              <% county_options[name]=name %>
+          <% end %>
+            <%= select_tag :county, options_for_select({"All Counties"=>""}.merge(county_options).map {|k, v| [k.humanize.capitalize, v]}, selected: params[:county] || 1), class: 'form-control' %>
           </div>
 
           <div class="col-md-2">
             <%= text_field_tag :location, params[:location], placeholder: (t'home_page.location'), :class => 'form-control', autofocus: params[:location].present? %>
             <%= hidden_field_tag :coordinates, params[:coordinates]%>
-
             <!-- <%= text_field_tag :location, params[:location], placeholder: "search by location", :class => 'form-control search-input', autofocus: params[:location].present? %> -->
-
           </div>
+
           <div class="col-md-2">
             <!-- <%= label :distance, "Choose a distance : " %> -->
             <% if params[:locale] == "en" %>
