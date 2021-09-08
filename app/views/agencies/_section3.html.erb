@@ -50,10 +50,10 @@
             </span>
           </a>
         </address>
-        <p><%= t'show_page.county' %>
+        <p><%= t'show_page.counties' %>
           <small>
-            <% if agency.county.present? %>
-              <%= agency.county %>
+            <% if agency.counties.count >= 1 %>
+              <%= agency.counties.map {|c| c.name}.join(", ") %>
             <%else%>
              <%=t'show_page.no_info'%>
              <%end%>

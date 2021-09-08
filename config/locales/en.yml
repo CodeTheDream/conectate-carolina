@@ -183,7 +183,7 @@ en:
     state: "State:"
     city: "City:"
     zip: "Zip code:"
-    county: "County:"
+    counties: "Counties:"
     contact: "Contact:"
     phone: "Phone:"
     description: "Description:"
