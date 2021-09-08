@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_10_200941) do
+ActiveRecord::Schema.define(version: 2021_09_03_024259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 2021_08_10_200941) do
   create_table "agency_categories", id: :serial, force: :cascade do |t|
     t.integer "agency_id"
     t.integer "category_id"
+  end
+
+  create_table "agency_counties", force: :cascade do |t|
+    t.bigint "agency_id", null: false
+    t.bigint "county_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["agency_id", "county_id"], name: "index_agency_counties_on_agency_id_and_county_id", unique: true
+    t.index ["agency_id"], name: "index_agency_counties_on_agency_id"
+    t.index ["county_id"], name: "index_agency_counties_on_county_id"
   end
 
   create_table "agency_update_requests", force: :cascade do |t|
@@ -73,6 +83,13 @@ ActiveRecord::Schema.define(version: 2021_08_10_200941) do
     t.datetime "updated_at", null: false
     t.string "categoria"
     t.string "fa_name"
+  end
+
+  create_table "counties", force: :cascade do |t|
+    t.string "name"
+    t.string "state"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "device_messages", force: :cascade do |t|
@@ -163,9 +180,11 @@ ActiveRecord::Schema.define(version: 2021_08_10_200941) do
 
   add_foreign_key "agency_categories", "agencies"
   add_foreign_key "agency_categories", "categories"
+  add_foreign_key "agency_counties", "agencies"
+  add_foreign_key "agency_counties", "counties"
+  add_foreign_key "agency_update_requests", "agencies"
   add_foreign_key "device_messages", "devices"
   add_foreign_key "device_messages", "messages"
-  add_foreign_key "agency_update_requests", "agencies"
   add_foreign_key "websites", "agencies"
   add_foreign_key "websites", "website_types"
 end
