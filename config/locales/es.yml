@@ -162,7 +162,7 @@ es:
     state: 'Estado:'
     city: 'Ciudad:'
     zip: 'Codigo postal:'
-    county: 'Condado:'
+    counties: 'Condados:'
     contact: 'Contacto:'
     phone: 'Teléfono:'
     description: 'Descripcion:'

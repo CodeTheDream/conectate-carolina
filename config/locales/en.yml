@@ -171,19 +171,19 @@ en:
   views_index:
     h1: Organizations
   new_page:
-    h1: Organization
+    h1: Create Organization
     h2: Organization Update Request
     submit: Create Organization
     fill_fields: "Fill the following fields"
   edit_page:
-   h1: Edit Organization
+   h1: Update Organization
    submit: Save changes
   show_page:
     address: "Address:"
     state: "State:"
     city: "City:"
     zip: "Zip code:"
-    county: "County:"
+    counties: "Counties:"
     contact: "Contact:"
     phone: "Phone:"
     description: "Description:"

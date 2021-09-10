@@ -26,9 +26,9 @@
                 <i class="fa fa-map-marker fa-2x"></i>
               </span>
             </a></p>
-          <p><b><%= (t'show_page.county') %></b>
-            <% if @agency.county.present? %>
-              <%= @agency.county %>
+          <p><b><%= (t'show_page.counties') %></b>
+            <% if @agency.counties.count >= 1 %>
+              <%= @agency.counties.map { |c| c.name }.join(", ")%>
             <%else%>
              <%=t'show_page.no_info'%>
              <%end%>
