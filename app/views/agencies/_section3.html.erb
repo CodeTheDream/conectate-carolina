@@ -54,6 +54,8 @@
           <small>
             <% if agency.counties.count >= 1 %>
               <%= agency.counties.map {|c| c.name}.join(", ") %>
+            <% elsif agency.county %>
+              <%= agency.county %>
             <%else%>
              <%=t'show_page.no_info'%>
              <%end%>
