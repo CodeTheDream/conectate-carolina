@@ -138,10 +138,21 @@
   // Disable location and distance input fields when a county is selected from dropdown list
   var sel = document.getElementById("sel"),
       text = document.getElementById("location"),
-      distance = document.getElementById("distance");
+      distance = document.getElementById("distance"),
+      county_selected = document.forms[0].sel.value;
 
   sel.onchange = function(e) {
     text.disabled = (sel.value !== "");
     distance.disabled = (sel.value !== "");
   };
+
+
+  if (county_selected !== "") {
+    text.disabled = true;
+    distance.disabled = true;
+  } else {
+    text.disabled = false;
+    distance.disabled = false;
+  }
+
 </script>
