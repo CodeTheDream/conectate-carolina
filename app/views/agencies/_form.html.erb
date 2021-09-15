@@ -47,9 +47,9 @@
     </div>
   </div>
   <div class="form-group required">
-    <%= f.label "Counties", class: 'control-label col-md-4' %>
+    <%= f.label "Counties/Regions", class: 'control-label col-md-4' %>
     <div class="controls col-md-8">
-      <%= f.select :county_ids, County.all.collect {|c| [c.name, c.id]}, {}, {multiple: true, class: 'form-control js-searchable', placeholder: 'counties'}%>
+      <%= f.select :county_ids, County.all.collect {|c| [c.name, c.id]}, {}, {multiple: true, class: 'form-control js-searchable'}%>
     </div>
   </div>
   <div class="form-group required">
