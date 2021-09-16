@@ -27,8 +27,18 @@ class AgenciesController < ApplicationController
       @ag = Agency.search_name(params[:search])
       @agencies = @ag.near(location, distance)
    	else
-    	@agencies = @agencies.near(location, 15)
+    	@agencies
    	end
+
+    if params[:county].present?
+      county = County.find_by(name: params[:county])
+      @agencies = Agency.joins(:agency_counties).where({ "agency_counties.county_id" => county.id })
+      if params[:search].present?
+        @agencies = @agencies.search_name(params[:search])
+      else
+        @agencies
+      end
+    end
 
     # This code below is for the csv downloads.
     @headers = %w(name nombre address city state zipcode county contact phone description email descripcion mobile_phone category categoria icon agency_url facebook_url)
@@ -128,6 +138,6 @@ class AgenciesController < ApplicationController
   def agency_params
     params.require(:agency).permit(:name, :nombre, :address, :city, :state, :zipcode, :county,
                                    :contact, :phone, :mobile_phone, :description, :descripcion, :email, :name, :website, :website_type,
-                                   category_ids: [])
+                                   category_ids: [], county_ids: [])
   end
 end

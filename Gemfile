@@ -23,6 +23,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'exponent-server-sdk'
 gem 'rinku'
 gem 'airbrake'
+gem 'select2-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
