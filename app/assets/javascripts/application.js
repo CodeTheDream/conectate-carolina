@@ -15,4 +15,15 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require gmaps/google
+//= require select2
 //= require_tree .
+
+$(document).ready(function(){
+    // Turn on js-selection class so that it becomes SELECT 2 tag
+    $('.js-searchable').select2({
+        placeholder: 'Counties/regions served',
+        allowClear: true, 
+        width: 200
+    });
+});
+
