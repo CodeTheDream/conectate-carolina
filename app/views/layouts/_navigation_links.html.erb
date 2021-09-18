@@ -53,7 +53,7 @@
   </li>
 <% end %>
 <li class="nav-item dropdown">
-  <% if current_user %>
+  <% if current_user && current_user.admin? %>
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       <span class="fa fa-user-circle"></span>
       Admin
