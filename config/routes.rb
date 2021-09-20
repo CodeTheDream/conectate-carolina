@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     get 'pages/privacy_policy'
     get 'pages/terms_and_conditions'
     get 'mobile', to: 'pages#mobile_page'
+    get 'confirmation', to: 'pages#confirmation'
 	  get 'search', to: 'search#search'
     resources :categories
     resources :messages do

@@ -301,6 +301,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    select2-rails (4.0.13)
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
@@ -409,6 +410,7 @@ DEPENDENCIES
   rspec-rails
   rubocop
   sass-rails
+  select2-rails
   selenium-webdriver
   shoulda-matchers
   simple_form

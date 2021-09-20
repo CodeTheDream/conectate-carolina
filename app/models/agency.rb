@@ -4,6 +4,8 @@ class Agency < ApplicationRecord
   accepts_nested_attributes_for :websites
   has_many :agency_categories
   has_many :categories, through: :agency_categories
+  has_many :agency_counties
+  has_many :counties, through: :agency_counties
   has_many :agency_update_requests
   # validate :update_with_geocoded_locations
   validates :name, presence: true, uniqueness: { scope: [:address, :city, :state, :zipcode],

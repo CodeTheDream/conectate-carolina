@@ -162,7 +162,7 @@ es:
     state: 'Estado:'
     city: 'Ciudad:'
     zip: 'Codigo postal:'
-    county: 'Condado:'
+    counties: 'Condados:'
     contact: 'Contacto:'
     phone: 'Teléfono:'
     description: 'Descripcion:'
@@ -175,6 +175,7 @@ es:
     edit: Actualizar
     delete: Eliminar
     save: Guardar
+    submit: Enviar
     approve: Aprobar
     reject: Rechazar
     all_org: Todas las organizaciones

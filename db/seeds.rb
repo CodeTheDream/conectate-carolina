@@ -101,9 +101,22 @@ csv.each do |column|
   faq.save
 end
 
+# Seeding Counties
+require 'csv'
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'ncCounties.csv'))
+csv = CSV.parse(csv_text, headers: true, encoding: 'UTF-8')
 
-puts "there are #{Faq.count} faqs in the Faq table"
+csv.each do |csv_county|
+  county = County.new
+  county.name = csv_county['name']
+  county.state = csv_county['state']
+end
+
+
+puts "There are #{Faq.count} faqs in the Faq table"
 puts "There are now #{Agency.count} rows in the Agency table"
+puts "There are #{County.count} counties in the County table"
+
 # Print contents of the variable
 # puts csv
 aur1 = AgencyUpdateRequest.create(name: 'ABC', agency_id: Agency.first.id, nombre: 'abc', address: '201 W Main st.', city: 'Durham', state: 'NC', zipcode: '27701',
