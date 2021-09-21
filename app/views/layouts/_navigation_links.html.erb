@@ -42,7 +42,7 @@
     <% end %>
       <% if policy(Category).new? %>
         <li role="separator" class="divider"></li>
-        <li><%= link_to (t'category.new_cat'), new_category_path %></li>
+        <li><%= link_to (t'category.new_cat'), new_category_path, class: 'btn btn-info' %></li>
       <% end %>
   </ul>
 </li>
@@ -99,7 +99,7 @@
       <% end %>
 
       <li role="separator" class="divider"></li>
-      <li><%= link_to destroy_user_session_path, method: 'delete' do %>
+      <li><%= link_to destroy_user_session_path, method: 'delete', class: 'btn btn-info' do %>
             <%= fa_icon "trash", text: (t'nav_links.sign_out') %>
           <% end %>
       </li>
