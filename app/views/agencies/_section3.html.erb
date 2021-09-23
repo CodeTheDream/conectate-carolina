@@ -53,7 +53,12 @@
         <p><%= t'show_page.counties' %>
           <small>
             <% if agency.counties.count >= 1 %>
-              <%= agency.counties.map {|c| c.name}.join(", ") %>
+              <% if agency.counties.count >5 %>
+                <%= agency.counties.limit(5).map {|c| c.name}.join(", ") %>,<a href="javascript:void(0)" id="more-counties"> more...</a>
+                <span id="offset-counties" style="display:none;"><%= agency.counties.offset(5).map {|c| c.name}.join(", ") %></span>
+              <% else %>
+                <%= agency.counties.map {|c| c.name}.join(", ") %>
+              <% end %>
             <% elsif agency.county %>
               <%= agency.county %>
             <%else%>
@@ -122,3 +127,16 @@
     <% end %>
   </div>
 </section>
+
+<script>
+  const targetDiv = document.getElementById("offset-counties");
+  const link = document.getElementById("more-counties");
+  link.onclick = function () {
+    if (targetDiv.style.display === "none") {
+      targetDiv.style.display = "block";
+      link.style.display = "none";
+    } else {
+      targetDiv.style.display = "none";
+    }
+  };
+</script>
