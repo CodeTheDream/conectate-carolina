@@ -31,12 +31,12 @@
               <% if @agency.counties.count >= 1 %>
                 <% if @agency.counties.count > 5 %>
                   <%= @agency.counties.limit(5).map {|c| c.name}.join(", ") %>,
-                  <%= link_to 'more...', '', class: "read-more-#{@agency.id}" %>
+                  <%= link_to 'more...', '', class: "read-more-#{@agency.id}", style: 'font-size: inherit;' %>
                   <script>
                     $('.read-more-<%= @agency.id %>').on('click', function(e) {
                       e.preventDefault()
                       console.log(this.parentElement)
-                      $(this).parent().html('<%= escape_javascript @agency.counties.map {|c| c.name}.join(", ") %> <%= escape_javascript link_to 'less...', '', class: "read-less-#{@agency.id}" %>')
+                      $(this).parent().html('<%= escape_javascript @agency.counties.map {|c| c.name}.join(", ") %>, <%= escape_javascript link_to 'less...', '', class: "read-less-#{@agency.id}", style: 'font-size: inherit;' %>')
                     })
                   </script>
                 <% else %>
