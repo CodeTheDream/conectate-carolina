@@ -54,8 +54,15 @@
           <small>
             <% if agency.counties.count >= 1 %>
               <% if agency.counties.count >5 %>
-                <%= agency.counties.limit(5).map {|c| c.name}.join(", ") %>,<a href="javascript:void(0)" id="more-counties"> more...</a>
-                <span id="offset-counties" style="display:none;"><%= agency.counties.offset(5).map {|c| c.name}.join(", ") %></span>
+                <%= agency.counties.limit(5).map {|c| c.name}.join(", ") %>,
+                <%= link_to 'more...', '', class: "read-more-#{agency.id}" %>
+                <script>
+                  $('.read-more-<%= agency.id %>').on('click', function(e) {
+                    e.preventDefault()
+                    console.log(this.parentElement)
+                    $(this).parent().html('<%= escape_javascript agency.counties.map {|c| c.name}.join(", ") %> <%= escape_javascript link_to 'less...', '', class: "read-less-#{agency.id}" %>')
+                  })
+                </script>
               <% else %>
                 <%= agency.counties.map {|c| c.name}.join(", ") %>
               <% end %>
@@ -127,16 +134,3 @@
     <% end %>
   </div>
 </section>
-
-<script>
-  const targetDiv = document.getElementById("offset-counties");
-  const link = document.getElementById("more-counties");
-  link.onclick = function () {
-    if (targetDiv.style.display === "none") {
-      targetDiv.style.display = "block";
-      link.style.display = "none";
-    } else {
-      targetDiv.style.display = "none";
-    }
-  };
-</script>
