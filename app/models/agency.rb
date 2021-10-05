@@ -106,6 +106,7 @@ class Agency < ApplicationRecord
   def new_agency_hash
     category_array = []
     website_array = []
+    county_array = []
 
     self.categories.each do |cat|
       category_array << { id: cat.id, name: cat.name, categoria: cat.categoria, fa_name: cat.fa_name }
@@ -113,6 +114,10 @@ class Agency < ApplicationRecord
 
     self.websites.each do |web|
       website_array << { id: web.id, name: web.website_type.name, url: web.url, icon: web.website_type.icon }
+    end
+
+    self.counties.each do |county|
+      county_array << { id: county.id, name: county.name }
     end
 
     { id: self.id,
@@ -132,7 +137,8 @@ class Agency < ApplicationRecord
       description: self.description,
       descripcion: self.descripcion,
       categories: category_array,
-      websites: website_array
+      websites: website_array,
+      counties: county_array
     }
   end
 
