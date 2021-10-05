@@ -6,6 +6,7 @@ class AgencyUpdateRequestsController < ApplicationController
 
   def index
     @agency_update_requests = AgencyUpdateRequest.where(status: "submitted")
+    authorize @agency_update_requests
   end
 
   def new
@@ -28,6 +29,7 @@ class AgencyUpdateRequestsController < ApplicationController
   end
 
   def update
+    authorize @agency_update_request
     if @agency_update_request.update(ag_params)
       if params["status"] == "approved"
         @agency = Agency.find(@agency_update_request.agency_id)

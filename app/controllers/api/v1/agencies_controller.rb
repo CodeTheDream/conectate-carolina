@@ -1,6 +1,7 @@
 class Api::V1::AgenciesController < ApplicationController
   def index
     agencies = Agency.order(:name)
+    counties = County.all.pluck(:name)
 
     # when passed 'updated_since' parameter
     if params[:updated_since].present?
@@ -33,6 +34,7 @@ class Api::V1::AgenciesController < ApplicationController
     agencies = agencies.map do |agency|
       agency.new_agency_hash
     end
-    render json: agencies, status: :ok
+
+    render json: {agencies: agencies, nc_counties: counties}, status: :ok
   end
 end

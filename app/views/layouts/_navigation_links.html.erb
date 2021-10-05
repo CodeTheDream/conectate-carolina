@@ -52,43 +52,56 @@
     <% end %>
   </li>
 <% end %>
+
+<%# Admin Dropdown starts here %>
 <li class="nav-item dropdown">
-  <% if current_user %>
-    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="fa fa-user-circle"></span>
-      Admin
-    </a>
-    <div class="dropdown-menu pl-1" aria-labelledby="navbarDropdown">
+  <% if current_user && current_user.admin? %>
+    <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><%= fa_icon 'user-circle', text: 'Admin'%></a>
+    <ul class="dropdown-menu admin-panel" >
       <% if policy(Agency).new? %>
-        <%= link_to new_agency_path do %>
-          <%= fa_icon "plus", text: "Organization"%>
-        <% end %>
+        <li><%= link_to new_agency_path do %>
+            <%= fa_icon "plus", text: (t'activerecord.attributes.agency.add_agency')%>
+          <% end %>
+        </li>
       <% end %>
-      <div class="dropdown-divider"></div>
+  
       <% if policy(Category).new? %>
-        <%= link_to new_category_path do %>
-          <%= fa_icon "plus", text: (t'category.new_cat')%>
-        <% end %>
+        <li><%= link_to new_category_path do %>
+            <%= fa_icon "plus", text: (t'category.add_cat') %>
+          <% end %>
+        </li>
       <% end %>
-      <div class="dropdown-divider"></div>
+   
       <% if policy(Message).index? %>
-        <%= link_to messages_path, id: "my_messages_link" do %>
+        <li><%= link_to messages_path, id: "my_messages_link" do %>
           <%= fa_icon "envelope", text: (t'message.all_msg') %>
         <% end %>
+        </li>
       <% end %>
-      <div class="dropdown-divider"></div>
-      <%= link_to root_path(format: :csv), class:"dropdown-item" do %>
-        <%= fa_icon "download", text: ('Export Agency') %>
+
+      <li><%= link_to agencies_path(format: :csv), class:"dropdown-item" do %>
+          <%= fa_icon "download", text: (t'download.agencies') %>
+        <% end %>
+      </li>
+
+      <li><%= link_to categories_path(format: :csv), class:"dropdown-item" do %>
+          <%= fa_icon "download", text: (t'download.categories') %>
+        <% end %>
+      </li>
+
+      <% if policy(AgencyUpdateRequest).index? %>
+        <li><%= link_to agency_update_requests_path, class:"dropdown-item" do %>
+            <%= fa_icon "list-alt", text: (t'download.org_update_submissions') %>
+          <% end %>
+        </li>
       <% end %>
-      <div class="dropdown-divider"></div>
-      <%= link_to categories_path(format: :csv), class:"dropdown-item" do %>
-        <%= fa_icon "download", text: ('Export Category') %>
-      <% end %>
-      <div class="dropdown-divider"></div>
-      <%= link_to agency_update_requests_path, class:"dropdown-item" do %>
-        <%= fa_icon "pencil", text: ('Organization Updates') %>
-      <% end %>
-      <div class="dropdown-divider"></div>
-    </div>
-  <%end%>
-</li>
+
+      <li role="separator" class="divider"></li>
+      <li><%= link_to destroy_user_session_path, method: 'delete' do %>
+            <%= fa_icon "trash", text: (t'nav_links.sign_out') %>
+          <% end %>
+      </li>
+    </ul>
+  </li>
+<%end%>
