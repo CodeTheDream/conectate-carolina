@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>You got a new organization update request from <%= @aur.name %>!</p>
+    <p>
+    Update Request Details<br>
+    --------------------------
+    </p>
+    <p>Organization Name: <%= @aur.name %></p>
+    <p>Submitted by: <%= @aur.submitted_by %></p>
+    <p>Email: <%= @aur.submitter_email %></p>
+    <p>Phone: <%= @aur.phone %></p>
+  </body>
+</html>
