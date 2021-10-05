@@ -19,6 +19,7 @@ class AgencyUpdateRequestsController < ApplicationController
       @agency_update_request.nombre = nil
     end
     if @agency_update_request.save
+      AgencyUpdateMailer.new_agency_update_email(@agency, @agency_update_request).deliver_later
       redirect_to confirmation_path
     else
       render 'new'
