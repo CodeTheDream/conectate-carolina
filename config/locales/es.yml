@@ -18,6 +18,7 @@ es:
         mobile_phone: 'Telefonos celular:'
         description: 'Description(eng):'
         descripcion: 'Descripción:'
+        add_agency: Agregar organización
       category:
         categories: Categorias
       message:
@@ -119,10 +120,11 @@ es:
     cat_view: Organizaciones que pertenecen a la categoría
     cat_view1: categoria
     sidebar: Ver todas las categorías
+    add_cat: Añadir categoría
   message:
     title: Alertas
     messages: Mensajes
-    all_msg: Mensajes
+    all_msg: Ver Mensajes
     new_msg: Crear Mensaje
     edit_msg: Actualizar Mensaje
   home_page:
@@ -197,6 +199,10 @@ es:
     nav: Preguntas Frequentes
     add: Crear FAQ
     edit: Actualizar FAQ
+  download:
+    agencies: Descargar Organizaciones
+    categories: Descargar categorías
+    org_update_submissions: Envíos de actualización de la organización
   datetime:
     distance_in_words:
       half_a_minute: 'hace medio minuto'

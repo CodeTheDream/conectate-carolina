@@ -39,6 +39,7 @@ en:
         mobile_phone: "Cell phone:"
         description: "Description(eng):"
         descripcion: "Descripción:"
+        add_agency: Add Organization
       category:
         categories: Categories this organization can help you with
       message:
@@ -135,15 +136,16 @@ en:
   category:
     categories: Categories
     all_cat: List of Categories
-    new_cat: Category
+    new_cat: Create Category
     edit_cat: Edit Category
     cat_view: Organizations that belong to the category
     cat_view1: category
     sidebar: See all categories
+    add_cat: Add Category
   message:
     title: Alerts
     messages: Messages
-    all_msg: Messages
+    all_msg: View Messages
     new_msg: Create Message
     edit_msg: Edit Message
   home_page:
@@ -221,3 +223,7 @@ en:
     nav: FAQ
     add: Create FAQ
     edit: Update FAQ
+  download:
+    agencies: Download Organizations
+    categories: Download Categories
+    org_update_submissions: Organization Update Submissions
