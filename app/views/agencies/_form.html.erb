@@ -48,10 +48,12 @@
   </div>
   <div class="form-group required">
     <%= f.label "Counties/Regions", class: 'control-label col-md-4' %>
-    <div class="controls col-md-8">
-      <%= f.select :county_ids, County.all.collect {|c| [c.name, c.id]}, {}, {multiple: true, class: 'form-control js-searchable'}%><br/>
+    <div class="controls col-md-8" id="counties">
+      <%= f.select :county_ids, County.all.collect {|c| [c.name, c.id]}, {}, {multiple: true, class: 'form-control js-searchable'}%>
+    </div>
+    <div class="col-md-8 col-md-offset-4">
       <% if controller.action_name == 'edit' %>
-        <%= f.check_box :county_ids, {}, true, false %> All NC counties
+        <%= f.check_box :county_ids, id: "allCountiesCheck" %> All NC counties
       <% end %>
     </div>
   </div>
@@ -120,3 +122,14 @@
       "<i class='fa fa-spinner fa-pulse fa-lg fa-fw'></i> Saving..."} %><br>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  document.getElementById("allCountiesCheck").addEventListener("click", function() {
+    toggle('counties');
+    });
+
+    function toggle(obj) {
+        var el = document.getElementById(obj);
+        el.style.display = (el.style.display != 'none' ? 'none' : '' );
+    }
+</script>
