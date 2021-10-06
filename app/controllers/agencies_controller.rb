@@ -101,6 +101,9 @@ class AgenciesController < ApplicationController
     @agency = Agency.find(params[:id])
     authorize @agency
     if @agency.update(agency_params)
+      if params[:all_counties]
+        County.all.each {|county| @agency.agency_counties.find_or_create_by(county_id: county.id)}
+      end
       @agency.websites.each(&:destroy)
       params[:agency][:website].each do |website_type_id, url|
         next if url.blank?
