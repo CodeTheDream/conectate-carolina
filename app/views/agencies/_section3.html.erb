@@ -53,7 +53,7 @@
         <p><%= t'show_page.counties' %>
           <small>
             <% if agency.counties.count >5 %>
-              <div id="more-<%=agency.id%>">
+              <div id="more-<%=agency.id%>" style="font-size: inherit;">
                 <%= agency.counties.limit(5).map {|c| c.name}.join(", ") %>
                 <%= link_to 'more...', '', onclick: "$('#less-#{agency.id}').show(); $('#more-#{agency.id}').hide(); return false;" %>
               </div>
@@ -64,7 +64,7 @@
             <% elsif agency.counties.count > 0 %>
               <%= agency.counties.limit(5).map {|c| c.name}.join(", ") %>
             <% else %>
-              No counties
+              <%=t'show_page.no_info'%>
             <%end%>
           </small>
         </p>
