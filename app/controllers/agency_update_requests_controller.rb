@@ -15,11 +15,12 @@ class AgencyUpdateRequestsController < ApplicationController
 
   def create
     @agency_update_request = @agency.agency_update_requests.new(ag_params)
+    @admins = User.where(role: "admin")
     if ag_params[:nombre].blank?
       @agency_update_request.nombre = nil
     end
     if @agency_update_request.save
-      AgencyUpdateMailer.new_agency_update_email(@agency, @agency_update_request).deliver_later
+      AgencyUpdateMailer.new_agency_update_email(@agency, @agency_update_request, @admins).deliver_later
       redirect_to confirmation_path
     else
       render 'new'
