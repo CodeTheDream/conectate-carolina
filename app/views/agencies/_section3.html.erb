@@ -52,25 +52,20 @@
         </address>
         <p><%= t'show_page.counties' %>
           <small>
-            <% if agency.counties.count >= 1 %>
-              <% if agency.counties.count >5 %>
-                <%= agency.counties.limit(5).map {|c| c.name}.join(", ") %>,
-                <%= link_to 'more...', '', class: "read-more-#{agency.id}" %>
-                <script>
-                  $('.read-more-<%= agency.id %>').on('click', function(e) {
-                    e.preventDefault()
-                    console.log(this.parentElement)
-                    $(this).parent().html('<%= escape_javascript agency.counties.map {|c| c.name}.join(", ") %>, <%= escape_javascript link_to 'less...', '', class: "read-less-#{agency.id}" %>')
-                  })
-                </script>
-              <% else %>
+            <% if agency.counties.count >5 %>
+              <div id="more-<%=agency.id%>">
+                <%= agency.counties.limit(5).map {|c| c.name}.join(", ") %>
+                <%= link_to 'more...', '', onclick: "$('#less-#{agency.id}').show(); $('#more-#{agency.id}').hide(); return false;" %>
+              </div>
+              <div id="less-<%=agency.id%>" style="display:none;">
                 <%= agency.counties.map {|c| c.name}.join(", ") %>
-              <% end %>
-            <% elsif agency.county %>
-              <%= agency.county %>
-            <%else%>
-             <%=t'show_page.no_info'%>
-             <%end%>
+                <%= link_to 'less...', '', onclick: "$('#more-#{agency.id}').show(); $('#less-#{agency.id}').hide(); return false" %>
+              </div>
+            <% elsif agency.counties.count > 0 %>
+              <%= agency.counties.limit(5).map {|c| c.name}.join(", ") %>
+            <% else %>
+              No counties
+            <%end%>
           </small>
         </p>
 
