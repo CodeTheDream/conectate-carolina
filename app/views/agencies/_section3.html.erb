@@ -61,9 +61,9 @@
                 <%= link_to 'less...', '', onclick: "$('#more-#{agency.id}').show(); $('#less-#{agency.id}').hide(); return false" %>
               </div>
             <% elsif agency.counties.count > 0 %>
-              <%= agency.counties.limit(5).map {|c| c.name}.join(", ") %>
+              <small><%= agency.counties.limit(5).map {|c| c.name}.join(", ")%></small>
             <% else %>
-              <%=t'show_page.no_info'%>
+              <small><%=t'show_page.no_info'%></small>
             <%end%>
         </p>
 
