@@ -53,6 +53,8 @@ class AgencyUpdateRequestsController < ApplicationController
         if ag_params[:nombre].blank?
           @agency.update(nombre: nil)
         end
+
+        AgencyUpdateMailer.with(agency_update_request: @agency_update_request).agency_update_approval_email.deliver_later
         flash.notice = (t'flash_notice.approve-success')
         redirect_to agency_path(@agency)
       elsif params["status"] == "rejected"
