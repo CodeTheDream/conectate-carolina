@@ -27,12 +27,19 @@
               </span>
             </a></p>
           <p><b><%= (t'show_page.counties') %></b>
-            <% if @agency.counties.count >= 1 %>
-              <%= @agency.counties.map { |c| c.name }.join(", ")%>
-            <%elsif @agency.county %>
-              <%= @agency.county %>
-            <%else%>
-             <%=t'show_page.no_info'%>
+            <% if @agency.counties.count >5 %>
+              <span id="more-<%=@agency.id%>" style="font-size: inherit;">
+                <%= @agency.counties.limit(5).map {|c| c.name}.join(", ") %>,
+                <%= link_to 'more...', '', onclick: "$('#less-#{@agency.id}').show(); $('#more-#{@agency.id}').hide(); return false;" %>
+              </span>
+              <span id="less-<%=@agency.id%>" style="display:none;">
+                <%= @agency.counties.map {|c| c.name}.join(", ") %>,
+                <%= link_to 'less...', '', onclick: "$('#more-#{@agency.id}').show(); $('#less-#{@agency.id}').hide(); return false" %>
+              </span>
+            <% elsif @agency.counties.count > 0 %>
+              <small><%= @agency.counties.limit(5).map {|c| c.name}.join(", ")%></small>
+            <% else %>
+              <small><%=t'show_page.no_info'%></small>
             <%end%>
           </p>
           <p><b><%= (t'show_page.contact') %></b>
