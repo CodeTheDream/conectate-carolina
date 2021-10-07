@@ -9,7 +9,7 @@
     Update Request Details<br>
     --------------------------
     </p>
-    <p>Organization Name: <%= @agency.name %></p>
+    <p>Organization Name: <%= link_to @agency.name, edit_agency_update_request_url(@aur, locale: 'en') %></p>
     <p>Submitted by: <%= @aur.submitted_by %></p>
     <p>Phone: <a href="tel:<%=@aur.phone%>"><%= @aur.phone %></a></p>
     <p>Email: <a href = "mailto:<%=@aur.submitter_email%>"><%= @aur.submitter_email %></a></p>
