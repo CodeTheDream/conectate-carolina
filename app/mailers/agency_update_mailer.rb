@@ -4,7 +4,7 @@ class AgencyUpdateMailer < ApplicationMailer
     @agency = params[:agency]
     @aur = params[:agency_update_request]
 
-    mail(reply_to: 'noreply@conectatecarolina.org', to: 'admin@saf-unite.org', cc: User.where(role: 'admin').pluck(:email), subject: 'You got a new organization update request!')
+    mail(from: 'noreply@conectatecarolina.org', to: 'admin@saf-unite.org', reply_to: @agency.email, cc: User.where(role: 'admin').pluck(:email), subject: 'You got a new organization update request!')
   end
 
   def agency_update_approval_email
