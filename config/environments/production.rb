@@ -77,8 +77,8 @@ Rails.application.configure do
     domain: ENV['HEROKU_URL'],
     authentication: "plain",
     enable_starttls_auto: true,
-    user_name: Rails.application.credentials['SENDGRID_USERNAME'],
-    password: Rails.application.credentials['SENDGRID_PASSWORD']
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD']
   }
   # ActionMailer Config
   config.action_mailer.default_url_options = { :host => ENV['HEROKU_URL']}
