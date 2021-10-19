@@ -9,7 +9,6 @@ class AgencyUpdateMailer < ApplicationMailer
 
   def agency_update_approval
     @aur = params[:agency_update_request]
-    attachments.inline['SAFLogo1.png'] = File.read('app/assets/images/SAFLogo1.png')
 
     mail(from: 'admin@saf-unite.org', to: @aur.email, subject: 'Your organization information is updated!')
   end
