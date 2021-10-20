@@ -4,6 +4,7 @@ require 'csv'
 class AgenciesController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
   after_action :verify_authorized, except: %i[show index]
+  after_action :attach_all_counties, only: [:create, :update]
 
   def index
     location = if params[:location].present?
@@ -101,9 +102,6 @@ class AgenciesController < ApplicationController
     @agency = Agency.find(params[:id])
     authorize @agency
     if @agency.update(agency_params)
-      if params[:all_counties]
-        County.all.each {|county| @agency.agency_counties.find_or_create_by(county_id: county.id)}
-      end
       @agency.websites.each(&:destroy)
       params[:agency][:website].each do |website_type_id, url|
         next if url.blank?
@@ -142,5 +140,11 @@ class AgenciesController < ApplicationController
     params.require(:agency).permit(:name, :nombre, :address, :city, :state, :zipcode, :county,
                                    :contact, :phone, :mobile_phone, :description, :descripcion, :email, :name, :website, :website_type,
                                    category_ids: [], county_ids: [])
+  end
+
+  def attach_all_counties
+    if params[:all_counties]
+      County.all.each {|county| @agency.agency_counties.find_or_create_by(county_id: county.id)}
+    end
   end
 end
