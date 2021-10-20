@@ -18,7 +18,7 @@ class AgencyUpdateRequestsController < ApplicationController
     if ag_params[:nombre].blank?
       @agency_update_request.nombre = nil
     end
-    if @agency_update_request.save
+    if verify_recaptcha(model: @agency_update_request) && @agency_update_request.save
       redirect_to confirmation_path
     else
       render 'new'
