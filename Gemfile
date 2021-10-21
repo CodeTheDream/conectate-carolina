@@ -24,6 +24,8 @@ gem 'exponent-server-sdk'
 gem 'rinku'
 gem 'airbrake'
 gem 'select2-rails'
+gem 'sendgrid-ruby'
+gem 'sendgrid-actionmailer'
 
 group :development, :test do
   gem 'byebug', platform: :mri
