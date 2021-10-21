@@ -65,6 +65,9 @@ class AgenciesController < ApplicationController
     @agency = Agency.new(agency_params)
     authorize @agency
     if @agency.valid? && @agency.save
+      if params[:all_counties]
+        County.all.each {|county| @agency.agency_counties.find_or_create_by(county_id: county.id)}
+      end
       params[:agency][:website].each do |website_type_id, url|
         next if url.blank?
         @agency.websites.create(
@@ -143,4 +146,5 @@ class AgenciesController < ApplicationController
                                    :contact, :phone, :mobile_phone, :description, :descripcion, :email, :name, :website, :website_type,
                                    category_ids: [], county_ids: [])
   end
+
 end
