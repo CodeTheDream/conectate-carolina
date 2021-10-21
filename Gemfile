@@ -30,6 +30,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -79,3 +80,5 @@ group :test do
   gem 'shoulda-matchers'
   gem 'rails-controller-testing'
 end
+
+gem 'recaptcha'

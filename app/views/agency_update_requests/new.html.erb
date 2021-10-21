@@ -99,7 +99,7 @@
                 <%= f.text_area(:descripcion, value: @agency.descripcion, class: 'input-md  textinput textInput form-control') %>
               </div>
             </div>
-            <div class="col-md-offset-3 jumbotron jumbotron-fluid" style="background-color: white;">
+            <div class="col-md-offset-3 jumbotron jumbotron-fluid">
               <div class="form-group">
                 <%= f.label :submitted_by, class: 'required control-label col-md-4' %>
                 <div class="controls col-md-8">
@@ -111,6 +111,9 @@
                 <div class="controls col-md-8">
                   <%= f.text_field(:submitter_email, class: 'input-md  textinput textInput form-control') %>
                 </div>
+              </div>
+              <div class="form-group">
+                <%= recaptcha_tags %>
               </div>
             </div>
 
