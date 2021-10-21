@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>You got a new organization update request from <%= @agency.name %>!</p>
+    <p>
+    Update Request Details<br>
+    --------------------------
+    </p>
+    <p>Organization Name: <%= link_to @agency.name, edit_agency_update_request_url(@aur, locale: 'en') %></p>
+    <p>Submitted by: <%= @aur.submitted_by %></p>
+    <p>Phone: <a href="tel:<%=@aur.phone%>"><%= @aur.phone %></a></p>
+    <p>Email: <a href = "mailto:<%=@aur.submitter_email%>"><%= @aur.submitter_email %></a></p>
+  </body>
+</html>
