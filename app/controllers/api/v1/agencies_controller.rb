@@ -34,6 +34,6 @@ class Api::V1::AgenciesController < ApplicationController
       agency.new_agency_hash
     end
 
-    render json: { agencies: agencies }, status: :ok
+    render json: agencies, status: :ok
   end
 end
