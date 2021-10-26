@@ -30,8 +30,10 @@ class AgenciesController < ApplicationController
     	@agencies
    	end
 
-    if params[:county].present?
-      county = County.find_by(name: params[:county])
+    if params["tags-select-mode"].present?
+      str = params["tags-select-mode"]
+      parsed_county = JSON.parse(str).first["value"]
+      county = County.find_by(name: parsed_county)
       @agencies = Agency.joins(:agency_counties).where({ "agency_counties.county_id" => county.id })
       if params[:search].present?
         @agencies = @agencies.search_name(params[:search])
