@@ -23,10 +23,26 @@
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-96407024-1', 'auto');
-      ga('create', 'UA-19931712-2', 'auto', 'safTracker');
       ga('send', 'pageview');
-      ga('safTracker.send', 'pageview');
     </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CFCCLVMK52"></script>
+
+<script>
+
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag(){dataLayer.push(arguments);}
+
+  gtag('js', new Date());
+
+ 
+
+  gtag('config', 'G-CFCCLVMK52');
+
+</script>
+
   </body>
 
   <%= render "app/#{ENV['APP_NAME']}/app_footer" %>
