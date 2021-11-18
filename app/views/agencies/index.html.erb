@@ -81,7 +81,7 @@
           </div>
 
           <div class="col-md-2">
-            <input name='tags-select-mode' class='selectMode' placeholder="County..." id="sel" class='form-control'/>
+            <input name='county' class='selectMode' placeholder="County..." id="sel" class='form-control'/>
           </div>
 
           <div class="col-md-2">
@@ -159,7 +159,7 @@
     distance.disabled = false;
   }
 
-  var input = document.querySelector('input[name=tags-select-mode]'),
+  var input = document.querySelector('input[name=county]'),
       tagify = new Tagify(input, {
           enforceWhitelist: true,
           mode : "select",

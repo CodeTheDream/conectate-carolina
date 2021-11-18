@@ -30,8 +30,8 @@ class AgenciesController < ApplicationController
     	@agencies
    	end
 
-    if params["tags-select-mode"].present?
-      str = params["tags-select-mode"]
+    if params["county"].present?
+      str = params["county"]
       parsed_county = JSON.parse(str).first["value"]
       county = County.find_by(name: parsed_county)
       @agencies = Agency.joins(:agency_counties).where({ "agency_counties.county_id" => county.id })
