@@ -13,13 +13,17 @@ RSpec.describe AgenciesController, type: :controller do
   describe 'GET agencies#index' do
     before do
       @category = create :category
+      @county = create :county
       @agency1 = create :agency, address: "7751 Brier Creek Pkwy", city: "Raleigh", state: "NC", categories: [@category] #Infosys
       @agency2 = create :agency, name: "Thoughtbot", address: "213 Fayetteville St", city: "Raleigh", state: "NC", categories: [@category]#Thoughtbot
       @agency3 = create :agency, name: "T. Outlets", address: "4000 Arrowhead Blvd", city: "Mebane", state: "NC", categories: [@category]# Tanger outlets
       @agency4 = create :agency, name: "Agency 4"
       @agency5 = create :agency, name: "LabCorp", address: "1447 York Ct", city: "Burlington", state: "NC", categories: [@category] # LabCorp
+      @agency_county1 = create :agency_county, agency_id: @agency1.id, county_id: @county.id
+      @agency_county2 = create :agency_county, agency_id: @agency2.id, county_id: @county.id
     end
     context 'when searched without category and location provided' do
+
       it 'should retrun list of agencies in 20mi from default location' do
           expect(Agency.near(default_location)).to match_array([@agency1, @agency2])
       end
@@ -78,6 +82,12 @@ RSpec.describe AgenciesController, type: :controller do
           expect(Agency.search_name("Software").near(location2, 50)).to match_array([@agency1, @agency2, @agency3, @agency5])
       end
 
+    end
+
+    context 'when searched by county name' do
+      it 'should return list of agencies associated to the county provided' do
+        expect(@county.agencies).to match_array([@agency1, @agency2])
+      end
     end
   end
 
