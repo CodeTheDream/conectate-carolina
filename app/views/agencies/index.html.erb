@@ -81,7 +81,7 @@
           </div>
 
           <div class="col-md-2">
-            <input name='county' class='selectMode' placeholder="County..." id="sel" class='form-control'/>
+            <%= text_field_tag :county, params[:county], class: "selectMode form-control", id: "sel", placeholder: "County..." %>
           </div>
 
           <div class="col-md-2">
