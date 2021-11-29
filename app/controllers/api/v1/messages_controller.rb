@@ -21,15 +21,15 @@ class Api::V1::MessagesController < ApplicationController
   end
 
   def create
-    @device_message = DeviceMessage.find_by(device_id: params[:device_message][:device_id],
-                                            message_id: params[:device_message][:message_id])
-    @device_message = DeviceMessage.create!(device_message_params) if @device_message.nil?
+    device = Device.find_by_token(params[:device_message][:token])
+    @device_message = device.device_messages.find_by(message_id: params[:device_message][:message_id])
+    @device_message = device.device_messages.create!(device_message_params) if @device_message.nil?
     @device_message.update(status: 'opened')
     json_response(@device_message, :created)
   end
 
   private
     def device_message_params
-     params.require(:device_message).permit(:device_id, :message_id, :ticket_id, error_messages: {})
+      params.require(:device_message).permit(:message_id, :ticket_id, error_messages: {})
     end
 end
