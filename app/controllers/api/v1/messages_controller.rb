@@ -1,4 +1,5 @@
 class Api::V1::MessagesController < ApplicationController
+  protect_from_forgery with: :null_session
 
   def index
     posted_messages = Message.posted
@@ -18,4 +19,17 @@ class Api::V1::MessagesController < ApplicationController
 
     render json: result
   end
+
+  def create
+    device = Device.find_by_token(params[:device_message][:token]) if params[:device_message][:token].present?
+    @device_message = device.device_messages.find_by(message_id: params[:device_message][:message_id]) unless device.nil?
+    @device_message = device.device_messages.create!(device_message_params) if @device_message.nil?
+    @device_message.update(status: 'opened')
+    json_response(@device_message, :created)
+  end
+
+  private
+    def device_message_params
+      params.require(:device_message).permit(:message_id, :ticket_id, error_messages: {})
+    end
 end
