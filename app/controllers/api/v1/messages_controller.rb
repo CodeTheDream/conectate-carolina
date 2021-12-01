@@ -22,9 +22,11 @@ class Api::V1::MessagesController < ApplicationController
 
   def create
     device = Device.find_by_token(params[:device_message][:token]) if params[:device_message][:token].present?
-    @device_message = device.device_messages.find_by(message_id: params[:device_message][:message_id]) unless device.nil?
-    @device_message = device.device_messages.create!(device_message_params) if @device_message.nil?
-    @device_message.update(status: 'opened')
+    @device_message = DeviceMessage.find_by(device_id: device.id, message_id: params[:device_message][:message_id]) unless device.nil?
+    modified_params = device_message_params
+    modified_params[:device_id] = device.id
+    modified_params[:status] = "opened"
+    @device_message = DeviceMessage.create!(modified_params) if @device_message.nil?
     json_response(@device_message, :created)
   end
 
