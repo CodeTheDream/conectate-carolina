@@ -82,29 +82,17 @@
           </div>
         </p>
         </div>
-          <hr>
-          <span style="color: #e36419"><%= agency.agency.name%></span>
-          <div class="">
+        <hr>
+        <span style="color: #e36419"><%= agency.agency.name%></span>
+        <span class="submission">
+          <div>
             Submitted by: <%= agency.submitted_by %><br/>
             Email: <%= agency.submitter_email %>
           </div>
-          <% if false %>
-              <!-- Same effect agency.categories.each do etc...(using partial instead) -->
-              <p><%= (t'category.categories') %></p>
-              <% agency.categories.each do |category| %>
-                <div class="category">
-                  <% if params[:locale] == "en" %>
-                      <%= link_to category_path(category) do %>
-                          <%= fa_icon category.fa_name, text: category.name, left: true %>
-                      <% end %>
-                  <% else %>
-                      <%= link_to category_path(category) do %>
-                          <%= fa_icon category.fa_name, text: category.categoria, left: true %>
-                      <% end %>
-                  <% end %>
-                </div>
-              <% end %>
-          <% end %>
+          <div>
+            <%= agency.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%b %d, %Y %I:%M %p")%>
+          </div>
+        </span>
       </div>
     </div>
     <% end %>
