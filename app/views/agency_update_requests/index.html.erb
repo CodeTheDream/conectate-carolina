@@ -84,10 +84,15 @@
         </div>
         <hr>
         <span style="color: #e36419"><%= agency.agency.name%></span>
-        <div class="">
-          Submitted by: <%= agency.submitted_by %><br/>
-          Email: <%= agency.submitter_email %>
-        </div>
+        <span class="submission">
+          <div>
+            Submitted by: <%= agency.submitted_by %><br/>
+            Email: <%= agency.submitter_email %>
+          </div>
+          <div>
+            <%= agency.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%b %d, %Y %I:%M %p")%>
+          </div>
+        </span>
       </div>
     </div>
     <% end %>
