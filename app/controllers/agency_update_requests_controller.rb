@@ -61,6 +61,7 @@ class AgencyUpdateRequestsController < ApplicationController
         flash.alert = (t'flash_notice.reject-success')
         redirect_to agency_update_requests_path
       else
+        @agency_update_request.update(status: 'submitted')
         flash.notice = (t'flash_notice.save-success')
         redirect_to (request.referrer || agency_update_requests_url)
       end
