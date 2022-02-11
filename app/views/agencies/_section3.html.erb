@@ -34,7 +34,11 @@
               <% if params[:locale] == 'en' %>
                 <%= link_to agency.name, controller: 'agencies', action: 'show', id: agency.id%>
               <% else %>
-                <%= link_to (agency.nombre || agency.name), controller: 'agencies', action: 'show', id: agency.id%>
+                <% if agency.nombre && !agency.nombre.blank? %>
+                  <%= link_to (agency.nombre), controller: 'agencies', action: 'show', id: agency.id %>
+                <% else %>
+                  <%= link_to (agency.name), controller: 'agencies', action: 'show', id: agency.id %>
+                <% end %>
               <% end %>
             </strong>
           </p>
