@@ -36,6 +36,6 @@ class Api::V1::MessagesController < ApplicationController
 
   private
     def device_message_params
-      params.require(:device_message).permit(:message_id, :token, :device_id)
+      params.require(:device_message).permit(:message_id)
     end
 end
