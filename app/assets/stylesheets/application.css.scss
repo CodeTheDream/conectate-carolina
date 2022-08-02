@@ -10,7 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require select2 
+ *= require select2
  *= require select2-bootstrap
  *= require_tree .
  *= require_self
@@ -929,4 +929,10 @@ ul#faq_answer {
   margin-left: 10px;
   margin-right: 10px;
   box-shadow: 0 1px 1px rgba(204, 19, 19, 0);
+}
+
+.submission{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }

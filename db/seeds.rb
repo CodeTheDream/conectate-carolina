@@ -110,6 +110,7 @@ csv.each do |csv_county|
   county = County.new
   county.name = csv_county['name']
   county.state = csv_county['state']
+  county.save
 end
 
 

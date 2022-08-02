@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 			resources :agencies,   only: [:index]
 			resources :devices,    only: [:create, :update]
 			resources :messages,   only: [:index]
+			resources :counties,   only: [:index]
+			post '/messages/open', to: 'messages#create'
 		end
 	end
 

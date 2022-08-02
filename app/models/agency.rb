@@ -117,7 +117,7 @@ class Agency < ApplicationRecord
     end
 
     self.counties.each do |county|
-      county_array << { id: county.id, name: county.name }
+      county_array << { id: county.id, name: county.name, state: county.state }
     end
 
     { id: self.id,

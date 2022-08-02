@@ -18,7 +18,8 @@ class AgencyUpdateRequestsController < ApplicationController
     if ag_params[:nombre].blank?
       @agency_update_request.nombre = nil
     end
-    if @agency_update_request.save
+    if verify_recaptcha(model: @agency_update_request) && @agency_update_request.save
+      AgencyUpdateMailer.with(agency: @agency, agency_update_request: @agency_update_request).new_agency_update.deliver_later
       redirect_to confirmation_path
     else
       render 'new'
@@ -52,12 +53,15 @@ class AgencyUpdateRequestsController < ApplicationController
         if ag_params[:nombre].blank?
           @agency.update(nombre: nil)
         end
+
+        AgencyUpdateMailer.with(agency_update_request: @agency_update_request).agency_update_approval.deliver_later
         flash.notice = (t'flash_notice.approve-success')
         redirect_to agency_path(@agency)
       elsif params["status"] == "rejected"
         flash.alert = (t'flash_notice.reject-success')
         redirect_to agency_update_requests_path
       else
+        @agency_update_request.update(status: 'submitted')
         flash.notice = (t'flash_notice.save-success')
         redirect_to (request.referrer || agency_update_requests_url)
       end

@@ -24,12 +24,15 @@ gem 'exponent-server-sdk'
 gem 'rinku'
 gem 'airbrake'
 gem 'select2-rails'
+gem 'sendgrid-ruby'
+gem 'sendgrid-actionmailer'
 
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -79,3 +82,5 @@ group :test do
   gem 'shoulda-matchers'
   gem 'rails-controller-testing'
 end
+
+gem 'recaptcha'
