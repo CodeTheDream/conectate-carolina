@@ -2,11 +2,11 @@ class AgencyUpdateRequestsController < ApplicationController
   before_action :authenticate_user!, only: :index
   before_action :set_agency, only: [:new, :create]
   before_action :set_agency_update_request, only: [:edit, :update]
+  before_action :authorize_agency_update_requests, only: [:index, :edit, :update]
   before_action :set_aur_status, only: [:edit, :update]
 
   def index
     @agency_update_requests = AgencyUpdateRequest.where(status: "submitted")
-    authorize @agency_update_requests
   end
 
   def new
@@ -30,7 +30,6 @@ class AgencyUpdateRequestsController < ApplicationController
   end
 
   def update
-    authorize @agency_update_request
     if @agency_update_request.update(ag_params)
       if params["status"] == "approved"
         @agency = Agency.find(@agency_update_request.agency_id)
@@ -82,6 +81,14 @@ class AgencyUpdateRequestsController < ApplicationController
 
   def set_aur_status
     @agency_update_request.status = params["status"]
+  end
+
+  def authorize_agency_update_requests
+    if action_name == 'index'
+      authorize @agency_update_requests
+    elsif action_name == 'edit' || action_name == 'update'
+      authorize @agency_update_request
+    end
   end
 
   def ag_params
