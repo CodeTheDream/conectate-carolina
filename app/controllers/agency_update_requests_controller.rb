@@ -14,8 +14,8 @@ class AgencyUpdateRequestsController < ApplicationController
   end
 
   def create
-    @agency_update_request = @agency.agency_update_requests.new(ag_params)
-    if ag_params[:nombre].blank?
+    @agency_update_request = @agency.agency_update_requests.new(agency_update_request_params)
+    if agency_update_request_params[:nombre].blank?
       @agency_update_request.nombre = nil
     end
     if verify_recaptcha(model: @agency_update_request) && @agency_update_request.save
@@ -30,26 +30,12 @@ class AgencyUpdateRequestsController < ApplicationController
   end
 
   def update
-    if @agency_update_request.update(ag_params)
+    if @agency_update_request.update(agency_update_request_params)
       if params["status"] == "approved"
         @agency = Agency.find(@agency_update_request.agency_id)
-        @agency.update(@agency_update_request.attributes_from_keys(:name,
-                                                                  :nombre,
-                                                                  :address,
-                                                                  :city,
-                                                                  :state,
-                                                                  :zipcode,
-                                                                  :county,
-                                                                  :latitude,
-                                                                  :longitude,
-                                                                  :contact,
-                                                                  :phone,
-                                                                  :description,
-                                                                  :email,
-                                                                  :descripcion,
-                                                                  :mobile_phone
-                                                                  ))
-        if ag_params[:nombre].blank?
+        @agency.update(@agency_update_request.attributes_from_keys(:name, :nombre, :address, :city, :state, :zipcode, :county, :latitude, :longitude,
+                                                                   :contact, :phone, :description, :email, :descripcion, :mobile_phone))
+        if agency_update_request_params[:nombre].blank?
           @agency.update(nombre: nil)
         end
 
@@ -91,22 +77,8 @@ class AgencyUpdateRequestsController < ApplicationController
     end
   end
 
-  def ag_params
-    params.require(:agency_update_request).permit(:name,
-                                    :nombre,
-                                    :address,
-                                    :city,
-                                    :state,
-                                    :zipcode,
-                                    :county,
-                                    :contact,
-                                    :phone,
-                                    :mobile_phone,
-                                    :status,
-                                    :description,
-                                    :descripcion,
-                                    :email,
-                                    :submitted_by,
-                                    :submitter_email)
+  def agency_update_request_params
+    params.require(:agency_update_request).permit(:name, :nombre, :address, :city, :state, :zipcode, :county, :contact, :phone, :mobile_phone,
+                                                  :status, :description, :descripcion, :email, :submitted_by, :submitter_email)
   end
 end
