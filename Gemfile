@@ -16,7 +16,6 @@ gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
 gem 'mail_form'
 gem 'figaro'
 gem "autoprefixer-rails"
-gem 'exception_notification'
 gem 'redcarpet'
 gem "unicode-display_width"
 gem 'will_paginate', '~> 3.1.0'
