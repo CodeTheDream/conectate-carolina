@@ -106,11 +106,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  Rails.application.config.middleware.use ExceptionNotification::Rack,
-  :email => {
-    :email_prefix => "[SAF APP Application Error - Production] ",
-    :sender_address => %{" Exception Notifier" <noreply@example.com>},
-    :exception_recipients => %w{fosorto99@gmail.com, peeweenaldo7@gmail.com, ramiro.rodriguez@gmail.com, lgalarzapunter@gmail.com}
-  }
 end
