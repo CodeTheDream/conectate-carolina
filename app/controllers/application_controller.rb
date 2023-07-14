@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
+  def user_not_authorized
+    render text: "Not Authorized", status: 401
+  end
+
   def response_format
     respond_to do |format|
       format.html
