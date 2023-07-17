@@ -1,6 +1,6 @@
 <div class="containers">
   <h2 class="header-titles"><%=(t'message.title') %></h2><br/>
-  <%= render partial: "app/#{ENV['APP_NAME']}/alerts" %>
+  <%= render partial: "app/alerts" %>
   <div class="pagination">
     <div class="page_info">
       <%= page_entries_info @user_messages %>
