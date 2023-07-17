@@ -54,9 +54,15 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     authorize @category
-		@category.destroy
-		flash[:notice] = t 'flash_notice.delete'
-		redirect_to new_category_url
+  
+    if @category.agencies.count <= 0
+      @category.destroy
+      flash[:alert] = 'Category successfuly deleted!'
+      redirect_to new_category_url
+    else
+      flash[:alert] = 'The category cannot be deleted. It is still referenced from other organizations.'
+      redirect_to categories_path
+    end
   end
 
   private

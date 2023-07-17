@@ -98,7 +98,10 @@ RSpec.describe CategoriesController, type: :controller do
 
   # # DESTROY SPECS
     describe 'DELETE categories#destroy' do
-      before { sign_in @admin }
+      before do 
+        sign_in @admin
+        @category.agency_categories.destroy_all
+      end
 
       it 'changes category count on destroy' do
         expect do
