@@ -104,7 +104,7 @@ RSpec.describe AgenciesController, type: :controller do
 # # CREATE SPECS
   describe 'POST agencies#create' do
     before { sign_in admin }
-    let(:agency) { post :create, params: { use_route: '/agencies', agency: { name: "Ctd", website: {url: "www.ctd.com" } }}}
+    let(:agency) { post :create, params: { use_route: '/agencies', agency: { name: "Ctd" }}}
     let(:agency1) { post :create, params: { use_route: '/agencies', agency: { name: " " }}}
 
     context "when valid agency attributes" do
