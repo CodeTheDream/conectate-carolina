@@ -70,13 +70,9 @@ class AgenciesController < ApplicationController
       if params[:all_counties]
         County.all.each {|county| @agency.agency_counties.find_or_create_by(county_id: county.id)}
       end
-      params[:agency][:website].each do |website_type_id, url|
-        next if url.blank?
-        @agency.websites.create(
-          website_type_id: website_type_id,
-          url: url
-        )
-      end
+      
+      create_websites if params[:agency][:website].present?
+        
       flash[:notice] = (t'flash_notice.success')
       redirect_to @agency
     else
@@ -110,13 +106,9 @@ class AgenciesController < ApplicationController
         County.all.each {|county| @agency.agency_counties.find_or_create_by(county_id: county.id)}
       end
       @agency.websites.each(&:destroy)
-      params[:agency][:website].each do |website_type_id, url|
-        next if url.blank?
-        @agency.websites.create(
-          website_type_id: website_type_id,
-          url: url
-        )
-      end
+      
+      create_websites if params[:agency][:website].present?
+      
       flash[:notice] = (t'flash_notice.update')
       redirect_to @agency
     else
@@ -147,6 +139,16 @@ class AgenciesController < ApplicationController
     params.require(:agency).permit(:name, :nombre, :address, :city, :state, :zipcode, :county,
                                    :contact, :phone, :mobile_phone, :description, :descripcion, :email, :name, :website, :website_type,
                                    category_ids: [], county_ids: [])
+  end
+
+  def create_websites
+    params[:agency][:website].each do |website_type_id, url|
+      next if url.blank?
+      @agency.websites.create(
+        website_type_id: website_type_id,
+        url: url
+      )
+    end
   end
 
 end
