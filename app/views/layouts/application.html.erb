@@ -11,7 +11,7 @@
   </head>
   <body>
     <header>
-      <%= render "app/#{ENV['APP_NAME']}/navigation" %>
+      <%= render "app/navigation" %>
     </header>
     <main role="main">
        <%= render 'layouts/messages' %>
@@ -27,6 +27,6 @@
   gtag('js', new Date());
   gtag('config', 'UA-19931712-3');
 </script>
-  <%= render "app/#{ENV['APP_NAME']}/app_footer" %>
+  <%= render "app/app_footer" %>
 
 </html>

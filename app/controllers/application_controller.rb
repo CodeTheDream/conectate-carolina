@@ -2,7 +2,11 @@ class ApplicationController < ActionController::Base
   include Pundit
   include Response
   include ExceptionHandler
-  rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  rescue_from Pundit::NotAuthorizedError do 
+    redirect_to root_url, alert: 'Access denied'
+  end
+  
   protect_from_forgery with: :exception
   before_action :set_locale
 
@@ -17,8 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def user_not_authorized
-    flash[:alert] = 'Access denied'
-    redirect_to(request.referrer || root_path)
+    render text: "Not Authorized", status: 401
   end
 
   def response_format
