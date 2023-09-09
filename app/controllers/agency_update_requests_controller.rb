@@ -2,11 +2,11 @@ class AgencyUpdateRequestsController < ApplicationController
   before_action :authenticate_user!, only: :index
   before_action :set_agency, only: [:new, :create]
   before_action :set_agency_update_request, only: [:edit, :update]
+  before_action :authorize_agency_update_requests, only: [:index, :edit, :update]
   before_action :set_aur_status, only: [:edit, :update]
 
   def index
     @agency_update_requests = AgencyUpdateRequest.where(status: "submitted")
-    authorize @agency_update_requests
   end
 
   def new
@@ -14,8 +14,8 @@ class AgencyUpdateRequestsController < ApplicationController
   end
 
   def create
-    @agency_update_request = @agency.agency_update_requests.new(ag_params)
-    if ag_params[:nombre].blank?
+    @agency_update_request = @agency.agency_update_requests.new(agency_update_request_params)
+    if agency_update_request_params[:nombre].blank?
       @agency_update_request.nombre = nil
     end
     if verify_recaptcha(model: @agency_update_request) && @agency_update_request.save
@@ -30,27 +30,12 @@ class AgencyUpdateRequestsController < ApplicationController
   end
 
   def update
-    authorize @agency_update_request
-    if @agency_update_request.update(ag_params)
+    if @agency_update_request.update(agency_update_request_params)
       if params["status"] == "approved"
         @agency = Agency.find(@agency_update_request.agency_id)
-        @agency.update(@agency_update_request.attributes_from_keys(:name,
-                                                                  :nombre,
-                                                                  :address,
-                                                                  :city,
-                                                                  :state,
-                                                                  :zipcode,
-                                                                  :county,
-                                                                  :latitude,
-                                                                  :longitude,
-                                                                  :contact,
-                                                                  :phone,
-                                                                  :description,
-                                                                  :email,
-                                                                  :descripcion,
-                                                                  :mobile_phone
-                                                                  ))
-        if ag_params[:nombre].blank?
+        @agency.update(@agency_update_request.attributes_from_keys(:name, :nombre, :address, :city, :state, :zipcode, :county, :latitude, :longitude,
+                                                                   :contact, :phone, :description, :email, :descripcion, :mobile_phone))
+        if agency_update_request_params[:nombre].blank?
           @agency.update(nombre: nil)
         end
 
@@ -84,22 +69,16 @@ class AgencyUpdateRequestsController < ApplicationController
     @agency_update_request.status = params["status"]
   end
 
-  def ag_params
-    params.require(:agency_update_request).permit(:name,
-                                    :nombre,
-                                    :address,
-                                    :city,
-                                    :state,
-                                    :zipcode,
-                                    :county,
-                                    :contact,
-                                    :phone,
-                                    :mobile_phone,
-                                    :status,
-                                    :description,
-                                    :descripcion,
-                                    :email,
-                                    :submitted_by,
-                                    :submitter_email)
+  def authorize_agency_update_requests
+    if action_name == 'index'
+      authorize @agency_update_requests
+    elsif action_name == 'edit' || action_name == 'update'
+      authorize @agency_update_request
+    end
+  end
+
+  def agency_update_request_params
+    params.require(:agency_update_request).permit(:name, :nombre, :address, :city, :state, :zipcode, :county, :contact, :phone, :mobile_phone,
+                                                  :status, :description, :descripcion, :email, :submitted_by, :submitter_email)
   end
 end
