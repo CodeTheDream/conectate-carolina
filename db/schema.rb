@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_03_024259) do
-
+ActiveRecord::Schema[7.0].define(version: 2021_09_03_024259) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "unaccent"
@@ -22,8 +21,8 @@ ActiveRecord::Schema.define(version: 2021_09_03_024259) do
     t.string "city"
     t.string "state"
     t.string "zipcode"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.float "latitude"
     t.float "longitude"
     t.string "contact"
@@ -45,8 +44,8 @@ ActiveRecord::Schema.define(version: 2021_09_03_024259) do
   create_table "agency_counties", force: :cascade do |t|
     t.bigint "agency_id", null: false
     t.bigint "county_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["agency_id", "county_id"], name: "index_agency_counties_on_agency_id_and_county_id", unique: true
     t.index ["agency_id"], name: "index_agency_counties_on_agency_id"
     t.index ["county_id"], name: "index_agency_counties_on_county_id"
@@ -69,8 +68,8 @@ ActiveRecord::Schema.define(version: 2021_09_03_024259) do
     t.string "descripcion"
     t.string "mobile_phone"
     t.string "status", default: "submitted"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.bigint "agency_id", null: false
     t.string "submitted_by", null: false
     t.string "submitter_email", null: false
@@ -79,8 +78,8 @@ ActiveRecord::Schema.define(version: 2021_09_03_024259) do
 
   create_table "categories", id: :serial, force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "categoria"
     t.string "fa_name"
   end
@@ -88,8 +87,8 @@ ActiveRecord::Schema.define(version: 2021_09_03_024259) do
   create_table "counties", force: :cascade do |t|
     t.string "name"
     t.string "state"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "device_messages", force: :cascade do |t|
@@ -98,16 +97,16 @@ ActiveRecord::Schema.define(version: 2021_09_03_024259) do
     t.string "ticket_id"
     t.string "status"
     t.json "error_messages"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["device_id"], name: "index_device_messages_on_device_id"
     t.index ["message_id"], name: "index_device_messages_on_message_id"
   end
 
   create_table "devices", force: :cascade do |t|
     t.string "token"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "selected_lang"
   end
 
@@ -116,44 +115,44 @@ ActiveRecord::Schema.define(version: 2021_09_03_024259) do
     t.text "answer"
     t.string "pregunta"
     t.text "respuesta"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "messages", force: :cascade do |t|
     t.string "title"
     t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.boolean "posted", default: false
     t.string "message_type"
     t.string "titulo"
     t.text "cuerpo"
-    t.datetime "posted_at"
+    t.datetime "posted_at", precision: nil
   end
 
   create_table "pg_search_documents", id: :serial, force: :cascade do |t|
     t.text "content"
     t.string "searchable_type"
     t.integer "searchable_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["searchable_type", "searchable_id"], name: "index_pg_search_documents_on_searchable_type_and_searchable_id"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
     t.integer "sign_in_count", default: 0, null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
+    t.datetime "current_sign_in_at", precision: nil
+    t.datetime "last_sign_in_at", precision: nil
     t.string "current_sign_in_ip"
     t.string "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "name"
     t.integer "role"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -162,16 +161,16 @@ ActiveRecord::Schema.define(version: 2021_09_03_024259) do
 
   create_table "website_types", id: :serial, force: :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "icon"
   end
 
   create_table "websites", id: :serial, force: :cascade do |t|
     t.integer "agency_id"
     t.integer "website_type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
     t.string "url"
     t.index ["agency_id", "website_type_id", "url"], name: "index_websites_on_agencyId_websiteTypeId_and_url", unique: true
     t.index ["agency_id"], name: "index_websites_on_agency_id"
