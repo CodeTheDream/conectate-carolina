@@ -1,8 +1,9 @@
 <% content_for :title do %><%= (t'category.all_cat') %> | Conectate Carolina<% end %>
-
-<h1 class="center"><%= (t'category.all_cat')%></h1>
-
 <div class="container">
+  <div class="organizations-title">
+    <h1 id="organizations" style="text-align: center;"><%= (t'footer.categories')%></h1>
+  </div>
+
   <!-- uncomment when pagination gem is added -->
   <%#= will_paginate %>
 <% @categories.each do |category| %>
@@ -45,3 +46,4 @@
 <% end %>
 <%#= will_paginate %>
 </div>
+

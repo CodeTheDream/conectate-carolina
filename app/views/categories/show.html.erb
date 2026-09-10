@@ -1,6 +1,9 @@
 <div class="center">
   <%#= will_paginate @category_articles %>
 </div>
+<section class="header-container">
+  <%= render partial: "app/#{ENV['APP_NAME']}/header_container" %>
+</section>
 <div class="category_spacer">
   <div class = "panel panel-primary">
      <div class = "panel-heading">
