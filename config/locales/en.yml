@@ -158,6 +158,7 @@ en:
     update-success: Organization Update Request succesfully created!
     save-success: Organization Update Request succesfully saved!
     approve-success: Organization Update Request approved!
+    request-submission-success: Organization update request submitted. An administrator will review your request.
     reject-success: Organization Update Request rejected!
     delete: Organization Succesfully deleted!
     update: Organization Succesfully updated!
@@ -178,8 +179,8 @@ en:
     submit: Create Organization
     fill_fields: "Fill the following fields"
   edit_page:
-   h1: Update Organization
-   submit: Save changes
+    h1: Update Organization
+    submit: Save changes
   show_page:
     address: "Address:"
     state: "State:"

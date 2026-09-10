@@ -5,19 +5,19 @@ es:
   activerecord:
     attributes:
       agency:
-        name: 'Nombre de la organizacion:'
-        nombre: 'Nombre de la organización en español'
-        address: 'Direccion:'
-        city: 'Ciudad:'
-        state: 'Estado:'
-        zipcode: 'Codigo Postal'
-        county: 'Condado'
-        contact: 'Contacto:'
-        email: 'Correo Electronico:'
-        phone: 'Teléfono:'
-        mobile_phone: 'Telefonos celular:'
-        description: 'Description(eng):'
-        descripcion: 'Descripción:'
+        name: "Nombre de la organizacion:"
+        nombre: "Nombre de la organización en español"
+        address: "Direccion:"
+        city: "Ciudad:"
+        state: "Estado:"
+        zipcode: "Codigo Postal"
+        county: "Condado"
+        contact: "Contacto:"
+        email: "Correo Electronico:"
+        phone: "Teléfono:"
+        mobile_phone: "Telefonos celular:"
+        description: "Description(eng):"
+        descripcion: "Descripción:"
         add_agency: Agregar organización
       category:
         categories: Categorias
@@ -137,12 +137,13 @@ es:
     update-success: Solicitud de actualización de la organización creada con éxito!
     save-success: La solicitud de actualización de la organización se guardó con éxito!
     approve-success: Solicitud de actualización de la organización aprobada!
+    request-submission-success: Se ha enviado la solicitud de actualización de la organización. Un administrador revisará su solicitud.
     reject-success: Solicitud de actualización de la organización rechazada!
     delete: Organización eliminada!
     update: Organización actualizada!
   search_page:
     search: Buscar a través de organizaciones
-    plchldr_search: 'Buscar: Educacion, Servicios, Salud... '
+    plchldr_search: "Buscar: Educacion, Servicios, Salud... "
     bttn_search: Buscar
   about_page:
     text: Aplicación creada por
@@ -155,21 +156,21 @@ es:
     h1: Crear Organización
     h2: Solicitud de actualización de la organización
     submit: Crear Organización
-    fill_fields: 'Llena las siguientes columnas'
+    fill_fields: "Llena las siguientes columnas"
   edit_page:
     h1: Actualizar Organización
     submit: Guardar cambios
   show_page:
-    address: 'Direccion:'
-    state: 'Estado:'
-    city: 'Ciudad:'
-    zip: 'Codigo postal:'
-    counties: 'Condados:'
-    contact: 'Contacto:'
-    phone: 'Teléfono:'
-    description: 'Descripcion:'
-    websites: 'Sitios web'
-    title: 'Titulo:'
+    address: "Direccion:"
+    state: "Estado:"
+    city: "Ciudad:"
+    zip: "Codigo postal:"
+    counties: "Condados:"
+    contact: "Contacto:"
+    phone: "Teléfono:"
+    description: "Descripcion:"
+    websites: "Sitios web"
+    title: "Titulo:"
     no_info: "Nada"
     status: "Estado:"
   buttons_t:
@@ -183,10 +184,10 @@ es:
     all_org: Todas las organizaciones
   plchldr_forms:
     name: Nombre
-    address: '123 main street'
+    address: "123 main street"
     city: Raleigh
     state: Ej. NC
-    zipcode: '27516'
+    zipcode: "27516"
     county: Wake
   footer:
     about: Acerca
@@ -205,37 +206,37 @@ es:
     org_update_submissions: Envíos de actualización de la organización
   datetime:
     distance_in_words:
-      half_a_minute: 'hace medio minuto'
+      half_a_minute: "hace medio minuto"
       less_than_x_seconds:
-        one: 'hace menos de 1 segundo'
-        other: 'hace menos que %{count} segundos'
+        one: "hace menos de 1 segundo"
+        other: "hace menos que %{count} segundos"
       x_seconds:
-        one: 'hace 1 segundo'
-        other: 'hace %{count} segundos'
+        one: "hace 1 segundo"
+        other: "hace %{count} segundos"
       less_than_x_minutes:
-        one: 'hace menos de un minuto'
-        other: 'hace menos que %{count} minutos'
+        one: "hace menos de un minuto"
+        other: "hace menos que %{count} minutos"
       x_minutes:
-        one: 'hace 1 minuto'
-        other: 'hace %{count} minutos'
+        one: "hace 1 minuto"
+        other: "hace %{count} minutos"
       about_x_hours:
-        one: 'hace 1 hora'
-        other: 'hace %{count} horas'
+        one: "hace 1 hora"
+        other: "hace %{count} horas"
       x_days:
-        one: 'hace 1 día'
-        other: 'hace %{count} dias'
+        one: "hace 1 día"
+        other: "hace %{count} dias"
       about_x_months:
-        one: 'hace 1 mes'
-        other: 'hace %{count} meses'
+        one: "hace 1 mes"
+        other: "hace %{count} meses"
       x_months:
-        one: 'hace 1 mes'
-        other: 'hace %{count} meses'
+        one: "hace 1 mes"
+        other: "hace %{count} meses"
       about_x_years:
-        one: 'hace 1 año'
-        other: 'hace %{count} años'
+        one: "hace 1 año"
+        other: "hace %{count} años"
       over_x_years:
-        one: 'hace más de 1 año'
-        other: 'hace más de %{count} años'
+        one: "hace más de 1 año"
+        other: "hace más de %{count} años"
       almost_x_years:
-        one: 'hace casi 1 año'
-        other: 'hace casi %{count} años'
+        one: "hace casi 1 año"
+        other: "hace casi %{count} años"
