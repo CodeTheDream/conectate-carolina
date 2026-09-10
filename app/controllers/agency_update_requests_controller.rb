@@ -20,7 +20,8 @@ class AgencyUpdateRequestsController < ApplicationController
     end
     if verify_recaptcha(model: @agency_update_request) && @agency_update_request.save
       AgencyUpdateMailer.with(agency: @agency, agency_update_request: @agency_update_request).new_agency_update.deliver_later
-      redirect_to confirmation_path
+      flash[:notice] = (t'flash_notice.request-submission-success')
+      redirect_to root_path
     else
       render 'new'
     end
