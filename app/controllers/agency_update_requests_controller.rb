@@ -18,7 +18,10 @@ class AgencyUpdateRequestsController < ApplicationController
     if ag_params[:nombre].blank?
       @agency_update_request.nombre = nil
     end
-    if verify_recaptcha(model: @agency_update_request) && @agency_update_request.save
+    recaptcha_verified = verify_recaptcha(model: @agency_update_request)
+    Rails.logger.error("Recaptcha verification failed: #{recaptcha_failure_reason}") unless recaptcha_verified
+
+    if recaptcha_verified && @agency_update_request.save
       AgencyUpdateMailer.with(agency: @agency, agency_update_request: @agency_update_request).new_agency_update.deliver_later
       flash[:notice] = (t'flash_notice.request-submission-success')
       redirect_to root_path
