@@ -82,6 +82,12 @@
 
           <div class="col-md-2">
             <%= text_field_tag :county, params[:county], class: "selectMode form-control", id: "sel", placeholder: "County..." %>
+            <button type="button" class="btn tag-tooltip"
+              data-toggle="tooltip"
+              data-placement="right"
+              title="&quot;Current Location&quot; and &quot;Distance&quot; filters are disabled because location-based sorting isn't applicable when searching by County."
+            ><i class="fa fa-info-circle"></i>
+            </button>
           </div>
 
           <div class="col-md-2">
@@ -122,6 +128,24 @@
 
 
 <script type="text/javascript">
+  $(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip({container: 'body'})
+  });
+  //below functions seems redundant but have to keep them all in order for the tooltip to popup
+  //since we are in the middle of redesign and this page will be replaced, we leave the fix like this
+  $(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+
+  $(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+  });
+
+  $(document).on("turbolinks:load",function() {
+    $('.tag-tooltip').tooltip();
+    $('[data-toggle="tooltip"]').tooltip({container: 'body' });
+  });
+
   $(function() {
     $('#myModal').on('shown.bs.modal', function(event){
       handler = Gmaps.build('Google');
@@ -267,5 +291,4 @@
   // bind events
   tagify.on('add', onAddTag)
   tagify.DOM.input.addEventListener('focus', onSelectFocus)
-
 </script>
