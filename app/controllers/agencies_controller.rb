@@ -70,7 +70,7 @@ class AgenciesController < ApplicationController
       if params[:all_counties]
         County.all.each {|county| @agency.agency_counties.find_or_create_by(county_id: county.id)}
       end
-      params[:agency][:website].each do |website_type_id, url|
+      (params[:agency][:website] || {}).each do |website_type_id, url|
         next if url.blank?
         @agency.websites.create(
           website_type_id: website_type_id,
