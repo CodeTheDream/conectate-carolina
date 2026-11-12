@@ -352,7 +352,9 @@ select {
 
 .well-agency:hover {
   background: #fff;
-  box-shadow: 1px 5px 5px 0 rgba(0, 0, 0, 0.16), 0 7px 7px 0 rgba(0, 0, 0, 0.12);
+  box-shadow:
+    1px 5px 5px 0 rgba(0, 0, 0, 0.16),
+    0 7px 7px 0 rgba(0, 0, 0, 0.12);
 }
 
 .well-agency a:hover {
@@ -387,7 +389,8 @@ select {
   background-color: whitesmoke;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
-  box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.16),
+  box-shadow:
+    1px 2px 5px 0 rgba(0, 0, 0, 0.16),
     0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
@@ -792,7 +795,8 @@ ul#faq_answer {
   background-color: whitesmoke;
   border: 1px solid #e3e3e3;
   border-radius: 4px;
-  box-shadow: 1px 2px 5px 0 rgba(0, 0, 0, 0.16),
+  box-shadow:
+    1px 2px 5px 0 rgba(0, 0, 0, 0.16),
     0 2px 10px 0 rgba(0, 0, 0, 0.12);
   height: 300px;
   display: flex;
@@ -931,8 +935,12 @@ ul#faq_answer {
   box-shadow: 0 1px 1px rgba(204, 19, 19, 0);
 }
 
-.submission{
+.submission {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.tagify__input {
+  text-align: left;
 }
