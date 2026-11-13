@@ -1,0 +1,3 @@
+name,email,password,role
+Admins User,admin@gmailing.com,Pa$$word1,admin
+Exampleing User,user@gmail.com,Pa$$word1,user

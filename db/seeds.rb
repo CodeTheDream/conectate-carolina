@@ -13,6 +13,21 @@
 
 
 # Environment variables (ENV['...']) can be set in the file .env file.
+
+# Seeding Users
+require 'csv'
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'users.csv'))
+csv = CSV.parse(csv_text, headers: true, encoding: 'UTF-8')
+
+csv.each do |csv_user|
+  user = User.new
+  user.name = csv_user['name']
+  user.email = csv_user['email']
+  user.password = csv_user['password']
+  user.role = csv_user['role']
+  user.save
+end
+
 website_types = [
   {
   name: 'Facebook',
@@ -113,7 +128,7 @@ csv.each do |csv_county|
   county.save
 end
 
-
+puts "There are #{User.count} users in the User table"
 puts "There are #{Faq.count} faqs in the Faq table"
 puts "There are now #{Agency.count} rows in the Agency table"
 puts "There are #{County.count} counties in the County table"
