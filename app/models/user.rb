@@ -18,4 +18,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  after_create :create_website_types
+
+  def create_website_types
+    WebsiteType.find_or_create_by(name: 'Website', icon: 'globe')
+    WebsiteType.find_or_create_by(name: 'Facebook', icon: 'facebook')
+  end
 end
