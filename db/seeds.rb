@@ -13,27 +13,33 @@
 
 
 # Environment variables (ENV['...']) can be set in the file .env file.
-website_types = [
-  {
-  name: 'Facebook',
-  icon: 'facebook'
-  },
-  {
-  name: 'Website',
-  icon: 'globe'
-  }
-  ]
-  website_types.each do |website_type|
-    type = WebsiteType.find_by(name: website_type[:name])
-    if type.nil?
-      WebsiteType.create(website_type)
-    end
-  end
-  p "Created #{WebsiteType.count} WebsiteType"
-
 
 # Require Ruby CSV library to properly parse the CSV data.
 require 'csv'
+
+# Seeding Users
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'users.csv'))
+csv = CSV.parse(csv_text, headers: true, encoding: 'UTF-8')
+
+csv.each do |csv_user|
+  user = User.new
+  user.name = csv_user['name']
+  user.email = csv_user['email']
+  user.password = csv_user['password']
+  user.role = csv_user['role']
+  user.save
+end
+
+# Seeding Website Types
+website_types = [{ name: 'Facebook', icon: 'facebook' },
+                 { name: 'Website', icon: 'globe' }]
+
+website_types.each do |website_type|
+  type = WebsiteType.find_by(name: website_type[:name])
+  if type.nil?
+    WebsiteType.create(website_type)
+  end
+end
 
 # read CSV file into a variable
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'safDirectory.csv'))
@@ -43,7 +49,6 @@ csv = CSV.parse(csv_text, headers: true, encoding: 'UTF-8')
 # into a hash. The headers of the CVS file are used as keys for the hash
 
 csv.each do |row|
-
   c = Category.find_by(name: row['Category'])
   if c.nil?
     c = Category.new
@@ -88,7 +93,6 @@ csv.each do |row|
 end
 
 # HERE I am seeding the FAQs. - Fernando
-require 'csv'
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'FAQ.csv'))
 csv = CSV.parse(csv_text, headers: true, encoding: 'UTF-8')
 
@@ -102,7 +106,6 @@ csv.each do |column|
 end
 
 # Seeding Counties
-require 'csv'
 csv_text = File.read(Rails.root.join('lib', 'seeds', 'ncCounties.csv'))
 csv = CSV.parse(csv_text, headers: true, encoding: 'UTF-8')
 
@@ -113,10 +116,11 @@ csv.each do |csv_county|
   county.save
 end
 
-
-puts "There are #{Faq.count} faqs in the Faq table"
-puts "There are now #{Agency.count} rows in the Agency table"
-puts "There are #{County.count} counties in the County table"
+puts ""
+puts "#{User.count} users created."
+puts "#{Faq.count} faqs created."
+puts "#{Agency.count} agencies created."
+puts "#{County.count} counties created."
 
 # Print contents of the variable
 # puts csv
