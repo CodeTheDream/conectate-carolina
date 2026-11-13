@@ -19,10 +19,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  after_create :create_website_types
+  after_create :create_website_types, unless: :website_types_exist?
+
+  private
 
   def create_website_types
-    WebsiteType.find_or_create_by(name: 'Website', icon: 'globe')
-    WebsiteType.find_or_create_by(name: 'Facebook', icon: 'facebook')
+    WebsiteType.find_or_create_by!(name: 'Website', icon: 'globe')
+    WebsiteType.find_or_create_by!(name: 'Facebook', icon: 'facebook')
+  end
+
+  def website_types_exist?
+    WebsiteType.where(name: ['Website', 'Facebook']).count == 2
   end
 end
